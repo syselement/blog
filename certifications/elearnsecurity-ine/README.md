@@ -1,6 +1,6 @@
 # eLearnSecurity / INE
 
-![](../../.gitbook/assets/elearningine\_cover\_mid.png)
+![elearningine_cover_mid](.gitbook/assets/elearningine_cover_mid.png)
 
 ## :flag\_gb: English Notes
 
