@@ -1,2 +1,2 @@
-# 🇬🇧 English
+# English
 

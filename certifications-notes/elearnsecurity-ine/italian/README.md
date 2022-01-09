@@ -1,2 +1,2 @@
-# 🇮🇹 Italian
+# Italian
 
