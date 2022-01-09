@@ -1,8 +1,15 @@
 # Table of contents
 
 * [ℹ Introduction](README.md)
-* [📝 Certifications](certifications/README.md)
-  * [eLearnSecurity / INE](certifications/elearnsecurity-ine/README.md)
-    * [![gb](.gitbook/assets/gb.png) eJPT - ENG](https://syselement.gitbook.io/ejpt-eng/)
-    * [![it](.gitbook/assets/it.png) eJPT - ITA](https://syselement.gitbook.io/ejpt-ita/)
-* [💻 Coding](coding.md)
+
+## 📝 Certifications Notes
+
+* [eLearnSecurity / INE](certifications-notes/elearnsecurity-ine/README.md)
+  * [🇬🇧 English](certifications-notes/elearnsecurity-ine/english/README.md)
+    * [eJPT - ENG](https://syselement.gitbook.io/ejpt-eng/)
+  * [🇮🇹 Italian](certifications-notes/elearnsecurity-ine/italian/README.md)
+    * [eJPT - ITA](https://syselement.gitbook.io/ejpt-ita/)
+
+## 💻 Coding Notes
+
+* [Python](coding-notes/python.md)
