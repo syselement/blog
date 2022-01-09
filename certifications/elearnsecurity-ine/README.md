@@ -2,7 +2,7 @@
 
 ![](.gitbook/assets/elearningine_cover_mid.png)
 
-## :flag\_gb: English Notes
+## ![gb](.gitbook/assets/gb-16417681027922.png)English Notes
 
 {% content-ref url="https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/" %}
 [eJPT - ENG](https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/)
