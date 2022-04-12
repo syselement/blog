@@ -5,7 +5,7 @@
 ## 📝 Certifications Notes
 
 * [eLearnSecurity / INE](certifications-notes/elearnsecurity-ine/README.md)
-  * [eJPT - ENG](https://syselement.gitbook.io/ejpt-eng/)
+  * [eJPT](https://syselement.gitbook.io/ejpt-eng/)
 
 ## 💻 Coding Notes
 
