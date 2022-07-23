@@ -1,16 +1,16 @@
 ---
-description: Direct links to the certifications and training notes
+description: Direct links to the certifications notes
 ---
 
 # TCM Security
 
-![academy.tcm-sec.com - © TCM Security, Inc.](.gitbook/assets/tcmsecurity_cover_mid.png)
+![academy.tcm-sec.com - TCM Security, Inc.](.gitbook/assets/tcmsecurity\_cover\_mid.png)
+
+## PNPT - Practical Network Penetration Tester
+
+*
 
 ## TCM Academy Courses - Notes
 
-- Linux 101
-- 
-
-## PNPT - Practical Network Penetration Tester 
-
-- TBA
+* Linux 101
+*
