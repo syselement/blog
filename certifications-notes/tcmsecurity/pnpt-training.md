@@ -1,2 +1,0 @@
-# PNPT Training
-
