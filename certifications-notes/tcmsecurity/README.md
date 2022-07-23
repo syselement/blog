@@ -4,7 +4,7 @@ description: Direct links to the certifications and training notes
 
 # TCM Security
 
-![academy.tcm-sec.com - TCM Security, Inc.](.gitbook/assets/tcmsecuritycovermid.png)
+![academy.tcm-sec.com - TCM Security, Inc. ©](.gitbook/assets/tcmsecuritycovermid.png)
 
 ## TCM Academy Courses - Notes
 
