@@ -8,7 +8,6 @@
   * [eJPT Training](https://syselement.gitbook.io/ejpt-eng/)
 * [TCM Security](certifications-notes/tcmsecurity/README.md)
   * PNPT Training
-    * 
 
 
 ## 💻 Coding Notes
