@@ -1,5 +1,5 @@
 ---
-description: Direct links to the certifications notes
+description: Direct links to the certifications and training notes
 ---
 
 # TCM Security
