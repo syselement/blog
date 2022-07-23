@@ -12,4 +12,5 @@ description: Direct links to the certifications notes
 
 ## TCM Academy Courses - Notes
 
+- Linux 101
 - 
