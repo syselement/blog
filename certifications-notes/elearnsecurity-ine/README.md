@@ -4,10 +4,10 @@ description: Direct links to the certifications notes
 
 # eLearnSecurity / INE
 
-![](.gitbook/assets/elearningine\_cover\_mid.png)
+![](.gitbook/assets/elearningine_cover_mid.png)
 
 ## eJPT - Junior Penetration Tester
 
 {% content-ref url="https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/" %}
-[eJPT](https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/)
+[eJPT Training](https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/)
 {% endcontent-ref %}
