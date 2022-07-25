@@ -8,4 +8,4 @@ description: Direct links to the certifications and training notes
 
 ## TCM Academy Courses - Notes
 
-* [Linux101](https://syselement.gitbook.io/tcm-sec/linux-101/linux-101)
+* [Linux101](https://syselement.gitbook.io/tcm-sec/courses/linux-101)
