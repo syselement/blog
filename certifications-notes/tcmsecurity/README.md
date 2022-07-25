@@ -8,8 +8,4 @@ description: Direct links to the certifications and training notes
 
 ## TCM Academy Courses - Notes
 
-* Linux 101
-
-## PNPT - Practical Network Penetration Tester
-
-- TBA
+* [Linux101](https://syselement.gitbook.io/tcm-sec/linux-101/linux-101)
