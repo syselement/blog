@@ -11,7 +11,7 @@
 
 ## 🐧 Linux Notes
 
-* [Linux](linux-notes/linux.md)
+* [Linux Stuff](linux-notes/linux.md)
 
 ## 💻 Coding Notes
 
