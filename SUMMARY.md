@@ -9,7 +9,7 @@
 * [TCM Security](certifications-notes/tcmsecurity/README.md)
   * [Linux101](https://syselement.gitbook.io/tcm-sec/courses/linux-101)
 
-## 💻 Linux Notes
+## 🐧 Linux Notes
 
 * [Linux](linux-notes/linux.md)
 
