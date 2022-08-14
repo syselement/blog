@@ -1,6 +1,6 @@
 # Linux Stuff
 
-![](.gitbook/assets/Linux-logo\_small.png)
+![](.gitbook/assets/Linux-logo_small.png)
 
 > 📜 This is my Linux notes repository, where I keep any notes I have about the Linux operating system and Unix programs.
 
