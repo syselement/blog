@@ -1,26 +1,26 @@
 # Linux
 
-![](.gitbook/assets/Linux-logo\_small.png)
+![](.gitbook/assets/Linux-logo_small.png)
 
 > 📜 This is my Linux notes repository, where I keep any notes I have about the Linux operating system and Unix programs.
 
-* _Some commands can be outdated._
+- *Some commands can be outdated.*
 
-## Terminal commands
+# Terminal commands
 
-#### Linux Kernel version
+## Linux Kernel version
 
 ```bash
 uname -srm
 ```
 
-#### Linux Distribution
+## Linux Distribution
 
 ```bash
 cat /etc/*release
 ```
 
-#### Cpu - Ram usage
+## Cpu - Ram usage
 
 ```bash
 top
@@ -36,20 +36,20 @@ sudo apt-get install nmon
 nmon
 ```
 
-#### Terminal clean
+## Terminal clean
 
 ```bash
 clear
 # or CTRL+L
 ```
 
-#### System off
+## System off
 
 ```bash
 sudo shutdown now
 ```
 
-#### General update
+## General update
 
 ```bash
 sudo apt update && sudo apt upgrade -y && sudo apt clean -y && sudo apt autoremove -y
@@ -60,19 +60,23 @@ sudo apt autoclean
 sudo apt --purge autoremove
 ```
 
-* Info:
-  * **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
-  * **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
-  * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
-  * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
+- Info:
 
-#### Install packages (deb, etc)
+  - **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (*removes all stored archives in your cache*)
+
+  - **apt autoclean** → cleans obsolete deb-packages, ***less than clean*** (*removes all stored archives in your cache for packages that can not be downloaded anymore* (thus packages that are no longer in the repo or that have a newer version in the repo))
+
+  - **apt autoremove** → *removes orphaned packages which are not longer needed from the system*, but not purges them, use the --purge option together with the command for that.
+
+  - **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
+
+## Install packages (deb, etc)
 
 ```bash
 sudo dpkg -i packname
 ```
 
-#### First settings after O.S. install
+## First  settings after O.S. install
 
 ```bash
 passwd root
@@ -84,7 +88,7 @@ sudo apt install terminator -y
 gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
 ```
 
-#### Boot Partition Clean Up (Ubuntu/Debian)
+## Boot Partition Clean Up (Ubuntu/Debian)
 
 ```bash
 # Check Current Kernel Version
@@ -113,14 +117,14 @@ sudo apt-get autoremove
 sudo update-grub
 ```
 
-#### Change Console setup
+## Change Console setup
 
 ```bash
 # For italian keyboard:
 sudo dpkg-reconfigure console-setup
 ```
 
-#### Disable Ubuntu automatic updates
+## Disable Ubuntu automatic updates
 
 ```bash
 sudo nano /etc/apt/apt.conf.d/20auto-upgrades
@@ -132,7 +136,7 @@ sudo systemctl disable apt-daily.timer
 sudo systemctl mask apt-daily.service
 ```
 
-#### Speedtest
+## Speedtest
 
 ```bash
 wget -O /dev/null -q --show-progress https://speed.hetzner.de/10GB.bin
@@ -146,7 +150,7 @@ chmod +x speedtest-cli
 ./speedtest-cli
 ```
 
-#### Change password at boot - Single User Mode
+## Change password at boot - Single User Mode
 
 ```bash
 # Start the Pc
@@ -164,7 +168,7 @@ passwd
 reboot -f
 ```
 
-#### Check Hardware Temperatures
+## Check Hardware Temperatures
 
 ```bash
 sudo apt install lm-sensors hddtemp
@@ -176,9 +180,9 @@ sensors
 vcgencmd measure_temp
 ```
 
-### Installations
+# Installations
 
-#### Install Sublime
+## Install Sublime
 
 ```bash
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -188,7 +192,7 @@ sudo apt-get update
 sudo apt-get install sublime-text
 ```
 
-#### Install Obsidian
+## Install Obsidian
 
 ```bash
 Download Obsidian latest release from https://github.com/obsidianmd/obsidian-releases/releases
@@ -196,7 +200,7 @@ mv Obsidian-0.12.4.AppImage usr/local/bin/obsidiann
 chmod +x usr/local/bin/obsidian
 ```
 
-#### Install Anydesk
+## Install Anydesk
 
 ```bash
 # Run the following commands as root user:
@@ -213,7 +217,7 @@ sudo apt update
 sudo apt install anydesk -y
 ```
 
-#### Install DnsLeakTest
+## Install DnsLeakTest
 
 ```bash
 cd /tmp
@@ -222,7 +226,7 @@ chmod +x dnsleaktest.py
 ./dnsleaktest.py
 ```
 
-#### Install Tor
+## Install Tor
 
 ```bash
 sudo apt install tor
@@ -236,7 +240,7 @@ proxychains firefox www.duckduckgo.com
 search for: check dns leaks
 ```
 
-#### Install Anonsurf
+## Install Anonsurf
 
 ```bash
 cd /tmp
@@ -252,9 +256,9 @@ anonsurf start
 anonsurf myip
 ```
 
-#### Install Nessus
+## Install Nessus
 
-* Link: https://docs.tenable.com/nessus/10\_3/Content/GetStarted.htm
+- Link: https://docs.tenable.com/nessus/10_3/Content/GetStarted.htm
 
 ```bash
 sudo dpkg -i Nessus-10.1.1-debian6_amd64.deb
@@ -265,19 +269,19 @@ sudo systemctl stop nessusd.service
 sudo /opt/nessus/sbin/nessuscli update
 ```
 
-#### Install Asbru CM (Linux Desktop)
+## Install Asbru CM (Linux Desktop)
 
-* Link: https://www.asbru-cm.net/
-* _Ásbrú Connection Manager_ is a user interface that helps organizing remote terminal sessions and automating repetitive tasks.
+- Link: https://www.asbru-cm.net/
+- *Ásbrú Connection Manager* is a user interface that helps organizing remote terminal sessions and automating repetitive tasks.
 
 ```bash
 curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.sh' | sudo -E bash
 sudo apt install asbru-cm
 ```
 
-#### Install Burpsuite
+## Install Burpsuite
 
-* Used to update Burpsuite too
+- Used to update Burpsuite too
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits https://portswigger.net/burp/communitydownload
@@ -297,9 +301,9 @@ sudo chmod +x /usr/bin/burpsuite
 # Start burspsuite from shell.
 ```
 
-### Usage and Configuration
+# Usage and Configuration
 
-#### Configure Git for Github
+## Configure Git for Github
 
 ```bash
 git config --global user.email "alexideac@gmail.com"
@@ -317,7 +321,7 @@ ssh -T git@github.com
 git remote set-url origin git@github.com:syselement/vaults.git
 ```
 
-#### Proxychains
+## Proxychains
 
 ```bash
 #Edit proxychains:
@@ -328,14 +332,14 @@ nano /etc/proxychains.conf
 # add on proxylist: socks5 127.0.0.1 9050
 ```
 
-#### OpenVpn
+## OpenVpn
 
 ```bash
 # (Check use of update-resolv-conf.sh before openvpn)
 openvpn vpnbook-us2-udp25000.ovpn
 ```
 
-#### NMAP
+## NMAP
 
 ```bash
 nmap 192.168.254.129
@@ -344,16 +348,20 @@ nmap 192.168.254.1-100
 nmap -p80,21,23 192.168.254.129
 ```
 
-## Virtual Machines
+# Virtual Machines
 
-### METASPLOITABLE VM
+## METASPLOITABLE VM
 
-* Download link:
-  * http://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
-* Guides:
-  * https://metasploit.help.rapid7.com/docs/metasploitable-2
-  * https://metasploit.help.rapid7.com/docs/metasploitable-2-exploitability-guide
+- Download link:
+  - http://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+
+- Guides:
+    - https://metasploit.help.rapid7.com/docs/metasploitable-2
+
+    - https://metasploit.help.rapid7.com/docs/metasploitable-2-exploitability-guide
+
 
 ```bash
 # Login: msfadmin:msfadmin
 ```
+
