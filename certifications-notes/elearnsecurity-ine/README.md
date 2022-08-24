@@ -6,8 +6,6 @@ description: Direct links to the certifications and training notes
 
 ![elearnsecurity.com - © eLearnSecurity | ine.com - © INE](.gitbook/assets/elearninginecovermid.png)
 
-## eJPT - Junior Penetration Tester
+## INE Training - Notes
 
-{% content-ref url="https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/" %}
-[eJPT](https://app.gitbook.com/s/lhjuckuLbvBn36EoFL7P/)
-{% endcontent-ref %}
+- ### [eJPTv2 - PTSv2](https://syselement.gitbook.io/ine/courses/ejpt) by Josh Mason & Alexis Ahmed
