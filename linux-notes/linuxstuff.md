@@ -66,6 +66,20 @@ sudo apt --purge autoremove
   * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
   * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
 
+### Set local timezone
+
+```bash
+# Gui:
+sudo unlink /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+sudo timedatectl set-timezone "Europe/Rome"
+
+sudo dpkg-reconfigure keyboard-configuration
+
+```
+
+
+
 ### Install packages (deb, etc)
 
 ```bash
