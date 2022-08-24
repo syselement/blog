@@ -5,7 +5,7 @@
 ## 📝 Certifications Notes
 
 * [eLearnSecurity / INE](certifications-notes/elearnsecurity-ine/README.md)
-  * [eJPTv2 Training](https://syselement.gitbook.io/ine/courses/ejpt)
+  * [eJPTv2](https://syselement.gitbook.io/ine/courses/ejpt)
 * [TCM Security](certifications-notes/tcmsecurity/README.md)
   * [Linux101](https://syselement.gitbook.io/tcm-sec/courses/linux-101)
 
