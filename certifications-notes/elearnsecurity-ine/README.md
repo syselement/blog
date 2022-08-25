@@ -8,4 +8,4 @@ description: Direct links to the certifications and training notes
 
 ## INE Training - Notes
 
-- ### [eJPTv2 - PTSv2](https://syselement.gitbook.io/ine/courses/ejpt) by Josh Mason & Alexis Ahmed
+- [eJPTv2 - PTSv2](https://syselement.gitbook.io/ine/courses/ejpt)
