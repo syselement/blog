@@ -316,10 +316,10 @@ sudo chmod +x /usr/bin/burpsuite
 ### Configure Git for Github
 
 ```bash
-git config --global user.email "alexideac@gmail.com"
-git config --global user.name"syselement"
+git config --global user.email "YOUR_EMAIL@gmail.com"
+git config --global user.name"YOUR_USERNAME"
 
-ssh-keygen -t ed25519 -C "alexideac@gmail.com"
+ssh-keygen -t ed25519 -C "YOUR_EMAIL@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 xclip -selection clipboard < ~/.ssh/id_ed25519.pub
