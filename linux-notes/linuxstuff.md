@@ -291,7 +291,8 @@ sudo apt install asbru-cm
 
 ### Install Burpsuite
 
-* Used to update Burpsuite too
+- Link [Burpsuite Download](https://portswigger.net/burp/communitydownload)
+- Used to update Burpsuite too
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits https://portswigger.net/burp/communitydownload
