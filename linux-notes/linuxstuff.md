@@ -362,11 +362,11 @@ nmap -p80,21,23 192.168.254.129
 
 ### METASPLOITABLE VM
 
-* Download link:
-  * https://sourceforge.net/projects/metasploitable/files/Metasploitable2/
+* [Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+
 * Guides:
-  * https://docs.rapid7.com/metasploit/metasploitable-2/
-  * https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/
+  * [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
+  * [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
 
 ```bash
 # Login: msfadmin:msfadmin
