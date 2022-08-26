@@ -268,7 +268,7 @@ anonsurf myip
 
 ### Install Nessus
 
-* Link: https://docs.tenable.com/nessus/10\_3/Content/GetStarted.htm
+* Link [Nessus](https://docs.tenable.com/nessus)
 
 ```bash
 sudo dpkg -i Nessus-10.1.1-debian6_amd64.deb
@@ -281,7 +281,7 @@ sudo /opt/nessus/sbin/nessuscli update
 
 ### Install Asbru CM (Linux Desktop)
 
-* Link: https://www.asbru-cm.net/
+* Link [Asbru](https://www.asbru-cm.net/)
 * _Ásbrú Connection Manager_ is a user interface that helps organizing remote terminal sessions and automating repetitive tasks.
 
 ```bash
