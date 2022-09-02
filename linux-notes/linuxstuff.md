@@ -66,6 +66,20 @@ sudo apt --purge autoremove
   * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
   * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
 
+### Create Aliases
+
+```bash
+nano ~/.bashrc
+# Append the following text with personal commands. O.S. update in this case:
+alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
+
+# Load changes:
+source ~/.bashrc
+
+# List all aliases:
+alias
+```
+
 ### Set local timezone
 
 ```bash
@@ -77,8 +91,6 @@ sudo timedatectl set-timezone "Europe/Rome"
 sudo dpkg-reconfigure keyboard-configuration
 
 ```
-
-
 
 ### Install packages (deb, etc)
 
@@ -153,11 +165,10 @@ wget -O /dev/null -q --show-progress https://speed.hetzner.de/10GB.bin
 ```
 
 ```bash
-sudo apt install wget -y
-cd /tmp
-wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
-chmod +x speedtest-cli
-./speedtest-cli
+sudo apt install speedtest-cli
+
+# Usage:
+speedtest-cli --secure
 ```
 
 ### Change password at boot - Single User Mode
@@ -192,6 +203,12 @@ vcgencmd measure_temp
 
 ## Installations
 
+### Basic Tools
+
+```bash
+sudo apt install -y  wget net-tools htop tree terminator
+```
+
 ### Install Sublime
 
 ```bash
@@ -205,7 +222,7 @@ sudo apt-get install sublime-text
 ### Install Obsidian
 
 ```bash
-Download Obsidian latest release from https://github.com/obsidianmd/obsidian-releases/releases
+# Download Obsidian latest release from https://github.com/obsidianmd/obsidian-releases/releases
 mv Obsidian-0.12.4.AppImage usr/local/bin/obsidiann
 chmod +x usr/local/bin/obsidian
 ```
