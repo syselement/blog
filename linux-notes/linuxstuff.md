@@ -36,6 +36,16 @@ sudo apt-get install nmon
 nmon
 ```
 
+### Check Swap  usage
+
+```bash
+cat /proc/swaps
+swapon -s
+grep Swap /proc/meminfo
+free -m
+htop
+```
+
 ### Terminal clean
 
 ```bash
