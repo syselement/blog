@@ -78,6 +78,8 @@ sudo apt --purge autoremove
 
 ### Create Aliases
 
+- Ubuntu:
+
 ```bash
 nano ~/.bashrc
 # Append the following text with personal commands. O.S. update in this case:
@@ -85,6 +87,20 @@ alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo ap
 
 # Load changes:
 source ~/.bashrc
+
+# List all aliases:
+alias
+```
+
+- Kali Linux:
+
+```bash
+nano ~/.zshrc
+# Append the following text with personal commands. O.S. update in this case:
+alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
+
+# Load changes:
+source ~/.zshrc
 
 # List all aliases:
 alias
