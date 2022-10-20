@@ -12,6 +12,9 @@
 ## 🐧 Linux Notes
 
 * [Linux Stuff](linux-notes/linuxstuff.md)
+* [Tools](linux-notes/Tools/README.md)
+  * [Terminator](linux-notes/Tools/Terminator_Shortcuts.md)
+
 
 ## 💻 Coding Notes
 
