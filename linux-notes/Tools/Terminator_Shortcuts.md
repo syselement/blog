@@ -2,7 +2,7 @@
 
 ## Terminator Shortcuts
 
-- Official Docs - https://terminator-gtk3.readthedocs.io/en/latest/gettingstarted.html
+- [Official Docs](https://terminator-gtk3.readthedocs.io/en/latest/gettingstarted.html)
 
 |               *Shortcut*               | *Function*                                                   |
 | :------------------------------------: | ------------------------------------------------------------ |
