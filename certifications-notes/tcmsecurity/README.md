@@ -6,6 +6,6 @@ description: Direct links to the certifications and training notes
 
 ![academy.tcm-sec.com - © TCM Security](.gitbook/assets/tcmsecuritycovermid.png)
 
-## TCM Academy Courses - Notes
+## [TCM Academy Courses - Notes](https://syselement.gitbook.io/tcm-sec/)
 
 * [Linux101](https://syselement.gitbook.io/tcm-sec/courses/linux-101)
