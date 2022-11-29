@@ -2,4 +2,4 @@
 
 Hi, **syselement** here 🧑‍💻, sharing some interesting Information Technology and Cyber Security notes and stuff.
 
-... to be continued ...
+👈 Check the menu on the left for more
