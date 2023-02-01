@@ -7,7 +7,7 @@
 >   - The installer will automatically add `vagrant` to your system path so that it is available in terminals.
 >   - Verify the correct installation using the **`vagrant`** command inside PowerShell.
 >
-> <img src=".gitbook/assets/image-20230201220702304.png" style="zoom: 67%;" />
+> ![image-20230201220702304](.gitbook/assets/image-20230201220702304.png)
 >
 > - The primary function of the [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is `Vagrantfile`.
 > - Vagrant is meant to run with one Vagrantfile per project.
@@ -44,7 +44,7 @@ end
 vagrant init hashicorp/bionic64
 ```
 
-<img src=".gitbook/assets/image-20230201222028027.png" style="zoom: 67%;" />
+![image-20230201222028027](.gitbook/assets/image-20230201222028027.png)
 
 - `box add` subcommand can be used to install a box without creating a new Vagrantfile
   - ***do not** add it if already initialized*
@@ -109,7 +109,7 @@ Connection to 127.0.0.1 closed.
 vagrant destroy
 ```
 
-<img src=".gitbook/assets/image-20230201230348120.png" alt="vagrant destroy" style="zoom:67%;" />
+![image-20230201230348120](.gitbook/assets/image-20230201230348120.png)
 
 - Remove the box
 
@@ -148,7 +148,7 @@ vagrant box remove hashicorp/bionic64
 vagrant plugin install vagrant-vmware-desktop
 ```
 
-<img src=".gitbook/assets/image-20230201211135873.png" style="zoom: 67%;" />
+![image-20230201211135873](.gitbook/assets/image-20230201211135873.png)
 
 - Create a new directory for the **vargrant project**
 - Open `PowerShell` and move into the project directory
@@ -158,7 +158,7 @@ vagrant plugin install vagrant-vmware-desktop
 vagrant init hashicorp/bionic64
 ```
 
-<img src=".gitbook/assets/image-20230201222028027.png" style="zoom: 67%;" />
+![image-20230201222028027](.gitbook/assets/image-20230201222028027.png)
 
 - Set the GUI in the `Vagrantfile` to show the VMs in the VMware dashboard ([provider settings here](https://developer.hashicorp.com/vagrant/docs/providers/vmware/configuration))
 
