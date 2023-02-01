@@ -7,13 +7,13 @@
 >   - The installer will automatically add `vagrant` to your system path so that it is available in terminals.
 >   - Verify the correct installation using the **`vagrant`** command inside PowerShell.
 >
-> ![image-20230201220702304](.gitbook/assets/image-20230201220702304.png)
->
 > - The primary function of the [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is `Vagrantfile`.
 > - Vagrant is meant to run with one Vagrantfile per project.
 > - When you run any `vagrant` command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory.
 >   - This feature lets you run `vagrant` from any directory in your project.
 > - Find more boxes at [HashiCorp's Vagrant Cloud box catalog](https://vagrantcloud.com/boxes/search)
+
+![](.gitbook/assets/image-20230201220702304.png)
 
 ## Default Provider
 
@@ -44,7 +44,7 @@ end
 vagrant init hashicorp/bionic64
 ```
 
-![image-20230201222028027](.gitbook/assets/image-20230201222028027.png)
+![](.gitbook/assets/image-20230201222028027.png)
 
 - `box add` subcommand can be used to install a box without creating a new Vagrantfile
   - ***do not** add it if already initialized*
@@ -109,7 +109,7 @@ Connection to 127.0.0.1 closed.
 vagrant destroy
 ```
 
-![image-20230201230348120](.gitbook/assets/image-20230201230348120.png)
+![](.gitbook/assets/image-20230201230348120.png)
 
 - Remove the box
 
@@ -148,7 +148,7 @@ vagrant box remove hashicorp/bionic64
 vagrant plugin install vagrant-vmware-desktop
 ```
 
-![image-20230201211135873](.gitbook/assets/image-20230201211135873.png)
+![](.gitbook/assets/image-20230201211135873.png)
 
 - Create a new directory for the **vargrant project**
 - Open `PowerShell` and move into the project directory
@@ -158,7 +158,7 @@ vagrant plugin install vagrant-vmware-desktop
 vagrant init hashicorp/bionic64
 ```
 
-![image-20230201222028027](.gitbook/assets/image-20230201222028027.png)
+![](.gitbook/assets/image-20230201222028027.png)
 
 - Set the GUI in the `Vagrantfile` to show the VMs in the VMware dashboard ([provider settings here](https://developer.hashicorp.com/vagrant/docs/providers/vmware/configuration))
 
