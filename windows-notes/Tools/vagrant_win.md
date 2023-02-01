@@ -122,20 +122,21 @@ vagrant box remove hashicorp/bionic64
 - Extras:
 
   - Suspend the VM
-
+    - The virtual machine will still use disk space while suspended, and requires additional disk space to store the state of the virtual machine RAM.
+  
+  
   ```powershell
   vagrant suspend
-  # The virtual machine will still use disk space while suspended, and requires additional disk space to store the state of the virtual machine RAM.
   ```
-
+  
   - Gracefully shutdown the VM
-
+    - Halting your machine will cleanly shut it down, preserving the contents of disk and allowing you to cleanly start it again.
+  
+  
   ```powershell
   vagrant halt
-  
-  # Halting your machine will cleanly shut it down, preserving the contents of disk and allowing you to cleanly start it again
   ```
-
+  
   
 
 ## VMware Workstation
@@ -168,10 +169,11 @@ config.vm.provider "vmware_desktop" do |v|
 end
 ```
 
-- Bring up the virtual machine
+- Bring up the virtual machine and try to SSH into it
 
 ```powershell
 vagrant up --provider=vmware_desktop
+vagrant ssh
 ```
 
 ![vagrant up --provider=vmware_desktop](.gitbook/assets/vagrant_up_vmware.gif)
