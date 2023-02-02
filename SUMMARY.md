@@ -12,7 +12,7 @@
 ## 🪟 Windows Notes
 
 - [Windows Tools](windows-notes/Tools/README.md)
-  - [Vargrant](windows-notes/Tools/vagrant_win.md)
+  - [Vagrant](windows-notes/Tools/vagrant_win.md)
 
 ## 🐧 Linux Notes
 
