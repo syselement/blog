@@ -22,8 +22,8 @@
 
 ## 🔬 Home Lab
 
-* [...](home-lab/....md)
+* 
 
 ## 💻 Coding Notes
 
-* [Python](coding-notes/python.md)
+* 
