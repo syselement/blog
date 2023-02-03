@@ -21,7 +21,7 @@
 - Check more infos about Default Providers [here](https://developer.hashicorp.com/vagrant/docs/providers/basic_usage#default-provider)
 - E.g.
 
-```
+```powershell
 Vagrant.configure("2") do |config|
   # ... other config up here
 
