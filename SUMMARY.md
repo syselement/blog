@@ -24,7 +24,15 @@
 
 ## 🔬 Home Lab
 
-* 
+* [🔴 Red Team Labs](home-lab/redteam/README.md)
+  * [Hashcat Password Cracking](home-lab/redteam/lab_hashcat.md)
+
+* [🔵 Blue Team](home-lab/blueteam/README.md)
+  * [Detection Lab](home-lab/blueteam/lab_DetectionLab.md)
+
+* [🧪 Misc Labs](home-lab/misc/README.md)
+  * [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
+
 
 ## 💻 Coding Notes
 

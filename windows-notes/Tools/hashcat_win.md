@@ -1,5 +1,7 @@
 # Hashcat
 
+> - Check my entire guide to Windows, Linux and VM Hashcat installation and test [here](../../home-lab/redteam/lab_hashcat.md).
+
 ## Windows Installation
 
 - Full installation guide - [https://miloserdov.org/?p=7501](https://miloserdov.org/?p=7501)
