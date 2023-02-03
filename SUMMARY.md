@@ -20,6 +20,10 @@
 * [Linux Tools](linux-notes/Tools/README.md)
   * [Terminator](linux-notes/Tools/Terminator\_Shortcuts.md)
 
+## Home Lab
+
+- ...
+
 ## 💻 Coding Notes
 
 * [Python](coding-notes/python.md)
