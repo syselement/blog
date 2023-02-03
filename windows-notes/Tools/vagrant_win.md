@@ -1,6 +1,4 @@
-
-
-# Vagrant - Windows
+# Vagrant
 
 > - [Vagrant Installation](https://developer.hashicorp.com/vagrant/docs/installation)
 >   - [Download](https://developer.hashicorp.com/vagrant/downloads) and Run the installer for Windows system.

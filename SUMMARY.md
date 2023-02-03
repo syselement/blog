@@ -12,7 +12,9 @@
 ## 🪟 Windows Notes
 
 * [Windows Tools](windows-notes/Tools/README.md)
+  * [Hashcat](windows-notes/Tools/hashcat_win.md)
   * [Vagrant](windows-notes/Tools/vagrant\_win.md)
+  
 
 ## 🐧 Linux Notes
 
