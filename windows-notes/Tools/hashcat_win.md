@@ -8,9 +8,9 @@
   - Download and install latest NVIDIA Driver - https://www.nvidia.com/Download/index.aspx
   - Download, install latest CUDA Toolkit and **reboot pc** -  https://developer.nvidia.com/cuda-downloads
 
-<img src=".gitbook/assets/image-20220810212037493.png" style="zoom:80%;" />
+![](.gitbook/assets/image-20220810211936796.png)
 
-<img src=".gitbook/assets/image-20220810211936796.png" style="zoom:80%;" />
+![](.gitbook/assets/image-20220810212037493.png)
 
 ## Usage
 
@@ -21,7 +21,7 @@ cd C:\temp\hashcat-6.2.5
 .\hashcat.exe -I
 ```
 
-![](.gitbook/assets/image-20220810213519841.png)
+![hashcat.exe -I](.gitbook/assets/image-20220810213519841.png)
 
 - Run the benchmark to test the performance:
 
