@@ -4,7 +4,7 @@
 
 Read more about DetectionLab on Medium [here](https://medium.com/@clong/introducing-detection-lab-61db34bed6ae).
 
-> ❗*`As of 2023-01-01, DetectionLab is no longer being actively maintained`* - [Sunsetting DetectionLab](https://clo.ng/blog/sunsetting-detectionlab/)
+> ❗`As of 2023-01-01, DetectionLab is no longer being actively maintained` - [Sunsetting DetectionLab](https://clo.ng/blog/sunsetting-detectionlab/)
 >
 > 📌 Credit goes to [Chris Long](https://github.com/clong). (Some of the quoted data inside this document is taken from the official [DetectionLab.network](https://detectionlab.network) website.)
 >
@@ -28,7 +28,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 
 ## Primary Lab Features
 
-> - **Microsoft Advanced Threat Analytics** (https://www.microsoft.com/en-us/cloud-platform/advanced-threat-analytics) is installed on the `WEF` machine, with the lightweight ATA gateway installed on the `DC`
+> - **Microsoft Advanced Threat Analytics** is installed on the `WEF` machine, with the lightweight ATA gateway installed on the `DC`
 > - A **Splunk** forwarder is pre-installed and all indexes are pre-created. Technology add-ons are also preconfigured.
 > - A custom Windows auditing configuration is set via GPO to include command line process auditing and additional OS-level logging
 > - [Palantir's Windows Event Forwarding](http://github.com/palantir/windows-event-forwarding) subscriptions and custom channels are implemented
@@ -70,11 +70,12 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 
 > - **Domain Name:** windomain.local
 > - **Admininstrator login:** vagrant:vagrant
-> - **Fleet login:** https://192.168.56.105:8412 - [admin@detectionlab.network](mailto:admin@detectionlab.network):Fl33tpassword!
-> - **Splunk login:** https://192.168.56.105:8000 - admin:changeme
-> - **MS ATA login:** https://192.168.56.103 - wef\vagrant:vagrant [DEPRECATED]
-> - **Guacamole login:** http://192.168.56.105:8080/guacamole - vagrant:vagrant
-> - **Velociraptor login:** https://192.168.56.105:9999 - admin:changeme
+> - **Fleet login:** [https://192.168.56.105:8412](https://192.168.56.105:8412) - [admin@detectionlab.network](mailto:admin@detectionlab.network):Fl33tpassword!
+> - **Splunk login:** [https://192.168.56.105:8000](https://192.168.56.105:8000) - admin:changeme
+>   - *MS ATA login: [https://192.168.56.103](https://192.168.56.103) - wef\vagrant:vagrant* [**DEPRECATED**]
+>
+> - **Guacamole login:** [http://192.168.56.105:8080/guacamole](http://192.168.56.105:8080/guacamole) - vagrant:vagrant
+> - **Velociraptor login:** [https://192.168.56.105:9999](https://192.168.56.105:9999) - admin:changeme
 >
 > ## Lab Hosts
 >
@@ -117,7 +118,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >
 > | Index Name          | Description                                                  |
 > | :------------------ | :----------------------------------------------------------- |
-> | evtx_attack_samples | Samples from https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES |
+> | evtx_attack_samples | Samples from [https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) |
 > | osquery             | osquery/Fleet result logs                                    |
 > | osquery-status      | osquery/fleet INFO/WARN/ERROR logs                           |
 > | powershell          | Powershell transcription logs                                |
@@ -148,14 +149,14 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >
 > ## Applied GPOs
 >
-> - [Custom Event Channel Permissions](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Custom Event Channel Permissions.htm)
-> - [Default Domain Controllers Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default Domain Controllers Policy.htm)
-> - [Default Domain Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default Domain Policy.htm)
-> - [Domain Controllers Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Domain Controllers Enhanced Auditing Policy.htm)
-> - [Powershell Logging](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Powershell Logging.htm)
-> - [Servers Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Servers Enhanced Auditing Policy.htm)
-> - [Windows Event Forwarding Server](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Windows Event Forwarding Server.htm)
-> - [Workstations Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Workstations Enhanced Auditing Policy.htm)
+> - [Custom Event Channel Permissions](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Custom%20Event%20Channel%20Permissions.htm)
+> - [Default Domain Controllers Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default%20Domain%20Controllers%20Policy.htm)
+> - [Default Domain Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default%20Domain%20Policy.htm)
+> - [Domain Controllers Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Domain%20Controllers%20Enhanced%20Auditing%20Policy.htm)
+> - [Powershell Logging](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Powershell%20Logging.htm)
+> - [Servers Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Servers%20Enhanced%20Auditing%20Policy.htm)
+> - [Windows Event Forwarding Server](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Windows%20Event%20Forwarding%20Server.htm)
+> - [Workstations Enhanced Auditing Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Workstations%20Enhanced%20Auditing%20Policy.htm)
 
 ## Prerequisites
 
@@ -212,7 +213,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 
 ## Troubleshooting & Known Issues
 
-> Be sure to check the GitHub issues page for solved issues related to your problem: https://github.com/clong/DetectionLab/issues
+> Be sure to check the GitHub issues page for solved issues related to your problem: [https://github.com/clong/DetectionLab/issues](https://github.com/clong/DetectionLab/issues)
 >
 > Here are some strategies for resolving common problems:
 >
@@ -241,7 +242,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > **Workarounds:**
 >
 > 1. Make some modifications to ingest less data
-> 2. Sign up for a free Splunk dev license which gives you 10GB/day ingest: https://dev.splunk.com/enterprise/dev_license/ and apply that license
+> 2. Sign up for a free Splunk dev license which gives you 10GB/day ingest: [https://dev.splunk.com/enterprise/dev_license/](https://dev.splunk.com/enterprise/dev_license/) and apply that license
 > 3. Simply re-provision the logger host (no need to re-provision the windows hosts - they’ll automatically reconnect):
 >    1. `vagrant destroy -f logger; vagrant up logger`
 >
@@ -263,7 +264,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >
 > 1. Try a `vagrant reload <hostname> --provision`. For whatever reason `vagrant up` doesn’t fix conflicts but reload does.
 > 2. Check if something is legitimately occupying the port via `sudo lsof -n -iTCP:<port_number>`
-> 3. Follow the instructions from this comment: https://github.com/hashicorp/vagrant/issues/8130#issuecomment-272963103
+> 3. Follow the instructions from this comment: [https://github.com/hashicorp/vagrant/issues/8130#issuecomment-272963103](https://github.com/hashicorp/vagrant/issues/8130#issuecomment-272963103)
 >
 > ------
 >
@@ -275,7 +276,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >
 > **Issue:** You’re having problems running Virtualbox while Hyper-V or CredentialGuard are enabled
 >
-> **Workaround:** This is not a supported configuration. See https://stackoverflow.com/questions/37955942/vagrant-up-vboxmanage-exe-error-vt-x-is-not-available-verr-vmx-no-vmx-code and https://github.com/clong/DetectionLab/issues/433
+> **Workaround:** This is not a supported configuration. See [https://stackoverflow.com/questions/37955942/vagrant-up-vboxmanage-exe-error-vt-x-is-not-available-verr-vmx-no-vmx-code](https://stackoverflow.com/questions/37955942/vagrant-up-vboxmanage-exe-error-vt-x-is-not-available-verr-vmx-no-vmx-code) and [https://github.com/clong/DetectionLab/issues/433](https://github.com/clong/DetectionLab/issues/433)
 >
 > ------
 >
