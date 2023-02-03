@@ -364,7 +364,7 @@ vagrant up win10 --provider=virtualbox
 ![DetectionLab Deploy](.gitbook/assets/DetectionLab_prepare.gif)
 
 > - Once provisioning is finished, you can access the VMs through the GUI or SSH/RDP to them directly.
-> - If you encounter an error or any issues, checkout the [troubleshooting section](#Troubleshooting-&-Known-Issues).
+> - If you encounter an error or any issues, checkout the [troubleshooting section](#troubleshooting-and-known-issues).
 
 - You can also **verify services** are accessible by running
 
