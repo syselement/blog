@@ -2,9 +2,9 @@
 
 ## BITWARDEN - Deploy to Ubuntu Server
 
-Official Docs (always check for updated process) - https://bitwarden.com/help/install-on-premise-linux/
+> - [Official Docs](https://bitwarden.com/help/install-on-premise-linux/) (always check for updated process)
 
-## Network and Domain
+### Network and Domain
 
 - Point your DNS records domain to your Linux host machine, if you want to reach it from the public network.
 - Open these ports so Bitwarden can be accessed from inside the network (in this case).
@@ -17,7 +17,7 @@ sudo ufw allow 11443
 sudo ufw status
 ```
 
-## Install Docker and Docker Compose
+### Install Docker and Docker Compose
 
 [Docs - Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
@@ -56,7 +56,7 @@ sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
 
-## Create Bitwarden Local User and directory
+### Create Bitwarden Local User and directory
 
 ```bash
 sudo adduser bitwarden
@@ -68,7 +68,7 @@ sudo chmod -R 700 /opt/bitwarden
 sudo chown -R bitwarden:bitwarden /opt/bitwarden
 ```
 
-## Install Bitwarden
+### Install Bitwarden
 
 - Use the shell script for installation with the `bitwarden` user in the `/opt/bitwarden` directory
 
@@ -169,7 +169,7 @@ nano /opt/bitwarden/bwdata/config.yml
 ./bitwarden.sh update
 ```
 
-## Start and Stop Bitwarden commands
+### Start and Stop Bitwarden commands
 
 ```bash
 su - bitwarden
