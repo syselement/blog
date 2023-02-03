@@ -13,14 +13,14 @@
 
 * [Windows Tools](windows-notes/Tools/README.md)
   * [Hashcat](windows-notes/Tools/hashcat_win.md)
-  * [Vagrant](windows-notes/Tools/vagrant\_win.md)
+  * [Vagrant](windows-notes/Tools/vagrant_win.md)
   
 
 ## 🐧 Linux Notes
 
 * [Linux Stuff](linux-notes/linuxstuff.md)
 * [Linux Tools](linux-notes/Tools/README.md)
-  * [Terminator](linux-notes/Tools/Terminator\_Shortcuts.md)
+  * [Terminator](linux-notes/Tools/Terminator_Shortcuts.md)
 
 ## 🔬 Home Lab
 
