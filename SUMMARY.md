@@ -27,7 +27,7 @@
 * [🔴 Red Team Labs](home-lab/redteam/README.md)
   * [Hashcat Password Cracking](home-lab/redteam/lab_hashcat.md)
 
-* [🔵 Blue Team](home-lab/blueteam/README.md)
+* [🔵 Blue Team Labs](home-lab/blueteam/README.md)
   * [Detection Lab](home-lab/blueteam/lab_DetectionLab.md)
 
 * [🧪 Misc Labs](home-lab/misc/README.md)
