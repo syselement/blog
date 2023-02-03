@@ -1,7 +1,3 @@
-[TOC]
-
-# DetectionLab
-
 # DetectionLab Intro
 
 *DetectionLab is a repository containing a variety of `Packer`, `Vagrant`, `Powershell`, `Ansible`, and `Terraform` scripts that allow you to automate the process of bringing an ActiveDirectory environment online complete with logging and security tooling using a variety of different platforms. **DetectionLab was built with defenders in mind**.*
