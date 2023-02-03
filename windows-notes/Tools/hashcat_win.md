@@ -16,7 +16,7 @@
 
 - Run Windows Powershell:
 
-```powershell
+```bash
 cd C:\temp\hashcat-6.2.5
 .\hashcat.exe -I
 ```
@@ -25,12 +25,11 @@ cd C:\temp\hashcat-6.2.5
 
 - Run the benchmark to test the performance:
 
-```powershell
+```bash
 .\hashcat.exe -b
 ```
 
-```powershell
-
+```bash
 CUDA API (CUDA 11.7)
 ====================
 * Device #1: NVIDIA GeForce GTX 1060 6GB, 5222/6143 MB, 10MCU
