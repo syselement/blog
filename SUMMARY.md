@@ -9,7 +9,7 @@
 * [TCM Security](certifications-notes/tcmsecurity/README.md)
   * [Linux101](https://syselement.gitbook.io/tcm-sec/courses/linux-101)
 
-## 🪟 Windows Notes
+## Windows Notes
 
 - [Windows Tools](windows-notes/Tools/README.md)
   - [Vagrant](windows-notes/Tools/vagrant_win.md)
