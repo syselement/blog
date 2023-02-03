@@ -372,7 +372,7 @@ vagrant up win10 --provider=virtualbox
  .\post_build_checks.ps1
 ```
 
-### Bring Down lab
+## Bring Down lab
 
 ```powershell
 vagrant halt
@@ -386,15 +386,13 @@ vagrant halt
 ==> logger: Attempting graceful shutdown of VM...
 ```
 
-### Bring Up lab
+## Bring Up lab
 
 ```powershell
 vagrant up --provider=virtualbox
 ```
 
 ![DetectionLab entire Deploy](.gitbook/assets/DetectionLab_Deploy2.gif)
-
-
 
 ## Errors
 
