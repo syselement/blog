@@ -8,4 +8,4 @@ description: Direct links to the certifications and training notes
 
 ## [INE Training - Notes](https://syselement.gitbook.io/ine/)
 
-- [eJPTv2 - PTSv2](https://syselement.gitbook.io/ine/courses/ejpt)
+- [ ] [eJPTv2 - PTSv2](https://syselement.gitbook.io/ine/courses/ejpt)
