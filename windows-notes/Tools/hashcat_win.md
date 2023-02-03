@@ -2,11 +2,11 @@
 
 ## Windows Installation
 
-- Full installation guide - https://miloserdov.org/?p=7501
-- Download link here - https://hashcat.net/hashcat/
-- Download and unzip it into a folder e.g. **c:\temp**
-  - Download and install latest NVIDIA Driver - https://www.nvidia.com/Download/index.aspx
-  - Download, install latest CUDA Toolkit and **reboot pc** -  https://developer.nvidia.com/cuda-downloads
+- Full installation guide - [https://miloserdov.org/?p=7501](https://miloserdov.org/?p=7501)
+- Download link here - [https://hashcat.net/hashcat/](https://hashcat.net/hashcat/)
+- Download and unzip it into a folder `e.g.` **c:\temp**
+  - Download and install [latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx)
+  - Download, install [latest CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) and **reboot pc**
 
 ![](.gitbook/assets/image-20220810211936796.png)
 
@@ -27,6 +27,9 @@ cd C:\temp\hashcat-6.2.5
 
 ```powershell
 .\hashcat.exe -b
+```
+
+```powershell
 
 CUDA API (CUDA 11.7)
 ====================
@@ -193,6 +196,8 @@ Speed.#1.........:     2534 H/s (65.77ms) @ Accel:128 Loops:256 Thr:1024 Vec:1
 Started: Wed Aug 10 21:40:09 2022
 Stopped: Wed Aug 10 21:46:24 2022
 ```
+
+
 
 ------
 
