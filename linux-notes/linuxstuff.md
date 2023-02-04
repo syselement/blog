@@ -403,8 +403,10 @@ nano /etc/proxychains.conf
 ### OpenVpn
 
 ```bash
-# (Check use of update-resolv-conf.sh before openvpn)
-openvpn vpnbook-us2-udp25000.ovpn
+sudo openvpn --config ~/thm/thm_vpn_syselement.ovpn --daemon
+
+# Stop it
+sudo pkill -f openvpn
 ```
 
 ### NMAP
