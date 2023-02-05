@@ -403,7 +403,16 @@ nano /etc/proxychains.conf
 ### OpenVpn
 
 ```bash
-sudo openvpn --config ~/thm/thm_vpn_syselement.ovpn --daemon
+# TryHackme OpenVpn Cypher error fix
+sudo nano yournickname.ovpn
+
+# Add the following on line 15 after "cipher AES-256-CBC":
+data-ciphers AES-256-CBC
+```
+
+```bash
+# Launch openvpn connection in background as a daemon
+sudo openvpn --config yournickname.ovpn --daemon
 
 # Stop it
 sudo pkill -f openvpn
