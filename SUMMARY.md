@@ -12,39 +12,28 @@
 ## 🪟 Windows Notes
 
 * [Windows Tools](windows-notes/Tools/README.md)
-  * [Hashcat](windows-notes/Tools/hashcat_win.md)
-  * [Vagrant](windows-notes/Tools/vagrant_win.md)
-  
+  * [Hashcat](windows-notes/Tools/hashcat\_win.md)
+  * [Vagrant](windows-notes/Tools/vagrant\_win.md)
 
 ## 🐧 Linux Notes
 
 * [Linux Stuff](linux-notes/linuxstuff.md)
 * [Linux Tools](linux-notes/Tools/README.md)
-  * [Terminator](linux-notes/Tools/Terminator_Shortcuts.md)
+  * [Terminator](linux-notes/Tools/Terminator\_Shortcuts.md)
 
 ## 🔬 Home Lab
 
 * [🔴 Red Team Labs](home-lab/redteam/README.md)
-  * [Hashcat Password Cracking](home-lab/redteam/lab_hashcat.md)
-
+  * [Hashcat Password Cracking](home-lab/redteam/lab\_hashcat.md)
 * [🔵 Blue Team Labs](home-lab/blueteam/README.md)
-  * [Detection Lab](home-lab/blueteam/lab_DetectionLab.md)
-
+  * [Detection Lab](home-lab/blueteam/lab\_DetectionLab.md)
 * [🧪 Misc Labs](home-lab/misc/README.md)
   * [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
 
-## 🔬 Writeups & Walkthroughs
+## ✍ Writeups & Walkthroughs
 
-* [:cloud_with_lightning: Try Hack Me Walkthroughs](writeups-walkthroughs/tryhackme/README.md)
-  * 
-
-* [:package: Hack The Box Writeups](writeups-walkthroughs/hackthebox/README.md)
-  * 
-
-* [:triangular_flag_on_post: Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
-  * 
-
+* [🌩 Try Hack Me Walkthroughs](writeups-walkthroughs/tryhackme/README.md)
+* [📦 Hack The Box Writeups](writeups-walkthroughs/hackthebox/README.md)
+* [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
 ## 💻 Coding Notes
-
-* 
