@@ -32,8 +32,8 @@
 
 ## ✍ Writeups & Walkthroughs
 
-* [🌩 Try Hack Me Walkthroughs](writeups-walkthroughs/tryhackme/README.md)
-* [📦 Hack The Box Writeups](writeups-walkthroughs/hackthebox/README.md)
+* [🌩 TryHackMe Walkthroughs](writeups-walkthroughs/tryhackme/README.md)
+* [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
 * [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
 ## 💻 Coding Notes
