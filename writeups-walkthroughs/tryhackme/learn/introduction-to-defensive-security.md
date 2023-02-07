@@ -1,6 +1,6 @@
 
 
-# Introduction to Defensive Security
+# Intro to Defensive Security
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme_logo_small.png)
 
@@ -14,7 +14,7 @@
 >
 > ![tryhackme.com - © TryHackMe](.gitbook/assets/intro-to-defensive.png)
 
-# [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
+## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 
 > Learn about digital forensics and related processes and experiment with a practical example.
 
@@ -30,7 +30,7 @@ The purpose of digital forensics is *the use of computer science to investigate 
 - **Public sector investigations** - conducted by government and low enforcement agencies
 - **Private sector investigations** - conducted by corporate bodies with the help of a private investigator
 
-## The Process
+### The Process
 
 *After obtaining the proper legal **authorization***, a digital forensics investigator should:
 
@@ -43,11 +43,11 @@ In the lab, the digital evidence must be retrieved from the secure container and
 
 A **report** detailing the obtained evidence for the case concludes the digital forensics investigation.
 
-## Practical Example
+### Practical Example
 
 > ❗*Everything we do on our digital devices, from smartphones to computers, leaves traces.*
 
-### Doc Metadata
+#### Doc Metadata
 
 - Check doc files for `metadata` information
 
@@ -84,7 +84,7 @@ pdfinfo ransom-letter.pdf
 
 > Reveal Flag - Author of the attached PDF file: 🚩 ` Ann Gree Shepherd`
 
-### Photo EXIF Data
+#### Photo EXIF Data
 
 EXIF (**E**xchangeable **I**mage **F**ile format) is a standard for image files metadata, embedded in the image, `e.g.` :
 
@@ -417,7 +417,7 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 > Reveal Flag - Camera model name: 🚩 ` Canon EOS R6`
 
-# [Security Operations](https://tryhackme.com/jr/securityoperations)
+## [Security Operations](https://tryhackme.com/jr/securityoperations)
 
 > Learn about Security Operations Center (SOC): its responsibilities, services, and data sources.
 
