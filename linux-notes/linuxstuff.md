@@ -138,6 +138,23 @@ sudo update-alternatives --config x-terminal-emulator
 # gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
 ```
 
+### Set grub boot menu timeout
+
+```bash
+sudo nano /etc/default/grub
+
+# Set the seconds in the GRUB_TIMEOUT value, save and exit the file
+GRUB_TIMEOUT=1
+
+sudo update-grub
+# Reboot to test the timeout
+
+# To instantly boot without the grub menu waiting, edit the file adding these lines:
+GRUB_HIDDEN_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_TIMEOUT=0
+```
+
 ### Boot Partition Clean Up (Ubuntu/Debian)
 
 ```bash

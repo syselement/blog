@@ -250,8 +250,8 @@ Stopped: Wed Sep 07 02:02:30 2022
 
 ### Installation
 
-- https://miloserdov.org/?p=4726
-- https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/
+- [How to brute-force passwords using GPU and CPU in Linux](https://miloserdov.org/?p=4726)
+- [Install Nvidia Drivers on Kali Linux](https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/)
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
