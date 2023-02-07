@@ -1,55 +1,53 @@
-
-
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme_logo_small.png)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme\_logo\_small.png)
 
 > 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
 >
-> *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
+> _Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack._
 >
-> - Analyze digital evidence with digital forensics
-> - Security Operations in the cyber industry
-> - Learn how protection works in a web-base simulation
+> * Analyze digital evidence with digital forensics
+> * Security Operations in the cyber industry
+> * Learn how protection works in a web-base simulation
 >
-> ![tryhackme.com - © TryHackMe](.gitbook/assets/intro-to-defensive.png)
+> <img src=".gitbook/assets/intro-to-defensive.png" alt="tryhackme.com - © TryHackMe" data-size="original">
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 
 > Learn about digital forensics and related processes and experiment with a practical example.
 
-A new field of ***forensics** (the science of crime investigations)* called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
+A new field of _**forensics** (the science of crime investigations)_ called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
 
-- desktop computers, laptops
-- smartphones, digital cameras
-- digital media (CDs, USB drives, external storage)
-- etc
+* desktop computers, laptops
+* smartphones, digital cameras
+* digital media (CDs, USB drives, external storage)
+* etc
 
-The purpose of digital forensics is *the use of computer science to investigate digital data/evidence for a legal purpose*.
+The purpose of digital forensics is _the use of computer science to investigate digital data/evidence for a legal purpose_.
 
-- **Public sector investigations** - conducted by government and low enforcement agencies
-- **Private sector investigations** - conducted by corporate bodies with the help of a private investigator
+* **Public sector investigations** - conducted by government and low enforcement agencies
+* **Private sector investigations** - conducted by corporate bodies with the help of a private investigator
 
 ### The Process
 
-*After obtaining the proper legal **authorization***, a digital forensics investigator should:
+_After obtaining the proper legal **authorization**_, a digital forensics investigator should:
 
-- acquire the **evidence** - collecting the digital devices (using special handling if turned on)
-- establish a **chain of custody** - fill out a form ensuring only authorized access to and handling of the evidence ([NIST Sample form](https://www.nist.gov/document/sample-chain-custody-formdocx))
-- secure the evidence in a **container** - to avoid damage or remote wiping (via network connection)
-- transport the evidence to the digital forensics **laboratory**
+* acquire the **evidence** - collecting the digital devices (using special handling if turned on)
+* establish a **chain of custody** - fill out a form ensuring only authorized access to and handling of the evidence ([NIST Sample form](https://www.nist.gov/document/sample-chain-custody-formdocx))
+* secure the evidence in a **container** - to avoid damage or remote wiping (via network connection)
+* transport the evidence to the digital forensics **laboratory**
 
-In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. *The investigation will be done on the identical **copy** using a **forensics workstation***. The findings can be reproduced (**repeatability**).
+In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. _The investigation will be done on the identical **copy** using a **forensics workstation**_. The findings can be reproduced (**repeatability**).
 
 A **report** detailing the obtained evidence for the case concludes the digital forensics investigation.
 
 ### Practical Example
 
-> ❗*Everything we do on our digital devices, from smartphones to computers, leaves traces.*
+> ❗_Everything we do on our digital devices, from smartphones to computers, leaves traces._
 
 #### Doc Metadata
 
-- Check doc files for `metadata` information
+* Check doc files for `metadata` information
 
 **`pdfinfo`**
 
@@ -82,16 +80,24 @@ pdfinfo ransom-letter.pdf
     PDF version:     1.7
 ```
 
-> Reveal Flag - Author of the attached PDF file: 🚩 ` Ann Gree Shepherd`
+<details>
+
+<summary>Reveal Flag - Author of the attached PDF file: 🚩</summary>
+
+`Ann Gree Shepherd`
+
+</details>
+
+``
 
 #### Photo EXIF Data
 
 EXIF (**E**xchangeable **I**mage **F**ile format) is a standard for image files metadata, embedded in the image, `e.g.` :
 
-- Camera model
-- Date/Time of image capture
-- Photo settings
-- GPS coordinates of the place of capture
+* Camera model
+* Date/Time of image capture
+* Photo settings
+* GPS coordinates of the place of capture
 
 **`exiftool`**
 
@@ -407,21 +413,26 @@ Light Value                     : 7.9
 Lens ID                         : Canon EF 50mm f/1.8 STM
 ```
 
-- Search for the GPS Position **`51° 30' 51.90" N, 0° 5' 38.73" W`** (deg = °) on [Google Maps](https://goo.gl/maps/61VzBGiNvmD3kTbB7).
+* Search for the GPS Position **`51° 30' 51.90" N, 0° 5' 38.73" W`** (deg = °) on [Google Maps](https://goo.gl/maps/61VzBGiNvmD3kTbB7).
 
 ![](.gitbook/assets/image-20230208001146501.png)
 
+<details>
 
+<summary>Reveal Flag - Name of the street: 🚩</summary>
 
-> Reveal Flag - Name of the street: 🚩 ` Milk Street`
+`Milk Street`
 
-> Reveal Flag - Camera model name: 🚩 ` Canon EOS R6`
+</details>
+
+<details>
+
+<summary>Reveal Flag - Camera model name: 🚩</summary>
+
+`Canon EOS R6`
+
+</details>
 
 ## [Security Operations](https://tryhackme.com/jr/securityoperations)
 
 > Learn about Security Operations Center (SOC): its responsibilities, services, and data sources.
-
-
-
-
-
