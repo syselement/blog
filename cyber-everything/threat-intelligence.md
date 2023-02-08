@@ -195,7 +195,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 
 ## Links
 
-### Resources Links
+### Resources
 
 > - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)
 > - [CrowdStrike - **What is** Threat Intelligence? (2022)](https://www.crowdstrike.com/cybersecurity-101/threat-intelligence/)
