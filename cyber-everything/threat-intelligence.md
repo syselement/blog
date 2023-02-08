@@ -21,6 +21,7 @@
 >   - [FAQs on Getting Started in Cyber Threat Intelligence](https://medium.com/katies-five-cents/faqs-on-getting-started-in-cyber-threat-intelligence-f567f267348e)
 >
 > - [MITRE ATT&CK CTI Training](https://attack.mitre.org/resources/training/cti/)
+> - [KnowBe4 Blog - Security Awareness](https://blog.knowbe4.com/)
 > - [Awesome Threat Intelligence resources - **Sources, Formats, Frameworks, Platforms, Tools, Research, Standards, Books**](https://github.com/hslatman/awesome-threat-intelligence)
 > - [Florian Roth - The Newcomer’s Guide to Cyber Threat Actor Naming](https://cyb3rops.medium.com/the-newcomers-guide-to-cyber-threat-actor-naming-7428e18ee263)
 > - [APT Groups and Operations](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/edit#gid=1636225066)
