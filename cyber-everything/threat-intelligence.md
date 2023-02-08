@@ -96,9 +96,9 @@ Every researsh is based on a variety of different versions of the intelligence c
 - `Requirements` - sets the scope/roadmap (goals & methodology) for a specific threat intelligence operation
 
 ```
--	Which types of assets, processes, and personnel are at risk?
--	How will threat intelligence improve operational efficiency for my team?
--	What other systems and applications could benefit?
+- Which types of assets, processes, and personnel are at risk?
+- How will threat intelligence improve operational efficiency for my team?
+- What other systems and applications could benefit?
 ```
 
 - `Collection` - data gathering to satisfy objectives (traffic logs, osint, etc)
