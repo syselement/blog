@@ -5,7 +5,6 @@
 > - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)
 > - [CrowdStrike - **What is** Threat Intelligence? (2022)](https://www.crowdstrike.com/cybersecurity-101/threat-intelligence/)
 >   - [APT](https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/)
->
 > - [Heavy.ai - Threat Intelligence **Glossary**](https://www.heavy.ai/technical-glossary/threat-intelligence)
 > - [Flashpoint - Threat Intelligence **Lifecycle** (2021)](https://flashpoint.io/blog/threat-intelligence-lifecycle/)
 > - [Capgemini - Reinventing Cybersecurity with Artificial Intelligence](https://www.capgemini.com/ca-en/insights/research-library/reinventing-cybersecurity-with-artificial-intelligence/)
@@ -19,7 +18,6 @@
 > - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 1](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-1-968b5a8daf9a)
 >   - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 2](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-2-d04b7a529d36)
 >   - [FAQs on Getting Started in Cyber Threat Intelligence](https://medium.com/katies-five-cents/faqs-on-getting-started-in-cyber-threat-intelligence-f567f267348e)
->
 > - [MITRE ATT&CK CTI Training](https://attack.mitre.org/resources/training/cti/)
 > - [KnowBe4 Blog - Security Awareness](https://blog.knowbe4.com/)
 > - [Awesome Threat Intelligence resources - **Sources, Formats, Frameworks, Platforms, Tools, Research, Standards, Books**](https://github.com/hslatman/awesome-threat-intelligence)
@@ -158,6 +156,8 @@ Every researsh is based on a variety of different versions of the intelligence c
 | **Intel Analyst**        | Look wider and deeper for intrusion evidence<br />Review reports on threat actors to better detect them |
 | **Executive Management** | Assess overall threat level for the organization<br />Develop security roadmap |
 
+## Standards and Frameworks
+
 ### STIX & TAXII
 
 Cyber Threat Intelligence is shared/exchanged with tools, products or other entities via two (independent) standards - **STIX** and **TAXII**.
@@ -183,6 +183,12 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 > TAXII defines the *how* and is the *vehicle carrying* the package.
 >
 > STIX and TAXII are *machine-readable* and can easily be *automated*.
+
+### [MITRE ATT&CK](https://attack.mitre.org/)
+
+### [Lockheed Martin - Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+
+### [The Unified Kill Chain](https://www.unifiedkillchain.com/)
 
 ## Applications
 
