@@ -216,6 +216,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 >   - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 2](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-2-d04b7a529d36)
 >   - [FAQs on Getting Started in Cyber Threat Intelligence](https://medium.com/katies-five-cents/faqs-on-getting-started-in-cyber-threat-intelligence-f567f267348e)
 > - [MITRE ATT&CK CTI Training](https://attack.mitre.org/resources/training/cti/)
+> - [CIRCL - MISP User Guide](https://www.circl.lu/doc/misp/)
 > - [KnowBe4 Blog - Security Awareness](https://blog.knowbe4.com/)
 > - [Awesome Threat Intelligence resources - **Sources, Formats, Frameworks, Platforms, Tools, Research, Standards, Books**](https://github.com/hslatman/awesome-threat-intelligence)
 > - [Florian Roth - The Newcomer’s Guide to Cyber Threat Actor Naming](https://cyb3rops.medium.com/the-newcomers-guide-to-cyber-threat-actor-naming-7428e18ee263)
