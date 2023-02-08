@@ -135,7 +135,7 @@ Every researsh is based on a variety of different versions of the intelligence c
 - And, finally, how can you improve on it going forward—both in terms of finished intelligence and ameliorating your organization’s intelligence cycle?
 ```
 
-> - Above key consideration are taken from the [Flashpoint Blog post](https://flashpoint.io/blog/threat-intelligence-lifecycle/).
+> - Above key consideration (listed with **-**) are taken from the [Flashpoint Blog post](https://flashpoint.io/blog/threat-intelligence-lifecycle/).
 
 ## Benefits
 
