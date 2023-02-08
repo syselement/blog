@@ -49,7 +49,7 @@
 >   - [Recorded Future](https://www.recordedfuture.com/)
 > - [Cybersecurity and Infrastructure Security Agency (CISA) - Alerts, Reports, Bulletins, Tips](https://www.cisa.gov/uscert/)
 > - [Cyber Operations Tracker database](https://www.cfr.org/cyber-operations/)
-> - [MISP Threat Sharing](https://www.misp-project.org/)
+> - [MISP - Malware Information Sharing Platform](https://www.misp-project.org/)
 > - [AlienVault OTX](https://otx.alienvault.com/)
 > - [Microsoft Defender T.I.](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-threat-intelligence)
 
