@@ -1,6 +1,6 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme\_logo\_small.png)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
 > 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
 >
@@ -81,14 +81,11 @@ pdfinfo ransom-letter.pdf
 ```
 
 <details>
-
 <summary>Reveal Flag - Author of the attached PDF file: 🚩</summary>
 
 `Ann Gree Shepherd`
 
 </details>
-
-``
 
 #### Photo EXIF Data
 
