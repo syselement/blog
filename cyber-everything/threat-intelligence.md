@@ -62,7 +62,7 @@
 
 > *Threat intelligence is evidence-based knowledge, including context, mechanisms, indicators, implications and actionable advice, about an existing or emerging menace or hazard to assets that can be used to inform decisions regarding the subject's response to that menace or hazard.* - [Gartner](https://www.gartner.com/en/documents/2487216)
 
-[`Cyberattacks`](https://www.crowdstrike.com/cybersecurity-101/cyberattacks/) - malware, ransomware, phishing, man-in-the-middle, denial-of-service, APTs
+[`Cyberattacks`](https://www.crowdstrike.com/cybersecurity-101/cyberattacks/) - malware, ransomware, phishing, man-in-the-middle, denial-of-service, APTs ...
 
 ### 3 Types of TI
 
