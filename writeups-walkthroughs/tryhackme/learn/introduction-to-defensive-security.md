@@ -430,6 +430,8 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 </details>
 
+------
+
 ## [Security Operations](https://tryhackme.com/jr/securityoperations)
 
 > Learn about Security Operations Center (SOC): its responsibilities, services, and data sources.
