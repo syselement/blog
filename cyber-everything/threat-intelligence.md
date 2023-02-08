@@ -1,57 +1,5 @@
 # Cyber Threat Intelligence (CTI)
 
-> #### Resources Links:
->
-> - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)
-> - [CrowdStrike - **What is** Threat Intelligence? (2022)](https://www.crowdstrike.com/cybersecurity-101/threat-intelligence/)
->   - [APT](https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/)
-> - [Heavy.ai - Threat Intelligence **Glossary**](https://www.heavy.ai/technical-glossary/threat-intelligence)
-> - [Flashpoint - Threat Intelligence **Lifecycle** (2021)](https://flashpoint.io/blog/threat-intelligence-lifecycle/)
-> - [Capgemini - Reinventing Cybersecurity with Artificial Intelligence](https://www.capgemini.com/ca-en/insights/research-library/reinventing-cybersecurity-with-artificial-intelligence/)
-> - [SOCRadar - Top 10 Threat Intelligence **Certifications**: Empower Your Analysis Skills (2020)](https://socradar.io/top-10-threat-intelligence-certifications-empower-your-analysis-skills/)
-> - [PhishingTackle - CTI strongest **Sources** in 2023](https://phishingtackle.com/articles/cyber-threat-intelligence-jan-2023/)
-> - [Oasis CTI Technical Committee - **STIX/TAXII**](https://oasis-open.github.io/cti-documentation/)
-> - [Anomali - Resources](https://www.anomali.com/resources)
-> - [Anomali - **STIX/TAXII** standards](https://www.anomali.com/resources/what-are-stix-taxii)
-> - [Anomali - What is Threat Intel [ITA]](https://www.anomali.com/it/resources/what-is-threat-intelligence)
-> - [Kaspersky - Threat Intel definition [ITA]](https://www.kaspersky.it/resource-center/definitions/threat-intelligence)
-> - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 1](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-1-968b5a8daf9a)
->   - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 2](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-2-d04b7a529d36)
->   - [FAQs on Getting Started in Cyber Threat Intelligence](https://medium.com/katies-five-cents/faqs-on-getting-started-in-cyber-threat-intelligence-f567f267348e)
-> - [MITRE ATT&CK CTI Training](https://attack.mitre.org/resources/training/cti/)
-> - [KnowBe4 Blog - Security Awareness](https://blog.knowbe4.com/)
-> - [Awesome Threat Intelligence resources - **Sources, Formats, Frameworks, Platforms, Tools, Research, Standards, Books**](https://github.com/hslatman/awesome-threat-intelligence)
-> - [Florian Roth - The Newcomer’s Guide to Cyber Threat Actor Naming](https://cyb3rops.medium.com/the-newcomers-guide-to-cyber-threat-actor-naming-7428e18ee263)
-> - [APT Groups and Operations](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/edit#gid=1636225066)
->
-> #### Video material:
->
-> - [Youtube - threat intelligence analyst](https://www.youtube.com/results?search_query=threat+intelligence+analyst)
-> - [You MUST understand Cyber Threat Intelligence to Blue Team w/Samuel Kimmons - Gerald Auger](https://www.youtube.com/watch?v=tWHqHy-MC1U)
-> - [Neal Dennis - How to become a cybersecurity threat intelligence professional | Cyber Work Podcast](https://www.youtube.com/watch?v=UH96qGX5vDk)
-> - [Amy Bejtlich - Job Role Spotlight: Cyber Threat Intelligence - SANS (2021 Summit)](https://www.youtube.com/watch?v=fvYb5-NxoDc)
-> - [Katie Nickles - The Cycle of Cyber Threat Intelligence - SANS (2019)](https://www.youtube.com/watch?v=J7e74QLVxCk)
-> - [What does a Cyber Intelligence Analyst Do? | Salary, Certifications, Skills & Tools, Education](https://www.youtube.com/watch?v=DKC-IY_vpJs)
->
-> #### Tools:
->
-> - [Spectral - Top 10 Cyber Threat Intelligence Tools for 2022](https://spectralops.io/blog/top-10-cyber-threat-intelligence-tools-for-2022/)
-> - [8 Best Threat Intelligence Feeds to Monitor in 2023](https://cybeready.com/best-threat-intelligence-feeds-to-monitor-in-2023)
-> - [Gartner - Security Threat Intelligence Products and Services Raings](https://www.gartner.com/reviews/market/security-threat-intelligence-services)
-> - [50 Best Free Cyber Threat Intelligence Tools – 2023](https://gbhackers.com/cyber-threat-intelligence-tools/amp/)
-> - Commercial T.I.:
->   - [IBM **X-Force Exchange**](https://exchange.xforce.ibmcloud.com/)
->   - [Anomali **ThreatStream**](https://www.anomali.com/products/threatstream)
->   - [Palo Alto Networks **AutoFocus**](https://www.paloguard.com/Autofocus.asp)
->   - [Mandiant Threat Intelligence](https://www.mandiant.com/advantage/threat-intelligence/subscribe)
->   - [FireEye iSIGHT Intelligence](https://www.threatprotectworks.com/iSIGHT-Intelligence.asp)
->   - [Recorded Future](https://www.recordedfuture.com/)
-> - [Cybersecurity and Infrastructure Security Agency (CISA) - Alerts, Reports, Bulletins, Tips](https://www.cisa.gov/uscert/)
-> - [Cyber Operations Tracker database](https://www.cfr.org/cyber-operations/)
-> - [MISP - Malware Information Sharing Platform](https://www.misp-project.org/)
-> - [AlienVault OTX](https://otx.alienvault.com/)
-> - [Microsoft Defender T.I.](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-threat-intelligence)
-
 ## Definition
 
 **`Threat Intelligence`** (`T.I.`) is *data that is collected, processed and analyzed to understand a threat actor’s motives, targets and attack behaviors*.
@@ -244,3 +192,60 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 - [CPTIA – CREST Practitioner Threat Intelligence Analyst](https://www.crest-approved.org/examination/crest-practitioner-threat-intelligence-analyst/index.html)
 - [CRTIA – CREST Registered Threat Intelligence Analyst](https://crest-approved.org/examination/crest-registered-threat-intelligence-analyst/index.html)
 - [CCTIM – CREST Certified Threat Intelligence Manager](https://crest-approved.org/examination/crest-certified-threat-intelligence-manager/index.html)
+
+## Links
+
+### Resources Links
+
+> - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)
+> - [CrowdStrike - **What is** Threat Intelligence? (2022)](https://www.crowdstrike.com/cybersecurity-101/threat-intelligence/)
+>   - [APT](https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/)
+> - [Heavy.ai - Threat Intelligence **Glossary**](https://www.heavy.ai/technical-glossary/threat-intelligence)
+> - [Flashpoint - Threat Intelligence **Lifecycle** (2021)](https://flashpoint.io/blog/threat-intelligence-lifecycle/)
+> - [Capgemini - Reinventing Cybersecurity with Artificial Intelligence](https://www.capgemini.com/ca-en/insights/research-library/reinventing-cybersecurity-with-artificial-intelligence/)
+> - [SOCRadar - Top 10 Threat Intelligence **Certifications**: Empower Your Analysis Skills (2020)](https://socradar.io/top-10-threat-intelligence-certifications-empower-your-analysis-skills/)
+> - [PhishingTackle - CTI strongest **Sources** in 2023](https://phishingtackle.com/articles/cyber-threat-intelligence-jan-2023/)
+> - [Oasis CTI Technical Committee - **STIX/TAXII**](https://oasis-open.github.io/cti-documentation/)
+> - [Anomali - Resources](https://www.anomali.com/resources)
+> - [Anomali - **STIX/TAXII** standards](https://www.anomali.com/resources/what-are-stix-taxii)
+> - [Mandiant - Resources](https://www.mandiant.com/resources)
+> - [Recorded Future - Resources](https://www.recordedfuture.com/resources)
+> - [Anomali - What is Threat Intel [ITA]](https://www.anomali.com/it/resources/what-is-threat-intelligence)
+> - [Kaspersky - Threat Intel definition [ITA]](https://www.kaspersky.it/resource-center/definitions/threat-intelligence)
+> - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 1](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-1-968b5a8daf9a)
+>   - [Katie Nickels - A Cyber Threat Intelligence **Self-Study Plan**: Part 2](https://medium.com/katies-five-cents/a-cyber-threat-intelligence-self-study-plan-part-2-d04b7a529d36)
+>   - [FAQs on Getting Started in Cyber Threat Intelligence](https://medium.com/katies-five-cents/faqs-on-getting-started-in-cyber-threat-intelligence-f567f267348e)
+> - [MITRE ATT&CK CTI Training](https://attack.mitre.org/resources/training/cti/)
+> - [KnowBe4 Blog - Security Awareness](https://blog.knowbe4.com/)
+> - [Awesome Threat Intelligence resources - **Sources, Formats, Frameworks, Platforms, Tools, Research, Standards, Books**](https://github.com/hslatman/awesome-threat-intelligence)
+> - [Florian Roth - The Newcomer’s Guide to Cyber Threat Actor Naming](https://cyb3rops.medium.com/the-newcomers-guide-to-cyber-threat-actor-naming-7428e18ee263)
+> - [APT Groups and Operations - Google spreadsheet](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/edit#gid=1636225066)
+> - [Mandiant APT groups](https://www.fireeye.com/current-threats/apt-groups.html)
+
+### Video material
+
+> - [Youtube - threat intelligence analyst](https://www.youtube.com/results?search_query=threat+intelligence+analyst)
+> - [You MUST understand Cyber Threat Intelligence to Blue Team w/Samuel Kimmons - Gerald Auger](https://www.youtube.com/watch?v=tWHqHy-MC1U)
+> - [Neal Dennis - How to become a cybersecurity threat intelligence professional | Cyber Work Podcast](https://www.youtube.com/watch?v=UH96qGX5vDk)
+> - [Amy Bejtlich - Job Role Spotlight: Cyber Threat Intelligence - SANS (2021 Summit)](https://www.youtube.com/watch?v=fvYb5-NxoDc)
+> - [Katie Nickles - The Cycle of Cyber Threat Intelligence - SANS (2019)](https://www.youtube.com/watch?v=J7e74QLVxCk)
+> - [What does a Cyber Intelligence Analyst Do? | Salary, Certifications, Skills & Tools, Education](https://www.youtube.com/watch?v=DKC-IY_vpJs)
+
+### Tools
+
+> - [Spectral - Top 10 Cyber Threat Intelligence Tools for 2022](https://spectralops.io/blog/top-10-cyber-threat-intelligence-tools-for-2022/)
+> - [8 Best Threat Intelligence Feeds to Monitor in 2023](https://cybeready.com/best-threat-intelligence-feeds-to-monitor-in-2023)
+> - [Gartner - Security Threat Intelligence Products and Services Raings](https://www.gartner.com/reviews/market/security-threat-intelligence-services)
+> - [50 Best Free Cyber Threat Intelligence Tools – 2023](https://gbhackers.com/cyber-threat-intelligence-tools/amp/)
+> - Commercial T.I.:
+>   - [IBM **X-Force Exchange**](https://exchange.xforce.ibmcloud.com/)
+>   - [Anomali **ThreatStream**](https://www.anomali.com/products/threatstream)
+>   - [Palo Alto Networks **AutoFocus**](https://www.paloguard.com/Autofocus.asp)
+>   - [Mandiant Threat Intelligence](https://www.mandiant.com/advantage/threat-intelligence/subscribe)
+>   - [FireEye iSIGHT Intelligence](https://www.threatprotectworks.com/iSIGHT-Intelligence.asp)
+>   - [Recorded Future](https://www.recordedfuture.com/)
+> - [Cybersecurity and Infrastructure Security Agency (CISA) - Alerts, Reports, Bulletins, Tips](https://www.cisa.gov/uscert/)
+> - [Cyber Operations Tracker database](https://www.cfr.org/cyber-operations/)
+> - [MISP - Malware Information Sharing Platform](https://www.misp-project.org/)
+> - [AlienVault OTX](https://otx.alienvault.com/)
+> - [Microsoft Defender T.I.](https://www.microsoft.com/en-us/security/business/siem-and-xdr/microsoft-defender-threat-intelligence)
