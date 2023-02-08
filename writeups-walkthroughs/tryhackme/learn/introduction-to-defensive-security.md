@@ -81,6 +81,7 @@ pdfinfo ransom-letter.pdf
 ```
 
 <details>
+
 <summary>Reveal Flag - Author of the attached PDF file: 🚩</summary>
 
 `Ann Gree Shepherd`
