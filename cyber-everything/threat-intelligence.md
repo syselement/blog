@@ -106,7 +106,7 @@ Every researsh is based on a variety of different versions of the intelligence c
 
 ## Standards and Frameworks
 
-### STIX & TAXII
+### [STIX & TAXII](https://oasis-open.github.io/cti-documentation/)
 
 Cyber Threat Intelligence is shared/exchanged with tools, products or other entities via two (independent) standards - **STIX** and **TAXII**.
 
