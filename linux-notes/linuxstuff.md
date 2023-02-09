@@ -420,10 +420,12 @@ nano /etc/proxychains.conf
 ### OpenVpn
 
 ```bash
-# TryHackme OpenVpn Cypher error fix
-sudo nano yournickname.ovpn
+# TryHackme OpenVpn Cypher(Temporary) error fix 
+sed -i 's/cipher AES-256-CBC/data-ciphers AES-256-CBC/' yournickname.ovpn
 
-# Add the following on line 15 after "cipher AES-256-CBC":
+# or
+sudo nano yournickname.ovpn
+# Substitute line 14 "cipher AES-256-CBC" with:
 data-ciphers AES-256-CBC
 ```
 
