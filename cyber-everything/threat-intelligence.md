@@ -231,6 +231,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 > - [Amy Bejtlich - Job Role Spotlight: Cyber Threat Intelligence - SANS (2021 Summit)](https://www.youtube.com/watch?v=fvYb5-NxoDc)
 > - [Katie Nickles - The Cycle of Cyber Threat Intelligence - SANS (2019)](https://www.youtube.com/watch?v=J7e74QLVxCk)
 > - [What does a Cyber Intelligence Analyst Do? | Salary, Certifications, Skills & Tools, Education](https://www.youtube.com/watch?v=DKC-IY_vpJs)
+> - [Is AI the biggest Cybersecurity Threat in 2023? - Martin Lee interview](https://www.youtube.com/watch?v=pVOeaWX3sFQ)
 
 ### Tools
 
