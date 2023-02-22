@@ -2,7 +2,7 @@
 
 ## BITWARDEN - Deploy to Ubuntu Server
 
-> - [Official Docs](https://bitwarden.com/help/install-on-premise-linux/) (always check for updated process)
+> - [Official Docs - Install and Deploy - Linux](https://bitwarden.com/help/install-on-premise-linux/) (always check for updated process)
 
 ### Network and Domain
 
@@ -75,7 +75,7 @@ sudo chown -R bitwarden:bitwarden /opt/bitwarden
 ```bash
 su - bitwarden
 cd /opt/bitwarden
-curl -Lso bitwarden.sh https://go.btwrdn.co/bw-sh && chmod 700 bitwarden.sh
+curl -Lso /opt/bitwarden/bitwarden.sh "https://func.bitwarden.com/api/dl/?app=self-host&platform=linux" && chmod 700 /opt/bitwarden/bitwarden.sh
 ./bitwarden.sh install
 # Enter the domain name for your Bitwarden instance (ex. bitwarden.example.com):
 	bitwarden.yourdomain.com
@@ -94,6 +94,7 @@ curl -Lso bitwarden.sh https://go.btwrdn.co/bw-sh && chmod 700 bitwarden.sh
 	n
 # Do you want to generate a self-signed SSL certificate? (y/n):
 	y
+# ^^^ This option is only recommended for testing.
 
 ```
 
@@ -131,9 +132,12 @@ nano ./bwdata/env/global.override.env
 ./bitwarden.sh update
 ```
 
+### Automatic Update
+
 - Create a cronjob to run the updates automatically
 
 ```bash
+su - bitwarden
 nano /opt/bitwarden/bwdata/scripts/updatebw.sh
 ```
 
@@ -141,8 +145,8 @@ nano /opt/bitwarden/bwdata/scripts/updatebw.sh
 
 ```bash
 #!/bin/bash
-/opt/bitwarden/bwdata/scripts/bitwarden.sh updateself
-/opt/bitwarden/bwdata/scripts/bitwarden.sh update
+/opt/bitwarden/bitwarden.sh updateself
+/opt/bitwarden/bitwarden.sh update
 ```
 
 - Make the script executable:
@@ -168,6 +172,21 @@ nano /opt/bitwarden/bwdata/config.yml
 # Update
 ./bitwarden.sh update
 ```
+
+### Manual Bitwarden Update
+
+```bash
+su - bitwarden
+cd /opt/bitwarden
+curl -Lso /opt/bitwarden/bitwarden.sh "https://func.bitwarden.com/api/dl/?app=self-host&platform=linux" && chmod 700 /opt/bitwarden/bitwarden.sh
+/opt/bitwarden/bitwarden.sh updateself
+/opt/bitwarden/bitwarden.sh update
+
+# or run the script created before
+/opt/bitwarden/bwdata/scripts/updatebw.sh
+```
+
+![Bitwarden Update](.gitbook/assets/bw_update.gif)
 
 ### Start and Stop Bitwarden commands
 

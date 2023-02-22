@@ -271,7 +271,7 @@ nvidia-smi
 
 - Try **hashcat**
 
-**`.\hashcat.exe -I`**
+**`hashcat -I`**
 
 ```bash
 hashcat -I                                                                                                                                                         130 ⨯
@@ -329,7 +329,7 @@ OpenCL Platform ID #2
 
 - Benchmark hashcat
 
-**`.\hashcat.exe -b`**
+**`hashcat -b`**
 
 - GPU is used
 
@@ -522,9 +522,9 @@ Stopped: Wed Sep  7 16:10:37 2022
 
 
 
-## Virtual Machine
+## Linux Virtual Machine
 
-**`.\hashcat.exe -I`**
+**`hashcat -I`**
 
 ```bash
 hashcat -I              
@@ -551,12 +551,12 @@ OpenCL Platform ID #1
 
 ```
 
-**`.\hashcat.exe -b`**
+**`hashcat -b`**
 
 - CPU is used
 
 ```bash
-.\hashcat.exe -b
+hashcat -b
 
 hashcat (v6.2.5) starting in benchmark mode
 
