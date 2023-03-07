@@ -17,9 +17,9 @@
     * [Vagrant](windows-notes/Tools/vagrant\_win.md)
 
 - 🐧 Linux
-  - [Linux Stuff](linux-notes/linuxstuff.md)
   - [Linux Distros](linux-notes/distros/README.md)
     - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
+  - [Linux Stuff](linux-notes/linuxstuff.md)
   - [Linux Tools](linux-notes/tools/README.md)
     - [Terminator](linux-notes/tools/Terminator\_Shortcuts.md)
 ## 🖥️ Cyber Everything
