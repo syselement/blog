@@ -18,8 +18,10 @@
 
 - 🐧 Linux
   - [Linux Stuff](linux-notes/linuxstuff.md)
-  - [Linux Tools](linux-notes/Tools/README.md)
-    - [Terminator](linux-notes/Tools/Terminator\_Shortcuts.md)
+  - [Linux Distros](linux-notes/distros/README.md)
+    - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
+  - [Linux Tools](linux-notes/tools/README.md)
+    - [Terminator](linux-notes/tools/Terminator\_Shortcuts.md)
 ## 🖥️ Cyber Everything
 
 * [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
