@@ -12,9 +12,10 @@
 ## 🔳 Operating Systems Notes
 
 * 🪟 Windows
-  * [Windows Tools](windows-notes/Tools/README.md)
-    * [Hashcat](windows-notes/Tools/hashcat\_win.md)
-    * [Vagrant](windows-notes/Tools/vagrant\_win.md)
+  * [Windows Tools](windows-notes/tools/README.md)
+    * [Hashcat](windows-notes/tools/hashcat\_win.md)
+    * [Vagrant](windows-notes/tools/vagrant\_win.md)
+  * [Windows Virtual Machines](windows-notes/vms/README.md)
 
 - 🐧 Linux
   - [Linux Distros](linux-notes/distros/README.md)
