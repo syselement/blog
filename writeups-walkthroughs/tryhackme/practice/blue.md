@@ -38,7 +38,7 @@ background # or CTRL+Z
 
 ## Escalate
 
-- Payload use was `windows/x64/shell/reverse_tcp`, so convert the shell to a `meterpreter` shell.
+- Used payload was `windows/x64/shell/reverse_tcp`, so convert the shell to a `meterpreter` shell.
 
 ```bash
 search shell_to_meterpreter
