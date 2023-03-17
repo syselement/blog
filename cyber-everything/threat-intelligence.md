@@ -222,6 +222,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 > - [Florian Roth - The Newcomer’s Guide to Cyber Threat Actor Naming](https://cyb3rops.medium.com/the-newcomers-guide-to-cyber-threat-actor-naming-7428e18ee263)
 > - [APT Groups and Operations - Google spreadsheet](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/edit#gid=1636225066)
 > - [Mandiant APT groups](https://www.fireeye.com/current-threats/apt-groups.html)
+> - [fastfire/**deepdarkCTI** - A Collection of Cyber Threat Intelligence sources from the deep and dark web ](https://github.com/fastfire/deepdarkCTI)
 
 ### Video material
 
