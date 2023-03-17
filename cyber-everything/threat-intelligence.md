@@ -197,6 +197,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 
 ### Resources
 
+> - [curated-intel - CTI-fundamentals](https://github.com/curated-intel/CTI-fundamentals)
 > - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)
 > - [CrowdStrike - **What is** Threat Intelligence? (2022)](https://www.crowdstrike.com/cybersecurity-101/threat-intelligence/)
 >   - [APT](https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/)
