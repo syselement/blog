@@ -203,17 +203,32 @@ sudo systemctl disable apt-daily.timer
 sudo systemctl mask apt-daily.service
 ```
 
-### Speedtest
+### Speedtest-cli
 
 ```bash
 wget -O /dev/null -q --show-progress https://speed.hetzner.de/10GB.bin
 ```
 
+- Or install `speedtest-cli`
+
 ```bash
 sudo apt install speedtest-cli
+```
 
-# Usage:
+```bash
 speedtest-cli --secure
+```
+
+### [Speedtest by Ookla](https://www.speedtest.net/apps/cli)
+
+```bash
+sudo apt install curl
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+sudo apt install speedtest
+```
+
+```bash
+speedtest
 ```
 
 ### Change password at boot - Single User Mode
