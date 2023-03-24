@@ -81,6 +81,8 @@ Login default credentials are `vagrant`:`vagrant`
 vagrant halt
 ```
 
+- If this doesn't work, proceed with manual shutdown of the Virtual Machines inside VMware/VirtualBox.
+
 ## [Vulnerabilities List](https://github.com/rapid7/metasploitable3/wiki/Vulnerabilities)
 
 > # GlassFish
