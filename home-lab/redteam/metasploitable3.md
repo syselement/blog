@@ -44,11 +44,38 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/rapid7/metasploitable3
 
 - Whitelist `metasploitable3-workspace` folder in the Antivirus
 
+### Configure Vagrantfile (only for VMware)
+
+📌 With VMware Workstation, Vagrant file needs some additional lines to make it work and show the VMs in the VMware Library
+
+- Open `Vagrantfile` with a text editor
+- Add those lines for both VMs
+
+```bash
+ub1404.vm.provider "vmware_desktop" do |v|
+  v.vmx["displayname"] = "Metasploitable3-ub1404"
+  v.memory = 2048
+  v.cpus = 2
+  v.gui = true
+end
+```
+
+```bash
+win2k8.vm.provider "vmware_desktop" do |v|
+  v.vmx["displayname"] = "Metasploitable3-win2k8"
+  v.memory = 4096
+  v.cpus = 2
+  v.gui = true
+end
+```
+
+![Vagrantfile for VMware](.gitbook/assets/image-20230324173759137.png)
+
 ## Run the VMs
 
 ### VMware
 
-- Run vagrant with this command to download and start the VMs with **VMware** 
+- Run vagrant with this commands to download and start the VMs with **VMware** 
 
 ```bash
 vagrant cap provider scrub_forwarded_ports
