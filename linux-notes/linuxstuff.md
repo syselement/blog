@@ -340,18 +340,7 @@ anonsurf start
 anonsurf myip
 ```
 
-### Install Nessus
-
-* Link [Nessus](https://docs.tenable.com/nessus)
-
-```bash
-sudo dpkg -i Nessus-10.1.1-debian6_amd64.deb
-systemctl start nessusd.service
-
-# Update Nessus:
-sudo systemctl stop nessusd.service
-sudo /opt/nessus/sbin/nessuscli update
-```
+### [Install Nessus](tools/Nessus.md)
 
 ### Install Asbru CM (Linux Desktop)
 

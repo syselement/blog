@@ -187,10 +187,12 @@ vagrant halt
 vagrant destroy
 ```
 
-> - After stopping the VM with `vagrant halt`, at the second boot with `vagrant up` this error could appear:
+> 📌
 >
-> *Vagrant encountered an error while attempting to prune unused
-> port forward entries*
+> - After stopping the VM with `vagrant halt`, at the second boot with `vagrant up` this error could appear ❗:
+>
+> ***Vagrant encountered an error while attempting to prune unused
+> port forward entries***
 >
 > - To solve this port forwarding issue use this command:
 >

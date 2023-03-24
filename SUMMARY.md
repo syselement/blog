@@ -22,7 +22,8 @@
     - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
   - [Linux Stuff](linux-notes/linuxstuff.md)
   - [Linux Tools](linux-notes/tools/README.md)
-    - [Terminator](linux-notes/tools/Terminator\_Shortcuts.md)
+    - [Nessus Essentials](linux-notes/tools/Nessus.md)
+    - [Terminator](linux-notes/tools/Terminator-Shortcuts.md)
 ## 🖥️ Cyber Everything
 
 * [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
@@ -30,9 +31,10 @@
 ## 🔬 Home Lab
 
 * [🔴 Red Team Labs](home-lab/redteam/README.md)
-  * [Hashcat Password Cracking](home-lab/redteam/lab\_hashcat.md)
+  * [Hashcat Password Cracking](home-lab/redteam/lab-hashcat.md)
+  * [Metasploitable3](home-lab/redteam/metasploitable3.md)
 * [🔵 Blue Team Labs](home-lab/blueteam/README.md)
-  * [Detection Lab](home-lab/blueteam/lab\_DetectionLab.md)
+  * [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
 * [🧪 Misc Labs](home-lab/misc/README.md)
   * [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
 
