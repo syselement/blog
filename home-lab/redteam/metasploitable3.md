@@ -1,5 +1,7 @@
 # Metasploitable3
 
+![](.gitbook/assets/metasploitable3.png)
+
 ## Description
 
 > [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
