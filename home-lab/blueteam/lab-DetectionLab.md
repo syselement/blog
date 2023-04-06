@@ -71,12 +71,22 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 ### Lab Information and Credentials
 
 > * **Domain Name:** windomain.local
-> * **Admininstrator login:** `vagrant`:`vagrant`
-> * **Fleet login:** [https://192.168.56.105:8412](https://192.168.56.105:8412) - `admin@detectionlab.network`:`Fl33tpassword!`
-> * **Splunk login:** [https://192.168.56.105:8000](https://192.168.56.105:8000) - `admin`:`changeme`
->   * _MS ATA login:_ [_https://192.168.56.103_](https://192.168.56.103) _- wef\vagrant:vagrant_ \[**DEPRECATED**]
-> * **Guacamole login:** [http://192.168.56.105:8080/guacamole](http://192.168.56.105:8080/guacamole) - `vagrant`:`vagrant`
-> * **Velociraptor login:** [https://192.168.56.105:9999](https://192.168.56.105:9999) - `admin`:`changeme`
+> * **Admininstrator login:** 
+>   * `vagrant`:`vagrant`
+>
+> * **Fleet login:** [https://192.168.56.105:8412](https://192.168.56.105:8412)
+>   * `admin@detectionlab.network`:`Fl33tpassword!`
+>
+> * **Splunk login:** [https://192.168.56.105:8000](https://192.168.56.105:8000)
+>   * `admin`:`changeme`
+>   * *MS ATA login: [https://192.168.56.103](https://192.168.56.103) - `wef\vagrant`:`vagrant` \[**DEPRECATED**]*
+>
+> * **Guacamole login:** [http://192.168.56.105:8080/guacamole](http://192.168.56.105:8080/guacamole)
+>   * `vagrant`:`vagrant`
+>
+> * **Velociraptor login:** [https://192.168.56.105:9999](https://192.168.56.105:9999)
+>   * `admin`:`changeme`
+>
 >
 > ### Lab Hosts
 >
