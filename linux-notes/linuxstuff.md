@@ -355,6 +355,24 @@ anonsurf start
 anonsurf myip
 ```
 
+### [Install Metasploit Framework](https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html)
+
+```bash
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+```
+
+- Or use APT package manager on Debian-based distros
+
+```bash
+sudo apt install metasploit-framework
+```
+
+- Run it to start the initial setup
+
+```bash
+/opt/metasploit-framework/bin/msfconsole
+```
+
 ### [Install Nessus](tools/Nessus.md)
 
 ### Install Asbru CM (Linux Desktop)
@@ -454,7 +472,9 @@ nmap -p80,21,23 192.168.254.129
 
 ### METASPLOITABLE VM
 
-* [Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+> 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
+
+* [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
 
 * Guides:
   * [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
