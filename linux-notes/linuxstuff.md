@@ -84,6 +84,7 @@ sudo apt --purge autoremove
 ```bash
 nano ~/.bashrc
 # Append the following text with personal commands. O.S. update in this case:
+
 alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
 
 # Load changes:
@@ -98,6 +99,7 @@ alias
 ```bash
 nano ~/.zshrc
 # Append the following text with personal commands. O.S. update in this case:
+
 alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
 
 # Load changes:
@@ -116,7 +118,6 @@ sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 sudo timedatectl set-timezone "Europe/Rome"
 
 sudo dpkg-reconfigure keyboard-configuration
-
 ```
 
 ### Install packages (deb, etc)
