@@ -13,8 +13,8 @@
 
 * 🪟 Windows
   * [Windows Tools](windows-notes/tools/README.md)
-    * [Hashcat](windows-notes/tools/hashcat\_win.md)
-    * [Vagrant](windows-notes/tools/vagrant\_win.md)
+    * [Hashcat](windows-notes/tools/hashcat-win.md)
+    * [Vagrant](windows-notes/tools/vagrant-win.md)
   * [Windows Virtual Machines](windows-notes/vms/README.md)
 
 - 🐧 Linux
