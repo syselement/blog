@@ -16,6 +16,7 @@
     * [Hashcat](windows-notes/tools/hashcat-win.md)
     * [Vagrant](windows-notes/tools/vagrant-win.md)
   * [Windows Virtual Machines](windows-notes/vms/README.md)
+    * [Windows 11 - VM](windows-notes/vms/win11-vm.md)
 
 - 🐧 Linux
   - [Linux Distros](linux-notes/distros/README.md)
