@@ -44,6 +44,7 @@ cat /proc/swaps
 swapon -s
 grep Swap /proc/meminfo
 free -m
+
 htop
 ```
 
