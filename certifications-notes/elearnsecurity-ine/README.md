@@ -6,6 +6,6 @@ description: Direct links to the certifications and training notes
 
 ![elearnsecurity.com - © eLearnSecurity | ine.com - © INE](.gitbook/assets/elearninginecovermid.png)
 
-## [INE Training - Notes](https://syselement.gitbook.io/ine/)
+## [INE Training - Notes](https://blog.syselement.com/ine/)
 
 - [ ] [eJPTv2 - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
