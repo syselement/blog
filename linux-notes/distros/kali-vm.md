@@ -123,6 +123,7 @@ sudo update-alternatives --config x-terminal-emulator
 
 - Go to `Preferences - Global` and set **Window state** to `Maximized`
 - Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
+- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
 - Go to `Preferences - Layouts` and click on `Add` button to create a new layout and give it a name.
 - This should create the `~/.config/terminator/config` file.
 - Now you can start `terminator` using the saved layout using: 
