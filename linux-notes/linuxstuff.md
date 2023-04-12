@@ -366,13 +366,21 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 - Or use APT package manager on Debian-based distros
 
 ```bash
-sudo apt install metasploit-framework
+sudo apt update && sudo apt install metasploit-framework -y
 ```
 
-- Run it to start the initial setup
+- Enable `postgresql` at boot, start the service and initialize MSF database
 
 ```bash
-/opt/metasploit-framework/bin/msfconsole
+sudo systemctl enable postgresql
+sudo systemctl restart postgresql
+sudo msfdb init
+```
+
+- Run **`msfconsole`** to start the Metasploit Framework Console
+
+```bash
+msfconsole
 ```
 
 ### [Install Nessus](tools/Nessus.md)
