@@ -92,6 +92,14 @@ vagrant up --provider=vmware_desktop
 vagrant up --provider=virtualbox
 ```
 
+### Win2k8
+
+- To fully disable firewall on the Win2k8 VM, run with `CMD` ad admin
+
+```bash
+netsh advfirewall set allprofiles state off
+```
+
 ## Connection
 
 When both the VMs are ready, they can be opened.
