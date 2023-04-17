@@ -1,4 +1,4 @@
-# ⚙️ Windows Stuff
+# Windows Stuff
 
 ![](.gitbook/assets/win2021-logo.png)
 
