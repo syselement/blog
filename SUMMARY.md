@@ -12,19 +12,20 @@
 ## 🔳 Operating Systems Notes
 
 * 🪟 Windows
+  * [📝 Windows Stuff](windows-notes/winstuff.md)
   * [Windows Tools](windows-notes/tools/README.md)
     * [Hashcat](windows-notes/tools/hashcat-win.md)
     * [Vagrant](windows-notes/tools/vagrant-win.md)
   * [Windows Virtual Machines](windows-notes/vms/README.md)
     * [Windows 11 - VM](windows-notes/vms/win11-vm.md)
 
-- 🐧 Linux
-  - [Linux Distros](linux-notes/distros/README.md)
+* 🐧 Linux
+  * [📝 Linux Stuff](linux-notes/linuxstuff.md)
+  * [Linux Distros](linux-notes/distros/README.md)
     - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
-  - [Linux Stuff](linux-notes/linuxstuff.md)
-  - [Linux Tools](linux-notes/tools/README.md)
-    - [Nessus Essentials](linux-notes/tools/Nessus.md)
-    - [Terminator](linux-notes/tools/Terminator-Shortcuts.md)
+  * [Linux Tools](linux-notes/tools/README.md)
+    * [Nessus Essentials](linux-notes/tools/Nessus.md)
+    * [Terminator](linux-notes/tools/Terminator-Shortcuts.md)
 ## 🖥️ Cyber Everything
 
 * [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
@@ -46,7 +47,6 @@
     * [Intro to Defensive Security](writeups-walkthroughs/tryhackme/learn/introduction-to-defensive-security.md)
   * [🎯 Practice](writeups-walkthroughs/tryhackme/practice/README.md)
     * [Blue](writeups-walkthroughs/tryhackme/practice/blue.md)
-  
 * [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
 * [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
