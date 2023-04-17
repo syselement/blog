@@ -12,7 +12,7 @@
 ## 🔳 Operating Systems Notes
 
 * 🪟 Windows
-  * [📝 Windows Stuff](windows-notes/winstuff.md)
+  * [⚙️ Windows Stuff](windows-notes/winstuff.md)
   * [Windows Tools](windows-notes/tools/README.md)
     * [Hashcat](windows-notes/tools/hashcat-win.md)
     * [Vagrant](windows-notes/tools/vagrant-win.md)
@@ -20,7 +20,7 @@
     * [Windows 11 - VM](windows-notes/vms/win11-vm.md)
 
 * 🐧 Linux
-  * [📝 Linux Stuff](linux-notes/linuxstuff.md)
+  * [🔧 Linux Stuff](linux-notes/linuxstuff.md)
   * [Linux Distros](linux-notes/distros/README.md)
     - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
   * [Linux Tools](linux-notes/tools/README.md)
