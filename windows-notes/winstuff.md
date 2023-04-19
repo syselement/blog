@@ -4,9 +4,9 @@
 
 
 
-> 📜 This is my Windows notes repository, where I keep any notes I have about the Windows operating system and Win programs.
+> 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 
-* _Some commands can be outdated._
+* 📌 _Some commands can be outdated._
 
 ## CMD commands
 

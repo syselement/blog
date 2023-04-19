@@ -2,10 +2,10 @@
 
 ![](.gitbook/assets/Linux-logo_small.png)
 
-> 📜 This is my Linux notes repository, where I keep any notes I have about the Linux operating system and Unix programs.
+> 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
 
-* _Some commands can be outdated._
-* _Most of the commands are for **Debian-based** distributions._
+* 📌_Some commands can be outdated._
+* ❗_Most of the commands are for **Debian-based** distributions._
 
 ## Terminal commands
 
