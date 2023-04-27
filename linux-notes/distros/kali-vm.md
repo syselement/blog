@@ -90,6 +90,15 @@ sudo update-grub
 reboot
 ```
 
+### New SSH Keys
+
+```bash
+sudo rm /etc/ssh/ssh_host_*
+ssh-keygen -t rsa
+```
+
+
+
 
 
 ## Tools
