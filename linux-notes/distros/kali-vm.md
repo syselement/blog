@@ -267,5 +267,15 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/pac
 sudo apt update && sudo apt install -y code
 ```
 
+## Offensive Sec Tools
 
+### [Katana](https://github.com/projectdiscovery/katana)
+
+```bash
+sudo apt install -y golang
+
+go install github.com/projectdiscovery/katana/cmd/katana@latest
+
+sudo cp ~/go/bin/katana /bin/
+```
 

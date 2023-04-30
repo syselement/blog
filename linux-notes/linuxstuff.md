@@ -385,6 +385,37 @@ msfconsole
 
 ### [Install Nessus](tools/Nessus.md)
 
+### [Install Gophish](https://github.com/gophish/gophish/releases/)
+
+```bash
+cd /opt/
+
+# Get the latest version link from https://github.com/gophish/gophish/releases/
+sudo wget https://github.com/gophish/gophish/releases/download/v0.12.1/gophish-v0.12.1-linux-64bit.zip
+
+sudo unzip -d gophish gophish-v0.12.1-linux-64bit.zip
+
+sudo chmod +x gophish/gophish
+
+cd /opt/gophish && sudo ./gophish
+```
+
+- Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
+
+```bash
+docker run -ti -p 3333:3333 --rm gophish/demo
+```
+
+### [Install Katana](https://github.com/projectdiscovery/katana)
+
+```bash
+sudo apt install -y golang
+
+go install github.com/projectdiscovery/katana/cmd/katana@latest
+
+sudo cp ~/go/bin/katana /bin/
+```
+
 ### Install Asbru CM (Linux Desktop)
 
 * Link [Asbru](https://www.asbru-cm.net/)
