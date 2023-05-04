@@ -267,6 +267,14 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/pac
 sudo apt update && sudo apt install -y code
 ```
 
+### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)
+
+```bash
+sudo apt update && sudo apt install -y docker.io
+sudo systemctl enable docker --now
+sudo usermod -aG docker $USER
+```
+
 ## Offensive Sec Tools
 
 ### [Katana](https://github.com/projectdiscovery/katana)

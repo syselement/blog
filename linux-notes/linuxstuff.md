@@ -385,6 +385,8 @@ msfconsole
 
 ### [Install Nessus](tools/Nessus.md)
 
+### [Install Docker](https://docs.docker.com/engine/install/debian/)
+
 ### [Install Gophish](https://github.com/gophish/gophish/releases/)
 
 ```bash
@@ -426,23 +428,26 @@ curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.
 sudo apt install asbru-cm
 ```
 
-### Install Burpsuite
+### Install BurpSuite
 
-- Link [Burpsuite Download](https://portswigger.net/burp/communitydownload)
-- Used to update Burpsuite too
+- Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
+  - Use this for updating too
+
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits https://portswigger.net/burp/communitydownload
 
-cd /home/user/Downloads
+cd /home/$USER/Downloads
 chmod +x ./burpsuite_community_linux_*.sh
 sudo ./burpsuite_community_linux_*.sh
+# Confirm to update or install the new version in the /opt/burpsuite directory.
 
-# Confirm to update or install the new version in the /opt/tools/burpsuite directory.
 
 sudo nano /usr/bin/burpsuite
-    #!/bin/sh
-    /opt/tools/burpsuite/jre/bin/java --illegal-access=permit -noverify -jar /opt/tools/burpsuite/burpsuite_community.jar
+# Add those 2 lines to the "/usr/bin/burpsuite" file
+
+#!/bin/sh
+/opt/burpsuite/jre/bin/java --illegal-access=permit -noverify -jar /opt/burpsuite/burpsuite_community.jar
 
 sudo chmod +x /usr/bin/burpsuite
 
