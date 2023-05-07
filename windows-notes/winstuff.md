@@ -6,7 +6,7 @@
 
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 
-* 📌 _Some commands can be outdated._
+* 📌 *Some commands can be outdated.*
 
 ## CMD commands
 
