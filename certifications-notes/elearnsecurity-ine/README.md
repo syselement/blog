@@ -9,3 +9,4 @@ description: Direct links to the certifications and training notes
 ## [INE Training - Notes](https://blog.syselement.com/ine/)
 
 - [x] [eJPT - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
+  - [🔗📜eJPT - CheatSheet](https://blog.syselement.com/ine/courses/ejpt/ejpt-cheatsheet)
