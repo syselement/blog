@@ -47,6 +47,8 @@
     * [Intro to Defensive Security](writeups-walkthroughs/tryhackme/learn/introduction-to-defensive-security.md)
   * [🎯 Practice](writeups-walkthroughs/tryhackme/practice/README.md)
     * [Blue](writeups-walkthroughs/tryhackme/practice/blue.md)
+    * [Ice](writeups-walkthroughs/tryhackme/practice/ice.md)
+    * [Blaster](writeups-walkthroughs/tryhackme/practice/blaster.md)
 * [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
 * [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
