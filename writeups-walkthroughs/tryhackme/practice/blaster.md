@@ -95,7 +95,7 @@ Check Internet Explorer history.
 - `CVE-2019-1388` - Windows Privilege Escalation Through UAC
 - `hhupd.exe` on desktop
 
-## Privesc - UAC Bypass
+## Privilege Escalation
 
 - Use `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
   - `cmd` user: `nt authority\system`
