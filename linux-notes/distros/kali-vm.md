@@ -2,34 +2,34 @@
 
 ## First Install - Virtual Machine
 
-- Create a new Virtual Machine in VMWare with preferred specs:
-  - Processors: `1 CPU - 2 Cores`
-  - RAM Memory: `4 GB`
-  - Hard Disk: `40 GB`
-  - CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check *Connect at power on*
-  - Network: set it as *NAT*
-- Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
+* Create a new Virtual Machine in VMWare with preferred specs:
+  * Processors: `1 CPU - 2 Cores`
+  * RAM Memory: `4 GB`
+  * Hard Disk: `40 GB`
+  * CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check _Connect at power on_
+  * Network: set it as _NAT_
+* Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
 
-![](.gitbook/assets/image-20230307160636827.png)
+![](.gitbook/assets/image-20230307160634854.png)
 
 ![kali-install](.gitbook/assets/kali-install.gif)
 
 ## First Boot & Update
 
-- Boot Kali Linux
-- Open the Terminal and run the command
+* Boot Kali Linux
+* Open the Terminal and run the command
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
 ```
 
-> - **`full-upgrade`** performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
-> - This command will upgrade the system to the latest Kali version.
-> - Tips from the [Updating Kali](https://www.kali.org/docs/general-use/updating-kali/) post:
->   - ❗ *You should be checking for updates every few weeks*
->   - 📌 *A good practice is that you ensure **all tools work before an engagement** and during that engagement you should not update*
+> * **`full-upgrade`** performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
+> * This command will upgrade the system to the latest Kali version.
+> * Tips from the [Updating Kali](https://www.kali.org/docs/general-use/updating-kali/) post:
+>   * ❗ _You should be checking for updates every few weeks_
+>   * 📌 _A good practice is that you ensure **all tools work before an engagement** and during that engagement you should not update_
 
-- Reboot the system
+* Reboot the system
 
 ```bash
 reboot
@@ -37,7 +37,7 @@ reboot
 
 ![kali-upgrade](.gitbook/assets/kali-upgrade.gif)
 
-- Customize Kali and finish off the setup using `kali-tweaks`
+* Customize Kali and finish off the setup using `kali-tweaks`
 
 ```bash
 kali-tweaks
@@ -51,7 +51,7 @@ kali-tweaks
 nano ~/.zshrc
 ```
 
-- Append the following text with the necessary commands to update all packages:
+* Append the following text with the necessary commands to update all packages:
 
 ```bash
 # Upgrade all packages and remove unused packages
@@ -59,14 +59,14 @@ nano ~/.zshrc
 alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
 ```
 
-- Save and exit.
-- Reload the zshell configuration:
+* Save and exit.
+* Reload the zshell configuration:
 
 ```bash
 source ~/.zshrc
 ```
 
-- Test the command
+* Test the command
 
 ```bash
 updateme
@@ -82,7 +82,7 @@ updateme
 sudo nano /etc/default/grub
 ```
 
-- Set the seconds in the GRUB_TIMEOUT value, save and exit the file
+* Set the seconds in the GRUB\_TIMEOUT value, save and exit the file
 
 ```bash
 GRUB_TIMEOUT=1
@@ -97,15 +97,11 @@ sudo rm /etc/ssh/ssh_host_*
 ssh-keygen -t rsa
 ```
 
-
-
-
-
 ## Tools
 
 ### Basic Tools
 
-- Install basic tools
+* Install basic tools
 
 ```bash
 sudo apt install -y apt-transport-https curl duf flameshot htop kali-wallpapers-all neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
@@ -117,7 +113,7 @@ sudo apt install -y apt-transport-https curl duf flameshot htop kali-wallpapers-
 sudo apt install -y terminator
 ```
 
-- From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
+* From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
 
 ![](.gitbook/assets/image-20230307153127021.png)
 
@@ -127,22 +123,21 @@ sudo update-alternatives --config x-terminal-emulator
 
 ![](.gitbook/assets/image-20230307152343811.png)
 
-- Set up your layout. `CTRL+SHIFT+O` and `CTRL+SHIFT+E` in my case.
-  - [Terminator Shortcuts here](../tools/Terminator_Shortcuts.md)
-
-- Go to `Preferences - Global` and set **Window state** to `Maximized`
-- Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
-- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
-- Go to `Preferences - Layouts` and click on `Add` button to create a new layout and give it a name.
-- This should create the `~/.config/terminator/config` file.
-- Now you can start `terminator` using the saved layout using: 
+* Set up your layout. `CTRL+SHIFT+O` and `CTRL+SHIFT+E` in my case.
+  * [Terminator Shortcuts here](../tools/Terminator\_Shortcuts.md)
+* Go to `Preferences - Global` and set **Window state** to `Maximized`
+* Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
+* Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
+* Go to `Preferences - Layouts` and click on `Add` button to create a new layout and give it a name.
+* This should create the `~/.config/terminator/config` file.
+* Now you can start `terminator` using the saved layout using:
 
 ```bash
 terminator -l <yourLayout>
 ```
 
-- Edit the `~/.config/terminator/config` file, rename *yourLayout* to `default` and remove/rename the previous default layout. Now, when Terminator starts without any parameters, it will load your custom [[default]] layout!
-  - Edit the [[[terminalx]]]/ `command = neofetch;zsh` for the desired terminal, so that it will run your custom command during startup!!
+* Edit the `~/.config/terminator/config` file, rename _yourLayout_ to `default` and remove/rename the previous default layout. Now, when Terminator starts without any parameters, it will load your custom \[\[default]] layout!
+  * Edit the \[\[\[terminalx]]]/ `command = neofetch;zsh` for the desired terminal, so that it will run your custom command during startup!!
 
 ```bash
 nano ~/.config/terminator/config
@@ -217,7 +212,7 @@ nano ~/.config/terminator/config
 [plugins]
 ```
 
-- **`CTRL+ALT+T`** is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
+* **`CTRL+ALT+T`** is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
 
 ![](.gitbook/assets/image-20230307154541533.png)
 
@@ -231,7 +226,7 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt update && sudo apt install -y sublime-text
 ```
 
-- Run it with **`subl`** command.
+* Run it with **`subl`** command.
 
 ### Brave
 
@@ -288,4 +283,3 @@ go install github.com/projectdiscovery/katana/cmd/katana@latest
 
 sudo cp ~/go/bin/katana /bin/
 ```
-

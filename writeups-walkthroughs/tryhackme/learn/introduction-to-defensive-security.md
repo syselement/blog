@@ -1,6 +1,6 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<.gitbook/assets/tryhackme-logo-small (2).png>)
 
 > 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
 >
@@ -43,7 +43,7 @@ A **report** detailing the obtained evidence for the case concludes the digital 
 
 ### Practical Example
 
-> ❗_Everything we do on our digital devices, from smartphones to computers, leaves traces._
+> ❗\_Everything we do on our digital devices, from smartphones to computers, leaves traces.\_
 
 #### Doc Metadata
 
@@ -431,7 +431,7 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 </details>
 
-------
+***
 
 ## [Security Operations](https://tryhackme.com/jr/securityoperations)
 

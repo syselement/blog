@@ -8,33 +8,33 @@
 >
 > Metasploitable3 is a VM that is built from the ground up with a large amount of security vulnerabilities. It is intended to be used as a target for testing exploits with [Metasploit](https://github.com/rapid7/metasploit-framework).
 >
-> - [Vulnerabilities](https://github.com/rapid7/metasploitable3/wiki/Vulnerabilities)
+> * [Vulnerabilities](https://github.com/rapid7/metasploitable3/wiki/Vulnerabilities)
 
 ## Credentials
 
-> - U: `vagrant` P: `vagrant`
-> - U: `leah_organa` P: `help_me_obiw@n`
-> - U: `luke_skywalker` P: `use_the_f0rce`
-> - U: `han_solo` P: `sh00t-first`
-> - U: `artoo_detoo` P: `beep_b00p`
-> - U: `c_three_pio` P: `pr0t0c0l`
-> - U: `ben_kenobi` P: `thats_no_moon`
-> - U: `darth_vader` P: `d@rk_sid3`
-> - U: `anakin_skywalker` P: `yipp33!!`
-> - U: `jarjar_binks` P: `mesah_p@ssw0rd`
-> - U: `lando_calrissian` P: `b@ckstab`
-> - U: `boba_fett` P: `mandalorian1`
-> - U: `jabba_hutt` P: `not-a-slug12`
-> - U: `greedo` P: `hanShotFirst!`
-> - U: `chewbacca` P: `rwaaaaawr5`
-> - U: `kylo_ren` P: `daddy_issues1`
+> * U: `vagrant` P: `vagrant`
+> * U: `leah_organa` P: `help_me_obiw@n`
+> * U: `luke_skywalker` P: `use_the_f0rce`
+> * U: `han_solo` P: `sh00t-first`
+> * U: `artoo_detoo` P: `beep_b00p`
+> * U: `c_three_pio` P: `pr0t0c0l`
+> * U: `ben_kenobi` P: `thats_no_moon`
+> * U: `darth_vader` P: `d@rk_sid3`
+> * U: `anakin_skywalker` P: `yipp33!!`
+> * U: `jarjar_binks` P: `mesah_p@ssw0rd`
+> * U: `lando_calrissian` P: `b@ckstab`
+> * U: `boba_fett` P: `mandalorian1`
+> * U: `jabba_hutt` P: `not-a-slug12`
+> * U: `greedo` P: `hanShotFirst!`
+> * U: `chewbacca` P: `rwaaaaawr5`
+> * U: `kylo_ren` P: `daddy_issues1`
 >
 > All of the above users are in various user groups of varying levels of privileges.
 
 ## Installation - Vagrant
 
-- Install [Vagrant](../../windows-notes/tools/vagrant_win.md)
-- Open folder with Powershell.
+* Install [Vagrant](../../windows-notes/tools/vagrant\_win.md)
+* Open folder with Powershell.
 
 ```bash
 vagrant plugin install vagrant-reload
@@ -44,14 +44,14 @@ cd metasploitable3-workspace
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/rapid7/metasploitable3/master/Vagrantfile" -OutFile "Vagrantfile"
 ```
 
-- Whitelist `metasploitable3-workspace` folder in the Antivirus
+* Whitelist `metasploitable3-workspace` folder in the Antivirus
 
 ### Configure Vagrantfile (only for VMware)
 
 📌 With VMware Workstation, Vagrant file needs some additional lines to make it work and show the VMs in the VMware Library
 
-- Open `Vagrantfile` with a text editor
-- Add those lines for both VMs
+* Open `Vagrantfile` with a text editor
+* Add those lines for both VMs
 
 ```bash
 ub1404.vm.provider "vmware_desktop" do |v|
@@ -77,7 +77,7 @@ end
 
 ### VMware
 
-- Run vagrant with this commands to download and start the VMs with **VMware** 
+* Run vagrant with this commands to download and start the VMs with **VMware**
 
 ```bash
 vagrant cap provider scrub_forwarded_ports
@@ -86,7 +86,7 @@ vagrant up --provider=vmware_desktop
 
 ### VirtualBox
 
-- Or run vagrant with this command to download and start the VMs with **VirtualBox** 
+* Or run vagrant with this command to download and start the VMs with **VirtualBox**
 
 ```bash
 vagrant up --provider=virtualbox
@@ -94,7 +94,7 @@ vagrant up --provider=virtualbox
 
 ### Win2k8
 
-- To fully disable firewall on the Win2k8 VM, run with `CMD` ad admin
+* To fully disable firewall on the Win2k8 VM, run with `CMD` ad admin
 
 ```bash
 netsh advfirewall set allprofiles state off
@@ -112,566 +112,566 @@ Login default credentials are `vagrant`:`vagrant`
 
 ## Stop the VMs
 
-- To stop the VMs run this command that will attempt graceful shutdown of the VMs
+* To stop the VMs run this command that will attempt graceful shutdown of the VMs
 
 ```bash
 vagrant halt
 ```
 
-- If this doesn't work, proceed with manual shutdown of the Virtual Machines inside VMware/VirtualBox.
+* If this doesn't work, proceed with manual shutdown of the Virtual Machines inside VMware/VirtualBox.
 
 ## [Vulnerabilities List](https://github.com/rapid7/metasploitable3/wiki/Vulnerabilities)
 
-> # GlassFish
+> ## GlassFish
 >
-> ### Ports
+> #### Ports
 >
-> - 4848 - HTTP
-> - 8080 - HTTP
-> - 8181 - HTTPS
+> * 4848 - HTTP
+> * 8080 - HTTP
+> * 8181 - HTTPS
 >
-> ### Credentials
+> #### Credentials
 >
-> - Username: admin
-> - Password: sploit
+> * Username: admin
+> * Password: sploit
 >
-> ### Access
+> #### Access
 >
-> - On Metasploitable3, point your browser to [http://localhost:4848](http://localhost:4848/).
-> - Login with the above credentials.
+> * On Metasploitable3, point your browser to [http://localhost:4848](http://localhost:4848/).
+> * Login with the above credentials.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open task manager and kill the java.exe process running glassfish
-> - Start: Go to Task Scheduler and find the corresponding task. Right-click and select Run.
+> * Stop: Open task manager and kill the java.exe process running glassfish
+> * Start: Go to Task Scheduler and find the corresponding task. Right-click and select Run.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2011-0807
+> * CVE-2011-0807
 >
-> ### Modules
+> #### Modules
 >
-> - exploits/multi/http/glassfish_deployer
-> - auxiliary/scanner/http/glassfish_login
+> * exploits/multi/http/glassfish\_deployer
+> * auxiliary/scanner/http/glassfish\_login
 >
-> # Apache Struts
+> ## Apache Struts
 >
-> ### Ports
+> #### Ports
 >
-> - 8282 - HTTP
+> * 8282 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
-> - Apache Tomcat Web Application Manager
->   - U: sploit
->   - P: sploit
+> * Apache Tomcat Web Application Manager
+>   * U: sploit
+>   * P: sploit
 >
-> ### Access
+> #### Access
 >
-> - To access the vulnerable application, point your browser on Metasploitable3 to http://localhost:8282/struts2-rest-showcase
-> - To access the Apache Tomcat Manager, point your browser on Metasploitable3 to [http://localhost:8282](http://localhost:8282/). Login with the above credentials.
+> * To access the vulnerable application, point your browser on Metasploitable3 to http://localhost:8282/struts2-rest-showcase
+> * To access the Apache Tomcat Manager, point your browser on Metasploitable3 to [http://localhost:8282](http://localhost:8282/). Login with the above credentials.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the Apache Tomcat 8.0 Tomcat8 service.
-> - Start: Open services.msc. Start the Apache Tomcat 8.0 Tomcat8 service.
+> * Stop: Open services.msc. Stop the Apache Tomcat 8.0 Tomcat8 service.
+> * Start: Open services.msc. Start the Apache Tomcat 8.0 Tomcat8 service.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2016-3087
+> * CVE-2016-3087
 >
-> ### Modules
+> #### Modules
 >
-> - exploit/multi/http/struts_dmi_rest_exec
+> * exploit/multi/http/struts\_dmi\_rest\_exec
 >
-> # Tomcat
+> ## Tomcat
 >
-> ### Ports
+> #### Ports
 >
-> - 8282 - HTTP
+> * 8282 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
-> - U: sploit
-> - P: sploit
+> * U: sploit
+> * P: sploit
 >
-> ### Access
+> #### Access
 >
-> - To access the Apache Tomcat Manager, point your browser on Metasploitable3 to [http://localhost:8282](http://localhost:8282/). Login with the above credentials.
+> * To access the Apache Tomcat Manager, point your browser on Metasploitable3 to [http://localhost:8282](http://localhost:8282/). Login with the above credentials.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the Apache Tomcat 8.0 Tomcat8 service.
-> - Start: Open services.msc. Start the Apache Tomcat 8.0 Tomcat8 service.
+> * Stop: Open services.msc. Stop the Apache Tomcat 8.0 Tomcat8 service.
+> * Start: Open services.msc. Start the Apache Tomcat 8.0 Tomcat8 service.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2009-3843
-> - CVE-2009-4189
+> * CVE-2009-3843
+> * CVE-2009-4189
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/http/tomcat_enum
-> - auxiliary/scanner/http/tomcat_mgr_login
-> - exploits/multi/http/tomcat_mgr_deploy
-> - exploits/multi/http/tomcat_mgr_upload
-> - post/windows/gather/enum_tomcat
+> * auxiliary/scanner/http/tomcat\_enum
+> * auxiliary/scanner/http/tomcat\_mgr\_login
+> * exploits/multi/http/tomcat\_mgr\_deploy
+> * exploits/multi/http/tomcat\_mgr\_upload
+> * post/windows/gather/enum\_tomcat
 >
-> # Jenkins
+> ## Jenkins
 >
-> ### Ports
+> #### Ports
 >
-> - 8484 - HTTP
+> * 8484 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
-> - None enabled by default
+> * None enabled by default
 >
-> ### Access
+> #### Access
 >
-> - Point your browser on Metasploitable3 to [http://localhost:8484](http://localhost:8484/).
+> * Point your browser on Metasploitable3 to [http://localhost:8484](http://localhost:8484/).
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the jenkins service.
-> - Start: Open services.msc. Start the jenkins service.
+> * Stop: Open services.msc. Stop the jenkins service.
+> * Start: Open services.msc. Start the jenkins service.
 >
-> ### Modules
+> #### Modules
 >
-> - exploits/multi/http/jenkins_script_console
-> - auxiliary/scanner/http/jenkins_enum
+> * exploits/multi/http/jenkins\_script\_console
+> * auxiliary/scanner/http/jenkins\_enum
 >
-> # IIS - FTP
+> ## IIS - FTP
 >
-> ### Ports
+> #### Ports
 >
-> - 21 - FTP
+> * 21 - FTP
 >
-> ### Credentials
+> #### Credentials
 >
 > Windows credentials
 >
-> ### Access
+> #### Access
 >
 > Any FTP client should work
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: `net stop msftpsvc`
-> - Start: `net start msftpsvc`
+> * Stop: `net stop msftpsvc`
+> * Start: `net start msftpsvc`
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/ftp/ftp_login
+> * auxiliary/scanner/ftp/ftp\_login
 >
-> # IIS - HTTP
+> ## IIS - HTTP
 >
-> ### Ports
+> #### Ports
 >
-> - 80 - HTTP
+> * 80 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
-> - U: vagrant
-> - P: vagrant
+> * U: vagrant
+> * P: vagrant
 >
-> ### Access
+> #### Access
 >
-> - Point your browser on Metasploitable3 to [http://localhost](http://localhost/).
+> * Point your browser on Metasploitable3 to [http://localhost](http://localhost/).
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the World Wide Web Publishing service.
-> - Start: Open services.msc. Start the World Wide Web Publishing service.
+> * Stop: Open services.msc. Stop the World Wide Web Publishing service.
+> * Start: Open services.msc. Start the World Wide Web Publishing service.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2015-1635
+> * CVE-2015-1635
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/dos/http/ms15_034_ulonglongadd
+> * auxiliary/dos/http/ms15\_034\_ulonglongadd
 >
-> # psexec
+> ## psexec
 >
-> ### Ports
+> #### Ports
 >
-> - 445 - SMB
-> - 139 - NetBIOS
+> * 445 - SMB
+> * 139 - NetBIOS
 >
-> ### Credentials
+> #### Credentials
 >
-> - Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
+> * Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
 >
-> ### Access
+> #### Access
 >
-> - Use the [psexec tool](https://technet.microsoft.com/en-us/sysinternals/pxexec.aspx) to run commands remotely on the target.
+> * Use the [psexec tool](https://technet.microsoft.com/en-us/sysinternals/pxexec.aspx) to run commands remotely on the target.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Enabled by default
+> * Enabled by default
 >
-> ### Vulnerabilities
+> #### Vulnerabilities
 >
-> - Multiple users with weak passwords exist on the target. Those passwords can be easily cracked and used to run remote code using psexec.
+> * Multiple users with weak passwords exist on the target. Those passwords can be easily cracked and used to run remote code using psexec.
 >
-> ### Modules
+> #### Modules
 >
-> - exploits/windows/smb/psexec
-> - exploits/windows/smb/psexec_psh
+> * exploits/windows/smb/psexec
+> * exploits/windows/smb/psexec\_psh
 >
-> # SSH
+> ## SSH
 >
-> ### Ports
+> #### Ports
 >
-> - 22 - SSH
+> * 22 - SSH
 >
-> ### Credentials
+> #### Credentials
 >
-> - Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
+> * Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
 >
-> ### Access
+> #### Access
 >
-> - Use an SSH client to connect and run commands remotely on the target.
+> * Use an SSH client to connect and run commands remotely on the target.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Enabled by default
+> * Enabled by default
 >
-> ### Vulnerabilities
+> #### Vulnerabilities
 >
-> - Multiple users with weak passwords exist on the target. Those passwords can be easily cracked. Once a session is opened, remote code can be executed using SSH.
+> * Multiple users with weak passwords exist on the target. Those passwords can be easily cracked. Once a session is opened, remote code can be executed using SSH.
 >
-> ### Modules
+> #### Modules
 >
-> # WinRM
+> ## WinRM
 >
-> ### Ports
+> #### Ports
 >
-> - 5985 - HTTPS
+> * 5985 - HTTPS
 >
-> ### Credentials
+> #### Credentials
 >
-> - Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
+> * Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
 >
-> ### Access
+> #### Access
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the Windows Remote Management service.
-> - Start: Open services.msc. Start the Windows Remote Management service.
+> * Stop: Open services.msc. Stop the Windows Remote Management service.
+> * Start: Open services.msc. Start the Windows Remote Management service.
 >
-> ### Vulnerabilities
+> #### Vulnerabilities
 >
-> - Multiple users with weak passwords exist on the target. Those passwords can be easily cracked and WinRM can be used to run remote code on the target.
+> * Multiple users with weak passwords exist on the target. Those passwords can be easily cracked and WinRM can be used to run remote code on the target.
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/winrm/winrm_cmd
-> - auxiliary/scanner/winrm/winrm_wql
-> - auxiliary/scanner/winrm/winrm_login
-> - auxiliary/scanner/winrm/winrm_auth_methods
-> - exploits/windows/winrm/winrm_script_exec
+> * auxiliary/scanner/winrm/winrm\_cmd
+> * auxiliary/scanner/winrm/winrm\_wql
+> * auxiliary/scanner/winrm/winrm\_login
+> * auxiliary/scanner/winrm/winrm\_auth\_methods
+> * exploits/windows/winrm/winrm\_script\_exec
 >
-> # chinese caidao
+> ## chinese caidao
 >
-> ### Ports
+> #### Ports
 >
-> - 80 - HTTP
+> * 80 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
-> - Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
+> * Any credentials valid for Metasploitable3 should work. See the list [here](https://github.com/rapid7/metasploitable3/wiki/Configuration#credentials)
 >
-> ### Access
+> #### Access
 >
-> - Point your browser on metasploitable3 to http://localhost/caidao.asp
+> * Point your browser on metasploitable3 to http://localhost/caidao.asp
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open services.msc. Stop the World Wide Web Publishing service.
-> - Start: Open services.msc. Start the World Wide Web Publishing service.
+> * Stop: Open services.msc. Stop the World Wide Web Publishing service.
+> * Start: Open services.msc. Start the World Wide Web Publishing service.
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/http/caidao_bruteforce_login
+> * auxiliary/scanner/http/caidao\_bruteforce\_login
 >
-> # ManageEngine
+> ## ManageEngine
 >
-> ### Ports
+> #### Ports
 >
 > 8020 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > Username: admin Password: admin
 >
-> ### Access
+> #### Access
 >
 > On Metasploitable3, point your browser to [http://localhost:8020](http://localhost:8020/). Login with the above credentials.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop ManageEngine Desktop Central Server`
-> - Start: In command prompt, do `net start ManageEngine Desktop Central Server`
+> * Stop: In command prompt, do `net stop ManageEngine Desktop Central Server`
+> * Start: In command prompt, do `net start ManageEngine Desktop Central Server`
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2015-8249
+> * CVE-2015-8249
 >
-> ### Modules
+> #### Modules
 >
-> - exploit/windows/http/manageengine_connectionid_write
+> * exploit/windows/http/manageengine\_connectionid\_write
 >
-> # ElasticSearch
+> ## ElasticSearch
 >
-> ### Ports
+> #### Ports
 >
 > 9200 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > No credentials needed
 >
-> ### Access
+> #### Access
 >
 > On Metasploitable3, point your browser to [http://localhost:9200](http://localhost:9200/).
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop elasticsearch-service-x64`
-> - Start: In command prompt, do `net start elasticsearch-service-x64`
+> * Stop: In command prompt, do `net stop elasticsearch-service-x64`
+> * Start: In command prompt, do `net start elasticsearch-service-x64`
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2014-3120
+> * CVE-2014-3120
 >
-> ### Modules
+> #### Modules
 >
-> - exploit/multi/elasticsearch/script_mvel_rce
+> * exploit/multi/elasticsearch/script\_mvel\_rce
 >
-> # Apache Axis2
+> ## Apache Axis2
 >
-> ### Ports
+> #### Ports
 >
 > 8282 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > No credentials needed
 >
-> ### Access
+> #### Access
 >
 > On Metasploitable3, point your browser to http://localhost:8282/axis2.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
 > Log into Apache Tomcat, and start or stop from the application manager.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2010-0219
+> * CVE-2010-0219
 >
-> ### Modules
+> #### Modules
 >
-> - exploit/multi/http/axis2_deployer
+> * exploit/multi/http/axis2\_deployer
 >
-> # WebDAV
+> ## WebDAV
 >
-> ### Ports
+> #### Ports
 >
 > 8585 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > No credentials needed
 >
-> ### Access
+> #### Access
 >
 > See the PR here: https://github.com/rapid7/metasploitable3/pull/16
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop wampapache`
-> - Start: In command prompt, do `net start wampapache`
+> * Stop: In command prompt, do `net stop wampapache`
+> * Start: In command prompt, do `net start wampapache`
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/http/http_put (see https://github.com/rapid7/metasploitable3/pull/16)
+> * auxiliary/scanner/http/http\_put (see https://github.com/rapid7/metasploitable3/pull/16)
 >
-> # SNMP
+> ## SNMP
 >
-> ### Ports
+> #### Ports
 >
 > 161 - UDP
 >
-> ### Credentials
+> #### Credentials
 >
 > Community String: public
 >
-> ### Access
+> #### Access
 >
-> Load the auxiliary/scanner/snmp/snmp_enum module in Metasploit and to parse the SNMP data.
+> Load the auxiliary/scanner/snmp/snmp\_enum module in Metasploit and to parse the SNMP data.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop snmp`
-> - Start: In command prompt, do `net start snmp`
+> * Stop: In command prompt, do `net stop snmp`
+> * Start: In command prompt, do `net start snmp`
 >
-> ### Modules
+> #### Modules
 >
-> - auxiliary/scanner/snmp/snmp_enum
+> * auxiliary/scanner/snmp/snmp\_enum
 >
-> # MySQL
+> ## MySQL
 >
-> ### Ports
+> #### Ports
 >
 > 3306 - TCP
 >
-> ### Credentials
+> #### Credentials
 >
 > U: root P:
 >
-> ### Access
+> #### Access
 >
 > Use the mysql client to connect to port 3306 on Metasploitable3.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop wampmysql`
-> - Start: In command prompt, do `net start wampmysql`
+> * Stop: In command prompt, do `net stop wampmysql`
+> * Start: In command prompt, do `net start wampmysql`
 >
-> ### Modules
+> #### Modules
 >
-> - windows/mysql/mysql_payload
+> * windows/mysql/mysql\_payload
 >
-> # JMX
+> ## JMX
 >
-> ### Ports
+> #### Ports
 >
 > 1617 - TCP
 >
-> ### Credentials
+> #### Credentials
 >
 > No credentials needed
 >
-> ### Access
+> #### Access
 >
 > Download the connector client and use the instructions found here: http://docs.oracle.com/javase/tutorial/jmx/remote/index.html
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop jmx`
-> - Start: In command prompt, do `net start jmx`
+> * Stop: In command prompt, do `net stop jmx`
+> * Start: In command prompt, do `net start jmx`
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2015-2342
+> * CVE-2015-2342
 >
-> ### Modules
+> #### Modules
 >
-> - multi/misc/java_jmx_server
+> * multi/misc/java\_jmx\_server
 >
-> # Wordpress
+> ## Wordpress
 >
-> ### Ports
+> #### Ports
 >
 > 8585 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > No credentials needed
 >
-> ### Access
+> #### Access
 >
 > On Metasploitable3, point your browser to http://localhost:8585/wordpress.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop wampapache`
-> - Start: In command prompt, do `net start wampapache`
+> * Stop: In command prompt, do `net stop wampapache`
+> * Start: In command prompt, do `net start wampapache`
 >
-> ### Vulnerable Plugins
+> #### Vulnerable Plugins
 >
-> - NinjaForms 2.9.42 - CVE-2016-1209
+> * NinjaForms 2.9.42 - CVE-2016-1209
 >
-> ### Modules
+> #### Modules
 >
-> - unix/webapp/wp_ninja_forms_unauthenticated_file_upload
+> * unix/webapp/wp\_ninja\_forms\_unauthenticated\_file\_upload
 >
-> # Remote Desktop
+> ## Remote Desktop
 >
-> ### Ports
+> #### Ports
 >
 > 3389 - RDP
 >
-> ### Credentials
+> #### Credentials
 >
 > Any Windows credentials
 >
-> ### Access
+> #### Access
 >
 > Use a remote desktop client. Either your OS already has one, or download a 3rd party.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: `net stop rdesktop`
-> - Start: `net start rdesktop`
+> * Stop: `net stop rdesktop`
+> * Start: `net start rdesktop`
 >
-> ### Modules
+> #### Modules
 >
 > N/A
 >
-> # PHPMyAdmin
+> ## PHPMyAdmin
 >
-> ### Ports
+> #### Ports
 >
 > 8585 - HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > U: root P:
 >
-> ### Access
+> #### Access
 >
 > On Metasploitable3, point your browser to http://localhost:8585/phpmyadmin.
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: In command prompt, do `net stop wampapache`
-> - Start: In command prompt, do `net start wampapache`
+> * Stop: In command prompt, do `net stop wampapache`
+> * Start: In command prompt, do `net start wampapache`
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2013-3238
+> * CVE-2013-3238
 >
-> ### Modules
+> #### Modules
 >
-> - multi/http/phpmyadmin_preg_replace
+> * multi/http/phpmyadmin\_preg\_replace
 >
-> # Ruby on Rails
+> ## Ruby on Rails
 >
-> ### Ports
+> #### Ports
 >
-> - 3000- HTTP
+> * 3000- HTTP
 >
-> ### Credentials
+> #### Credentials
 >
 > N/A
 >
-> ### Access
+> #### Access
 >
-> - On Metasploitable3, point your browser to [http://localhost:3000](http://localhost:3000/).
+> * On Metasploitable3, point your browser to [http://localhost:3000](http://localhost:3000/).
 >
-> ### Start/Stop
+> #### Start/Stop
 >
-> - Stop: Open task manager and kill the ruby.exe process
-> - Start: Go to Task Scheduler and find the corresponding task. Right-click and select Run.
+> * Stop: Open task manager and kill the ruby.exe process
+> * Start: Go to Task Scheduler and find the corresponding task. Right-click and select Run.
 >
-> ### Vulnerability IDs
+> #### Vulnerability IDs
 >
-> - CVE-2015-3224
+> * CVE-2015-3224
 >
-> ### Modules
+> #### Modules
 >
-> - exploit/multi/http/rails_web_console_v2_code_exec
+> * exploit/multi/http/rails\_web\_console\_v2\_code\_exec
