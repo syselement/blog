@@ -1,6 +1,6 @@
 # Ice
 
-![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (2).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
 > 🔬🌐 [Ice](https://tryhackme.com/room/ice)
 >

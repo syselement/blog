@@ -1,6 +1,6 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](<.gitbook/assets/tryhackme-logo-small (2).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
 > 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
 >

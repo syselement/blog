@@ -1,6 +1,6 @@
 # Ignite
 
-![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (1).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png>)
 
 > 🔬🌐 [Ignite](https://tryhackme.com/room/ignite)
 >

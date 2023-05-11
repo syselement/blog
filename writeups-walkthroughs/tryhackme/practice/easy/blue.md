@@ -1,6 +1,6 @@
 # Blue
 
-![tryhackme.com - © TryHackMe](<../../learn/.gitbook/assets/tryhackme-logo-small (2).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
 > 🔬🌐 [Blue](https://tryhackme.com/room/blue)
 >
