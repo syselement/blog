@@ -50,7 +50,7 @@
       * [Blue](writeups-walkthroughs/tryhackme/practice/easy/blue.md)
       * [Ice](writeups-walkthroughs/tryhackme/practice/easy/ice.md)
       * [Blaster](writeups-walkthroughs/tryhackme/practice/easy/blaster.md)
-      * [Ignite](writeups-walkthroughs/tryhackme/practice/easy/Ignite.md)
+      * [Ignite](writeups-walkthroughs/tryhackme/practice/easy/ignite.md)
 * [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
 * [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
