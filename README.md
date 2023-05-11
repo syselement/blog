@@ -8,10 +8,8 @@ Hi, **syselement** here 🧑‍💻, sharing some interesting Information Techno
 
 Test Html Script
 
-<html>
-<body>
+<details>
 
 <script src="https://tryhackme.com/badge/223836"></script>
 
-</body>
-</html>
+</details>
