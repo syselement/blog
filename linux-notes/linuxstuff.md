@@ -1,11 +1,11 @@
 # 📃Linux Stuff
 
-![](.gitbook/assets/Linux-logo\_small.png)
+![](.gitbook/assets/Linux-logo-small.png)
 
 > 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
 
-* 📌_Some commands can be outdated._
-* ❗_Most of the commands are for **Debian-based** distributions._
+* 📌*Some commands can be outdated.*
+* ❗*Most of the commands are for **Debian-based** distributions.*
 
 ## Terminal commands
 
@@ -80,7 +80,7 @@ sudo apt --purge autoremove
 
 ### Create Aliases
 
-* Ubuntu:
+- Ubuntu:
 
 ```bash
 nano ~/.bashrc
@@ -95,7 +95,7 @@ source ~/.bashrc
 alias
 ```
 
-* Kali Linux:
+- Kali Linux:
 
 ```bash
 nano ~/.zshrc
@@ -211,7 +211,7 @@ sudo systemctl mask apt-daily.service
 wget -O /dev/null -q --show-progress https://speed.hetzner.de/10GB.bin
 ```
 
-* Or install `speedtest-cli`
+- Or install `speedtest-cli`
 
 ```bash
 sudo apt install speedtest-cli
@@ -363,13 +363,13 @@ anonsurf myip
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
-* Or use APT package manager on Debian-based distros
+- Or use APT package manager on Debian-based distros
 
 ```bash
 sudo apt update && sudo apt install metasploit-framework -y
 ```
 
-* Enable `postgresql` at boot, start the service and initialize MSF database
+- Enable `postgresql` at boot, start the service and initialize MSF database
 
 ```bash
 sudo systemctl enable postgresql
@@ -377,7 +377,7 @@ sudo systemctl restart postgresql
 sudo msfdb init
 ```
 
-* Run **`msfconsole`** to start the Metasploit Framework Console
+- Run **`msfconsole`** to start the Metasploit Framework Console
 
 ```bash
 msfconsole
@@ -402,7 +402,7 @@ sudo chmod +x gophish/gophish
 cd /opt/gophish && sudo ./gophish
 ```
 
-* Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
+- Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
 
 ```bash
 docker run -ti -p 3333:3333 --rm gophish/demo
@@ -430,8 +430,9 @@ sudo apt install asbru-cm
 
 ### Install BurpSuite
 
-* Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
-  * Use this for updating too
+- Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
+  - Use this for updating too
+
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits https://portswigger.net/burp/communitydownload
@@ -520,6 +521,7 @@ nmap -p80,21,23 192.168.254.129
 > 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
 
 * [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+
 * Guides:
   * [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
   * [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
