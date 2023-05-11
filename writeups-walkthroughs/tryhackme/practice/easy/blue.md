@@ -8,6 +8,8 @@
 >
 > ![](.gitbook/assets/blue.jpg)
 
+🎯 Target IP: `10.10.177.175`
+
 ## Recon
 
 ```bash

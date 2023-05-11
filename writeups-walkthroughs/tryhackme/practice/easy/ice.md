@@ -7,6 +7,8 @@
 >
 > ![](.gitbook/assets/ice.png)
 
+🎯 Target IP: `10.10.159.9`
+
 ## Recon
 
 ```bash
