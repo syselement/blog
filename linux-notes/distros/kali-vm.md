@@ -128,7 +128,7 @@ sudo update-alternatives --config x-terminal-emulator
 ![](.gitbook/assets/image-20230307152343811.png)
 
 - Set up your layout. `CTRL+SHIFT+O` and `CTRL+SHIFT+E` in my case.
-  - [Terminator Shortcuts here](../tools/Terminator_Shortcuts.md)
+  - [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
 
 - Go to `Preferences - Global` and set **Window state** to `Maximized`
 - Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
