@@ -23,7 +23,6 @@ nmap -sV -sC -Pn -oA blaster 10.10.27.22
 ```
 
 ```bash
-PORT     STATE SERVICE       VERSION
 80/tcp   open  http          Microsoft IIS httpd 10.0
 |_http-title: IIS Windows Server
 | http-methods: 
@@ -78,10 +77,11 @@ xfreerdp /u:Wade /p:parzival /v:10.10.27.22
 Read **`user.txt`** file.
 
 <details>
-
 <summary>Reveal Flag - user.txt: 🚩</summary>
 
 `THM{HACK_PLAYER_ONE}`
+
+
 
 </details>
 
@@ -104,15 +104,20 @@ cd c:\Users\Administrator\Desktop
 type root.txt
 ```
 
-<details>
 
+
+<details>
 <summary>Reveal Flag - root.txt: 🚩</summary>
+
+
 
 `THM{COIN_OPERATED_EXPLOITATION}`
 
 <img src=".gitbook/assets/image-20230510180611161.png" alt="" data-size="original">
 
 </details>
+
+
 
 ## Exploitation
 

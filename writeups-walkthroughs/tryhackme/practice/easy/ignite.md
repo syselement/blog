@@ -94,7 +94,6 @@ cat flag.txt
 ```
 
 <details>
-
 <summary>Reveal Flag - user.txt: 🚩</summary>
 
 `6470e394cbf6dab6a91682cc8585059b`

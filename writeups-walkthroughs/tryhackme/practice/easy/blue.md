@@ -105,8 +105,10 @@ dir
 cat flag1.txt
 ```
 
-<details>
 
+
+
+<details>
 <summary>Reveal Flag1: 🚩</summary>
 
 `flag{access_the_machine}`
@@ -115,13 +117,15 @@ cat flag1.txt
 
 </details>
 
+
+
 ```bash
 cd C:/Windows/System32/config
 cat flag2.txt
 ```
 
-<details>
 
+<details>
 <summary>Reveal Flag2: 🚩</summary>
 
 `flag{sam_database_elevated_access}`
@@ -129,6 +133,8 @@ cat flag2.txt
 <img src=".gitbook/assets/image-20230316143502259.png" alt="" data-size="original">
 
 </details>
+
+
 
 ```bash
 cd C:\\Users\\
@@ -138,14 +144,15 @@ cd Documents
 cat flag3.txt
 ```
 
+
+
 <details>
-
 <summary>Reveal Flag3: 🚩</summary>
-
 `flag{admin_documents_can_be_valuable}`
 
 <img src=".gitbook/assets/image-20230316143807868.png" alt="" data-size="original">
 
 </details>
+
 
 ***

@@ -8,6 +8,8 @@
 >
 > [ROOM_PICTURE_HERE]
 
+🎯 Target IP: 
+
 ## Recon
 
 - 

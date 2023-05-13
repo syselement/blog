@@ -51,6 +51,7 @@
       - [Ice](writeups-walkthroughs/tryhackme/practice/easy/ice.md)
       - [Blaster](writeups-walkthroughs/tryhackme/practice/easy/blaster.md)
       - [Ignite](writeups-walkthroughs/tryhackme/practice/easy/ignite.md)
+      - [Retro](writeups-walkthroughs/tryhackme/practice/easy/retro.md)
 - [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
 - [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
 
