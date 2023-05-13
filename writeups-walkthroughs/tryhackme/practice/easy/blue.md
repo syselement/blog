@@ -107,11 +107,15 @@ cat flag1.txt
 
 
 
-
 <details>
+
 <summary>Reveal Flag1: 🚩</summary>
 
+
+
 `flag{access_the_machine}`
+
+
 
 <img src=".gitbook/assets/image-20230316143237356.png" alt="" data-size="original">
 
@@ -125,10 +129,19 @@ cat flag2.txt
 ```
 
 
+
+
+
+
 <details>
+
 <summary>Reveal Flag2: 🚩</summary>
 
+
+
 `flag{sam_database_elevated_access}`
+
+
 
 <img src=".gitbook/assets/image-20230316143502259.png" alt="" data-size="original">
 
@@ -147,8 +160,14 @@ cat flag3.txt
 
 
 <details>
+
 <summary>Reveal Flag3: 🚩</summary>
+
+
+
 `flag{admin_documents_can_be_valuable}`
+
+
 
 <img src=".gitbook/assets/image-20230316143807868.png" alt="" data-size="original">
 
