@@ -92,7 +92,7 @@ ls
 
 ## Exploitation
 
-Get a Meterpreter session by uploading a `PHP` file via FTP and run it through the web page.
+Get a Reverse shell by uploading a `PHP` file via FTP and run it through the web page.
 
 ```bash
 cp /usr/share/webshells/php/php-reverse-shell.php .
