@@ -153,7 +153,7 @@ wpscan --url=http://blog.thm --enumerate u
 
 ![](.gitbook/assets/image-20230515115154979.png)
 
-> 📌 Found 2 Wordpress users: `bjoel`, `kwheel`
+> 📌 Found 2 WordPress users: `bjoel`, `kwheel`
 
 Check for WordPress 5.0 vulnerabilities
 
