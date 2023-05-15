@@ -6,17 +6,36 @@
 >
 > *Description*
 >
-> [ROOM_PICTURE_HERE]
+> ROOM_PICTURE_HERE
 
 🎯 Target IP: 
 
 ## Recon
 
-- 
+```bash
+su
+echo "IP roomname.thm" >> /etc/hosts
+
+# At the end of the room
+# To clean up the last line from the /etc/hosts file
+sed -i '$ d' /etc/hosts
+```
+
+Start Reconnaissance
+
+```bash
+mkdir thm/roomname
+cd thm/roomname
+nmap roomname.thm
+
+nmap -sV -sC -Pn -oA roomname roomname.thm
+```
 
 ```bash
 
 ```
+
+
 
 ## Exploitation
 
