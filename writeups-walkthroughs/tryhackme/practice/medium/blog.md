@@ -15,7 +15,12 @@
 Add `blog.thm` to the `/etc/hosts` file
 
 ```bash
+su
 echo "10.10.54.35 blog.thm" >> /etc/hosts
+
+# At the end of the room
+# To clean up the last line from the /etc/hosts file
+sed -i '$ d' /etc/hosts
 ```
 
 Start Reconnaissance
