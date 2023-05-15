@@ -78,7 +78,11 @@ nmap -sV -sC -Pn -oA roomname roomname.thm
 - 
 
 ```bash
+find / -type f -name 'flag.txt' 2>/dev/null 
 
+find / -type f -iname user.txt 2>/dev/null
+
+find / -type f -iname root.txt 2>/dev/null
 ```
 
 
