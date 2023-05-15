@@ -53,6 +53,7 @@
       - [Ignite](writeups-walkthroughs/tryhackme/practice/easy/ignite.md)
       - [Retro](writeups-walkthroughs/tryhackme/practice/easy/retro.md)
       - [Startup](writeups-walkthroughs/tryhackme/practice/easy/startup.md)
+      - [Chill Hack](writeups-walkthroughs/tryhackme/practice/easy/chillhack.md)
     - [Medium](writeups-walkthroughs/tryhackme/practice/medium/README.md)
       - [Blog](writeups-walkthroughs/tryhackme/practice/medium/blog.md)
 - [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
