@@ -30,11 +30,17 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ![](.gitbook/assets/buymeacoffee.png)
 >
-> ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/syselement)
+> ☕ [Buy Me a Coffee](https://go.syselement.com/buymeacoffee)
 >
 > ------
 >
 > ![](.gitbook/assets/twitter.png)
 >
-> 🐦 [Follow Me](https://twitter.com/SysElement)
+> 🐦 [Follow Me](https://go.syselement.com/twitter)
+>
+> ------
+>
+> ![](.gitbook/assets/github.png)
+>
+> 🔗 [GitHub](https://go.syselement.com/github)
 
