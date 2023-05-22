@@ -1,6 +1,6 @@
 # Table of contents
 
-- [🟨Home](README.md)
+- [ℹ Home](README.md)
 
 ## 📝 Certifications Notes
 
