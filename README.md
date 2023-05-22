@@ -16,7 +16,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > ✏️ **Copyright** ©️ 2023 syselement
 > *All of the content on this notes blog is based on public material and is therefore not subject to copyright protection. However, any original content, such as my written commentary or analysis, is subject to copyright protection, with exclusive rights held by the author. You may not reproduce, distribute, or transmit any of the original content without my express written permission. However, you are welcome to share links to the content on social media or other websites.*
 
-> 📧 Contact me - [pm@syselement.com](mailto:pm@syselement.com)
+> 📧 [Contact me ](mailto:pm@syselement.com)
 >
 > ![](.gitbook/assets/buymeacoffee.png)
 >
