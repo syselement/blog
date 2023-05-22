@@ -1,6 +1,6 @@
-# 🟨 Home
+# 🟨Home
 
-## ℹ️ Introduction
+## 🤝 Introduction
 
 Hi, **syselement** here 🧑‍💻, sharing some interesting Information Technology and Cyber Security notes and stuff.
 
@@ -26,13 +26,15 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 📧 [Mail Me](mailto:pm@syselement.com)
 >
+> ------
+>
 > ![](.gitbook/assets/buymeacoffee.png)
 >
 > ☕ [Buy Me a Coffee](https://www.buymeacoffee.com/syselement)
 >
+> ------
+>
 > ![](.gitbook/assets/twitter.png)
 >
 > 🐦 [Follow Me](https://twitter.com/SysElement)
-
-
 
