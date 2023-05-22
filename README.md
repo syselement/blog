@@ -22,27 +22,25 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## ✉️ Contact
 
-> ![](.gitbook/assets/proton.png)
+> ![](.gitbook/assets/proton.svg)
 >
 > 📧 [Mail Me](mailto:pm@syselement.com)
 >
 > ------
 >
-> ![](.gitbook/assets/buymeacoffee.png)
+> ![](.gitbook/assets/buymeacoffee.svg)
 >
 > ☕ [Buy Me a Coffee](https://go.syselement.com/buymeacoffee)
 >
 > ------
 >
-> ![](.gitbook/assets/twitter.png)
+> ![](.gitbook/assets/twitter.svg)
 >
 > 🐦 [Follow Me](https://go.syselement.com/twitter)
 >
 > ------
 >
-> ![](.gitbook/assets/github.png)
->
-> ![](.gitbook/assets/github-mark-white-1684771192010-7.svg)
+> ![](.gitbook/assets/github.svg)
 >
 > 🔗 [GitHub](https://go.syselement.com/github)
 
