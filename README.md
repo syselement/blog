@@ -42,5 +42,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ![](.gitbook/assets/github.png)
 >
+> ![](.gitbook/assets/github-mark-white-1684771192010-7.svg)
+>
 > 🔗 [GitHub](https://go.syselement.com/github)
 
