@@ -6,6 +6,7 @@
 
 - [eLearnSecurity / INE](certifications-notes/elearnsecurity-ine/README.md)
   - [eJPT - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
+  - [ICCA](https://blog.syselement.com/ine/courses/icca)
 - [TCM Security](certifications-notes/tcmsecurity/README.md)
   - [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
 
