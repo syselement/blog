@@ -10,11 +10,11 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 > ❗ **Disclaimer**
 >
-> *While I strive to provide accurate and helpful information with my own writing, the content, the techniques and tips provided on this notes blog and its sub-pages are for general educational and informational purposes only, and should not be used for any illegal or malicious activities.*
+> *While I strive to provide accurate and helpful information with my writing, the content, techniques and tips provided on this notes blog and its sub-pages are for general educational and informational purposes only, and should not be used for any illegal or malicious activities.*
 >
 > *The information is based on my own interpretation and writing, public open-source material and software and may not be accurate or up-to-date. Any reliance you place on the information provided on this blog is strictly at your own risk. I will not be liable for any losses or damages arising from the use or reliance on the information presented on this blog. The content is intended for personal, non-commercial use.* 
 >
-> *By using this notes, the user agrees to absolve the author of all liability and responsibility for any losses, harm, or damages arising out of the use of this content or any material contained within.*
+> *By using these notes, the user agrees to absolve the author of all liability and responsibility for any losses, harm, or damages arising out of the use of this content or any material contained within.*
 >
 > ✏️ **Copyright** ©️ 2023 syselement
 >
