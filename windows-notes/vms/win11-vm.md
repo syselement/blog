@@ -2,6 +2,10 @@
 
 ## First Install - Virtual Machine
 
+
+
+## Basic Configuration
+
 ### Change Windows 11 Theme
 
 - Open **`regedit.exe`**
