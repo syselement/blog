@@ -1,14 +1,22 @@
-# [ROOM_NAME]
+# ROOM_NAME
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [ROOM_NAME](ROOM_LINK_HERE)
+## Room Info
+
+> **Name**
 >
-> *Description*
+> 🔗 ROOM_LINK_HERE
+>
+>  **Description**
+>
+> 📝 *DESCRIPTION_HERE*
 >
 > ROOM_PICTURE_HERE
-
-🎯 Target IP: 
+>
+> **Target IP**
+>
+> 🎯 `IP_HERE`
 
 ## Recon
 
