@@ -44,3 +44,4 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 🔗 [GitHub](https://go.syselement.com/github)
 
+Bye
