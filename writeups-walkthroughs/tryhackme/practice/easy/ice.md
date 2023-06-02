@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Ice](https://tryhackme.com/room/ice)
->
-> _Deploy & hack into a Windows machine, exploiting a very poorly secured media server._
->
-> <img src=".gitbook/assets/ice.png" alt="" data-size="original">
+## Room Info
 
-🎯 Target IP: `10.10.159.9`
+> **Name**
+>
+> 🔗 [Ice](https://tryhackme.com/room/ice)
+>
+> **Description**
+>
+> 📝 *Deploy & hack into a Windows machine, exploiting a very poorly secured media server.*
+>
+> ![](.gitbook/assets/ice.png)
+>
+> **Target IP**
+>
+> 🎯 `10.10.159.9`
 
 ## Recon
 

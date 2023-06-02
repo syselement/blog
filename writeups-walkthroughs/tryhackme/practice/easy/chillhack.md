@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Chill Hack](https://tryhackme.com/room/chillhack)
+## Room Info
+
+> **Name**
 >
-> *Easy level CTF. Capture the flags and have fun!*
+> 🔗 [Chill Hack](https://tryhackme.com/room/chillhack)
+>
+>  **Description**
+>
+> 📝 *Easy level CTF. Capture the flags and have fun!*
 >
 > ![](.gitbook/assets/chillhack.png)
-
-🎯 Target IP: `10.10.141.41`
+>
+> **Target IP**
+>
+> 🎯 `10.10.141.41`
 
 ## Recon
 

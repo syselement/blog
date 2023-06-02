@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Retro](https://tryhackme.com/room/retro)
+## Room Info
+
+> **Name**
 >
-> *There are two distinct paths that can be taken on Retro. One requires significantly less trial and error, however, both will work. An alternative version of this room is available in it's remixed version [Blaster](blaster.md).* 
+> 🔗 [Retro](https://tryhackme.com/room/retro)
+>
+> **Description**
+>
+> 📝 *There are two distinct paths that can be taken on Retro. One requires significantly less trial and error, however, both will work. An alternative version of this room is available in it's remixed version [Blaster](blaster.md).*
 >
 > ![](.gitbook/assets/retro.jpeg)
-
-🎯 Target IP: `10.10.181.110`
+>
+> **Target IP**
+>
+> 🎯 `10.10.181.110`
 
 ## Recon
 

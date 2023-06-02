@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Ignite](https://tryhackme.com/room/ignite)
->
-> _A new start-up has a few issues with their web server._
->
-> <img src=".gitbook/assets/ignite.png" alt="" data-size="original">
+## Room Info
 
-🎯 Target IP: `10.10.174.21`
+> **Name**
+>
+> 🔗 [Ignite](https://tryhackme.com/room/ignite)
+>
+> **Description**
+>
+> 📝 *A new start-up has a few issues with their web server.*
+>
+> ![](.gitbook/assets/ignite.png)
+>
+> **Target IP**
+>
+> 🎯 `10.10.174.21`
 
 ## Recon
 

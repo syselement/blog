@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Blue](https://tryhackme.com/room/blue)
+## Room Info
+
+> **Name**
 >
-> _Deploy & hack into a Windows machine, leveraging common misconfigurations issues._
+> 🔗 [Blue](https://tryhackme.com/room/blue)
+>
+>  **Description**
+>
+> 📝 *Deploy & hack into a Windows machine, leveraging common misconfigurations issues.*
 >
 > <img src=".gitbook/assets/blue.jpg" alt="" data-size="original">
-
-🎯 Target IP: `10.10.177.175`
+>
+> **Target IP**
+>
+> 🎯 `10.10.177.175`
 
 ## Recon
 

@@ -2,13 +2,21 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-> 🔬🌐 [Bolt](https://tryhackme.com/room/bolt)
+## Room Info
+
+> **Name**
 >
-> *This room is designed for users to get familiar with the Bolt CMS and how it can be exploited using Authenticated Remote Code Execution*
+> 🔗 [Bolt](https://tryhackme.com/room/bolt)
+>
+>  **Description**
+>
+> 📝 *This room is designed for users to get familiar with the Bolt CMS and how it can be exploited using Authenticated Remote Code Execution*
 >
 > ![](.gitbook/assets/bolt.png)
-
-🎯 Target IP: `10.10.218.91`
+>
+> **Target IP**
+>
+> 🎯 `10.10.218.91`
 
 ## Recon
 
