@@ -8,11 +8,11 @@
 >
 > 🔗 [Ice](https://tryhackme.com/room/ice)
 >
+> ![](.gitbook/assets/ice.png)
+>
 > **Description**
 >
 > 📝 *Deploy & hack into a Windows machine, exploiting a very poorly secured media server.*
->
-> ![](.gitbook/assets/ice.png)
 >
 > **Target IP**
 >

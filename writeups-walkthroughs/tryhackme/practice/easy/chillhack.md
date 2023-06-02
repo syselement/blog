@@ -8,11 +8,11 @@
 >
 > 🔗 [Chill Hack](https://tryhackme.com/room/chillhack)
 >
->  **Description**
+>  ![](.gitbook/assets/chillhack.png)
+>
+> **Description**
 >
 > 📝 *Easy level CTF. Capture the flags and have fun!*
->
-> ![](.gitbook/assets/chillhack.png)
 >
 > **Target IP**
 >

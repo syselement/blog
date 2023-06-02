@@ -8,11 +8,11 @@
 >
 > 🔗 [Blue](https://tryhackme.com/room/blue)
 >
->  **Description**
+> ![](.gitbook/assets/blue.jpg)
+>
+> **Description**
 >
 > 📝 *Deploy & hack into a Windows machine, leveraging common misconfigurations issues.*
->
-> <img src=".gitbook/assets/blue.jpg" alt="" data-size="original">
 >
 > **Target IP**
 >

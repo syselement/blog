@@ -8,11 +8,11 @@
 >
 > 🔗 ROOM_LINK_HERE
 >
->  **Description**
+>  ROOM_PICTURE_HERE
+>
+> **Description**
 >
 > 📝 *DESCRIPTION_HERE*
->
-> ROOM_PICTURE_HERE
 >
 > **Target IP**
 >

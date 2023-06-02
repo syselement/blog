@@ -8,11 +8,11 @@
 >
 > 🔗 [Retro](https://tryhackme.com/room/retro)
 >
+> ![](.gitbook/assets/retro.jpeg)
+>
 > **Description**
 >
 > 📝 *There are two distinct paths that can be taken on Retro. One requires significantly less trial and error, however, both will work. An alternative version of this room is available in it's remixed version [Blaster](blaster.md).*
->
-> ![](.gitbook/assets/retro.jpeg)
 >
 > **Target IP**
 >

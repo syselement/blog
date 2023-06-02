@@ -8,11 +8,11 @@
 >
 > 🔗 [Bolt](https://tryhackme.com/room/bolt)
 >
->  **Description**
+> ![](.gitbook/assets/bolt.png)
+>
+> **Description**
 >
 > 📝 *This room is designed for users to get familiar with the Bolt CMS and how it can be exploited using Authenticated Remote Code Execution*
->
-> ![](.gitbook/assets/bolt.png)
 >
 > **Target IP**
 >

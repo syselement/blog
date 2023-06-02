@@ -8,15 +8,16 @@
 >
 > 🔗 [Blaster](https://tryhackme.com/room/blaster)
 >
->  **Description**
+> ![](.gitbook/assets/blaster.png)
+>
+> **Description**
 >
 > 📝 *Throughout this room, we'll be looking at alternative modes of exploitation without the use of Metasploit or really exploitation tools in general beyond nmap and dirbuster.*
->
-> <img src=".gitbook/assets/blaster.png" alt="" data-size="original">
 >
 > **Target IP**
 >
 > 🎯 `10.10.27.22`
+
 
 ## Recon
 
