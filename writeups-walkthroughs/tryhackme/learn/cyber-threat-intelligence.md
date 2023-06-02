@@ -6,11 +6,12 @@
 >
 > 🌐 [Cyber Threat Intelligence](https://tryhackme.com/module/cyber-threat-intelligence) - Tryhackme Module
 >
+> ![](.gitbook/assets/cyber-threat-intelligence.png)
+>
 > **Description**
 >
 > 📝 *Learn about identifying and using available security knowledge to mitigate and manage potential adversary actions.*
 >
-> ![](.gitbook/assets/cyber-threat-intelligence.png)
 
 ------
 

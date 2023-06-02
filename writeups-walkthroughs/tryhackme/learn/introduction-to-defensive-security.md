@@ -6,6 +6,8 @@
 >
 > 🌐 [Introduction to Defensive Security](https://tryhackme.com/module/introduction-to-defensive-security) - TryHackMe Module
 >
+> ![](.gitbook/assets/intro-to-defensive.png)
+>
 > **Description**
 >
 > 📝 *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
@@ -14,7 +16,6 @@
 > * Security Operations in the cyber industry
 > * Learn how protection works in a web-base simulation
 >
-> ![](.gitbook/assets/intro-to-defensive.png)
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 

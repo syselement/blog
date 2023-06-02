@@ -6,11 +6,12 @@
 >
 > 🌐 MODULE_PATH_LINK_HERE - Tryhackme Module/Path
 >
+> MODULE_PATH_PICTURE_HERE
+>
 > **Description**
 >
 > 📝 *DESCRIPTION_HERE*
 >
-> MODULE_PATH_PICTURE_HERE
 
 ------
 
