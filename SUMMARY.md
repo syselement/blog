@@ -19,7 +19,7 @@
     - [Vagrant](windows-notes/tools/vagrant-win.md)
   - [Windows Virtual Machines](windows-notes/vms/README.md)
     - [Windows 11 - VM](windows-notes/vms/win11-vm.md)
-    - [Windows Server 2022 - VM](win-srv-vm.md)
+    - [Windows Server 2022 - VM](windows-notes/vms/win-srv-vm.md)
   
 - 🐧 Linux
   - [📃Linux Stuff](linux-notes/linuxstuff.md)
