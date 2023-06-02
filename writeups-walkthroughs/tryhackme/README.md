@@ -1,4 +1,4 @@
-# 🌩 TryHackMe Walkthroughs
+# 🌩 TryHackMe
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
