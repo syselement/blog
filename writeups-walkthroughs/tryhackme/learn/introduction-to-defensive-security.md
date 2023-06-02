@@ -2,9 +2,13 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+> **Name**
+>
 > 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
 >
-> _Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack._
+> **Description**
+>
+> *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
 >
 > * Analyze digital evidence with digital forensics
 > * Security Operations in the cyber industry
@@ -16,34 +20,34 @@
 
 > Learn about digital forensics and related processes and experiment with a practical example.
 
-A new field of _**forensics** (the science of crime investigations)_ called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
+A new field of ***forensics** (the science of crime investigations)* called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
 
 * desktop computers, laptops
 * smartphones, digital cameras
 * digital media (CDs, USB drives, external storage)
 * etc
 
-The purpose of digital forensics is _the use of computer science to investigate digital data/evidence for a legal purpose_.
+The purpose of digital forensics is *the use of computer science to investigate digital data/evidence for a legal purpose*.
 
 * **Public sector investigations** - conducted by government and low enforcement agencies
 * **Private sector investigations** - conducted by corporate bodies with the help of a private investigator
 
 ### The Process
 
-_After obtaining the proper legal **authorization**_, a digital forensics investigator should:
+*After obtaining the proper legal **authorization***, a digital forensics investigator should:
 
 * acquire the **evidence** - collecting the digital devices (using special handling if turned on)
 * establish a **chain of custody** - fill out a form ensuring only authorized access to and handling of the evidence ([NIST Sample form](https://www.nist.gov/document/sample-chain-custody-formdocx))
 * secure the evidence in a **container** - to avoid damage or remote wiping (via network connection)
 * transport the evidence to the digital forensics **laboratory**
 
-In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. _The investigation will be done on the identical **copy** using a **forensics workstation**_. The findings can be reproduced (**repeatability**).
+In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. *The investigation will be done on the identical **copy** using a **forensics workstation***. The findings can be reproduced (**repeatability**).
 
 A **report** detailing the obtained evidence for the case concludes the digital forensics investigation.
 
 ### Practical Example
 
-> ❗\_Everything we do on our digital devices, from smartphones to computers, leaves traces.\_
+> ❗*Everything we do on our digital devices, from smartphones to computers, leaves traces.*
 
 #### Doc Metadata
 
