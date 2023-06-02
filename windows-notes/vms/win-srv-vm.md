@@ -1,4 +1,4 @@
-# Windows Server 2019/2022 - VM
+# Windows Server 2022 - VM
 
 ## First Install - Virtual Machine
 
@@ -15,7 +15,7 @@
 
 
 
-Install GIF gere
+[TO_DO]
 
 
 
