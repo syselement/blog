@@ -1,2 +1,2 @@
-# 🚩 Capture The Flag Writeups
+# 🚩 Capture The Flag
 
