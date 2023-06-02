@@ -43,7 +43,7 @@
 
 ## ✍ Writeups & Walkthroughs
 
-- [🌩 TryHackMe Walkthroughs](writeups-walkthroughs/tryhackme/README.md)
+- [🌩 TryHackMe](writeups-walkthroughs/tryhackme/README.md)
   - [📖 Learn](writeups-walkthroughs/tryhackme/learn/README.md)
     - [Intro to Defensive Security](writeups-walkthroughs/tryhackme/learn/introduction-to-defensive-security.md)
     - [Cyber Threat Intelligence](writeups-walkthroughs/tryhackme/learn/cyber-threat-intelligence.md)
@@ -59,8 +59,8 @@
       - [Startup](writeups-walkthroughs/tryhackme/practice/easy/startup.md)
     - [Medium](writeups-walkthroughs/tryhackme/practice/medium/README.md)
       - [Blog](writeups-walkthroughs/tryhackme/practice/medium/blog.md)
-- [📦 HackTheBox Writeups](writeups-walkthroughs/hackthebox/README.md)
-- [🚩 Capture The Flag Writeups](writeups-walkthroughs/ctfs/README.md)
+- [📦 HackTheBox](writeups-walkthroughs/hackthebox/README.md)
+- [🚩 Capture The Flag](writeups-walkthroughs/ctfs/README.md)
 
 ## 💻 Coding Notes
 
