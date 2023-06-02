@@ -4,21 +4,21 @@
 
 > **Name**
 >
-> 🌐 [Introduction to Defensive Security - TryHackMe Module](https://tryhackme.com/module/introduction-to-defensive-security)
+> 🌐 [Introduction to Defensive Security](https://tryhackme.com/module/introduction-to-defensive-security) - TryHackMe Module
 >
 > **Description**
 >
-> *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
+> 📝 *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
 >
 > * Analyze digital evidence with digital forensics
 > * Security Operations in the cyber industry
 > * Learn how protection works in a web-base simulation
 >
-> <img src=".gitbook/assets/intro-to-defensive.png" alt="tryhackme.com - © TryHackMe" data-size="original">
+> ![](.gitbook/assets/intro-to-defensive.png)
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 
-> Learn about digital forensics and related processes and experiment with a practical example.
+> 📝 *Learn about digital forensics and related processes and experiment with a practical example*
 
 A new field of ***forensics** (the science of crime investigations)* called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
 
@@ -439,4 +439,7 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 ## [Security Operations](https://tryhackme.com/jr/securityoperations)
 
-> Learn about Security Operations Center (SOC): its responsibilities, services, and data sources.
+> 📝 *Learn about Security Operations Center (SOC): its responsibilities, services, and data sources*
+
+------
+
