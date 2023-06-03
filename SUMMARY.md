@@ -10,24 +10,24 @@
 - [TCM Security](certifications-notes/tcmsecurity/README.md)
   - [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
 
-## 🔳 Operating Systems Notes
+## 🔳 Operating Systems
 
-- 🪟 Windows
-  - [📃Windows Stuff](windows-notes/winstuff.md)
-  - [Windows Tools](windows-notes/tools/README.md)
-    - [Hashcat](windows-notes/tools/hashcat-win.md)
-    - [Vagrant](windows-notes/tools/vagrant-win.md)
-  - [Windows Virtual Machines](windows-notes/vms/README.md)
-    - [Windows 11 - VM](windows-notes/vms/win11-vm.md)
-    - [Windows Server 2022 - VM](windows-notes/vms/win-srv-vm.md)
+- [🪟Windows](operating-systems/windows/README.md)
+  - [📃Windows Stuff](operating-systems/windows/winstuff.md)
+  - [Windows Tools](operating-systems/windows/tools/README.md)
+    - [Hashcat](operating-systems/windows/tools/hashcat-win.md)
+    - [Vagrant](operating-systems/windows/tools/vagrant-win.md)
+  - [Windows Virtual Machines](operating-systems/windows/vms/README.md)
+    - [Windows 11 - VM](operating-systems/windows/vms/win11-vm.md)
+    - [Windows Server 2022 - VM](operating-systems/windows/vms/win-srv-vm.md)
   
-- 🐧 Linux
-  - [📃Linux Stuff](linux-notes/linuxstuff.md)
-  - [Linux Distros](linux-notes/distros/README.md)
-    - [Kali Linux - VM](linux-notes/distros/kali-vm.md)
-  - [Linux Tools](linux-notes/tools/README.md)
-    - [Nessus Essentials](linux-notes/tools/Nessus.md)
-    - [Terminator](linux-notes/tools/Terminator-Shortcuts.md)
+- [🐧Linux](operating-systems/linux/README.md)
+  - [📃Linux Stuff](operating-systems/linux/linuxstuff.md)
+  - [Linux Distros](operating-systems/linux/distros/README.md)
+    - [Kali Linux - VM](operating-systems/linux/distros/kali-vm.md)
+  - [Linux Tools](operating-systems/linux/tools/README.md)
+    - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
+    - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
 ## 🖥️ Cyber Everything
 
 - [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
@@ -41,6 +41,7 @@
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
 - [🧪 Misc Labs](home-lab/misc/README.md)
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
+  - [OpenWrt](home-lab/misc/OpenWrt-TPLink-EAP225.md)
 
 ## ✍ Writeups & Walkthroughs
 
@@ -63,5 +64,8 @@
 - [📦 HackTheBox](writeups-walkthroughs/hackthebox/README.md)
 - [🚩 Capture The Flag](writeups-walkthroughs/ctfs/README.md)
 
+<!--
+
 ## 💻 Coding Notes
 
+-->
