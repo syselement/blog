@@ -71,3 +71,13 @@
 
 
 -->
+
+<!-- COMMENTS
+
+**Rules for Gitbook:**
+
+- Always put a space after an emoji - the menu will not work if not and will not sync with Github.
+- file.md title must be = to the name in the menu items - Gitbook will overwrite a different title with the menu name in this file (SUMMARY.md)
+- 
+
+-->

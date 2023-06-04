@@ -31,6 +31,8 @@
 
 ## Installing OpenWrt
 
+- **Firmware Download**
+
 | Model  | Version | OpenWrt Release | OpenWrt Factory Firmware                                     | OpenWrt Sysupgrade Firmware                                  | OEM Stock Firmware                                           |
 | :----- | :------ | :-------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | EAP225 | v2      | 22.03.3         | [https://downloads.openwrt.org/releases/22.03.3/targets/ath79/generic/openwrt-22.03.3-ath79-generic-tplink_eap225-v1-squashfs-factory.bin](https://downloads.openwrt.org/releases/22.03.3/targets/ath79/generic/openwrt-22.03.3-ath79-generic-tplink_eap225-v1-squashfs-factory.bin) | [https://downloads.openwrt.org/releases/22.03.3/targets/ath79/generic/openwrt-22.03.3-ath79-generic-tplink_eap225-v1-squashfs-sysupgrade.bin](https://downloads.openwrt.org/releases/22.03.3/targets/ath79/generic/openwrt-22.03.3-ath79-generic-tplink_eap225-v1-squashfs-sysupgrade.bin) | [https://www.tp-link.com/au/support/download/eap225/v2/#Firmware](https://www.tp-link.com/au/support/download/eap225/v2/#Firmware) |
@@ -51,13 +53,15 @@
 
 2. Enable SSH access if you haven't already done so
 
-3. **Exploit** the user management page in the web interface to start telnetd by changing the username to `;/usr/sbin/telnetd -l/bin/sh&`
+3. **Exploit** the user management page in the web interface to start telnetd by changing the username to
 
-   - ![](.gitbook/assets/image-20230603154913870.png)
+   - `;/usr/sbin/telnetd -l/bin/sh&`
+
+![](.gitbook/assets/image-20230603154913870.png)
 
 4. Immediately change the malformed username back to something valid (e.g. 'admin') to make ssh work again.
 
-   - ![](.gitbook/assets/image-20230603155009645.png)
+![](.gitbook/assets/image-20230603155009645.png)
 
 5. Use telnet to connect to your router (`telnet ${device-ip}`) and issue `chmod 777 /tmp` to make it writable
 
@@ -67,28 +71,44 @@
      chmod 777 /tmp
      ```
 
-   
-   ![](.gitbook/assets/image-20230603155124920.png)
-   
+
+![](.gitbook/assets/image-20230603155124920.png)
+
 6. Extract **/usr/bin/uclited** from the device via ssh: 
 
    - ```bash
      ssh -oPubkeyAcceptedAlgorithms=+ssh-rsa -oHostKeyAlgorithms=ssh-rsa -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@<DEVICE-IP> "dd if=/usr/bin/uclited" > uclited
      ```
 
-   ![](.gitbook/assets/image-20230603155424004.png)
+![](.gitbook/assets/image-20230603155424004.png)
 
-7. Create a copy of the file so that the patch can be applied later: `cp uclited uclited-patched`
+7. Create a copy of the file so that the patch can be applied later:
 
-8. Check if the md5sum matches **4bd74183c23859c897ed77e8566b84de**: `md5sum uclited`
+   - ```bash
+     cp uclited uclited-patched
+     ```
 
-   - ![](.gitbook/assets/image-20230603155630316.png)
+8. Check if the md5sum matches **4bd74183c23859c897ed77e8566b84de**: 
 
-9. Apply the binary patch to uclited: `echo "000d2354: 24020000 00000000" | xxd -r - uclited-patched`
+   - ```bash
+     md5sum uclited
+     ```
 
-10. Check if the md5sum matches **4107104024a2e0aeaf6395ed30adccae**: `md5sum uclited-patched`
+![](.gitbook/assets/image-20230603155630316.png)
 
-    - ![](.gitbook/assets/image-20230603155914198.png)
+9. Apply the binary patch to uclited:
+
+   - ```bash
+     echo "000d2354: 24020000 00000000" | xxd -r - uclited-patched
+     ```
+
+10. Check if the md5sum matches **4107104024a2e0aeaf6395ed30adccae**:
+
+    - ```bash
+      md5sum uclited-patched
+      ```
+
+![](.gitbook/assets/image-20230603155914198.png)
 
 11. Copy the patched uclited binary back to the device at **/tmp/uclited**: 
 
@@ -104,13 +124,13 @@
       ssh -oPubkeyAcceptedAlgorithms=+ssh-rsa -o HostKeyAlgorithms=ssh-rsa -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@<DEVICE-IP> "dd of=/tmp/upgrade.bin" < openwrt-22.03.3-ath79-generic-tplink_eap225-v1-squashfs-factory.bin
       ```
 
-      ![](.gitbook/assets/image-20230603161120399.png)
+![](.gitbook/assets/image-20230603161120399.png)
 
 13. Finally, install OpenWrt (via the telnet session): `chmod +x /tmp/uclited && /tmp/uclited -u`
 
-```bash
-chmod +x /tmp/uclited && /tmp/uclited -u
-```
+    - ```bash
+      chmod +x /tmp/uclited && /tmp/uclited -u
+      ```
 
 ![](.gitbook/assets/openwrt-eap225.gif)
 
@@ -118,7 +138,8 @@ chmod +x /tmp/uclited && /tmp/uclited -u
 
 ![](.gitbook/assets/image-20230603170455587.png)
 
-- New Default IP: `192.168.1.1`. SSH into it and set a static IP from the LAN network + Gateway + DNS.
+- New Default IP: `192.168.1.1`.
+- SSH into it and set a static IP from the LAN network + Gateway + DNS.
 
 ```bash
 ssh root@192.168.1.1
@@ -528,6 +549,10 @@ speedtest-netperf.sh [-4 | -6] [-H netperf-server] [-t duration] [-p host-to-pin
 -n | --number:     Number of simultaneous sessions (default - 5 sessions)
 -s | --sequential: Sequential download/upload (default - sequential)
 -c | --concurrent: Concurrent download/upload
+```
+
+```bash
+speedtest-netperf.sh
 ```
 
 ![speedtest-netperf.sh](.gitbook/assets/image-20230603175715201.png)
