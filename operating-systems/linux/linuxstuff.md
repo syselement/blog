@@ -1,4 +1,4 @@
-# 📃Linux Stuff
+# 📃 Linux Stuff
 
 ![](.gitbook/assets/Linux-logo-small.png)
 
