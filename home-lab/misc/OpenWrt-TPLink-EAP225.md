@@ -44,7 +44,7 @@
 > - SSH client must support RSA keys ⇐1024 bits in length. See workaround below.
 > - v2 uses same factory image as v1
 >
-> - `MobaXTerm` is ok.
+> - [`MobaXTerm`](https://mobaxterm.mobatek.net/download.html) is ok.
 >
 > - `<DEVICE-IP>` = EAP225 Lan IP
 >
