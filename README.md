@@ -68,4 +68,4 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ![](.gitbook/assets/pwnx.svg)
 >
-> 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca) (Get)
+> 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
