@@ -48,7 +48,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## 🍕Referrals
 
-> ![securitycert](.gitbook/assets/securitycert.svg)
+> ![](.gitbook/assets/securitycert.png)
 >
 > 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
 >
