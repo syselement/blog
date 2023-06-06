@@ -20,6 +20,8 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > *All of the content on this notes blog is based on public material and is therefore not subject to copyright protection. However, any original content, such as my written commentary or analysis, is subject to copyright protection, with exclusive rights held by the author. You may not reproduce, distribute, or transmit any of the original content without my express written permission. Nevertheless, you are welcome to share links to the content on social media or other websites.*
 
+------
+
 ## ✉️ Contact
 
 > ![](.gitbook/assets/proton.svg)
@@ -45,6 +47,8 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > ![](.gitbook/assets/github.svg)
 >
 > 🔗 [GitHub](https://go.syselement.com/github)
+
+------
 
 ## 🍕Referrals
 
