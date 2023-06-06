@@ -13,7 +13,7 @@
 ## 🔳 Operating Systems
 
 - [🪟 Windows](operating-systems/windows/README.md)
-  - [📃 Windows Stuff](operating-systems/windows/winstuff.md)
+  - [📃 Everything Windows](operating-systems/windows/winstuff.md)
   - [Windows Tools](operating-systems/windows/tools/README.md)
     - [Hashcat](operating-systems/windows/tools/hashcat-win.md)
     - [Vagrant](operating-systems/windows/tools/vagrant-win.md)
@@ -22,7 +22,7 @@
     - [Windows Server 2022 - VM](operating-systems/windows/vms/win-srv-vm.md)
   
 - [🐧 Linux](operating-systems/linux/README.md)
-  - [📃 Linux Stuff](operating-systems/linux/linuxstuff.md)
+  - [📃 Everything Linux](operating-systems/linux/linuxstuff.md)
   - [Linux Distros](operating-systems/linux/distros/README.md)
     - [Kali Linux - VM](operating-systems/linux/distros/kali-vm.md)
   - [Linux Tools](operating-systems/linux/tools/README.md)

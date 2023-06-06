@@ -23,7 +23,7 @@
 
 ### Change to Dark Theme
 
-- Open CMD as Administrator:
+- Open **`CMD ` as Administrator** and run:
 
 **Dark theme**
 

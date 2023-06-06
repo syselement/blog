@@ -1,4 +1,4 @@
-# 📃 Linux Stuff
+# 📃 Everything Linux
 
 ![](.gitbook/assets/Linux-logo-small.png)
 
@@ -263,7 +263,7 @@ sensors
 vcgencmd measure_temp
 ```
 
-## Installations
+## Software
 
 ### Basic Tools
 
@@ -529,3 +529,6 @@ nmap -p80,21,23 192.168.254.129
 ```bash
 # Login: msfadmin:msfadmin
 ```
+
+------
+
