@@ -45,3 +45,27 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > ![](.gitbook/assets/github.svg)
 >
 > 🔗 [GitHub](https://go.syselement.com/github)
+
+## 🍕Referrals
+
+> ![securitycert](.gitbook/assets/securitycert.svg)
+>
+> 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
+>
+> ------
+>
+> ![](.gitbook/assets/tryhackme.svg)
+>
+> 🔗 [TryHackMe](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) *(Get 5$ on a Premium Subscription)*
+>
+> ------
+>
+> ![](.gitbook/assets/pentesterlab.png)
+>
+> 🔗 [PentesterLab](https://pentesterlab.com/referral/KpBnjOZqb3wbTA) *(Get 10 points with a Pro Subscription)*
+>
+> ------
+>
+> ![](.gitbook/assets/pwnx.svg)
+>
+> 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca) (Get)
