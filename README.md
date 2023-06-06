@@ -50,7 +50,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ------
 
-## 🍕Referrals
+## 🍕 Referrals
 
 > ![](.gitbook/assets/securitycert.svg)
 >
