@@ -5,8 +5,8 @@
 
 
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
-
-* 📌 *Some commands can be outdated.*
+>
+> - 📌 *Some commands can be outdated.*
 
 ------
 
@@ -25,6 +25,10 @@
 ```bash
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /t REG_DWORD /d 0 /f
 ```
+
+### Debloat Win
+
+🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/releases)
 
 
 

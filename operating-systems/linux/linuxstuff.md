@@ -3,9 +3,9 @@
 ![](.gitbook/assets/Linux-logo-small.png)
 
 > 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
-
-* 📌*Some commands can be outdated.*
-* ❗*Most of the commands are for **Debian-based** distributions.*
+>
+> * 📌*Some commands can be outdated.*
+> * ❗*Most of the commands are for **Debian-based** distributions.*
 
 ## Terminal commands
 
