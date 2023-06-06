@@ -10,7 +10,9 @@
 
 ------
 
-## Usage and Configuration
+## Configuration
+
+> 📝 *Tip*: The following settings should be used with a [clean Windows install](https://pureinfotech.com/clean-install-windows-11/); otherwise, **proceed with caution** ⚠️.
 
 ### Privacy Settings
 
