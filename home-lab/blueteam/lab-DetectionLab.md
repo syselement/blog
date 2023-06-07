@@ -453,10 +453,10 @@ vagrant up --provider=virtualbox
 
 ## DetectionLab Usage
 
-* Check the [Usage official repo](https://detectionlab.network/usage/)
+* 🔗 Check the [Usage official repo](https://detectionlab.network/usage/)
 
 ## DetectionLab Customization
 
-* Check the [Customization official repo](https://detectionlab.network/customization/)
+* 🔗 Check the [Customization official repo](https://detectionlab.network/customization/)
 
 ***
