@@ -2,7 +2,7 @@
 
 ## BITWARDEN - Deploy to Ubuntu Server
 
-> - [Official Docs - Install and Deploy - Linux](https://bitwarden.com/help/install-on-premise-linux/) (always check for updated process)
+> 🔗 [Official Docs - Install and Deploy - Linux](https://bitwarden.com/help/install-on-premise-linux/) (always check for updated process)
 
 ### Network and Domain
 
@@ -19,7 +19,7 @@ sudo ufw status
 
 ### Install Docker and Docker Compose
 
-[Docs - Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+🔗 [Docs - Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 - Install dependencies and setup repository
 
@@ -100,7 +100,7 @@ curl -Lso /opt/bitwarden/bitwarden.sh "https://func.bitwarden.com/api/dl/?app=se
 
 - Retrieve an **installation id** using a valid email at [https://bitwarden.com/host](https://bitwarden.com/host/).
 
-> [Hosting FAQs](https://bitwarden.com/help/hosting-faqs/#general)
+> 🔗 [Hosting FAQs](https://bitwarden.com/help/hosting-faqs/#general)
 >
 > Installation ids keys are used when installing Bitwarden on-premises in order to:
 >

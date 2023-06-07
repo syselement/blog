@@ -39,7 +39,7 @@
 
 ### [EAP225 v1/v2](https://openwrt.org/toh/tp-link/eap225#eap225_v1v2)
 
-> ℹ️  **Notes:**
+> 📝 **Notes:**
 >
 > - SSH client must support RSA keys ⇐1024 bits in length. See workaround below.
 > - v2 uses same factory image as v1

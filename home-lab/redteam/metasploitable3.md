@@ -4,7 +4,7 @@
 
 ## Description
 
-> [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
+> 🔗 [Metasploitable3 - rapid7 Github](https://github.com/rapid7/metasploitable3)
 >
 > Metasploitable3 is a VM that is built from the ground up with a large amount of security vulnerabilities. It is intended to be used as a target for testing exploits with [Metasploit](https://github.com/rapid7/metasploit-framework).
 >
@@ -33,7 +33,7 @@
 
 ## Installation - Vagrant
 
-- Install [Vagrant](../../windows-notes/tools/vagrant_win.md)
+- Install 🔗 [Vagrant](../../windows-notes/tools/vagrant_win.md)
 - Open folder with Powershell.
 
 ```bash
@@ -675,3 +675,6 @@ vagrant halt
 > ### Modules
 >
 > - exploit/multi/http/rails_web_console_v2_code_exec
+
+------
+
