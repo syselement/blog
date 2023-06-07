@@ -58,7 +58,7 @@ nano ~/.zshrc
 ```bash
 # Upgrade all packages and remove unused packages
 
-alias updateme='sudo -- sh -c "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"'
+alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
 - Save and exit.

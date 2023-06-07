@@ -609,9 +609,13 @@ sudo wef -h
 sudo wef -i wlan0
 ```
 
-![](.gitbook/assets/image-20230607130917555.png)
+![WEF WiFi Exploitation Framework - D3Ext](.gitbook/assets/image-20230607130917555.png)
+
+![WEF Attacks](.gitbook/assets/image-20230607131931538.png)
 
 ...
+
+
 
 ------
 
