@@ -2,8 +2,8 @@
 
 ## Popular Linux Distributions
 
-|                            Distro                            | Description                                                  |
-| :----------------------------------------------------------: | :----------------------------------------------------------- |
+| Distro                                                       | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
 | ![](.gitbook/assets/debian.svg)<br />[**Debian**](https://www.debian.org/) | a Free Operating System.                                     |
 | ![](.gitbook/assets/ubuntu.svg)<br />[**Ubuntu**](https://ubuntu.com/) | Debian-based modern distro with updated free software for the widest audience and platforms. Ubuntu [Flavors](https://ubuntu.com/desktop/flavours) offer different desktop environments and specific intended use cases. |
 | ![](.gitbook/assets/mint.svg)<br />[**Linux Mint**](https://linuxmint.com/) | derivative of Ubuntu and Debian, "doing less to do better" and "works Out of The Box" philosophy. |
