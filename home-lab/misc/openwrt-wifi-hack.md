@@ -6,6 +6,8 @@
 >
 > - `TP-Link EAP225 v2`
 >
+> ![TP-Link EAP225 v2](.gitbook/assets/eap225-hw.jpg)
+>
 > 🔗 **Useful links**
 >
 > - [TP-Link EAP225 series - openwrt](https://openwrt.org/toh/tp-link/eap225)
