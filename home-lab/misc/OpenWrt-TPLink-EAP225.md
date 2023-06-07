@@ -53,9 +53,8 @@
 
 2. Enable SSH access if you haven't already done so
 
-3. **Exploit** the user management page in the web interface to start telnetd by changing the username to
-
-   - `;/usr/sbin/telnetd -l/bin/sh&`
+3. **Exploit** a command injection vulnerability in the user management page of the web interface to start *telnetd* by changing the username to
+- `;/usr/sbin/telnetd -l/bin/sh&`
 
 ![](.gitbook/assets/image-20230603154913870.png)
 
