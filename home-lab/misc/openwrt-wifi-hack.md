@@ -1,4 +1,4 @@
-# OpenWrt
+# OpenWrt & WiFi Exploitation
 
 ![openwrt.org](.gitbook/assets/logo.png)
 
@@ -29,7 +29,7 @@
 | :----- | :------ | :----------------------- | :------ | :------- | :----- | :------------------------------------------------- | :------ | :------ |
 | EAP225 | v2      | Qualcomm Atheros QCA9563 | 775     | 16       | 128    | Qualcomm Atheros QCA9563, Qualcomm Atheros QCA9882 | b/g/n   | a/n/ac  |
 
-## Installing OpenWrt
+## OpenWrt Install
 
 - **Firmware Download**
 
@@ -527,7 +527,7 @@ opkg update
 > - If you have checkmarked the “Keep settings” checkbox in the previous section and the system fails to boot after flashing, you need to consult the [failsafe mode](https://openwrt.org/docs/guide-user/troubleshooting/failsafe_and_factory_reset), to manually reset all settings.
 > - Otherwise you need to start configuring from scratch. In this case, remember to properly **set your country code in the OpenWrt Wi-Fi configuration** again, to comply with your country's Wi-Fi legal regulation, e.g. see in [basic Wi-Fi setup](https://openwrt.org/docs/guide-quick-start/basic_wifi).
 
-## Tools
+## OpenWrt Tools
 
 ### [speedtest-netperf](https://github.com/openwrt/packages/tree/master/net/speedtest-netperf/files)
 
@@ -555,4 +555,63 @@ speedtest-netperf.sh
 ```
 
 ![speedtest-netperf.sh](.gitbook/assets/image-20230603175715201.png)
+
+------
+
+## Hacking Time
+
+### [WEF](https://github.com/D3Ext/WEF)
+
+> 🔗 [WEF - by D3Ext](https://github.com/D3Ext/WEF)
+>
+> *A fully offensive framework to the 802.11 networks and protocols with different types of attacks for WPA/WPA2 and WEP, automated hash cracking, and much more.*
+>
+> ### Attacks
+>
+> - Deauthentication Attack
+> - Authentication Attack
+> - Beacon Flood Attack
+> - PMKID Attack
+> - EvilTwin Attack
+> - Passive/Stealthy Attack
+> - Pixie Dust Attack
+> - Null Pin Attack
+> - WEP Protocol Attacks
+> - Michael Exploitation Attack
+>
+> ### Features
+>
+> - WPA/WPA2, WPS and WEP Attacks
+> - Auto handshake capture and cracking
+> - Multiple templates for EvilTwin attack (even custom)
+> - Check monitor mode and its status
+> - 2.4Ghz and 5Ghz attacks
+> - Descriptive attack logs (just done user side)
+> - Custom wordlist selector
+
+#### Install
+
+🔗 [WEF - Installation Wiki](https://github.com/D3Ext/WEF/wiki/Installation)
+
+```bash
+# Install on attacker Kali Linux / Parrot OS VM
+cd /tmp
+git clone https://github.com/D3Ext/WEF && cd WEF && sudo bash setup.sh
+
+# Install directory will be /opt/wef/
+```
+
+#### Usage
+
+```bash
+sudo wef -h
+# Check the wlan interface for the correct name
+sudo wef -i wlan0
+```
+
+![](.gitbook/assets/image-20230607130917555.png)
+
+...
+
+------
 

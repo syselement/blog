@@ -41,7 +41,7 @@
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
 - [🧪 Misc Labs](home-lab/misc/README.md)
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
-  - [OpenWrt](home-lab/misc/OpenWrt-TPLink-EAP225.md)
+  - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
 
 ## ✍ Writeups & Walkthroughs
 
