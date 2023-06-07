@@ -2,7 +2,7 @@
 
 ## Terminator Shortcuts
 
-- [Official Docs](https://terminator-gtk3.readthedocs.io/en/latest/gettingstarted.html)
+🔗 [Official Docs](https://terminator-gtk3.readthedocs.io/en/latest/gettingstarted.html)
 
 |               *Shortcut*               | *Function*                                                   |
 | :------------------------------------: | ------------------------------------------------------------ |
@@ -43,4 +43,6 @@
 |           **Super+Shift+T**            | it  will remove grouping from all terminals in the current tab |
 |            **CTRL+Shift+I**            | This shortcut is used to open a new  window                  |
 |              **Super+I**               | Used  to Spawn a new Terminator process                      |
+
+------
 

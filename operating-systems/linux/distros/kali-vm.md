@@ -1,5 +1,7 @@
 # Kali Linux - VM
 
+![](.gitbook/assets/kali.svg) [Kali Linux](https://www.kali.org/)
+
 ## First Install - Virtual Machine
 
 - Create a new Virtual Machine in VMWare with preferred specs:

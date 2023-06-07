@@ -1,16 +1,16 @@
 # Nessus Essentials
 
-> [Nessus](https://docs.tenable.com/Nessus.htm)
+> 🔗 [Nessus](https://docs.tenable.com/Nessus.htm)
 >
-> [NessusCLI](https://docs.tenable.com/nessus/Content/NessusCLI.htm)
+> 🔗 [NessusCLI](https://docs.tenable.com/nessus/Content/NessusCLI.htm)
 
 ## Install Nessus
 
-* Links
-  * [Nessus Linux Install](https://docs.tenable.com/nessus/Content/InstallNessusLinux.htm#Download-the-Nessus-package-file.)
-  * [Nessus Downloads](https://www.tenable.com/downloads/nessus)
+> 🔗 **Links**
+> * [Nessus Linux Install](https://docs.tenable.com/nessus/Content/InstallNessusLinux.htm#Download-the-Nessus-package-file.)
+> * [Nessus Downloads](https://www.tenable.com/downloads/nessus)
 
-- Download Ubuntu version by `curl` (command created from the Downloads site)
+- Download Ubuntu version with `curl` (command created from the Downloads site)
 
 ```bash
 curl --request GET \
@@ -33,8 +33,7 @@ sudo /opt/nessus/sbin/nessuscli update --all
 
 ## Configure Nessus
 
-- Links
-  - [Install Nessus Essentials, Professional, Expert, or Manager](https://docs.tenable.com/nessus/Content/InstallNessusEssentialsProfessionalOrManager.htm)
+🔗 [Install Nessus Essentials, Professional, Expert, or Manager](https://docs.tenable.com/nessus/Content/InstallNessusEssentialsProfessionalOrManager.htm)
 
 - **Register for Nessus Essentials** to install Nessus Essentials
 - **Get an activation** code 

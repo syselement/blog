@@ -14,4 +14,8 @@
 | ![](.gitbook/assets/parrot.svg)<br />[**ParrotOS**](https://www.parrotsec.org/) | Debian-based distro designed for Information & Cyber **Security** operations (Red Team and Blue Team), provides "Hacking tools at your fingertips". |
 | ![](.gitbook/assets/athenaos.png)<br />[**AthenaOS**](https://github.com/Athena-OS/athena-iso) | Arch-based distro designed for Penetration Testing, Bug-Bounty Hunting and InfoSec students. provides a way to connect directly to some of the e-learning hacking resources, such as Hack The Box, TryHackMe, OffSec, PWNX and InfoSec certifications. |
 
-> 📌 Check some ready-to-use Linux guest operating systems from [**OSBoxes**](https://www.osboxes.org/)
+> 📌🔗 **Resources & Links**
+>
+> - Check some ready-to-use Linux guest operating systems from [OSBoxes](https://www.osboxes.org/)
+> - [DistroWatch.com](https://distrowatch.com/) - resource for all things Linux distributions
+> - ...
