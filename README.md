@@ -20,27 +20,27 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## ✉️ Contact
 
-> ![](.gitbook/assets/proton.svg)
+> [![](.gitbook/assets/proton.svg)](mailto:pm@syselement.com)
 >
-> 📧 [Mail Me](mailto:pm@syselement.com)
+> [![](.gitbook/assets/protonmail.svg)](mailto:pm@syselement.com)
 >
 > `pm@syselement.com`
 >
 > ------
 >
-> ![](.gitbook/assets/buymeacoffee.svg)
+> [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
 >
-> ☕ [Buy Me a Coffee](https://go.syselement.com/buymeacoffee)
+> [![](.gitbook/assets/buymeacoffee-button.svg)](https://go.syselement.com/buymeacoffee)
 >
 > ------
 >
-> ![](.gitbook/assets/twitter.svg)
+> [![](.gitbook/assets/twitter.svg)](https://go.syselement.com/twitter)
 >
 > [![](.gitbook/assets/twitter-syselement.svg)](https://go.syselement.com/twitter)
 >
 > ------
 >
-> ![](.gitbook/assets/github.svg)
+> [![](.gitbook/assets/github.svg)](https://go.syselement.com/github)
 >
 > [![](.gitbook/assets/github-syselement.svg)](https://go.syselement.com/github)
 
@@ -48,24 +48,24 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## 🍕 Referrals
 
-> ![](.gitbook/assets/securitycert.svg)
+> [![](.gitbook/assets/securitycert.svg)](https://upgrade.chat/securitycert?referralCode=778322883629023243)
 >
 > 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
 >
 > ------
 >
-> ![](.gitbook/assets/tryhackme.svg)
+> [![](.gitbook/assets/tryhackme.svg)](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) 
 >
 > 🔗 [TryHackMe](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) *(Get 5$ on a Premium Subscription)*
 >
 > ------
 >
-> ![](.gitbook/assets/pentesterlab.png)
+> [![](.gitbook/assets/pentesterlab.png)](https://pentesterlab.com/referral/KpBnjOZqb3wbTA)
 >
 > 🔗 [PentesterLab](https://pentesterlab.com/referral/KpBnjOZqb3wbTA) *(Get 10 points with a Pro Subscription)*
 >
 > ------
 >
-> ![](.gitbook/assets/pwnx.svg)
+> [![](.gitbook/assets/pwnx.svg)](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
 >
 > 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
