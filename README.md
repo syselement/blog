@@ -30,6 +30,8 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
 >
+> [![](.gitbook/assets/buymeacoffeee.svg)](https://go.syselement.com/buymeacoffee)
+>
 > [![](.gitbook/assets/buymeacoffee-button.svg)](https://go.syselement.com/buymeacoffee)
 >
 > ------
