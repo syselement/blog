@@ -36,13 +36,13 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ![](.gitbook/assets/twitter.svg)
 >
-> 🐦 [![](.gitbook/assets/syselement.svg)](https://go.syselement.com/twitter)
+> [![](.gitbook/assets/twitter-syselement.svg)](https://go.syselement.com/twitter)
 >
 > ------
 >
 > ![](.gitbook/assets/github.svg)
 >
-> 🔗 [![](.gitbook/assets/github-sys.svg)](https://go.syselement.com/github)
+> [![](.gitbook/assets/github-syselement.svg)](https://go.syselement.com/github)
 
 ------
 
