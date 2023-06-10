@@ -24,8 +24,6 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > [![](.gitbook/assets/protonmail.svg)](mailto:pm@syselement.com)
 >
-> `pm@syselement.com`
->
 > ------
 >
 > [![](.gitbook/assets/twitter.svg)](https://go.syselement.com/twitter)
