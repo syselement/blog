@@ -14,7 +14,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ✏️ **Copyright** ©️ 2023 syselement
 >
-> *The content on this blog is based on public material and is not subject to copyright protection. However, my original commentary and analysis are protected. Feel free to share links to the content on social media or other websites, and distributing the content by always mentioning me and the link of the utilized resource from this blog.*
+> *The content on this blog is based on public material and is not subject to copyright protection. However, my original commentary and analysis are protected. Feel free to share links to the content on social media or other websites, and distribute the content by always mentioning me and the link of the utilized resource from this blog.*
 
 ------
 
