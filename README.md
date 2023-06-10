@@ -10,7 +10,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 > ❗ **Disclaimer**
 >
-> *The content on this notes blog is for educational and informational purposes only. It should not be used for illegal or malicious activities. The information is based on open-source material, my own interpretation and writing, and may not be up-to-date. Use it at your own risk. The content is intended for personal, non-commercial use. By using these notes, you agree to absolve me of any liability.*
+> *The content on this notes blog is for educational and informational purposes only. It should not be used for illegal or malicious activities. The information is based on open-source material, my own interpretation and writing, and may not be up-to-date. Use it at your own risk. The content is intended for personal, non-commercial, testing and research use. By using these notes, you agree to absolve me of any liability. All notes and comments from external resources will include a reference link to the original source.*
 >
 > ✏️ **Copyright** ©️ 2023 syselement
 >
