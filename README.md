@@ -28,14 +28,6 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ------
 >
-> [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
->
-> [![](.gitbook/assets/buymeacoffeee.svg)](https://go.syselement.com/buymeacoffee)
->
-> [![](.gitbook/assets/buymeacoffee-button.svg)](https://go.syselement.com/buymeacoffee)
->
-> ------
->
 > [![](.gitbook/assets/twitter.svg)](https://go.syselement.com/twitter)
 >
 > [![](.gitbook/assets/twitter-syselement.svg)](https://go.syselement.com/twitter)
@@ -45,6 +37,12 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > [![](.gitbook/assets/github.svg)](https://go.syselement.com/github)
 >
 > [![](.gitbook/assets/github-syselement.svg)](https://go.syselement.com/github)
+>
+> ------
+>
+> [![](.gitbook/assets/buymeacoffeee.svg)](https://go.syselement.com/buymeacoffee)
+>
+> [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
 
 ------
 
