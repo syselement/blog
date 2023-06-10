@@ -38,7 +38,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 🐦 [Follow Me](https://go.syselement.com/twitter)
 >
-> ![](.gitbook/assets/syselement.svg)
+> <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/syselement">
 >
 > ------
 >
@@ -46,7 +46,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 🔗 [GitHub](https://go.syselement.com/github)
 >
-> ![](.gitbook/assets/github-sys.svg)
+> <img alt="GitHub followers" src="https://img.shields.io/github/followers/syselement?label=Github%20-%20syselement&style=social">
 
 ------
 
