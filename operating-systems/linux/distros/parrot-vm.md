@@ -17,7 +17,7 @@
 
 ![](.gitbook/assets/image-20230611192331531.png)
 
-[TO_DO_INSTALL_GIF]
+![ParrotOS Install](.gitbook/assets/parrot-install.gif)
 
 ## First Boot & Update
 
@@ -37,7 +37,7 @@ sudo apt update && sudo apt full-upgrade
 reboot
 ```
 
-[parrot-upgrade - gif]
+
 
 ### bash alias - Update packages
 

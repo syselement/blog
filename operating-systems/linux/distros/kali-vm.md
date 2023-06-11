@@ -14,7 +14,7 @@
 
 ![](.gitbook/assets/image-20230307160636827.png)
 
-![kali-install](.gitbook/assets/kali-install.gif)
+![Kali Install](.gitbook/assets/kali-install.gif)
 
 ## First Boot & Update
 
@@ -37,7 +37,7 @@ sudo apt update && sudo apt full-upgrade -y
 reboot
 ```
 
-![kali-upgrade](.gitbook/assets/kali-upgrade.gif)
+![Kali Upgrade](.gitbook/assets/kali-upgrade.gif)
 
 - Customize Kali and finish off the setup using `kali-tweaks`
 
