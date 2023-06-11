@@ -257,16 +257,14 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-package
 sudo apt update && sudo apt install -y github-desktop
 ```
 
-### Visual Studio Code
+### [VS Codium](https://github.com/VSCodium/vscodium)
 
 ```bash
-sudo apt install -y software-properties-common apt-transport-https wget
+wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
 
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
 
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-
-sudo apt update && sudo apt install -y code
+sudo apt update && sudo apt install -y codium codium-insiders
 ```
 
 ### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)

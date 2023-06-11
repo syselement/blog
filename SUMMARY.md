@@ -25,6 +25,7 @@
   - [📃 Everything Linux](operating-systems/linux/linuxstuff.md)
   - [Linux Distros](operating-systems/linux/distros/README.md)
     - [Kali Linux - VM](operating-systems/linux/distros/kali-vm.md)
+    - [ParrotOS- VM](operating-systems/linux/distros/parrot-vm.md)
   - [Linux Tools](operating-systems/linux/tools/README.md)
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
