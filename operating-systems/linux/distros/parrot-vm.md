@@ -37,7 +37,7 @@ sudo apt update && sudo apt full-upgrade
 reboot
 ```
 
-
+![ParrotOS Upgrade](.gitbook/assets/parrot-upgrade.gif)
 
 ### bash alias - Update packages
 
