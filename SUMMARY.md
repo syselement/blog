@@ -9,7 +9,7 @@
   - [ICCA](https://blog.syselement.com/ine/courses/icca)
 - [TCM Security](certifications-notes/tcmsecurity/README.md)
   - [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
-  - [Linux101](https://blog.syselement.com/tcm/courses/peh)
+  - [PEH]()
 
 ## 🔳 Operating Systems
 
