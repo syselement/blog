@@ -27,6 +27,7 @@
   - [Linux Distros](operating-systems/linux/distros/README.md)
     - [Kali Linux - VM](operating-systems/linux/distros/kali-vm.md)
     - [ParrotOS- VM](operating-systems/linux/distros/parrot-vm.md)
+    - [Ubuntu - VM VirtualBox](operating-systems/linux/distros/ubuntu-vm.md)
   - [Linux Tools](operating-systems/linux/tools/README.md)
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
