@@ -162,7 +162,7 @@ sudo apt update && sudo apt install -y codium codium-insiders
 ```bash
 sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt remove $pkg -y; done
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
 sudo chmod a+r /usr/share/keyrings/docker.gpg

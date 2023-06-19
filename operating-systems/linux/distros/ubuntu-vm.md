@@ -155,5 +155,98 @@ sudo apt update && sudo apt upgrade -y
 
 > 📌 Check the official documentation of the distro for the installation of other Linux distributions.
 
+- Disable Ubuntu Pro ESM Hook
+
+```bash
+sudo sed -i'' -e 's/^\(\s\+\)\([^#]\)/\1# \2/' /etc/apt/apt.conf.d/20apt-esm-hook.conf
+```
+
+## Tools
+
+### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+```bash
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt remove $pkg -y; done
+
+sudo apt update && sudo apt install -y ca-certificates curl gnupg
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+sudo chmod a+r /usr/share/keyrings/docker.gpg
+
+sudo sh -c 'echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list'
+
+sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl enable docker --now
+sudo gpasswd -a "${USER}" docker
+reboot
+
+# Test
+docker run hello-world
+```
+
+![](.gitbook/assets/2023-06-19_23-38-34_91.png)
+
+#### Wordpress Docker Instance
+
+> 🔗 Thanks to [AppSecExplained](https://gist.github.com/AppSecExplained/8bbf5366c6279ffc44beec16e6c39855) for the `yml` file.
+
+```bash
+sudo mkdir /opt/wordpress
+sudo nano /opt/wordpress/docker-compose.yml
+```
+
+```bash
+version: "3"
+services:
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wppassword
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
+    volumes:
+      - mysql:/var/lib/mysql
+
+  wordpress:
+    depends_on:
+      - database
+    image: wordpress:latest
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_NAME: wpdb
+    volumes:
+      ["./:/var/www/html"]
+volumes:
+  mysql: {}
+```
+
+```bash
+cd /opt/wordpress
+docker compose up
+```
+
+- Open the Wordpress site
+
+`http://localhost/wp-admin/`
+
+- Fix `localhost` with the VM's `IP` address in the Wordpress General Settings.
+
+![](.gitbook/assets/2023-06-19_23-49-47_92.png)
+
+**Some commands**
+
+```bash
+docker ps -a
+docker exec -it <CONTAINER-ID> bash
+```
+
 ------
 
