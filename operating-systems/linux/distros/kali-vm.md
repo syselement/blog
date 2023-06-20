@@ -113,7 +113,7 @@ ssh-keygen -t rsa
 sudo apt install -y apt-transport-https curl duf flameshot htop kali-wallpapers-all neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
 ```
 
-### Terminator
+### [Terminator](https://gnome-terminator.org/)
 
 ```bash
 sudo apt install -y terminator
