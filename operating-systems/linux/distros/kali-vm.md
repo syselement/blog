@@ -223,7 +223,7 @@ nano ~/.config/terminator/config
 
 ![](.gitbook/assets/image-20230307154541533.png)
 
-### Sublime
+### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
 
 ```bash
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
@@ -235,7 +235,7 @@ sudo apt update && sudo apt install -y sublime-text
 
 - Run it with **`subl`** command.
 
-### Brave
+### [Brave](https://brave.com/linux/)
 
 ```bash
 sudo apt install -y curl
@@ -279,7 +279,78 @@ sudo usermod -aG docker $USER
 
 ## Offensive Sec Tools
 
+### [pimpmykali](https://github.com/Dewalt-arch/pimpmykali)
+
+> *Kali Linux Fixes for Newly Imported VM's*
+>
+> ❗ **Read [docs](https://github.com/Dewalt-arch/pimpmykali) before running it! It may contains mods that you do not want.**
+
+```bash
+cd /opt
+sudo rm -rf pimpmykali/
+sudo git clone https://github.com/Dewalt-arch/pimpmykali
+
+sudo /opt/pimpmykali/pimpmykali.sh
+
+# For a new kali vm, run menu option N
+```
+
+### [AutoRecon](https://github.com/Tib3rius/AutoRecon)
+
+> *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
+
+```bash
+sudo apt update
+
+sudo apt install -y python3 python3-pip seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+
+sudo apt install -y python3-venv
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+source ~/.zshrc
+#source ~/.bashrc
+
+pipx install git+https://github.com/Tib3rius/AutoRecon.git
+
+mkdir ~/scans/autorecon
+```
+
+```bash
+cd ~/scans/autorecon
+autorecon <TARGET-IP>
+```
+
+```bash
+# ./results/target Directory Structure
+.
+├── exploit/
+├── loot/
+├── report/
+│   ├── local.txt
+│   ├── notes.txt
+│   ├── proof.txt
+│   └── screenshots/
+└── scans/
+	├── _commands.log
+	├── _manual_commands.txt
+	├── tcp80/
+	├── udp53/
+	└── xml/
+```
+
+### [pwntools](https://github.com/Gallopsled/pwntools)
+
+> *Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.*
+
+```bash
+sudo apt update && sudo apt install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade pwntools
+```
+
 ### [Katana](https://github.com/projectdiscovery/katana)
+
+> *A next-generation crawling and spidering framework*
 
 ```bash
 sudo apt install -y golang
@@ -287,5 +358,9 @@ sudo apt install -y golang
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 
 sudo cp ~/go/bin/katana /bin/
+```
+
+```bash
+katana -u <URL>
 ```
 
