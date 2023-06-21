@@ -34,7 +34,7 @@ Maturity curve - The context and analysis of CTI become deeper and more sophisti
 
 ## Lifecycle
 
-![crowdstrike.com - © CrowdStrike](https://www.crowdstrike.com/wp-content/uploads/2019/07/threat-intelligence-lifecycle-3.jpg)
+![crowdstrike.com - © CrowdStrike](.gitbook/assets/threat-intelligence-lifecycle-3.png)
 
 **`T.I. lifecycle`** - the process of *turning raw data into finished intelligence for decision-making and action*.
 

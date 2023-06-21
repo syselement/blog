@@ -6,7 +6,7 @@
 >
 > - `TP-Link EAP225 v2`
 >
-> ![TP-Link EAP225 v2](.gitbook/assets/eap225-hw.jpg)
+> ![TP-Link EAP225 v2](.gitbook/assets/eap225-hw.png)
 >
 > 🔗 **Useful links**
 >
