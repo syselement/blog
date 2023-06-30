@@ -51,7 +51,7 @@ Navigate to
 
 ```bash
 searchsploit fuel cms
-searshsploit -m 50477
+searchsploit -m 50477
 less 50477.py
 
 python 50477.py -u http://10.10.174.21
