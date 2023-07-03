@@ -7,24 +7,43 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 > **Video Timeline**
 >
 > 00:00 - Introduction, talking about RouterSpace and why we can't just do what we did in that video
+>
 > 01:25 - Installing Genymotion, Virtual Box, and ADB; while talking about why I don't use Android Studio/AVD. Simply because genymotion just works.
+>
 > 02:05 - Make sure you upgrade your memory, processors, and enable Virtualization in your VM Settings!
+>
 > 02:30 - Running Genymotion and starting a Pixel 3 XL
+>
 > 03:37 - Converting BurpSuites Certificate to PEM Format with openssl x509 -inform der -in [name of cert] -out burp.pem
+>
 > 04:20 - Renaming the certificate to 9a5ba575.0, and showing how we got that name
+>
 > 06:00 - Starting the device and showing the certificate authorities
+>
 > 07:00 - Copying the certificate to /system/etc/security/cacerts/, and showing how to remount to rw
+>
 > 08:10 - Showing how to set the proxy through both the GUI and via ADB
+>
 > 09:50 - Installing GAPPS
+>
 > 10:30 - Showing how to unset the proxy from ADB
+>
 > 11:00 - Creating an alias to set and unset the proxy via adb
+>
 > 12:00 - Opening the google play store and logging in and install Wayzn to see if we can intercept traffic
+>
 > 15:20 - Showing we intercepted traffic from Wayzn, then installing Instagram
+>
 > 16:50 - Attempting to login to instagram and getting an error message
+>
 > 17:20 - Setting up Frida both on our computer and android device
+>
 > 19:20 - Showing Frida is working, getting ps output from the android device
+>
 > 19:55 - Downloading the instragram ssl pinning bypass script
+>
 > 21:20 - Using frida to start instagram and loading the script to bypass the SSL Checking
+>
 > 22:15 - Setting the proxy and showing us intercept instagram traffic
 
 ```bash
