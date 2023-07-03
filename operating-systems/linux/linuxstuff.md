@@ -263,6 +263,21 @@ sensors
 vcgencmd measure_temp
 ```
 
+### [CPU Stress-Terminal UI - s-tui](https://github.com/amanusk/s-tui)
+
+```bash
+sudo apt install s-tui stress
+```
+
+```bash
+s-tui
+
+# Output to default CSV file - s-tui_log_<TIME>.csv
+s-tui --csv
+```
+
+
+
 ## Software
 
 ### Basic Tools

@@ -188,12 +188,26 @@ curl -Lso /opt/bitwarden/bitwarden.sh "https://func.bitwarden.com/api/dl/?app=se
 
 ![Bitwarden Update](.gitbook/assets/bw_update.gif)
 
-### Start and Stop Bitwarden commands
+## Start and Stop Bitwarden
 
 ```bash
 su - bitwarden
 /opt/bitwarden/bitwarden.sh stop
 /opt/bitwarden/bitwarden.sh start
+```
+
+### Offline Starting
+
+- Since `bitwarden.sh` requires internet connection to work, Bitwarden can be started offline using the docker container already present on the host.
+
+```bash
+su - bitwarden
+
+# Start
+docker-compose -f /opt/bitwarden/bwdata/docker/docker-compose.yml up -d
+
+# Stop
+docker-compose -f /opt/bitwarden/bwdata/docker/docker-compose.yml down
 ```
 
 ------
