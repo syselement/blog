@@ -29,6 +29,8 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 > 22:15 - Setting the proxy and showing us intercept instagram traffic
 > ```
 
+> 🔗 Get **Linux (64bit)** link from [Genymotion Download](https://www.genymotion.com/download/)
+
 ```bash
 sudo apt install -y virtualbox adb
 cd /opt
