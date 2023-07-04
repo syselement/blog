@@ -2,12 +2,12 @@
 
 - [ℹ Home](README.md)
 
-## 📝 Certifications Notes
+## 📝 Courses Notes
 
-- [eLearnSecurity / INE](certifications-notes/elearnsecurity-ine/README.md)
+- [eLearnSecurity / INE](courses-notes/elearnsecurity-ine/README.md)
   - [eJPT - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
   - [ICCA](https://blog.syselement.com/ine/courses/icca)
-- [TCM Security](certifications-notes/tcmsecurity/README.md)
+- [TCM Security](courses-notes/tcmsecurity/README.md)
   - [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
   - [PEH](https://blog.syselement.com/tcm/courses/peh)
 
