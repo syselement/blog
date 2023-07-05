@@ -61,7 +61,23 @@ nano ~/.zshrc
 alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
+- Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
+
+```bash
+mkdir htb tcm pwnx
+# Copy every .ovpn file in the respective dir
+```
+
+```bash
+# OpenVpn Aliases
+alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'
+alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
+alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
+alias killopenvpn='sudo pkill openvpn'
+```
+
 - Save and exit.
+
 - Reload the zshell configuration:
 
 ```bash
@@ -278,6 +294,14 @@ sudo usermod -aG docker $USER
 ```
 
 ## Offensive Sec Tools
+
+### [Searchsploit](https://www.exploit-db.com/searchsploit)
+
+```bash
+sudo apt update && sudo apt -y install exploitdb
+
+searchsploit -u
+```
 
 ### [pimpmykali](https://github.com/Dewalt-arch/pimpmykali)
 

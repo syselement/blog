@@ -58,6 +58,12 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ------
 >
+> [![](.gitbook/assets/htb.svg)](https://referral.hackthebox.com/mzwxh7d)
+>
+> 🔗 [HackTheBox](https://referral.hackthebox.com/mzwxh7d)
+>
+> ------
+>
 > [![](.gitbook/assets/pentesterlab.png)](https://pentesterlab.com/referral/KpBnjOZqb3wbTA)
 >
 > 🔗 [PentesterLab](https://pentesterlab.com/referral/KpBnjOZqb3wbTA) *(Get 10 points with a Pro Subscription)*

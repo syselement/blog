@@ -56,13 +56,29 @@ alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo ap
 
 ![](.gitbook/assets/image-20230611193528488.png)
 
-- Search for `PS1` and add a space after between `]` and `"` of the `PS1` variable in the following places
+- Search for `PS1` and add a space after between `]` and `"` of the `PS1` variable in the following places, to get a space after the `$` of the bash session
 
 ![](.gitbook/assets/2023-07-04_18-18-57_154.png)
 
 ![](.gitbook/assets/2023-07-04_18-15-29_153.png)
 
+- Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
+
+```bash
+mkdir htb tcm pwnx
+# Copy every .ovpn file in the respective dir
+```
+
+```bash
+# OpenVpn Aliases
+alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'
+alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
+alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
+alias killopenvpn='sudo pkill openvpn'
+```
+
 - Save and exit.
+
 - Reload the bash configuration:
 
 ```bash
@@ -184,7 +200,6 @@ terminator -l <yourLayout>
 ```
 
 - Edit the `~/.config/terminator/config` file, rename *yourLayout* to `default` and remove/rename the previous default layout. Now, when Terminator starts without any parameters, it will load your custom [[default]] layout!
-  - Edit the [[[terminalx]]]/ `command = neofetch;zsh` for the desired terminal, so that it will run your custom command during startup!!
 
 ```bash
 nano ~/.config/terminator/config
@@ -232,6 +247,14 @@ docker run hello-world
 ------
 
 ## Offensive Sec Tools
+
+### [Searchsploit](https://www.exploit-db.com/searchsploit)
+
+```bash
+sudo apt update && sudo apt -y install exploitdb
+
+searchsploit -u
+```
 
 ### [Katana](https://github.com/projectdiscovery/katana)
 
