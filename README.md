@@ -78,4 +78,4 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 [🏠](README.md)
 
-[![](.gitbook/assets/noplacelikehome.png)](README.md)
+![](.gitbook/assets/noplacelikehome.png)
