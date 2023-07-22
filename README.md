@@ -20,9 +20,9 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## ✉️ Contact
 
-> [![](.gitbook/assets/proton.svg)](mailto:pm@syselement.com)
+> [![](.gitbook/assets/proton.svg)](mailto:syselement@proton.me)
 >
-> [![](.gitbook/assets/protonmail.svg)](mailto:pm@syselement.com)
+> [![](.gitbook/assets/protonmail.svg)](mailto:syselement@proton.me)
 >
 > ------
 >
