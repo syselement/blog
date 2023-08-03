@@ -450,23 +450,22 @@ sudo apt install asbru-cm
 
 
 ```bash
-# Download Burp Suite community edition for Linux 64 bits https://portswigger.net/burp/communitydownload
+# Download Burp Suite community edition for Linux 64 bits 
+BURP_VER=$(curl -si https://portswigger.net/burp/releases/community/latest | grep -E "^location:" | grep -Eo "[0-9]+.[0-9]+.[0-9]+" | sed 's/-/./g')
 
-cd /home/$USER/Downloads
-chmod +x ./burpsuite_community_linux_*.sh
-sudo ./burpsuite_community_linux_*.sh
-# Confirm to update or install the new version in the /opt/burpsuite directory.
+wget -qO "/tmp/burpsuite_community_v"$BURP_VER"_install.sh" "https://portswigger.net/burp/releases/startdownload?product=community&version="$BURP_VER"&type=Linux"
 
+chmod +x "/tmp/burpsuite_community_v"$BURP_VER"_install.sh"
+sudo /tmp/burpsuite_community_v"$BURP_VER"_install.sh -q
 
-sudo nano /usr/bin/burpsuite
-# Add those 2 lines to the "/usr/bin/burpsuite" file
+# Default install dir is /opt/BurpSuiteCommunity
+# This will overwrite the command of the already installed Burpsuite (with apt)
 
-#!/bin/sh
-/opt/burpsuite/jre/bin/java --illegal-access=permit -noverify -jar /opt/burpsuite/burpsuite_community.jar
+sudo cp /opt/BurpSuiteCommunity/burpsuite_community.jar /usr/share/burpsuite/burpsuite.jar
+sudo mv /usr/bin/burpsuite /usr/bin/burpsuite.bak
+echo -ne '#!/bin/sh\n"/opt/BurpSuiteCommunity/BurpSuiteCommunity" %U\n' | sudo tee /usr/bin/burpsuite && sudo chmod +x /usr/bin/burpsuite
 
-sudo chmod +x /usr/bin/burpsuite
-
-# Start burspsuite from shell.
+# Start burspsuite from shell
 ```
 
 ## Usage and Configuration
