@@ -132,9 +132,6 @@ sudo dpkg -i packname
 ```bash
 passwd root
 passwd kali
-sudo apt install gnome-tweaks -y
-sudo apt install tor -y
-sudo apt install vlc -y
 sudo apt install terminator -y
 sudo update-alternatives --config x-terminal-emulator
 # gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
@@ -291,7 +288,29 @@ sudo apt install -y wget net-tools htop tree terminator flameshot
 ```bash
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update && sudo apt install sublime-text -y
+sudo apt update && sudo apt install -y sublime-text
+```
+
+### Install VSCode
+
+```bash
+sudo apt install -y software-properties-common apt-transport-https wget
+
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+ 
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+
+sudo apt update && sudo apt install -y code
+```
+
+### Install VS Codium
+
+```bash
+wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
+
+sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
+
+sudo apt update && sudo apt install -y codium codium-insiders
 ```
 
 ### Install Obsidian
@@ -305,7 +324,7 @@ chmod +x usr/local/bin/obsidian
 ### Install Brave Browser
 
 ```bash
-sudo apt install curl
+sudo apt install -y curl
 
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
@@ -313,7 +332,7 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 
 sudo apt update
 
-sudo apt install brave-browser
+sudo apt install -y brave-browser
 ```
 
 ### Install Anydesk
@@ -330,7 +349,7 @@ sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anyde
 sudo apt update
 
 # install anydesk:
-sudo apt install anydesk -y
+sudo apt install -y anydesk
 ```
 
 ### Install DnsLeakTest
@@ -345,7 +364,7 @@ chmod +x dnsleaktest.py
 ### Install Tor
 
 ```bash
-sudo apt install tor
+sudo apt install -y tor
 service tor start
 service tor status
 -------------------------
@@ -381,7 +400,7 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 - Or use APT package manager on Debian-based distros
 
 ```bash
-sudo apt update && sudo apt install metasploit-framework -y
+sudo apt update && sudo apt install -y metasploit-framework
 ```
 
 - Enable `postgresql` at boot, start the service and initialize MSF database
@@ -440,7 +459,7 @@ sudo cp ~/go/bin/katana /bin/
 
 ```bash
 curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.sh' | sudo -E bash
-sudo apt install asbru-cm
+sudo apt install -y asbru-cm
 ```
 
 ### Install BurpSuite
