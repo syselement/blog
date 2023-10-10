@@ -48,6 +48,12 @@ free -m
 htop
 ```
 
+### Hardware Check
+
+```bash
+inxi -F
+```
+
 ### Terminal clean
 
 ```bash
