@@ -36,8 +36,6 @@
   - **e.g.** SSH RCE, usage of remote access protocols: AV Network or Adjacent Network
 - The *Base Score increases the farther* (logically+physically) the attacker can be from the target
 
-> 🇮🇹 Il **vettore di attacco** riflette il contesto in cui è possibile sfruttare la vulnerabilità. Il punteggio base aumenta quanto più lontano l'attaccante può essere dal target.
-
 ![Attack Vector Rubric](.gitbook/assets/Mod3_Slide024.png)
 
 In the **`e.g. 1`** , the Attack Vector is `Network (AV:N)`
@@ -48,8 +46,6 @@ In the **`e.g. 1`** , the Attack Vector is `Network (AV:N)`
 - Excludes user interaction in order to exploit the vuln
 - The *Base Score increases the most for the least complex attacks (= attack performed at will)*
 
-> 🇮🇹 La **complessità di attacco** descrive le condizioni al di fuori del controllo dell'attaccante che devono esistere per sfruttare la vulnerabilità. Il punteggio base aumenta di più per gli attacchi meno complessi, cioè quando gli attacchi possono essere eseguiti a volontà.
-
 ![Attack Complexity Rubric](.gitbook/assets/Mod3_Slide030.png)
 
 In the **`e.g. 1`** , the Attack Complexity is `Low (AC:L)` - non default setting allowing HTTP GET request to modify a config file, vulnerable component is in that configuration
@@ -59,8 +55,6 @@ In the **`e.g. 1`** , the Attack Complexity is `Low (AC:L)` - non default settin
 - *Describes the level of privileges an attacker must possess before successfully exploiting the vuln*
 - The *Base Score increases as fewer privileges are required*
 
-> 🇮🇹 Descrive il livello di privilegi (richiesti) che un attaccante deve possedere per poter sfruttare con successo la vulnerabilità. Il punteggio base aumenta man mano che vengono richiesti meno privilegi.
-
 ![Privileges Required Rubric](.gitbook/assets/Mod3_Slide037.png)
 
 In the **`e.g. 1`** , the Privileges Required is `Low (PR:L)` - the attacker needs to login to the web app with a basic unprivileged user
@@ -69,8 +63,6 @@ In the **`e.g. 1`** , the Privileges Required is `Low (PR:L)` - the attacker nee
 
 - *Captures the requirement for a user, other than the attacker, to participate in the successful compromise of the vulnerable component*
 - The *Base Score is greater when no user interaction is required*
-
-> 🇮🇹 Soddisfa il requisito che un utente diverso dall'attaccante, partecipi alla compromissione del componente vulnerabile. Il punteggio base è maggiore quando non è richiesta l'interazione dell'utente.
 
 ![User Interaction Rubric](.gitbook/assets/Mod3_Slide043.png)
 
@@ -89,8 +81,6 @@ In the **`e.g. 1`** , the User Interaction is `Required (UI:R)` - requires a pri
 - *Consider the security scope of both components (vulnerable & impacted) and see whether there is a change*
 - The *Base Score is greater when systems beyond the vulnerable component are impacted*
 
-> 🇮🇹 Considerare l'ambito di sicurezza di entrambi i componenti (vulnerabili e impattati) e vedere se c'è un cambiamento. Il punteggio base è maggiore quando sono colpiti sistemi diversi dal componente vulnerabile.
-
 ![Scope Rubric](.gitbook/assets/Mod3_Slide053.png)
 
 In the **`e.g. 1`** , the Scope is `Unchanged (S:U)` - the web app is both the vulnerable & impacted component
@@ -105,8 +95,6 @@ In the **`e.g. 1`** , the Scope is `Unchanged (S:U)` - the web app is both the v
 
 - The *Base Score increases with the degree of information **disclosed***
 
-> **🇮🇹** Misura l'impatto sulla **confidenzialità** delle risorse informative gestite da un componente software, a causa di una vulnerabilità sfruttata con successo. Il punteggio base aumenta con il grado delle informazioni divulgate.
-
 ![Confidentiality Impact Rubric](.gitbook/assets/Mod3_Slide067.png)
 
 In the **`e.g. 1`** , the Confidentiality Impact is `None (C:N)` - the attacker cannot access any information he has already access to
@@ -117,8 +105,6 @@ In the **`e.g. 1`** , the Confidentiality Impact is `None (C:N)` - the attacker 
 
 - The *Base Score increases with the degree of information that can be **modified***
 
-> 🇮🇹 Misura l'impatto sulla affidabilità e veridicità (**integrità**) dei dati, derivante da una vulnerabilità sfruttata con successo. Il punteggio base aumenta con il grado di informazioni che possono essere modificate.
-
 ![Integrity Impact Rubric](.gitbook/assets/Mod3_Slide074.png)
 
 In the **`e.g. 1`** , the Integrity Impact is `Low (I:l)` - the attacker can only modify a configuration file that he did not already have the ability to change
@@ -128,8 +114,6 @@ In the **`e.g. 1`** , the Integrity Impact is `Low (I:l)` - the attacker can onl
 - *Measures the impact to the **availability** of the impacted component resulting from a successfully exploited vuln*
 
 - The *Base Score increases with the degree of disruption of availability
-
-> 🇮🇹 Misura l'impatto sulla **disponibilità** del componente impattato, derivante da una vulnerabilità sfruttata con successo. Il punteggio base aumenta con il grado di interruzione della disponibilità.
 
 ![Availability Impact Rubric](.gitbook/assets/Mod3_Slide081.png)
 
@@ -152,8 +136,6 @@ In the **`e.g. 1`** , the Availability Impact is `High (A:H)` - the attacker can
 
 In the **`e.g. 1`** , the Exploit Code Maturity is `Proof oc concept code (E:P)` - POC code is available for the Authentication Bypass Vulnerability
 
-> 🇮🇹 Misura la probabilità che il componente vulnerabile venga attaccato. In genere si basa sullo stato attuale delle tecniche di exploit, sulla disponibilità del codice o sullo sfruttamento attivo.
-
 ### Remediation Level (RL)
 
 - Remediation level is important for prioritisation, based on vuln patch, workarounds and hotfixes
@@ -161,16 +143,12 @@ In the **`e.g. 1`** , the Exploit Code Maturity is `Proof oc concept code (E:P)`
 
 In the **`e.g. 1`** , the Remediation Level is `Temporary fix (RL:T)` - the vendor of the web app has released a temporary fix
 
-> 🇮🇹 Il livello di correzione è importante per la definizione delle **priorità**, in base alla patch della vulnerabilità, ai workaround e agli hotfix disponibili. Quanto meno ufficiale e permanente è la correzione, tanto più alto è il punteggio della vulnerabilità.
-
 ### Report Confidence (RC)
 
 - Measures the degree of confidence in the existence of the vuln and the credibility of the known technical details
 - A vulnerability rated as **confirmed** has the higher score
 
 In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - researchers do not have full confidence in the root cause of the vuln
-
-> 🇮🇹 Misura il grado di **confidenza** nell'esistenza della vulnerabilità e la **credibilità** dei dettagli tecnici noti. Una vulnerabilità classificata come *confermata* ha un punteggio più alto.
 
 ![Temporal Score](.gitbook/assets/image-20230728111536108.png)
 
@@ -180,8 +158,6 @@ In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - resea
 >
 > - Customize the CVSS score depending on the importance of the affected IT asset to a user's organization
 > - The metrics are the modified equivalent of base metrics and their assigned values based on the component placement in the organizational infrastructure
-
-> 🇮🇹 Il gruppo di metriche ambientali rappresenta le caratteristiche di una vulnerabilità che sono rilevanti e uniche per l'ambiente di un particolare utente. Le metriche sono l'equivalente modificato delle metriche di base e dei loro valori assegnati in base al posizionamento del componente nell'infrastruttura organizzativa.
 
 ![Environmental Score Metrics](.gitbook/assets/image-20230728112822035.png)
 
