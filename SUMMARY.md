@@ -31,6 +31,13 @@
   - [Linux Tools](operating-systems/linux/tools/README.md)
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
+
+## 🧪 Pentesting Everything
+
+- [📱 Mobile](pentesting-everything/mobile/README.md)
+- [🧬 Network](pentesting-everything/network/README.md)
+- [🕸️ Web](pentesting-everything/web/README.md)
+
 ## 🖥️ Cyber Everything
 
 - [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
