@@ -43,6 +43,7 @@
 
 ## 🖥️ Cyber Everything
 
+- [CVSS 3.1](cyber-everything/cvss3.1.md)
 - [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
 
 ## 🔬 Home Lab
