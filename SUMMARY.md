@@ -49,7 +49,7 @@
   - [Metasploitable3](home-lab/redteam/metasploitable3.md)
 - [🔵 Blue Team Labs](home-lab/blueteam/README.md)
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
-- [🍭 Misc Labs](home-lab/misc/README.md)
+- [⚪ Misc Labs](home-lab/misc/README.md)
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [Intercepting Android App Traffic](home-lab/misc/android-traffic-intercept.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
