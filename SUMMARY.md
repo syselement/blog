@@ -35,6 +35,9 @@
 ## 🧪 Pentesting Everything
 
 - [📱 Mobile](pentesting-everything/mobile/README.md)
+  - [Apps Lab](pentesting-everything/mobile/labs/README.md)
+    - [Intercepting Android App Traffic](pentesting-everything/mobile/labs/android-traffic-intercept.md)
+
 - [🧬 Network](pentesting-everything/network/README.md)
 - [🌐 Web](pentesting-everything/web/README.md)
 
@@ -49,7 +52,9 @@
   - [Metasploitable3](home-lab/redteam/metasploitable3.md)
 - [🔵 Blue Team Labs](home-lab/blueteam/README.md)
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
-- - 
+- [⚗️ Misc Labs](home-lab/misc/README.md)
+  - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
+  - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
 
 ## ✍ Writeups & Walkthroughs
 
