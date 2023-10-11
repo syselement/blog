@@ -2,7 +2,7 @@
 
 **`CVSS`** (**Common Vulnerability Scoring System**) - vendor-agnostic, industry-open standard designed to convey vulnerability severity and help determine urgency and priority of response.
 
-- maintained by `FIRST` (Forum of Incident Response and Security Teams)
+- Maintained by `FIRST` (Forum of Incident Response and Security Teams)
 
 ## Objectives
 
