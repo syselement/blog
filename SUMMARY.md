@@ -52,7 +52,7 @@
   - [Metasploitable3](home-lab/redteam/metasploitable3.md)
 - [🔵 Blue Team Labs](home-lab/blueteam/README.md)
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
-- ⚗️ Misc Labs
+- [⚪ Misc Labs](home-lab/misc/README.md)
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
 
