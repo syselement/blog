@@ -211,7 +211,7 @@ sudo systemctl mask apt-daily.service
 ### Speedtest-cli
 
 ```bash
-wget -O /dev/null -q --show-progress https://speed.hetzner.de/10GB.bin
+wget -O /dev/null -q --show-progress https://ash-speed.hetzner.com/10GB.bin
 ```
 
 - Or install `speedtest-cli`
