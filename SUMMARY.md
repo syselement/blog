@@ -41,6 +41,9 @@
 
 - [🧬 Network](pentesting-everything/network/README.md)
 - [🌐 Web](pentesting-everything/web/README.md)
+  - [API](pentesting-everything/web/api/README.md)
+    - [API Sec Fundamentals](pentesting-everything/web/api/api-fundamentals.md)
+
 
 ## 🖥️ Cyber Everything
 
