@@ -1,6 +1,6 @@
-# ZSH & Oh-My-Zsh
+# Zsh & Oh-My-Zsh
 
-> 🔗 [ZSH](https://www.zsh.org/)
+> 🔗 [Zsh](https://www.zsh.org/)
 >
 > 🔗 [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
