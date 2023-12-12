@@ -32,6 +32,7 @@
   - [Linux Tools](operating-systems/linux/tools/README.md)
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
+    - [ZSH & Oh-My-Zsh](operating-systems/linux/tools/zsh.md)
 
 ## 🧪 Pentesting Everything
 
