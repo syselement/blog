@@ -48,6 +48,21 @@ free -m
 htop
 ```
 
+### Disk - Extend LVM Partition
+
+```bash
+echo 1>/sys/class/block/sda/device/rescan
+sudo cfdisk
+# Resize the wanted partition
+# sudo lsblk
+# sudo vgdisplay -v
+# sudo pvresize /dev/<your_sda>
+# sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+# sudo vgdisplay -v
+# sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+df -h
+```
+
 ### Hardware Check
 
 ```bash
@@ -200,12 +215,15 @@ sudo dpkg-reconfigure console-setup
 
 ```bash
 sudo nano /etc/apt/apt.conf.d/20auto-upgrades
-# make sure all these directives are set to “0”
+# make sure all the directives are set to “0”
 
 sudo systemctl disable apt-daily-upgrade.timer
 sudo systemctl mask apt-daily-upgrade.service
 sudo systemctl disable apt-daily.timer
 sudo systemctl mask apt-daily.service
+
+# For complete package uninstall
+sudo apt purge --auto-remove unattended-upgrades
 ```
 
 ### Speedtest-cli
