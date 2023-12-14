@@ -7,6 +7,8 @@
 > * 📌*Some commands can be outdated.*
 > * ❗*Most of the commands are for **Debian-based** distributions.*
 
+------
+
 ## Terminal commands
 
 ### Linux Kernel version
@@ -299,6 +301,8 @@ s-tui --csv
 
 
 
+------
+
 ## Software
 
 ### Basic Tools
@@ -511,6 +515,22 @@ echo -ne '#!/bin/sh\n"/opt/BurpSuiteCommunity/BurpSuiteCommunity" %U\n' | sudo t
 # Start burspsuite from shell
 ```
 
+### Install MobSF
+
+- Link [Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+
+```bash
+sudo mkdir -p ~/docker/mobsf
+
+chown 9901:9901 ~/docker/mobsf
+
+docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
+```
+
+
+
+------
+
 ## Usage and Configuration
 
 ### Configure Git for Github
@@ -570,6 +590,8 @@ nmap 192.168.254.1/24
 nmap 192.168.254.1-100
 nmap -p80,21,23 192.168.254.129
 ```
+
+------
 
 ## Virtual Machines
 
