@@ -58,7 +58,7 @@ nano ~/.zshrc
 ```bash
 # Upgrade all packages and remove unused packages
 
-alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
 - Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
@@ -70,7 +70,8 @@ mkdir htb tcm pwnx
 
 ```bash
 # OpenVpn Aliases
-alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'
+alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'        # HTB FREE VPN
+alias htbvipvpn='sudo openvpn --config ~/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
 alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
 alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
@@ -87,10 +88,12 @@ source ~/.zshrc
 - Test the command
 
 ```bash
-updateme
+updateos
 ```
 
 ![](.gitbook/assets/image-20230307150035865.png)
+
+---
 
 ## Configurations
 
@@ -111,13 +114,17 @@ reboot
 ### New SSH Keys
 
 ```bash
-sudo rm /etc/ssh/ssh_host_*
+sudo /bin/rm -v /etc/ssh/ssh_host_*
+sudo dpkg-reconfigure openssh-server
+sudo systemctl restart ssh
 ssh-keygen -t rsa
 ```
 
+### ZShell
 
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
 
-
+---
 
 ## Tools
 
@@ -126,7 +133,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https curl duf flameshot htop kali-wallpapers-all neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
+sudo apt install -y apt-transport-https btop curl duf flameshot htop kali-wallpapers-all neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
 ```
 
 ### [Terminator](https://gnome-terminator.org/)
@@ -292,6 +299,8 @@ sudo systemctl enable docker --now
 
 sudo usermod -aG docker $USER
 ```
+
+---
 
 ## Offensive Sec Tools
 

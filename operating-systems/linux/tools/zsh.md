@@ -89,6 +89,13 @@ nano ~/.oh-my-zsh/custom/aliases.zsh
 # Alias to update the system
 alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 
+# OpenVpn Aliases
+alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'        # HTB FREE VPN
+alias htbvipvpn='sudo openvpn --config ~/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
+alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
+alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
+alias killopenvpn='sudo pkill openvpn'
+
 # Additional Aliases
 alias clipcopy='xclip -selection clipboard'
 alias df='df -h'

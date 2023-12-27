@@ -109,7 +109,7 @@ sudo apt --purge autoremove
 nano ~/.bashrc
 # Append the following text with personal commands. O.S. update in this case:
 
-alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 
 # Load changes:
 source ~/.bashrc
@@ -124,7 +124,7 @@ alias
 nano ~/.zshrc
 # Append the following text with personal commands. O.S. update in this case:
 
-alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 
 # Load changes:
 source ~/.zshrc

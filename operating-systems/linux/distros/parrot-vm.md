@@ -51,7 +51,7 @@ nano ~/.bashrc
 ```bash
 # Upgrade all packages and remove unused packages
 
-alias updateme='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
 ![](.gitbook/assets/image-20230611193528488.png)
@@ -88,7 +88,7 @@ source ~/.bashrc
 - Test the command
 
 ```bash
-updateme
+updateos
 ```
 
 ![](.gitbook/assets/image-20230611193627780.png)
@@ -122,6 +122,10 @@ sudo systemctl restart ssh
 ssh-keygen -t rsa
 ```
 
+### ZShell
+
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+
 ------
 
 ## Tools
@@ -131,7 +135,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https curl duf flameshot htop neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
+sudo apt install -y apt-transport-https btop curl duf flameshot htop neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
