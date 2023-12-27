@@ -339,13 +339,14 @@ sudo apt install -y python3 python3-pip seclists curl dnsrecon enum4linux feroxb
 
 sudo apt install -y python3-venv
 python3 -m pip install --user pipx
+python3 -m pip install --upgrade pipx
 python3 -m pipx ensurepath
 source ~/.zshrc
 #source ~/.bashrc
 
 pipx install git+https://github.com/Tib3rius/AutoRecon.git
 
-mkdir ~/scans/autorecon
+mkdir -p ~/scans/autorecon
 ```
 
 ```bash
