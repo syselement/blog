@@ -116,3 +116,5 @@ alias ugq='ugrep --pretty --hidden -Qria'
 alias vdir='vdir --color=auto'
 ```
 
+---
+
