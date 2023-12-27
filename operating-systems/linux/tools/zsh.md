@@ -26,7 +26,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-- Add those line to `.zshrc`
+- Add/change those lines into the `.zshrc` file
 
 ```bash
 nano ~/.zshrc
@@ -39,13 +39,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # add custom plugins in the plugins
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+# BEFORE THE "source oh-my-zsh.sh" command add
+
 # Fix errors (before source zsh)
 ZSH_DISABLE_COMPFIX="true"
-```
 
-- At the end of the file add following lines
-
-```bash
 # Skip all aliases, in lib files and enabled plugins
 zstyle ':omz:*' aliases no
 ```
@@ -56,21 +54,23 @@ zstyle ':omz:*' aliases no
 zsh
 ```
 
-- Set the same `ohmyzsh` config for the `root` user
+- Set the same `ohmyzsh` config for the `root` user by symlinking the current user's `zsh` configuration
 
 ```bash
-USER=root
-USER_HOME_PATH=~$USER
-sudo ln -s $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
-sudo ln -s $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
-sudo ln -s $HOME/.p10k.zsh	${USER_HOME_PATH}/.p10k.zsh
-sudo chsh -s $(which zsh) $USER
+ROOTUSER=root
+USER_HOME_PATH=~$ROOTUSER
+
+sudo mv ${USER_HOME_PATH}/.zshrc ${USER_HOME_PATH}/.zshrc.bak
+sudo ln -sf $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
+sudo ln -sf $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
+sudo ln -sf $HOME/.p10k.zsh ${USER_HOME_PATH}/.p10k.zsh
+sudo chsh -s $(which zsh) $ROOTUSER
 ```
 
 - Set Custom **Aliases**
 
 ```bash
-nano /home/user/.oh-my-zsh/custom/aliases.zsh
+nano ~/.oh-my-zsh/custom/aliases.zsh
 # Paste your custom aliases
 ```
 
@@ -87,6 +87,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias h='history 100'
+alias history=omz_history
 alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
@@ -102,6 +103,5 @@ alias python='python3'
 alias sudo='sudo -v; sudo '
 alias ugq='ugrep --pretty --hidden -Qria'
 alias vdir='vdir --color=auto'
-
 ```
 
