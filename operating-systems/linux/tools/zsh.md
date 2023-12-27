@@ -26,53 +26,64 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-- Add/change those lines into the `.zshrc` file
+Open the `.zshrc` file for editing.
 
 ```bash
 nano ~/.zshrc
 ```
 
+- Locate the line that sets the Zsh theme and change it to use Powerlevel10k
+
 ```bash
-# Change ZSH_THEME
 ZSH_THEME="powerlevel10k/powerlevel10k"
-	
-# add custom plugins in the plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+```
 
-# BEFORE THE "source oh-my-zsh.sh" command add
+- Add or update the `plugins` line to include additional Zsh plugins
 
-# Fix errors (before source zsh)
+```bash
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+```
+
+- Add the following lines before the `source ...oh-my-zsh.sh` command
+
+```bash
+# Fix errors
 ZSH_DISABLE_COMPFIX="true"
 
 # Skip all aliases, in lib files and enabled plugins
 zstyle ':omz:*' aliases no
 ```
 
-- Save the file, exit and re-run `zsh` to configure Powerlevel10k Theme
+Save the file, exit and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
 
 ```bash
 zsh
 ```
 
-- Set the same `ohmyzsh` config for the `root` user by symlinking the current user's `zsh` configuration
+> **EXTRA**
+>
+> Set the same `ohmyzsh` config for the `root` user by symlinking the current user's `zsh` configuration.
+>
+> ```bash
+> ROOTUSER=root
+> USER_HOME_PATH=~$ROOTUSER
+> 
+> sudo mv ${USER_HOME_PATH}/.zshrc ${USER_HOME_PATH}/.zshrc.bak
+> sudo ln -sf $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
+> sudo ln -sf $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
+> sudo ln -sf $HOME/.p10k.zsh ${USER_HOME_PATH}/.p10k.zsh
+> sudo chsh -s $(which zsh) $ROOTUSER
+> ```
+>
 
-```bash
-ROOTUSER=root
-USER_HOME_PATH=~$ROOTUSER
-
-sudo mv ${USER_HOME_PATH}/.zshrc ${USER_HOME_PATH}/.zshrc.bak
-sudo ln -sf $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
-sudo ln -sf $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
-sudo ln -sf $HOME/.p10k.zsh ${USER_HOME_PATH}/.p10k.zsh
-sudo chsh -s $(which zsh) $ROOTUSER
-```
-
-- Set Custom **Aliases**
+Set Custom **Aliases**.
 
 ```bash
 nano ~/.oh-my-zsh/custom/aliases.zsh
 # Paste your custom aliases
 ```
+
+- `e.g.` of my custom aliases
 
 ```bash
 # Alias to update the system
