@@ -71,6 +71,32 @@ df -h
 inxi -F
 ```
 
+### ACPI Powerstate
+
+```bash
+sudo dmesg | grep ACPI | grep supports
+```
+
+> 🔗 [System Sleep States](https://www.kernel.org/doc/html/next/admin-guide/pm/sleep-states.html)
+>
+> ```bash
+> State:		Suspend-To-Idle
+> ACPI state:	S0
+> Label:		"s2idle" ("freeze")
+> 
+> State:		Standby / Power-On Suspend
+> ACPI State:	S1
+> Label:		"shallow" ("standby")
+> 
+> State:		Suspend-to-RAM (STR)
+> ACPI State:	S3
+> Label:		"deep"
+> 
+> State:		Suspend-to-disk (STD/Hibernation)
+> ACPI State:	S4
+> Label:		"disk"
+> ```
+
 ### Terminal clean
 
 ```bash
@@ -95,13 +121,14 @@ sudo apt autoclean
 sudo apt --purge autoremove
 ```
 
-* Info:
-  * **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
-  * **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
-  * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
-  * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
-
-### Create Aliases
+> Info:
+> * **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
+> * **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
+> * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
+> * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
+>
+> ### Create Aliases
+>
 
 - Ubuntu:
 
@@ -311,6 +338,8 @@ s-tui --csv
 sudo apt install -y wget net-tools htop tree terminator flameshot
 ```
 
+### [Install Zsh & Oh-My-Zsh](tools/zsh.md)
+
 ### Install Sublime
 
 ```bash
@@ -361,6 +390,38 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 sudo apt update
 
 sudo apt install -y brave-browser
+```
+
+### [Install GitHub Desktop](https://mirror.mwt.me/shiftkey-desktop/)
+
+```bash
+wget -qO- "https://mirror.mwt.me/shiftkey-desktop/install.sh" | sudo -s
+```
+
+```bash
+# or
+wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
+
+sudo apt update && sudo apt install github-desktop
+```
+
+### Install Telegram
+
+```bash
+# Via apt
+sudo apt install telegram-desktop
+```
+
+```bash
+# Via official Linux binary
+
+wget https://telegram.org/dl/desktop/linux
+tar -xvf linux
+sudo mv Telegram/ /opt
+/opt/Telegram/./Telegram
+/opt/Telegram/./Updater
 ```
 
 ### Install Anydesk
@@ -533,6 +594,12 @@ docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.Mob
 
 ## Usage and Configuration
 
+### SSH Login
+
+```bash
+sudo systemctl enable ssh --now
+```
+
 ### Configure Git for Github
 
 ```bash
@@ -591,9 +658,102 @@ nmap 192.168.254.1-100
 nmap -p80,21,23 192.168.254.129
 ```
 
+### RDP with Xfce (Kali Linux)
+
+> 🔗 [Setting up RDP with Xfce - Kali Linux](https://www.kali.org/docs/general-use/xfce-with-rdp/)
+
+```bash
+wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/raw/main/xfce4.sh
+chmod +x xfce4.sh
+sudo ./xfce4.sh
+
+sudo adduser xrdp ssl-cert
+sudo systemctl enable xrdp --now
+```
+
+> - The **`xfce4.sh`** does the following
+>
+> ```bash
+> #!/bin/bash
+> echo "[i] Updating and upgrading Kali (this will take a while)"
+> apt-get update
+> apt-get --yes --force-yes dist-upgrade
+> 
+> echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
+> apt-get --yes --force-yes install kali-desktop-xfce xorg xrdp
+> 
+> echo "[i] Configuring xrdp to listen to port 3390 (but not starting the service)"
+> sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
+> ```
+
+- Fix for `Authentication Required to Create Managed Color Device`, run
+
+```bash
+cat <<EOF | sudo tee /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
+[Allow Colord all Users]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+EOF
+
+sudo systemctl restart xrdp
+```
+
+- Port to connect to is `3390`
+
+```bash
+### TESTS - DO NOT CONSIDER ###
+
+# sudo nano /etc/xrdp/startwm.sh
+
+# # Add lines before test and execute
+# unset DBUS_SESSION_BUS_ADDRESS
+# unset XDG_RUNTIME_DIR
+# . $HOME/.profile
+```
+
+### Arm on x86 QEMU-USER
+
+> 🔗 [Running arm binaries on x86 with qemu-user](https://azeria-labs.com/arm-on-x86-qemu-user/)
+
+```bash
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential libc6-dev-arm64-cross
+
+qemu-aarch64-static -L /usr/aarch64-linux-gnu/ sandbox
+```
+
+
+
+
+
 ------
 
 ## Virtual Machines
+
+### Install VirtualBox on Kali
+
+> 🔗 [Install VirtualBox on Kali (Host)](https://www.kali.org/docs/virtualization/install-virtualbox-host/)
+
+```bash
+sudo apt update
+
+curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
+
+curl -fsSL https://www.virtualbox.org/download/oracle_vbox.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox.gpg
+
+echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+
+sudo apt update
+
+sudo apt install -y dkms
+
+sudo apt install -y virtualbox virtualbox-ext-packv
+```
+
+
 
 ### METASPLOITABLE VM
 
@@ -610,4 +770,31 @@ nmap -p80,21,23 192.168.254.129
 ```
 
 ------
+
+## Troubleshooting
+
+### i915 Linux Freeze - Temp Fix
+
+> - 🔗 [flip_done timed out - issue](https://gitlab.freedesktop.org/drm/intel/-/issues/8685)
+>
+> Happens on Kali and Parrot OS with HDMI external monitor and Iris Xe Graphics.
+
+```bash
+sudo cat /sys/kernel/debug/dri/0/i915_dmc_info
+
+# Verifica la versione e annotarsela
+
+ls -lah /usr/lib/firmware/i915/adlp_dmc*
+
+# Rinominare i file per rendere la versione utilizzata la 2.16 tramite il file adlp_dmc.bin
+
+sudo mv /usr/lib/firmware/i915/adlp_dmc.bin /usr/lib/firmware/i915/adlp_dmc_ver<VERSIONE_PRIMO_COMANDO>.bin
+sudo cp /usr/lib/firmware/i915/adlp_dmc_ver2_16.bin /usr/lib/firmware/i915/adlp_dmc.bin
+sudo update-initramfs -c -k all
+
+# Verificare la version utilizzata (può essere necessario un reboot)
+sudo cat /sys/kernel/debug/dri/0/i915_dmc_info
+```
+
+
 
