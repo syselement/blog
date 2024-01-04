@@ -18,7 +18,8 @@
 
 ### Disable Bing Search
 
-🔗 [How To Disable Bing Search On Windows 11](https://www.onmsft.com/how-to/how-to-disable-bing-search-on-windows-11/)
+> 🔗 [How To Disable Bing Search On Windows 11](https://www.onmsft.com/how-to/how-to-disable-bing-search-on-windows-11/)
+>
 
 ```powershell
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /t REG_DWORD /d 0 /f
@@ -26,7 +27,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 
 ### Debloat Win
 
-> 🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/releases)
+> 🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 >
 > 🔗 [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
 
@@ -34,7 +35,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 
 - Open `cmd.exe` and type the following commands
 
-```cmd
+```powershell
 sc delete DiagTrack
 sc delete dmwappushservice
 sc delete WerSvc
@@ -77,7 +78,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution 
 
 **Scheduled tasks**
 
-```cmd
+```powershell
 schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\AitAgent" /disable
 schtasks /Change /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /disable
@@ -128,7 +129,8 @@ del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*"
 
 ### Change Windows Theme
 
-🔗 [How to Change Themes in Window 11 Without Activating Windows](https://techwiser.com/change-theme-windows-11/)
+> 🔗 [How to Change Themes in Window 11 Without Activating Windows](https://techwiser.com/change-theme-windows-11/)
+>
 
 **Dark theme**
 
@@ -172,9 +174,10 @@ powercat -h
 
 ### [Sysinternals](https://learn.microsoft.com/en-us/sysinternals/)
 
-🔗 Web: [https://live.sysinternals.com/](https://live.sysinternals.com/)
+> 🔗 Web: [https://live.sysinternals.com/](https://live.sysinternals.com/)
+>
 
-- Windows Explorer:
+- Via Windows Explorer:
 
 ```powershell
 \\live.sysinternals.com\tools
@@ -216,7 +219,7 @@ powercat -h
 
 ### Delete GRUB files from a Boot EFI partition in Windows
 
-> 🔗 https://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/
+> 🔗 [How to delete GRUB files from a Boot EFI partition in Windows 10](https://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/)
 
 - Run a `cmd.exe` process with administrator privileges
 - Run `diskpart`
@@ -231,7 +234,7 @@ powercat -h
 - Type `cd EFI` and then `dir` to list the child directories inside EFI
 - Type `rmdir /S ubuntu` to delete the ubuntu boot directory
 
-```cmd
+```powershell
 ## These commands are used to identify and select the hard drive
 
 diskpart
@@ -264,29 +267,30 @@ rmdir /s ubuntu
 
 ## 🌐 Resources
 
+### Install
+
+- [PERFORM CLEAN INSTALL OF WINDOWS 11 (SIX WAYS)](https://pureinfotech.com/clean-install-windows-11/)
+
 ### Privacy
 
-- https://www.computerworld.com/article/3684413/how-to-protect-your-privacy-in-windows-11.html
+- [How to protect your privacy in Windows 11](https://www.computerworld.com/article/3684413/how-to-protect-your-privacy-in-windows-11.html)
 
-- https://www.elevenforum.com/t/enable-or-disable-choose-privacy-settings-experience-at-sign-in-in-windows-11.12027/
+- [Enable or Disable Choose Privacy Settings Experience at Sign-in in Windows 11 - ElevenForum](https://www.elevenforum.com/t/enable-or-disable-choose-privacy-settings-experience-at-sign-in-in-windows-11.12027/)
 
-- [**Enable or Disable Location Services in Windows 11**](https://www.elevenforum.com/t/enable-or-disable-location-services-in-windows-11.3003/)
-- [**Enable or Disable Find My Device in Windows 11**](https://www.elevenforum.com/t/enable-or-disable-find-my-device-in-windows-11.3861/)
-- [**Change Diagnostic Data Settings in Windows 11**](https://www.elevenforum.com/t/change-diagnostic-data-settings-in-windows-11.2621/)
-- [**Enable or Disable Improve Inking and Typing in Windows 11**](https://www.elevenforum.com/t/enable-or-disable-improve-inking-and-typing-in-windows-11.7575/)
-- [**Enable or Disable Tailored Experiences in Windows 11**](https://www.elevenforum.com/t/enable-or-disable-tailored-experiences-in-windows-11.7554/)
-- [**Enable or Disable Advertising ID for Personalized Ads in Apps in Windows 11**](https://www.elevenforum.com/t/enable-or-disable-advertising-id-for-personalized-ads-in-apps-in-windows-11.3730/)
-- https://beebom.com/change-windows-11-settings-protect-privacy/
-- 
-  https://wccftech.com/how-to/disable-the-telemetry-on-windows-11-and-stop-microsoft-from-logging-your-data/
+- [Enable or Disable Location Services in Windows 11](https://www.elevenforum.com/t/enable-or-disable-location-services-in-windows-11.3003/)
+- [Enable or Disable Find My Device in Windows 11](https://www.elevenforum.com/t/enable-or-disable-find-my-device-in-windows-11.3861/)
+- [Change Diagnostic Data Settings in Windows 11](https://www.elevenforum.com/t/change-diagnostic-data-settings-in-windows-11.2621/)
+- [Enable or Disable Improve Inking and Typing in Windows 11](https://www.elevenforum.com/t/enable-or-disable-improve-inking-and-typing-in-windows-11.7575/)
+- [Enable or Disable Tailored Experiences in Windows 11](https://www.elevenforum.com/t/enable-or-disable-tailored-experiences-in-windows-11.7554/)
+- [Enable or Disable Advertising ID for Personalized Ads in Apps in Windows 11](https://www.elevenforum.com/t/enable-or-disable-advertising-id-for-personalized-ads-in-apps-in-windows-11.3730/)
+- [10 Settings You Should Change to Protect Your Privacy on Windows 11](https://beebom.com/change-windows-11-settings-protect-privacy/)
+- [Disable the Telemetry on Windows 11 and Stop Microsoft From Logging Your Data](https://wccftech.com/how-to/disable-the-telemetry-on-windows-11-and-stop-microsoft-from-logging-your-data/)
 
 
 ### Debloat Windows 11
 
-- https://github.com/builtbybel/BloatyNosy/releases
-
-- https://pureinfotech.com/clean-install-windows-11/
-- [Windows 11 Debloat / Privacy Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide#removing-telemetry-and-other-unnecessary-services)
+- [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
+- [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
 
 ---
 
