@@ -5,7 +5,7 @@
 > 🔗 [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
 ```bash
-sudo apt install -y zsh fonts-powerline
+sudo apt install -y zsh fonts-powerline exa
 sudo chsh -s $(which zsh) $(whoami)
 
 zsh
@@ -16,6 +16,12 @@ zsh
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Confirm with y to chage the default shell to zsh
+```
+
+Install the desired plugins and themes.
+
+```bash
 # Auto-suggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 

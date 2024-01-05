@@ -99,19 +99,27 @@ updateos
 
 ### GRUB Timeout
 
+- Set the seconds in the GRUB_TIMEOUT value to `1`
+
 ```bash
+sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
+sudo update-grub
+reboot
+
+# Or edit it manually
 sudo nano /etc/default/grub
 ```
 
-- Set the seconds in the GRUB_TIMEOUT value, save and exit the file
+![](.gitbook/assets/image-20230611193823609.png)
+
+### NTP
 
 ```bash
-GRUB_TIMEOUT=1
-sudo update-grub
-reboot
+sudo apt install -y chrony
+sudo systemctl enable --now chrony
+sudo systemctl status chrony --no-pager
+sudo timedatectl status
 ```
-
-![](.gitbook/assets/image-20230611193823609.png)
 
 ### New SSH Keys
 
@@ -135,7 +143,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf flameshot htop neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
+sudo apt install -y apt-transport-https btop chrony curl duf flameshot htop neofetch net-tools speedtest-cli telegram-desktop terminator tor tree vlc wget
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)

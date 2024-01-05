@@ -99,17 +99,27 @@ updateos
 
 ### GRUB Timeout
 
+- Set the seconds in the GRUB_TIMEOUT value to `1`
+
 ```bash
+sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
+sudo update-grub
+reboot
+
+# Or edit it manually
 sudo nano /etc/default/grub
 ```
 
-- Set the seconds in the GRUB_TIMEOUT value, save and exit the file
+### NTP
 
 ```bash
-GRUB_TIMEOUT=1
-sudo update-grub
-reboot
+sudo apt install -y chrony
+sudo systemctl enable --now chrony
+sudo systemctl status chrony --no-pager
+sudo timedatectl status
 ```
+
+
 
 ### New SSH Keys
 

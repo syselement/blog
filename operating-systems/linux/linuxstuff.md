@@ -163,11 +163,29 @@ alias
 ### Set local timezone
 
 ```bash
-# Gui:
 sudo unlink /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 sudo timedatectl set-timezone "Europe/Rome"
+```
 
+### Set NTP
+
+```bash
+sudo apt install -y chrony
+# You can configure which time servers you want to use by editing 
+# nano /etc/chrony/chrony.conf
+
+sudo systemctl enable --now chrony
+
+sudo systemctl status chrony --no-pager
+sudo timedatectl status
+# System clock synchronized: yes
+# NTP service: active
+```
+
+### Set Keyboard layout
+
+```bash
 sudo dpkg-reconfigure keyboard-configuration
 ```
 
