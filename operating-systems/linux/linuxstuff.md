@@ -594,9 +594,7 @@ echo -ne '#!/bin/sh\n"/opt/BurpSuiteCommunity/BurpSuiteCommunity" %U\n' | sudo t
 # Start burspsuite from shell
 ```
 
-### Install MobSF
-
-- Link [Mobile-Security-Framework-MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+### [Install MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
 
 ```bash
 sudo mkdir -p ~/docker/mobsf
