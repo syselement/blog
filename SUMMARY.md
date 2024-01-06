@@ -38,7 +38,7 @@
 
 - [📱 Mobile](pentesting-everything/mobile/README.md)
   - [Apps Lab](pentesting-everything/mobile/labs/README.md)
-    - [Android Rooting Guide](pentesting-everything/mobile/labs/android-rooting.md)
+    - [Android Rooting Guid](pentesting-everything/mobile/labs/android-rooting.md)
     - [Intercepting Android App Traffic](pentesting-everything/mobile/labs/android-traffic-intercept.md)
 - [🧬 Network](pentesting-everything/network/README.md)
 - [🌐 Web](pentesting-everything/web/README.md)
