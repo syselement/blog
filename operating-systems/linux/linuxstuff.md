@@ -344,6 +344,16 @@ s-tui
 s-tui --csv
 ```
 
+###  Renew DHCP
+
+```bash
+sudo systemctl restart networking.service
+
+# if doesn't work, release and renew IP with DHCP
+sudo dhclient -r
+sudo dhclient
+```
+
 
 
 ------
