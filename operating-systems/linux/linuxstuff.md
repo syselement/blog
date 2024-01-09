@@ -39,6 +39,11 @@ sudo apt-get install nmon
 nmon
 ```
 
+```bash
+# Check installed hw RAM memory
+sudo dmidecode --type memory
+```
+
 ### Check Swap usage
 
 ```bash
@@ -612,6 +617,15 @@ sudo mkdir -p ~/docker/mobsf
 chown 9901:9901 ~/docker/mobsf
 
 docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
+```
+
+### [Install Rustscan](https://github.com/RustScan/RustScan)
+
+```bash
+docker run -it --rm --name rustscan rustscan/rustscan:2.1.1
+
+# Create a zsh/bash alias like this
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:2.1.1'
 ```
 
 
