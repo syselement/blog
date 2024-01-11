@@ -8,6 +8,30 @@
 >
 > - 📌 *Some commands can be outdated.*
 
+## Install
+
+### Windows 11 without Internet
+
+> 🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
+
+- Install Windows 11 via [USB ISO](https://pureinfotech.com/create-bootable-windows-11-usb-install-media/)
+- At the first boot in OOBE (Out-of-the-box experience), select Region and Keyboard layout
+- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt`, type the following command and wait for the reboot.
+
+```bash
+OOBE\BYPASSNRO
+```
+
+- After the reboot, click `I don't have internet` when asked to connect and `Continue with limited setup`.
+- Create a local default Windows 11 account and proceed.
+  - Disable and answer `No` to all the Privacy Settings if not needed.
+
+Proceed with the final [Configuration](#Configuration).
+
+------
+
+
+
 ## Configuration
 
 > 📝 *Tip*: The following settings should be used with a [clean Windows install](https://pureinfotech.com/clean-install-windows-11/); otherwise, **proceed with caution** ⚠️.
