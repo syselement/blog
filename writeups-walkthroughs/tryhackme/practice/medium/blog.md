@@ -248,7 +248,7 @@ ls: cannot open directory '/media/usb': Permission denied
 find / -perm -u=s -type f 2>/dev/null
 ```
 
-![image-20230515123429464](.gitbook/assets/image-20230515123429464.png)
+![](.gitbook/assets/image-20230515123429464.png)
 
 Try to run `/usr/sbin/checker`
 
