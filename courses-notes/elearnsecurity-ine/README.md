@@ -11,4 +11,5 @@ description: Direct links to the certifications and training notes
 - [x] [eJPT - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
   - [🔗📜eJPT - CheatSheet](https://blog.syselement.com/ine/courses/ejpt/ejpt-cheatsheet)
 - [x] [ICCA](https://blog.syselement.com/ine/courses/icca)
+- [ ] [eMAPT](https://blog.syselement.com/ine/courses/emapt)
 
