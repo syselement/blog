@@ -31,8 +31,11 @@
     - [ParrotOS- VM](operating-systems/linux/distros/parrot-vm.md)
     - [Ubuntu - VM VirtualBox](operating-systems/linux/distros/ubuntu-vm.md)
   - [Linux Tools](operating-systems/linux/tools/README.md)
+    - [BookStack](operating-systems/linux/tools/bookstack.md)
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
+    - [SysReptor](operating-systems/linux/tools/sysreptor.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
+    - [UniFi](operating-systems/linux/tools/unifi.md)
     - [Zsh & Oh-My-Zsh](operating-systems/linux/tools/zsh.md)
 
 ## 🧪 Pentesting Everything
@@ -41,6 +44,8 @@
   - [Apps Lab](pentesting-everything/mobile/labs/README.md)
     - [Android Rooting Guide](pentesting-everything/mobile/labs/android-rooting.md)
     - [Intercepting Android App Traffic](pentesting-everything/mobile/labs/android-traffic-intercept.md)
+  - [Tools](pentesting-everything/mobile/tools/README.md)
+    - [MobSF](pentesting-everything/mobile/tools/mobsf.md)
 - [🧬 Network](pentesting-everything/network/README.md)
 - [🌐 Web](pentesting-everything/web/README.md)
   - [API](pentesting-everything/web/api/README.md)

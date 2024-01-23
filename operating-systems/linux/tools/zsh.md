@@ -3,6 +3,8 @@
 > 🔗 [Zsh](https://www.zsh.org/)
 >
 > 🔗 [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+>
+> 🔗 [Zsh for Humans](https://github.com/romkatv/zsh4humans)
 
 ```bash
 sudo apt install -y zsh fonts-powerline exa

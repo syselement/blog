@@ -55,6 +55,15 @@ free -m
 htop
 ```
 
+### Swap Enable
+
+- To enable swap with `btrfs` disk run
+
+```bash
+sudo btrfs filesystem mkswapfile --size 4G /swapfile
+sudo swapon /swapfile
+```
+
 ### Disk - Extend LVM Partition
 
 ```bash
