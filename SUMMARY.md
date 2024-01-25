@@ -50,6 +50,10 @@
 - [🌐 Web](pentesting-everything/web/README.md)
   - [API](pentesting-everything/web/api/README.md)
     - [API Sec Fundamentals](pentesting-everything/web/api/api-fundamentals.md)
+  - [PortSwigger Academy](pentesting-everything/web/portswigger/README.md)
+    - [Server-Side Topics](pentesting-everything/web/portswigger/server-side-topics/README.md)
+    - [Client-Side Topics](pentesting-everything/web/portswigger/client-side-topics/README.md)
+    - [🔬 Vulnerability Labs](pentesting-everything/web/portswigger/all-labs/README.md)
 
 
 ## 🖥️ Cyber Everything
