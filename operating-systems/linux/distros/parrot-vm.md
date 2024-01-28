@@ -19,6 +19,8 @@
 
 ![ParrotOS Install](.gitbook/assets/parrot-install.gif)
 
+---
+
 ## First Boot & Update
 
 - Disable **CD** *Connect at power on*

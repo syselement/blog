@@ -1,6 +1,6 @@
 # Ubuntu - VM VirtualBox
 
-❗➡️ [TO-UPDATE]
+![](.gitbook/assets/ubuntu.svg) [Ubuntu](https://ubuntu.com/)
 
 ## Download and Install VirtualBox
 
