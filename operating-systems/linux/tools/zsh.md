@@ -7,7 +7,7 @@
 > 🔗 [Zsh for Humans](https://github.com/romkatv/zsh4humans)
 
 ```bash
-sudo apt install -y zsh fonts-powerline exa
+sudo apt install -y zsh fonts-powerline eza exa
 sudo chsh -s $(which zsh) $(whoami)
 
 zsh
@@ -118,7 +118,7 @@ alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
 alias ipa='ip -br -c a'
-alias l='exa -lah'
+alias l='eza -lah 2>/dev/null || exa -lah'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
