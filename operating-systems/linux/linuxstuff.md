@@ -382,6 +382,21 @@ sudo apt install -y wget net-tools htop tree terminator flameshot
 
 ### [Install Zsh & Oh-My-Zsh](tools/zsh.md)
 
+### [Install Eza](https://github.com/eza-community/eza/)
+
+```bash
+sudo sh -c '
+apt update &&
+apt install -y gpg &&
+mkdir -p /etc/apt/keyrings &&
+wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /etc/apt/keyrings/gierens.gpg &&
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list &&
+chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list &&
+apt update &&
+apt install -y eza
+'
+```
+
 ### Install Sublime
 
 ```bash

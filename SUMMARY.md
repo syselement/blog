@@ -54,6 +54,7 @@
   - [PortSwigger Academy](pentesting-everything/web/portswigger/README.md)
     - [Server-Side Topics](pentesting-everything/web/portswigger/server-side-topics/README.md)
     - [Client-Side Topics](pentesting-everything/web/portswigger/client-side-topics/README.md)
+    - [Advanced topics](pentesting-everything/web/portswigger/advanced-topics/README.md)
     - [🔬 Vulnerability Labs](pentesting-everything/web/portswigger/all-labs/README.md)
 
 
