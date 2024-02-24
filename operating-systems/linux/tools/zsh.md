@@ -64,7 +64,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 - Add or update the `plugins` line to include additional Zsh plugins
 
 ```bash
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
 - Add the following lines before the `source ...oh-my-zsh.sh` command

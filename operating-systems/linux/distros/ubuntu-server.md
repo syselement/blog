@@ -73,11 +73,21 @@ sudo systemctl mask apt-daily-upgrade.service
 sudo systemctl disable apt-daily.timer
 sudo systemctl mask apt-daily.service
 
+# Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
+sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
+sudo sed -Ezi.orig \
+  -e 's/(def _output_esm_service_status.outstream, have_esm_service, service_type.:\n)/\1    return\n/' \
+  -e 's/(def _output_esm_package_alert.*?\n.*?\n.:\n)/\1    return\n/' \
+  /usr/lib/update-notifier/apt_check.py
+sudo /usr/lib/update-notifier/update-motd-updates-available --force
+sudo sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
+
 # Change "root" user password
 sudo passwd root
 ```
 
-> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+> - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
 ---
 
@@ -87,7 +97,7 @@ sudo passwd root
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https btop ca-certificates curl duf exa gnupg iftop locate nano ncdu neofetch net-tools nload npm pipx software-properties-common sysstat ugrep wget zsh
+sudo apt install -y apt-transport-https btop ca-certificates curl duf gnupg iftop locate nano ncdu neofetch net-tools nload npm pipx software-properties-common sysstat ugrep wget zsh
 
 sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
@@ -118,7 +128,79 @@ sudo gpasswd -a "${USER}" docker
 
 ## Hardening
 
-...
+### SSH-key-based authentication
+
+Ubuntu Server with OpenSSH pre-installed comes with `PasswordAuthentication yes` parameter already set inside `/etc/ssh/sshd_config.d/50-cloud-init.conf` (or `/etc/ssh/sshd_config`). If the parameter is commented, the default is `yes` (password auth permitted) for the [sshd_config](https://man7.org/linux/man-pages/man5/sshd_config.5.html).
+
+- Generate an SSH Key Pair on the **local HOST** from which the connection is established
+
+```bash
+ssh <sudo_user>@<remote_host_IP>
+```
+
+```bash
+cd
+mkdir -p ~/.ssh
+cd ~/.ssh
+ssh-keygen -t ed25519
+# Type a secure passphrase when asked
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+
+# Add the SSH private key to the ssh-agent
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+```
+
+- Add the Public Key to a system/sudo user on the Ubuntu VM
+
+```bash
+# Automatic
+ssh-copy-id <sudo_user>@<remote_host_IP>
+```
+
+```bash
+# Manually
+
+# Local HOST
+cat ~/.ssh/id_ed25519.pub
+# copy the string
+# Should start with ssh-ed25519 AAAA... or ssh-rsa AAAA... (if rsa)
+
+# Ubuntu VM
+echo pubkey_string >> ~/.ssh/authorized_keys
+# Set permissions
+chmod -R go= ~/.ssh
+```
+
+- Log out and log in using the Private Key
+
+```bash
+ssh <sudo_user>@<remote_host_IP>
+
+# ssh -i ~/.ssh/id_ed25519 <sudo_user>@<remote_host_IP>
+
+# Enter the key Passphrase
+```
+
+- Disable SSH password authentication
+
+```bash
+# Delete sshd_config.d/50-cloud-init.conf
+sudo rm  /etc/ssh/sshd_config.d/50-cloud-init.conf
+
+# Inside /etc/ssh/sshd_config set PasswordAuthentication to "no"
+sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]yes/c\PasswordAuthentication no" /etc/ssh/sshd_config
+
+# Restart SSH service
+ sudo systemctl restart ssh
+```
+
+- Try again to logout and login. Only SSH-key-base authentication is permitted.
+
+
+
+... more to come ...
 
 ---
 
