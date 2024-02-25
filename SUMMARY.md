@@ -44,6 +44,7 @@
 - [📱 Mobile](pentesting-everything/mobile/README.md)
   - [Apps Lab](pentesting-everything/mobile/labs/README.md)
     - [Android Rooting Guide](pentesting-everything/mobile/labs/android-rooting.md)
+    - [iOS Jailbreak Guide](pentesting-everything/mobile/labs/ios-jailbreak.md)
     - [Intercepting Android App Traffic](pentesting-everything/mobile/labs/android-traffic-intercept.md)
   - [Tools](pentesting-everything/mobile/tools/README.md)
     - [MobSF](pentesting-everything/mobile/tools/mobsf.md)
