@@ -297,7 +297,7 @@ wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && 
 
 sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
 
-sudo apt update && sudo apt install -y codium codium-insiders
+sudo apt update && sudo apt install -y codium
 ```
 
 ### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)
