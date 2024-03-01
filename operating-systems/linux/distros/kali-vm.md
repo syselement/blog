@@ -130,7 +130,7 @@ sudo systemctl restart ssh
 ssh-keygen -t rsa
 ```
 
-### ZShell
+### Zsh & Oh-My-Zsh
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
 
@@ -271,13 +271,13 @@ sudo apt update && sudo apt install -y sublime-text
 ### [Brave](https://brave.com/linux/)
 
 ```bash
-sudo apt install -y curl
-
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"| sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-sudo apt update && sudo apt install -y brave-browser
+sudo sh -c '
+    apt install -y curl &&
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list &&
+    apt update &&
+    apt install -y brave-browser
+'
 ```
 
 ### [Github Desktop](https://github.com/shiftkey/desktop)
@@ -303,11 +303,21 @@ sudo apt update && sudo apt install -y codium
 ### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)
 
 ```bash
-sudo apt update && sudo apt install -y docker.io
+sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
-sudo systemctl enable docker --now
+packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
+for pkg in "${packages[@]}"; do
+    sudo apt remove "$pkg" -y
+done &&
 
-sudo usermod -aG docker $USER
+sudo sh -c '
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
+    chmod a+r /usr/share/keyrings/docker.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
+    apt update && 
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
+    sudo gpasswd -a "${USER}" docker
+'
 ```
 
 ---
