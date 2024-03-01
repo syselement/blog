@@ -400,9 +400,12 @@ apt install -y eza
 ### Install Sublime
 
 ```bash
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update && sudo apt install -y sublime-text
+sudo sh -c '
+    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
+    apt update &&
+    apt install -y sublime-text
+'
 ```
 
 ### Install VSCode
@@ -424,7 +427,7 @@ wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && 
 
 sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
 
-sudo apt update && sudo apt install -y codium codium-insiders
+sudo apt update && sudo apt install -y codium
 ```
 
 ### Install Obsidian
@@ -438,15 +441,13 @@ chmod +x usr/local/bin/obsidian
 ### Install Brave Browser
 
 ```bash
-sudo apt install -y curl
-
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
-sudo apt update
-
-sudo apt install -y brave-browser
+sudo sh -c '
+    apt install -y curl &&
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list &&
+    apt update &&
+    apt install -y brave-browser
+'
 ```
 
 ### [Install GitHub Desktop](https://mirror.mwt.me/shiftkey-desktop/)
@@ -566,6 +567,23 @@ msfconsole
 ### [Install Nessus](tools/Nessus.md)
 
 ### [Install Docker](https://docs.docker.com/engine/install/debian/)
+```bash
+sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
+
+packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
+for pkg in "${packages[@]}"; do
+    sudo apt remove "$pkg" -y
+done &&
+
+sudo sh -c '
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
+    chmod a+r /usr/share/keyrings/docker.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
+    apt update && 
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
+    sudo gpasswd -a "${USER}" docker
+'
+```
 
 ### [Install Gophish](https://github.com/gophish/gophish/releases/)
 
