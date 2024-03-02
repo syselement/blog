@@ -673,6 +673,8 @@ alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:2.1.1'
 ### [Install CVEMAP](https://github.com/projectdiscovery/cvemap)
 
 ```bash
+sudo apt install -y golang-go
+
 go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest
 
 # Based on your SHELL, add Go bin to system PATH
