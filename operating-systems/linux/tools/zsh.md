@@ -49,6 +49,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
+### zshrc
+
 Open the `.zshrc` file for editing.
 
 ```bash
@@ -61,15 +63,11 @@ nano ~/.zshrc
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
-- Add or update the `plugins` line to include additional Zsh plugins
+- Add or update the `plugins` line to include additional Zsh plugins and add the following lines before the `source ...oh-my-zsh.sh` command
 
 ```bash
 plugins=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)
-```
 
-- Add the following lines before the `source ...oh-my-zsh.sh` command
-
-```bash
 # Fix errors
 ZSH_DISABLE_COMPFIX="true"
 
@@ -77,7 +75,7 @@ ZSH_DISABLE_COMPFIX="true"
 zstyle ':omz:*' aliases no
 ```
 
-Save the file, exit and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
+- Save the file, exit and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
 
 ```bash
 zsh
@@ -99,10 +97,12 @@ zsh
 > ```
 >
 
+### aliases
+
 Set Custom **Aliases**.
 
 ```bash
-nano ~/.oh-my-zsh/custom/aliases.zsh
+nano $ZSH_CUSTOM/aliases.zsh
 # Paste your custom aliases
 ```
 
@@ -132,6 +132,7 @@ alias history=omz_history
 alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
+alias hz=omz_history
 alias ipa='ip -br -c a'
 alias l='eza -lah'
 alias la='ls -A'
@@ -144,6 +145,22 @@ alias python='python3'
 alias sudo='sudo -v; sudo '
 alias ugq='ugrep --pretty --hidden -Qria'
 alias vdir='vdir --color=auto'
+```
+
+### path
+
+Set Custom **PATH**.
+
+```bash
+nano $ZSH_CUSTOM/my_paths.zsh
+# Paste your custom aliases
+```
+
+- `e.g.` of my custom aliases
+
+```bash
+# Add go to path
+export PATH=$PATH:$HOME/go/bin
 ```
 
 ---
