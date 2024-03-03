@@ -97,7 +97,7 @@ sudo passwd root
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https btop ca-certificates curl duf gnupg iftop locate nano ncdu neofetch net-tools nload npm pipx software-properties-common sysstat ugrep wget zsh
+sudo apt install -y apt-transport-https btop ca-certificates curl duf gnupg iftop locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat tree ugrep wget zsh
 
 sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
