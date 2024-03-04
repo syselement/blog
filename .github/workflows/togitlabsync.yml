@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 0
       - uses: action-pack/gitlab-sync@v3
         with:
-          username: ${{ github.actor }}
-          url: https://gitlab.com/${{ github.repository }}.git
+          username: ${{ secrets.TARGET_USERNAME }}
+          url: https://gitlab.com/${{ secrets.TARGET_URL }}.git
           # Personal access token from gitlab.com 
-          token: ${{ secrets.GITLAB_TOKEN }}
+          token: ${{ secrets.TARGET_TOKEN }}
