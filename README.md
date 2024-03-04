@@ -2,7 +2,7 @@
 
 ## 🤝 Introduction
 
-Hi, **syselement** here 🧑‍💻, sharing some interesting Information Technology and Cyber Security notes and stuff.
+Hi, **syselement** here 🧑‍💻, sharing some interesting Information Technology and Cybersecurity notes and stuff.
 
 Welcome to my notes blog! This blog is intended to provide information and insights on various topics related to **Cybersecurity**, **Ethical Hacking** and **Systems Administration**, based on public open-source material and software, and should not be considered as a substitute for professional advice or guidance.
 
