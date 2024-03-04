@@ -1,4 +1,4 @@
-name: Gitlab Sync
+name: To Gitlab Sync
 
 on: [push, pull_request, create, delete]
 
