@@ -26,7 +26,7 @@ OOBE\BYPASSNRO
 - Create a local default Windows 11 account and proceed.
   - Disable and answer `No` to all the Privacy Settings if not needed.
 
-Proceed with the final [Configuration](#Configuration).
+Proceed with the final [Configuration](#configuration).
 
 ------
 
