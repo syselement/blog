@@ -143,7 +143,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza flameshot htop kali-wallpapers-all neofetch net-tools pipx speedtest-cli telegram-desktop terminator tor tree vlc wget
+sudo apt install -y apt-transport-https btop curl duf eza flameshot gdu htop kali-wallpapers-all locate nano neofetch net-tools pipx speedtest-cli telegram-desktop terminator tor tree ugrep vlc wget
 ```
 
 ### [Terminator](https://gnome-terminator.org/)

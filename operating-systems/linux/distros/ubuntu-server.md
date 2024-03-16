@@ -46,7 +46,7 @@
 - Connect through SSH and/or Run the following commands
 
 ```bash
-sudo apt update -y && sudo apt -y upgrade
+sudo apt update -y && sudo apt -y dist-upgrade
 ```
 
 - Reboot the system
@@ -66,12 +66,9 @@ reboot
 sudo timedatectl set-timezone Europe/Rome
 
 # DISABLE AUTOMATIC UPDATES
-sudo sed -i 's/^\(APT::Periodic::Update-Package-Lists\) "[0-9]";$/\1 "0";/' /etc/apt/apt.conf.d/20auto-upgrades
-sudo sed -i 's/^\(APT::Periodic::Unattended-Upgrade\) "[0-9]";$/\1 "0";/' /etc/apt/apt.conf.d/20auto-upgrades
-sudo systemctl disable apt-daily-upgrade.timer
-sudo systemctl mask apt-daily-upgrade.service
-sudo systemctl disable apt-daily.timer
-sudo systemctl mask apt-daily.service
+sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
+sudo systemctl disable apt-daily{,-upgrade}.timer
+sudo systemctl mask apt-daily{,-upgrade}.service
 
 # Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
 sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
@@ -97,18 +94,21 @@ sudo passwd root
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https btop ca-certificates curl duf gnupg iftop locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat tree ugrep wget zsh
+sudo apt install -y apt-transport-https aptitude btop ca-certificates curl duf gnupg iftop gdu locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat tree ugrep wget zsh
 
 sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
 ```
 
-### Docker
+---
+
+### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ```bash
 sudo su
+apt install curl
 
-# Docker Engine
+# Docker Engine - Convenience Script
 sh <(curl -sSL https://get.docker.com)
 
 # Docker Compose
@@ -122,6 +122,34 @@ docker compose version
 # Add a user to the "docker" group to let it run Docker
 sudo groupadd docker
 sudo gpasswd -a "${USER}" docker
+```
+
+- Alternative to install Docker Engine (via APT)
+
+```bash
+# Install Docker Engine via APT repository
+
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+sudo chmod a+r /usr/share/keyrings/docker.gpg
+
+sudo sh -c 'echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list'
+
+sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl enable docker --now
+sudo gpasswd -a "${USER}" docker
+
+# On Debian and Ubuntu, the Docker service starts on boot by default, if not run
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
+# Reboot and Test
+reboot
+docker run hello-world
 ```
 
 ---

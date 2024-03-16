@@ -2,11 +2,13 @@
 
 ![](.gitbook/assets/ubuntu.svg) [Ubuntu](https://ubuntu.com/)
 
+---
+
 ## Download and Install VirtualBox
 
 VirtualBox is a virtualization open source software that runs on Linux, Windows and Mac OS.
 
-- Download **VirtualBox** and **VirtualBox Extension Pack** [here](https://www.virtualbox.org/wiki/Downloads) based on your platform (Windows in this tutorial).
+- Download latest **VirtualBox** and **VirtualBox Extension Pack** [here](https://www.virtualbox.org/wiki/Downloads) based on your platform (Windows in this tutorial).
 
 ![](.gitbook/assets/image-20220814155217998.png)
 
@@ -15,13 +17,17 @@ VirtualBox is a virtualization open source software that runs on Linux, Windows 
 - Install VirtualBox with default settings.
 - Install VirtualBox Extension Pack.
 
+---
+
 ## Download Linux Image
 
 For this tutorial Ubuntu Desktop Linux will be used.
 
-If you want to use another distro check the [Popular Linux Distributions](linux-distributions.md) list.
+If you want to use another distro check the [Popular Linux Distributions](README.md) list.
 
 - Download the latest **Ubuntu Desktop LTS** `.iso` file [here](https://ubuntu.com/download/desktop).
+
+---
 
 ## Create Virtual Machine
 
@@ -70,6 +76,8 @@ If you want to use another distro check the [Popular Linux Distributions](linux-
 
 ![](.gitbook/assets/image-20220814175228447.png)
 
+---
+
 ## Install Linux Image
 
 - Select the new VM and click on the ***Start*** button to start it
@@ -93,13 +101,15 @@ If you want to use another distro check the [Popular Linux Distributions](linux-
 - Select your **Keyboard layout** and continue
 - Choose **`Normal installation`** and check both ***Other options*** boxes (you must be connected to the Internet)
 
-![](.gitbook/assets/image-20220814171524228.png)
+![](.gitbook/assets/2024-03-15_18-32-45_459.png)
 
 - Choose **`Erase disk and install Ubuntu`** and continue the installation without enabling encryption
+  - I suggest using LVM for better dynamic disk management
 
-![](.gitbook/assets/image-20220814172526947.png)
 
-![](.gitbook/assets/image-20220814172653457.png)
+![](.gitbook/assets/2024-03-15_18-28-25_458.png)
+
+![](.gitbook/assets/2024-03-15_18-33-52_460.png)
 
 - Select your **Location** and time zone from the map screen
 - Create your login details as `hostname`, `username` and `password`
@@ -111,11 +121,13 @@ If you want to use another distro check the [Popular Linux Distributions](linux-
 
 ![](.gitbook/assets/image-20220814174135011.png)
 
+---
+
 ## Install VirtualBox Guest Additions
 
 Guest Additions software unlocks some advanced features of VirtualBox to better integrate the VM and the host machine, as well as improved video support using VMSVGA graphics controller.
 
-- Complete the VM boot and login to Ubuntu desktop
+- Complete the VM first boot and login to Ubuntu desktop
 - On the VirtualBox menu select ***Devices - Insert Guest Additions CD image...***
 
 ![](.gitbook/assets/image-20220814180203046.png)
@@ -138,6 +150,8 @@ Guest Additions software unlocks some advanced features of VirtualBox to better 
 
 ![](.gitbook/assets/image-20220814181633168.png)
 
+---
+
 ## Update Linux
 
 Keep the Ubuntu O.S. updated using one of the next methods.
@@ -150,25 +164,68 @@ Keep the Ubuntu O.S. updated using one of the next methods.
   - This can be used when connected via SSH too.
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y && sudo apt -y dist-upgrade
 ```
-
-> 📌 Check the official documentation of the distro for the installation of other Linux distributions.
-
-- Disable Ubuntu Pro ESM Hook
 
 ```bash
-sudo sed -i'' -e 's/^\(\s\+\)\([^#]\)/\1# \2/' /etc/apt/apt.conf.d/20apt-esm-hook.conf
+# Use "apt autoremove" to remove all unused packages
+sudo apt -y autoremove
 ```
 
+> 📌 Refer to the official documentation of the distribution for instructions on installing alternative Linux distributions.
+
+---
+
+## Configurations
+
+```bash
+# TIMEZONE
+sudo timedatectl set-timezone Europe/Rome
+
+# Set OS DARK MODE
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# DISABLE AUTOMATIC UPDATES
+sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
+sudo systemctl disable apt-daily{,-upgrade}.timer
+sudo systemctl mask apt-daily{,-upgrade}.service
+
+# Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
+sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
+sudo sed -Ezi.orig \
+  -e 's/(def _output_esm_service_status.outstream, have_esm_service, service_type.:\n)/\1    return\n/' \
+  -e 's/(def _output_esm_package_alert.*?\n.*?\n.:\n)/\1    return\n/' \
+  /usr/lib/update-notifier/apt_check.py
+sudo /usr/lib/update-notifier/update-motd-updates-available --force
+
+# Change "root" user password
+sudo passwd root
+```
+
+> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+> - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
+
+---
+
 ## Tools
+
+### Basic Tools
+
+```bash
+# Tools
+sudo apt install -y apt-transport-https aptitude btop ca-certificates curl duf gnupg htop iftop gdu locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat terminator tree ugrep wget zsh
+```
+
+---
 
 ### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ```bash
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt remove $pkg -y; done
+# Install Docker Engine via APT repository
 
-sudo apt update && sudo apt install -y ca-certificates curl gnupg
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
 sudo chmod a+r /usr/share/keyrings/docker.gpg
@@ -179,15 +236,34 @@ sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io doc
 
 sudo systemctl enable docker --now
 sudo gpasswd -a "${USER}" docker
-reboot
 
-# Test
+# On Debian and Ubuntu, the Docker service starts on boot by default, if not run
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
+# Reboot and Test
+reboot
 docker run hello-world
 ```
 
 ![](.gitbook/assets/2023-06-19_23-38-34_91.png)
 
-#### Wordpress Docker Instance
+#### Docker commands
+
+```bash
+docker ps -a
+docker exec -it <CONTAINER-ID> bash
+```
+
+
+
+#### Ubuntu Docker instance
+
+```bash
+docker run -it ubuntu bash
+```
+
+#### Wordpress Docker instance
 
 > 🔗 Thanks to [AppSecExplained](https://gist.github.com/AppSecExplained/8bbf5366c6279ffc44beec16e6c39855) for the `yml` file.
 
@@ -241,12 +317,5 @@ docker compose up
 
 ![](.gitbook/assets/2023-06-19_23-49-47_92.png)
 
-**Some commands**
-
-```bash
-docker ps -a
-docker exec -it <CONTAINER-ID> bash
-```
-
-------
+---
 

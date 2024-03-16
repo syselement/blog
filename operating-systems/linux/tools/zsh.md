@@ -28,6 +28,8 @@ apt install -y eza
 '
 ```
 
+---
+
 ## [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
 
 ```bash
@@ -51,31 +53,29 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~
 
 ### zshrc
 
-Open the `.zshrc` file for editing.
+Edit the `$HOME/.zshrc`
+
+- Change the Zsh theme to use Powerlevel10k, add or update `plugins` to include additional Zsh plugins and add some lines before the `source .*oh-my-zsh.sh` command for additional configuration
 
 ```bash
-nano ~/.zshrc
+ZSHRC="$HOME/.zshrc"
+
+# Set the new theme
+sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' "$ZSHRC"
+
+# Replace the plugins line with the new plugins
+sed -i '/^plugins=/ { s/=.*/=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)/; }' "$ZSHRC"
+
+# Add additional lines before sourcing oh-my-zsh
+sed -i '/^source .*oh-my-zsh.sh/ i \
+\
+# Fix errors\
+ZSH_DISABLE_COMPFIX="true"\n\
+# Skip all aliases, in lib files and enabled plugins\
+zstyle '"'"':omz:*'"'"' aliases no\n' "$ZSHRC"
 ```
 
-- Locate the line that sets the Zsh theme and change it to use Powerlevel10k
-
-```bash
-ZSH_THEME="powerlevel10k/powerlevel10k"
-```
-
-- Add or update the `plugins` line to include additional Zsh plugins and add the following lines before the `source ...oh-my-zsh.sh` command
-
-```bash
-plugins=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)
-
-# Fix errors
-ZSH_DISABLE_COMPFIX="true"
-
-# Skip all aliases, in lib files and enabled plugins
-zstyle ':omz:*' aliases no
-```
-
-- Save the file, exit and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
+- Check the file and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
 
 ```bash
 zsh
