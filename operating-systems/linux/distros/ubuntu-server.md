@@ -88,6 +88,49 @@ sudo passwd root
 
 ---
 
+## Network
+
+### Static IP
+
+- Set a static IP in the **netplan** `.yaml` if not configured during OS installation.
+
+```bash
+# Show listening sockets and running services
+sudo ss -atpu
+
+# List available network interfaces and use the interface ens32
+ip -br -c a
+
+# Disable cloud-init networking configuration - if necessary
+sudo nano /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
+# Make sure it is "disabled"
+# network: {config: disabled}
+
+# Open the netplan configuration file for editing
+sudo nano /etc/netplan/00-installer-config.yaml
+
+    # This is the network config written by 'subiquity'
+    network:
+      version: 2
+      ethernets:
+        ens32:
+          addresses: [<IP>/24]
+          gateway4: <GATEWAY_IP>
+          nameservers:
+            addresses: [1.1.1.1, 9.9.9.9]
+            
+# Exit and save
+
+# Apply the netplan configuration changes
+sudo netplan apply
+
+# Reboot the system
+```
+
+
+
+---
+
 ## Tuning
 
 ### Basic Tools
