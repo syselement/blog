@@ -261,7 +261,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/technitiumdn
 
 ### [PiHole](https://pi-hole.net/)
 
-> ???
+> OFF
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/pihole.sh)"
@@ -277,7 +277,9 @@ pihole -a -p
 
 ------
 
-## Ubuntu VM
+## Ubuntu Server VM
+
+> My [Ubuntu Server - VM](https://blog.syselement.com/home/operating-systems/linux/distros/ubuntu-server#first-boot-and-update) additional guide
 
 ```bash
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/vm/ubuntu-vm.sh)"
@@ -448,113 +450,15 @@ docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.Mob
 
 
 
-### ZSH
+### Zsh & Oh-My-Zsh
 
-```bash
-sudo apt install -y zsh fonts-powerline eza
-sudo chsh -s $(which zsh) $(whoami)
-zsh
-```
-
-#### [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
-
-```bash
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Auto-suggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Powerlevek10k Theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-```
-
-- Add those line to `.zshrc`
-
-```bash
-nano ~/.zshrc
-```
-
-```bash
-# Change ZSH_THEME
-ZSH_THEME="powerlevel10k/powerlevel10k"
-	
-# add custom plugins in the plugins
-plugins=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)
-
-#Fix errors
-ZSH_DISABLE_COMPFIX="true"
-
-# Skip all aliases, in lib files and enabled plugins
-zstyle ':omz:*' aliases no
-```
-
-- Save the file, exit and re-run `zsh` to configure Powerlevel10k Theme
-
-```bash
-zsh
-```
-
-- Set the same `ohmyzsh` config for the `root` user
-
-```bash
-USER=root
-USER_HOME_PATH=~$USER
-sudo ln -s $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
-sudo ln -s $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
-sudo ln -s $HOME/.p10k.zsh	${USER_HOME_PATH}/.p10k.zsh
-sudo chsh -s $(which zsh) $USER
-```
-
-- Set Custom **Aliases**
-
-```bash
-nano ~/.oh-my-zsh/custom/aliases.zsh
-# Paste your custom aliases
-```
-
-```bash
-# Alias to update the system
-alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
-
-# Additional Aliases
-alias clipcopy='xclip -selection clipboard'
-alias df='df -h'
-alias diff='diff --color=auto'
-alias dir='dir --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias grep='grep --color=auto'
-alias h='history 0'
-alias hl='history | less'
-alias hs='history | grep'
-alias hsi='history | grep -i'
-alias ipa='ip -br -c a'
-alias l='eza -lah'
-alias la='ls -A'
-alias ll='l -T'
-alias ls='ls -lh --color=auto'
-alias mobsf='docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest'
-alias p3='python3'
-alias ports='ss -lpntu'
-alias python='python3'
-alias sudo='sudo -v; sudo '
-alias ugq='ugrep --pretty --hidden -Qria'
-alias vdir='vdir --color=auto'
-
-```
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
 
 ---
 
 ## Alpine VM
 
 > [10 Alpine Linux apk Command Examples - nixCraft](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/)
-
-
-
-
 
 
 
@@ -572,7 +476,7 @@ alias vdir='vdir --color=auto'
 >
 > 🔗 [Ubuntu 22 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2204-installation-script)
 
-- Install a [Ubuntu VM](#ubuntu-vM)
+- Install an [Ubuntu VM](#ubuntu-vm)
 
 - SSH into the Ubuntu VM and run the BookStack Ubuntu Installation script
 
