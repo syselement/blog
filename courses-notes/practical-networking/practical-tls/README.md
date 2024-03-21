@@ -20,6 +20,8 @@ description: Practical TLS by PracticalNetworking.net - a deep dive into SSL and
 10. [TLS 1.3 Under the Hood](10-tls-1-3/README.md)
 11. [TLS 1.3 Extensions](11-tls-1-3-extensions/README.md)
 
+[🌐 Practical TLS References](practicaltls-references.md)
+
 Instructor: [Ed Harmoush](https://twitter.com/ed_pracnet)
 
 ---
