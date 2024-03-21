@@ -12,8 +12,23 @@
   - [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
   - [MAPT](https://blog.syselement.com/tcm/courses/mapt)
   - [PEH](https://blog.syselement.com/tcm/courses/peh)
+- [Practical Networking](courses-notes/practical-networking/README.md)
+  - [Practical TLS](courses-notes/practical-networking/practical-tls/README.md)
+    - [TLS/SSL Overview](courses-notes/practical-networking/practical-tls/1-tls-ssl/README.md)
+    - [Cryptography](courses-notes/practical-networking/practical-tls/2-cryptography/README.md)
+    - [x509 Certificates and Keys](courses-notes/practical-networking/practical-tls/3-x509-certificates-keys/README.md)
+    - [Security through Certificates](courses-notes/practical-networking/practical-tls/4-security-certificates/README.md)
+    - [Cipher Suites](courses-notes/practical-networking/practical-tls/5-cipher-suites/README.md)
+    - [TLS/SSL Handshake](courses-notes/practical-networking/practical-tls/6-tls-ssl-handshake/README.md)
+    - [TLS Defenses](courses-notes/practical-networking/practical-tls/7-tls-defenses/README.md)
+    - [TLS Attacks & Vulnerabilities](courses-notes/practical-networking/practical-tls/8-tls-attacks-vulns/README.md)
+    - [What's new in TLS 1.3?](courses-notes/practical-networking/practical-tls/9-tls-1-3-intro/README.md)
+    - [TLS 1.3 Under the Hood](courses-notes/practical-networking/practical-tls/10-tls-1-3/README.md)
+    - [TLS 1.3 Extensions](courses-notes/practical-networking/practical-tls/11-tls-1-3-extensions/README.md)
+    - [🌐 Practical TLS References](courses-notes/practical-networking/practical-tls/practicaltls-references.md)
 
-## 🔳 Operating Systems
+
+## 💻 Operating Systems
 
 - [🪟 Windows](operating-systems/windows/README.md)
   - [📃 Everything Windows](operating-systems/windows/winstuff.md)
@@ -39,42 +54,42 @@
     - [UniFi](operating-systems/linux/tools/unifi.md)
     - [Zsh & Oh-My-Zsh](operating-systems/linux/tools/zsh.md)
 
-## 🧪 Pentesting Everything
+## 🧪 Cyber Everything
 
-- [📱 Mobile](pentesting-everything/mobile/README.md)
-  - [Apps Lab](pentesting-everything/mobile/labs/README.md)
-    - [Android Rooting Guide](pentesting-everything/mobile/labs/android-rooting.md)
-    - [iOS Jailbreak Guide](pentesting-everything/mobile/labs/ios-jailbreak.md)
-    - [Intercepting Android App Traffic](pentesting-everything/mobile/labs/android-traffic-intercept.md)
-  - [Tools](pentesting-everything/mobile/tools/README.md)
-    - [MobSF](pentesting-everything/mobile/tools/mobsf.md)
-- [🧬 Network](pentesting-everything/network/README.md)
-- [🌐 Web](pentesting-everything/web/README.md)
-  - [API](pentesting-everything/web/api/README.md)
-    - [API Sec Fundamentals](pentesting-everything/web/api/api-fundamentals.md)
-  - [PortSwigger Academy](pentesting-everything/web/portswigger/README.md)
-    - [Server-Side Topics](pentesting-everything/web/portswigger/server-side-topics/README.md)
-    - [Client-Side Topics](pentesting-everything/web/portswigger/client-side-topics/README.md)
-    - [Advanced topics](pentesting-everything/web/portswigger/advanced-topics/README.md)
-    - [🔬 Vulnerability Labs](pentesting-everything/web/portswigger/all-labs/README.md)
-
-
-## 🖥️ Cyber Everything
-
+- [📱 Mobile](cyber-everything/mobile/README.md)
+  - [Apps Lab](cyber-everything/mobile/labs/README.md)
+    - [Android Rooting Guide](cyber-everything/mobile/labs/android-rooting.md)
+    - [iOS Jailbreak Guide](cyber-everything/mobile/labs/ios-jailbreak.md)
+    - [Intercepting Android App Traffic](cyber-everything/mobile/labs/android-traffic-intercept.md)
+  - [Tools](cyber-everything/mobile/tools/README.md)
+    - [MobSF](cyber-everything/mobile/tools/mobsf.md)
+- [🧬 Network](cyber-everything/network/README.md)
+- [🌐 Web](cyber-everything/web/README.md)
+  - [API](cyber-everything/web/api/README.md)
+    - [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)
+  - [PortSwigger Academy](cyber-everything/web/portswigger/README.md)
+    - [Server-Side Topics](cyber-everything/web/portswigger/server-side-topics/README.md)
+    - [Client-Side Topics](cyber-everything/web/portswigger/client-side-topics/README.md)
+    - [Advanced topics](cyber-everything/web/portswigger/advanced-topics/README.md)
+    - [🔬 Vulnerability Labs](cyber-everything/web/portswigger/all-labs/README.md)
 - [CVSS 3.1](cyber-everything/cvss3.1.md)
 - [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
 
 ## 🔬 Home Lab
 
-- [🔴 Red Team Labs](home-lab/redteam/README.md)
+- [🖥️ Hypervisors](home-lab/hypervisors/README.md)
+  - [Proxmox VE](home-lab/hypervisors/proxmoxve/pve-install.md)
+  - [Proxmox Upgrade 7 to 8](home-lab/hypervisors/proxmoxve/pve-upgrade.md)
+- [🔴 Offensive Labs](home-lab/redteam/README.md)
   - [Hashcat Password Cracking](home-lab/redteam/lab-hashcat.md)
   - [Metasploitable3](home-lab/redteam/metasploitable3.md)
-- [🔵 Blue Team Labs](home-lab/blueteam/README.md)
+- [🔵 Defensive Labs](home-lab/blueteam/README.md)
   - [Detection Lab](home-lab/blueteam/lab-DetectionLab.md)
 - [⚪ Misc Labs](home-lab/misc/README.md)
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
   - [Passbolt CE - Ubuntu Server](home-lab/misc/passbolt-ce.md)
+
 
 ## ✍ Writeups & Walkthroughs
 
@@ -99,7 +114,7 @@
 
 <!--
 
-## 💻 Coding Notes
+## 🧑‍💻 Coding Notes
 
 
 
@@ -110,7 +125,8 @@
 **Rules for Gitbook:**
 
 - **Always put a space after an emoji** - the menu will not work if not and will not sync with Github.
-- file.md title must be = to the name in the menu items - Gitbook will overwrite a different title with the menu name in this file (SUMMARY.md)
-- 
+- file.md title must be = to the name in the menu items
+  - Gitbook will overwrite a different title with the menu name in this file (SUMMARY.md)
+
 
 -->
