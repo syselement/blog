@@ -19,7 +19,7 @@ Maturity curve - The context and analysis of CTI become deeper and more sophisti
 
 - almost always automated (feeds)
 - IOCs short lifespan
-- Stakeholders: SOC Analyst, SIEM, FIrewall, Endpoints, IDS/IPS
+- Stakeholders: SOC Analyst, SIEM, Firewall, Endpoints, IDS/IPS
 
 `OPERATIONAL` - *focus on understanding the attack adversaries, campaign tracking and actor profiling (the "who", the "why" and "how")*.
 
