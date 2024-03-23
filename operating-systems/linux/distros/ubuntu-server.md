@@ -72,6 +72,7 @@ sudo systemctl mask apt-daily{,-upgrade}.service
 
 # Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
 sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
+sudo sed -i'' -e 's/^\(\s\+\)\([^#]\)/\1# \2/' /etc/apt/apt.conf.d/20apt-esm-hook.conf
 sudo sed -Ezi.orig \
   -e 's/(def _output_esm_service_status.outstream, have_esm_service, service_type.:\n)/\1    return\n/' \
   -e 's/(def _output_esm_package_alert.*?\n.*?\n.:\n)/\1    return\n/' \
@@ -85,6 +86,24 @@ sudo passwd root
 
 > - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
 > - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
+
+### Extend Partition and Filesystem
+
+- Add space to disk on the hypervisor
+
+```bash
+sudo apt -y install cloud-guest-utils gdisk
+df -h
+
+growpart /dev/sda 3
+lsblk
+sudo resize2fs /dev/sda3
+
+# or this for LVM
+sudo lvextend -r -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+
+df -h
+```
 
 ---
 
