@@ -225,6 +225,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
 ```bash
 # e.g.
 192.168.5.6 vaultwarden.syselement.com
+192.168.5.6 wiki.syselement.com
 ```
 
 
@@ -232,6 +233,8 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
 ### [Wiki.js LXC](https://js.wiki/)
 
 > [http://192.168.5.10:3000/](http://192.168.5.10:3000/)
+>
+> [https://wiki.syselement.com/login](https://wiki.syselement.com/login)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -240,7 +243,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/wikijs.sh)"
 
 # Wiki.js Interface <IP>:3000
 
-# To Manually Update AdGuard Home, run the command above (or type update) in the AdGuard LXC Console.
+# To Manually Update Wiki.js , run the command above (or type update) in the Wiki.js LXC Console.
 ```
 
 

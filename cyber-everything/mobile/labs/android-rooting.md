@@ -257,7 +257,7 @@ set_perm_recursive $MODDIR/system/etc/security/cacerts/ root root 644
 
 -	Magisk - automatic "movecert" (to System CAs)
   + Dw zip and install 
-    https://github.com/Magisk-Modules-Repo/movecert/issues/12
+    [https://github.com/Magisk-Modules-Repo/movecert/issues/12](https://github.com/Magisk-Modules-Repo/movecert/issues/12)
 
 ```bash
 adb push movecert-1.9.zip /sdcard/
@@ -343,7 +343,7 @@ set_perm_recursive $MODDIR/system/etc/security/cacerts/ root root 644
 ### Magisk Frida Server
 
 - MagiskFrida - Install
-  - Dw zip from https://github.com/ViRb3/magisk-frida/releases
+  - Dw zip from [https://github.com/ViRb3/magisk-frida/releases](https://github.com/ViRb3/magisk-frida/releases)
 
 ```bash
 adb push MagiskFrida-*.zip /sdcard/
