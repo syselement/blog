@@ -11,7 +11,7 @@
 ```bash
 docker pull opensecurity/mobile-security-framework-mobsf
 mkdir -p ~/docker/mobsf
-chown 9901:9901 ~/docker/mobsf
+sudo chown 9901:9901 ~/docker/mobsf
 docker run -it --rm --name mobsf -p 8000:8000 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
 ```
 
