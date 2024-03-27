@@ -71,8 +71,9 @@ sed -i '/^source .*oh-my-zsh.sh/ i \
 \
 # Fix errors\
 ZSH_DISABLE_COMPFIX="true"\n\
-# Skip all aliases, in lib files and enabled plugins\
-zstyle '"'"':omz:*'"'"' aliases no\n' "$ZSHRC"
+
+# Skip all aliases in lib files\
+zstyle '"'"':omz:lib*'"'"' aliases no\n' "$ZSHRC"
 ```
 
 - Check the file and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
