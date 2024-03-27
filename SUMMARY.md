@@ -67,6 +67,7 @@
 - [🌐 Web](cyber-everything/web/README.md)
   - [API](cyber-everything/web/api/README.md)
     - [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)
+    - [API Penetration Testing](cyber-everything/web/api/api-pentesting.md)
   - [PortSwigger Academy](cyber-everything/web/portswigger/README.md)
     - [Server-Side Topics](cyber-everything/web/portswigger/server-side-topics/README.md)
     - [Client-Side Topics](cyber-everything/web/portswigger/client-side-topics/README.md)
