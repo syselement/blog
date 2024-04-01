@@ -44,7 +44,7 @@
 >
 > Standards:
 >  - Open Containers Initiative (OCI): [https://www.opencontainers.org](https://www.opencontainers.org)
-> - Cloud Native Computing Foundation (CNCF): https://www.cncf.io/
+> - Cloud Native Computing Foundation (CNCF): [https://www.cncf.io/](https://www.cncf.io/)
 >
 > Documentation:
 > - Principles of Chaos: [http://principlesofchaos.org/](http://principlesofchaos.org/)
