@@ -76,6 +76,10 @@
 - [CVSS 3.1](cyber-everything/cvss3.1.md)
 - [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
 
+## ♾️ DevOps Everything
+
+- [🔗 DevOps Resources](devops-everything/README.md)
+
 ## 🔬 Home Lab
 
 - [🖥️ Hypervisors](home-lab/hypervisors/README.md)
@@ -90,7 +94,6 @@
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
   - [Passbolt CE - Ubuntu Server](home-lab/misc/passbolt-ce.md)
-
 
 ## ✍ Writeups & Walkthroughs
 

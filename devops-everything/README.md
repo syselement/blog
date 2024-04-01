@@ -1,4 +1,4 @@
-# DevOps Everything
+# 🔗 DevOps Resources
 
 [DevOps - Telegram](https://t.me/thedevs_devops)
 
