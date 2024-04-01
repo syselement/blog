@@ -73,8 +73,10 @@
     - [Client-Side Topics](cyber-everything/web/portswigger/client-side-topics/README.md)
     - [Advanced topics](cyber-everything/web/portswigger/advanced-topics/README.md)
     - [🔬 Vulnerability Labs](cyber-everything/web/portswigger/all-labs/README.md)
-- [CVSS 3.1](cyber-everything/cvss3.1.md)
-- [Cyber Threat Intelligence (CTI)](cyber-everything/threat-intelligence.md)
+- [📌 Generic Resources](cyber-everything/generic/README.md)
+  - [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
+  - [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
+
 
 ## ♾️ DevOps Everything
 
