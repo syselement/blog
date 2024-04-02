@@ -180,9 +180,9 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/adguard.sh)"
 >
 > [http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin)
 >
-> [https://vaultwarden.syselement.com/#/login](https://vaultwarden.syselement.com/#/login)
+> [https://vaultwarden.lab.syselement.com/#/login](https://vaultwarden.lab.syselement.com/#/login)
 >
-> [https://vaultwarden.syselement.com/admin](https://vaultwarden.syselement.com/admin)
+> [https://vaultwarden.lab.syselement.com/admin](https://vaultwarden.lab.syselement.com/admin)
 
 - Based on Alpine Linux
 
@@ -196,7 +196,7 @@ apk update && apk upgrade
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-Set `https://vaultwarden.syselement.com` in the **General settings - Domain URL** admin menu [http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin).
+Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain URL** admin menu [http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin).
 
 - Vaultwarden needs to be behind a proxy (e.g. [Zoraxy](#zoraxy-lxc)) to obtain HTTPS and to allow clients to connect.
 
@@ -216,25 +216,25 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
 - `Status` - set `Use TLS to serve proxy request` and `Start Service`
 - `Create Proxy Rules` - new proxy rule for **Vaultwarden**
   - **Proxy Type** - `Sub-domain`
-  - **Subdomain Matching Keyword** - `vaultwarden.syselement.com`
+  - **Subdomain Matching Keyword** - `vaultwarden.lab.syselement.com`
   - **Target IP** - `192.168.5.7:8000` (*Vaultwarden LXC IP*)
   - *Create Endpoint*
 
-**Local HOST/DNS** - set `vaultwarden.syselement.com` to *Zoraxy LXC IP* (or forward port `80` and `443` from your router to your Zoraxy LXC IP).
+**Local HOST/DNS** - set `vaultwarden.lab.syselement.com` to *Zoraxy LXC IP* (or forward port `80` and `443` from your router to your Zoraxy LXC IP).
 
 ```bash
-# e.g.
-192.168.5.6 vaultwarden.syselement.com
-192.168.5.6 wiki.syselement.com
+# e.g. C:\Windows\System32\drivers\etc\hosts
+192.168.5.6 vaultwarden.lab.syselement.com
+192.168.5.6 wiki.lab.syselement.com
 ```
 
-
+- Check [Technitium DNS](#technitium-dns-lxc) configuration too and use the Technitium server IP as DNS Server.
 
 ### [Wiki.js LXC](https://js.wiki/)
 
 > [http://192.168.5.10:3000/](http://192.168.5.10:3000/)
 >
-> [https://wiki.syselement.com/login](https://wiki.syselement.com/login)
+> [https://wiki.lab.syselement.com/login](https://wiki.lab.syselement.com/login)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -259,6 +259,40 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/technitiumdn
 
 # Technitium DNS Interface <IP>:5380
 ```
+
+Open the webpage and navigate to **Zones**
+
+- `Add Zone` - Primary Zone: `lab.syselement.com`
+
+- Enter the `lab.syselement.com` zone
+  - `Add Record`
+    - **Name**: `vaultwarden`
+    - **IPv4 Address**: `192.168.5.6`
+    - Save it
+  - Add another record for `wiki` with the same IP
+
+**Settings - Blocking**
+
+- `Enable Blocking`
+- Allow/Block List URLs - `Quick Add` - e.g. `Steven Black...`
+- Save Settings
+
+**Settings - Proxy & Forwarders**
+
+- Forwarders - `Quick Select` - e.g. `Quad9 Secure (DNS-over-HTTPS)`
+- Save Settings
+
+> 📌 To use Techitium as a DNS server, set its IP `192.168.5.11` as DNS server in the client PC network configuration
+>
+> ```bash
+> # e.g. Windows
+> ipconfig /all
+> 
+> DNS Servers . . . : 
+> 	192.168.5.11
+> 	9.9.9.9
+> 		DoH: https://dns.quad9.net/dns-query
+> ```
 
 
 
