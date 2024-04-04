@@ -4,10 +4,10 @@
 
 > 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
 >
-> * 📌*Some commands can be outdated.*
-> * ❗*Most of the commands are for **Debian-based** distributions.*
+> * 📌_Some commands can be outdated._
+> * ❗_Most of the commands are for **Debian-based** distributions._
 
-------
+***
 
 ## Terminal commands
 
@@ -57,7 +57,7 @@ htop
 
 ### Swap Enable
 
-- To enable swap with `btrfs` disk run
+* To enable swap with `btrfs` disk run
 
 ```bash
 sudo btrfs filesystem mkswapfile --size 4G /swapfile
@@ -97,15 +97,15 @@ sudo dmesg | grep ACPI | grep supports
 > State:		Suspend-To-Idle
 > ACPI state:	S0
 > Label:		"s2idle" ("freeze")
-> 
+>
 > State:		Standby / Power-On Suspend
 > ACPI State:	S1
 > Label:		"shallow" ("standby")
-> 
+>
 > State:		Suspend-to-RAM (STR)
 > ACPI State:	S3
 > Label:		"deep"
-> 
+>
 > State:		Suspend-to-disk (STD/Hibernation)
 > ACPI State:	S4
 > Label:		"disk"
@@ -136,15 +136,15 @@ sudo apt --purge autoremove
 ```
 
 > Info:
+>
 > * **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
 > * **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
 > * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
 > * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
 >
-> ### Create Aliases
->
+> #### Create Aliases
 
-- Ubuntu:
+* Ubuntu:
 
 ```bash
 nano ~/.bashrc
@@ -159,7 +159,7 @@ source ~/.bashrc
 alias
 ```
 
-- Kali Linux:
+* Kali Linux:
 
 ```bash
 nano ~/.zshrc
@@ -293,7 +293,7 @@ sudo apt purge --auto-remove unattended-upgrades
 wget -O /dev/null -q --show-progress https://ash-speed.hetzner.com/10GB.bin
 ```
 
-- Or install `speedtest-cli`
+* Or install `speedtest-cli`
 
 ```bash
 sudo apt install speedtest-cli
@@ -358,7 +358,7 @@ s-tui
 s-tui --csv
 ```
 
-###  Renew DHCP
+### Renew DHCP
 
 ```bash
 sudo systemctl restart networking.service
@@ -368,9 +368,7 @@ sudo dhclient -r
 sudo dhclient
 ```
 
-
-
-------
+***
 
 ## Software
 
@@ -544,13 +542,13 @@ anonsurf myip
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
-- Or use APT package manager on Debian-based distros
+* Or use APT package manager on Debian-based distros
 
 ```bash
 sudo apt update && sudo apt install -y metasploit-framework
 ```
 
-- Enable `postgresql` at boot, start the service and initialize MSF database
+* Enable `postgresql` at boot, start the service and initialize MSF database
 
 ```bash
 sudo systemctl enable postgresql
@@ -558,7 +556,7 @@ sudo systemctl restart postgresql
 sudo msfdb init
 ```
 
-- Run **`msfconsole`** to start the Metasploit Framework Console
+* Run **`msfconsole`** to start the Metasploit Framework Console
 
 ```bash
 msfconsole
@@ -567,6 +565,7 @@ msfconsole
 ### [Install Nessus](tools/Nessus.md)
 
 ### [Install Docker](https://docs.docker.com/engine/install/debian/)
+
 ```bash
 sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
@@ -600,7 +599,7 @@ sudo chmod +x gophish/gophish
 cd /opt/gophish && sudo ./gophish
 ```
 
-- Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
+* Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
 
 ```bash
 docker run -ti -p 3333:3333 --rm gophish/demo
@@ -628,9 +627,8 @@ sudo apt install -y asbru-cm
 
 ### Install BurpSuite
 
-- Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
-  - Use this for updating too
-
+* Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
+  * Use this for updating too
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits 
@@ -685,7 +683,7 @@ source $HOME/.bashrc
 source $HOME/.zshrc
 ```
 
-------
+***
 
 ## Usage and Configuration
 
@@ -766,22 +764,22 @@ sudo adduser xrdp ssl-cert
 sudo systemctl enable xrdp --now
 ```
 
-> - The **`xfce4.sh`** does the following
+> * The **`xfce4.sh`** does the following
 >
 > ```bash
 > #!/bin/bash
 > echo "[i] Updating and upgrading Kali (this will take a while)"
 > apt-get update
 > apt-get --yes --force-yes dist-upgrade
-> 
+>
 > echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
 > apt-get --yes --force-yes install kali-desktop-xfce xorg xrdp
-> 
+>
 > echo "[i] Configuring xrdp to listen to port 3390 (but not starting the service)"
 > sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 > ```
 
-- Fix for `Authentication Required to Create Managed Color Device`, run
+* Fix for `Authentication Required to Create Managed Color Device`, run
 
 ```bash
 cat <<EOF | sudo tee /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
@@ -796,7 +794,7 @@ EOF
 sudo systemctl restart xrdp
 ```
 
-- Port to connect to is `3390`
+* Port to connect to is `3390`
 
 ```bash
 ### TESTS - DO NOT CONSIDER ###
@@ -820,11 +818,7 @@ sudo apt install qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch
 qemu-aarch64-static -L /usr/aarch64-linux-gnu/ sandbox
 ```
 
-
-
-
-
-------
+***
 
 ## Virtual Machines
 
@@ -848,14 +842,11 @@ sudo apt install -y dkms
 sudo apt install -y virtualbox virtualbox-ext-packv
 ```
 
-
-
 ### METASPLOITABLE VM
 
 > 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
 
 * [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
-
 * Guides:
   * [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
   * [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
@@ -864,13 +855,13 @@ sudo apt install -y virtualbox virtualbox-ext-packv
 # Login: msfadmin:msfadmin
 ```
 
-------
+***
 
 ## Troubleshooting
 
 ### i915 Linux Freeze - Temp Fix
 
-> - 🔗 [flip_done timed out - issue](https://gitlab.freedesktop.org/drm/intel/-/issues/8685)
+> * 🔗 [flip\_done timed out - issue](https://gitlab.freedesktop.org/drm/intel/-/issues/8685)
 >
 > Happens on Kali and Parrot OS with HDMI external monitor and Iris Xe Graphics.
 
@@ -890,6 +881,3 @@ sudo update-initramfs -c -k all
 # Verificare la version utilizzata (può essere necessario un reboot)
 sudo cat /sys/kernel/debug/dri/0/i915_dmc_info
 ```
-
-
-

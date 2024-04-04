@@ -71,24 +71,19 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 ### Lab Information and Credentials
 
 > * **Domain Name:** windomain.local
-> * **Admininstrator login:** 
+> * **Admininstrator login:**
 >   * `vagrant`:`vagrant`
->
 > * **Fleet login:** [https://192.168.56.105:8412](https://192.168.56.105:8412)
 >   * `admin@detectionlab.network`:`Fl33tpassword!`
->
 > * **Splunk login:** [https://192.168.56.105:8000](https://192.168.56.105:8000)
 >   * `admin`:`changeme`
->   * *MS ATA login: [https://192.168.56.103](https://192.168.56.103) - `wef\vagrant`:`vagrant` \[**DEPRECATED**]*
->
+>   * _MS ATA login:_ [_https://192.168.56.103_](https://192.168.56.103) _- `wef\vagrant`:`vagrant` \[**DEPRECATED**]_
 > * **Guacamole login:** [http://192.168.56.105:8080/guacamole](http://192.168.56.105:8080/guacamole)
 >   * `vagrant`:`vagrant`
->
 > * **Velociraptor login:** [https://192.168.56.105:9999](https://192.168.56.105:9999)
 >   * `admin`:`changeme`
 >
->
-> ### Lab Hosts
+> #### Lab Hosts
 >
 > * DC - Windows 2016 Domain Controller
 >   * WEF Server Configuration GPO
@@ -125,21 +120,21 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >   * Guacamole
 >   * Velociraptor server
 >
-> ### Splunk Indexes
->
-> | Index Name            | Description                                                  |
-> | --------------------- | ------------------------------------------------------------ |
-> | evtx\_attack\_samples | Samples from [https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) |
-> | osquery               | osquery/Fleet result logs                                    |
-> | osquery-status        | osquery/fleet INFO/WARN/ERROR logs                           |
-> | powershell            | Powershell transcription logs                                |
-> | suricata              | Suricata IDS logs                                            |
-> | sysmon                | Logs from the Sysmon service                                 |
-> | threathunting         | Used for the ThreatHunting app                               |
-> | wineventlog           | Windows Event Logs                                           |
-> | zeek                  | Zeek network traffic logs                                    |
-> ### Installed Tools on Windows
->
+> #### Splunk Indexes
+
+| Index Name                     | Description                                                                                                           |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| evtx\_attack\_samples          | Samples from [https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) |
+| osquery                        | osquery/Fleet result logs                                                                                             |
+| osquery-status                 | osquery/fleet INFO/WARN/ERROR logs                                                                                    |
+| powershell                     | Powershell transcription logs                                                                                         |
+| suricata                       | Suricata IDS logs                                                                                                     |
+| sysmon                         | Logs from the Sysmon service                                                                                          |
+| threathunting                  | Used for the ThreatHunting app                                                                                        |
+| wineventlog                    | Windows Event Logs                                                                                                    |
+| zeek                           | Zeek network traffic logs                                                                                             |
+| ### Installed Tools on Windows |                                                                                                                       |
+
 > * Sysmon
 > * Velociraptor Agent
 > * osquery
@@ -157,7 +152,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > * Atomic Red Team
 > * BadBlood
 >
-> ### Applied GPOs
+> #### Applied GPOs
 >
 > * [Custom Event Channel Permissions](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Custom%20Event%20Channel%20Permissions.htm)
 > * [Default Domain Controllers Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default%20Domain%20Controllers%20Policy.htm)
@@ -170,7 +165,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 
 ### Prerequisites
 
-> #### Virtualbox
+> **Virtualbox**
 >
 > Deploy DetectionLab to your local machine as individual Virtualbox VMs.
 >
@@ -181,7 +176,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > * Packer 1.6.0+ (only required if building your own boxes)
 > * Virtualbox 6.0+ (older versions may work but are not tested)
 >
-> #### VMware Fusion/Workstation
+> **VMware Fusion/Workstation**
 >
 > Deploy DetectionLab to your local machine as individual VMware VMs.
 >
@@ -199,11 +194,11 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 
 > It’s easiest to think of Vagrant as a command-line wrapper for interacting with Virtualbox and VMware.
 >
-> #### Setting a default provider
+> **Setting a default provider**
 >
 > If you happen to have both Virtualbox and VMware Workstation/Fusion installed, it may be helpful to set the [VAGRANT\_DEFAULT\_PROVIDER](https://www.vagrantup.com/docs/providers/default.html) environment variable to either **vmware\_desktop** or **virtualbox**.
 >
-> #### Basic Vagrant Usage
+> **Basic Vagrant Usage**
 >
 > **All commands must be run from the “DetectionLab/Vagrant” folder**
 >

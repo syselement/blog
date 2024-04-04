@@ -1,57 +1,45 @@
 # Cyber Threat Intelligence
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<.gitbook/assets/tryhackme-logo-small (6).png>)
 
 > **Name**
 >
 > 🌐 [Cyber Threat Intelligence](https://tryhackme.com/module/cyber-threat-intelligence) - Tryhackme Module
 >
-> ![](.gitbook/assets/cyber-threat-intelligence.png)
+> <img src=".gitbook/assets/cyber-threat-intelligence.png" alt="" data-size="original">
 >
 > **Description**
 >
-> 📝 *Learn about identifying and using available security knowledge to mitigate and manage potential adversary actions.*
->
+> 📝 _Learn about identifying and using available security knowledge to mitigate and manage potential adversary actions._
 
-------
+***
 
 ## [Intro to Cyber Threat Intel](https://tryhackme.com/jr/cyberthreatintel)
 
-> 📝 *Introducing cyber threat intelligence and related topics, such as relevant standards and frameworks*
+> 📝 _Introducing cyber threat intelligence and related topics, such as relevant standards and frameworks_
 
-
-
-------
+***
 
 ## [Threat Intelligence Tools](https://tryhackme.com/jr/threatinteltools)
 
-> 📝 *Explore different OSINT tools used to conduct security threat assessments and investigations*
+> 📝 _Explore different OSINT tools used to conduct security threat assessments and investigations_
 
-
-
-------
+***
 
 ## [Yara](https://tryhackme.com/jr/yara)
 
-> 📝 *Learn the applications and language that is Yara for everything threat intelligence, forensics, and threat hunting!*
+> 📝 _Learn the applications and language that is Yara for everything threat intelligence, forensics, and threat hunting!_
 
-
-
-------
+***
 
 ## [OpenCTI](https://tryhackme.com/jr/opencti)
 
-> 📝 *Provide an understanding of the OpenCTI Project*
+> 📝 _Provide an understanding of the OpenCTI Project_
 
-
-
-------
+***
 
 ## [MISP](https://tryhackme.com/jr/misp)
 
-> 📝 *Walkthrough on the use of MISP as a Threat Sharing Platform*
+> 📝 _Walkthrough on the use of MISP as a Threat Sharing Platform_
 
-
-
-------
-
+***

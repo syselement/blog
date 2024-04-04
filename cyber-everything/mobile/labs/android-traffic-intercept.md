@@ -2,9 +2,9 @@
 
 I've used my KaliVM and this instructions to follow IppSec's video and get everything working as he described.
 
-> 🔗 [Intercepting Android App Traffic with BurpSuite](https://www.youtube.com/watch?v=xp8ufidc514)  - by [IppSec](https://ippsec.rocks/)
+> 🔗 [Intercepting Android App Traffic with BurpSuite](https://www.youtube.com/watch?v=xp8ufidc514) - by [IppSec](https://ippsec.rocks/)
 >
-> ### Video Timeline
+> #### Video Timeline
 >
 > ```
 > 00:00 - Introduction, talking about RouterSpace and why we can't just do what we did in that video
@@ -29,12 +29,12 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 > 22:15 - Setting the proxy and showing us intercept instagram traffic
 > ```
 
-> ### 🔗 Resources
+> #### 🔗 Resources
 >
-> - [Genymotion](https://www.genymotion.com/download/)
-> - [Frida](https://frida.re/)
-> - [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
-> - Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=_HRpLPrlg1U)
+> * [Genymotion](https://www.genymotion.com/download/)
+> * [Frida](https://frida.re/)
+> * [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate\_and\_Public\_Key\_Pinning)
+> * Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=\_HRpLPrlg1U)
 
 ```bash
 sudo apt install -y virtualbox adb
@@ -47,9 +47,8 @@ cd /opt/genymobile/genymotion
 ./genymotion
 ```
 
-- Install a new Google Pixel 3 XL device
-
-- Run Burpsuite and copy its certificate
+* Install a new Google Pixel 3 XL device
+* Run Burpsuite and copy its certificate
 
 ```bash
 cd
@@ -61,7 +60,7 @@ openssl x509 -inform PEM -subject_hash_old -in burp.pem
 mv burp.pem 9a5ba575.0 	# Output from above
 ```
 
-- Copy cert to device
+* Copy cert to device
 
 ```bash
 adb devices -l
@@ -74,13 +73,13 @@ exit
 adb push 9a5ba575.0 /system/etc/security/cacerts/
 ```
 
-![](.gitbook/assets/2023-07-02_17-21-49_134.png)
+![](.gitbook/assets/2023-07-02\_17-21-49\_134.png)
 
-- To start capturing traffic with BurpSuite, set the proxy listener to `All interfaces`
+* To start capturing traffic with BurpSuite, set the proxy listener to `All interfaces`
 
-![](.gitbook/assets/2023-07-02_17-25-13_135.png)
+![](.gitbook/assets/2023-07-02\_17-25-13\_135.png)
 
-- Set the proxy usage on the device, with the KaliVM IP
+* Set the proxy usage on the device, with the KaliVM IP
 
 ```bash
 adb shell settings put global http_proxy 192.168.31.128:8080
@@ -91,35 +90,34 @@ alias adb_set_proxy="adb shell settings put global http_proxy $(ip -o -4 addr sh
 alias adb_unset_proxy="adb shell settings put global http_proxy :0"
 ```
 
-- From Genymotion, click OpenGAPPS to install Gapps on the device and restart the device.
+* From Genymotion, click OpenGAPPS to install Gapps on the device and restart the device.
 
 ```bash
 # Disable proxy
 adb_unset_proxy
 ```
 
-- Run Play Store on the device and install apps
-  - `e.g.` - Wayzn, Instagram - in this case
-
-- Try to set the proxy, turn BurpSuite intercept on and login into the *Wayzn* app
+* Run Play Store on the device and install apps
+  * `e.g.` - Wayzn, Instagram - in this case
+* Try to set the proxy, turn BurpSuite intercept on and login into the _Wayzn_ app
 
 ```
 adb_set_proxy
 ```
 
-![](.gitbook/assets/2023-07-02_17-46-30_136.png)
+![](.gitbook/assets/2023-07-02\_17-46-30\_136.png)
 
-- Open Instagram and try to login. `Unable to log in` with proxy set.
+* Open Instagram and try to login. `Unable to log in` with proxy set.
 
-![](.gitbook/assets/2023-07-02_17-49-59_137.png)
+![](.gitbook/assets/2023-07-02\_17-49-59\_137.png)
 
-- Unsetting the proxy, Instagram error changes.
-  - Instagram prevents from intercepting the traffic
+* Unsetting the proxy, Instagram error changes.
+  * Instagram prevents from intercepting the traffic
 
-![](.gitbook/assets/2023-07-02_17-50-46_138.png)
+![](.gitbook/assets/2023-07-02\_17-50-46\_138.png)
 
-- Install Frida
-  - 🔗 Follow [Frida Android](https://frida.re/docs/android/)
+* Install Frida
+  * 🔗 Follow [Frida Android](https://frida.re/docs/android/)
 
 ```bash
 # On KaliVM
@@ -142,7 +140,7 @@ adb shell "chmod 755 /data/local/tmp/frida-server"
 adb shell "/data/local/tmp/frida-server &"
 ```
 
-- Check  **Frida** is working
+* Check **Frida** is working
 
 ```bash
 frida-ps -U		# This is device output
@@ -157,8 +155,7 @@ frida-ps -U		# This is device output
     [...]
 ```
 
-- Download the [Instagram SSL Pinning Bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass) script
-  22:15 - Setting the proxy and showing us intercept instagram traffic
+* Download the [Instagram SSL Pinning Bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass) script 22:15 - Setting the proxy and showing us intercept instagram traffic
 
 ```
 sudo mkdir -p /opt/android/instagram
@@ -167,19 +164,18 @@ cd /opt/android/instagram
 sudo wget https://raw.githubusercontent.com/Eltion/Instagram-SSL-Pinning-Bypass/main/instagram-ssl-pinning-bypass.js
 ```
 
-- Force stop Instagram app from App info
-- Use Frida to start Instagram and load the script to bypass the SSL Checking
+* Force stop Instagram app from App info
+* Use Frida to start Instagram and load the script to bypass the SSL Checking
 
 ```bash
 adb_set_proxy
 frida -U -l ./instagram-ssl-pinning-bypass.js -f com.instagram.android
 ```
 
-![](.gitbook/assets/2023-07-02_18-07-35_139.png)
+![](.gitbook/assets/2023-07-02\_18-07-35\_139.png)
 
-- Show Instagram intercepted traffic in BurpSuite
+* Show Instagram intercepted traffic in BurpSuite
 
-![](.gitbook/assets/2023-07-02_18-09-42_140.png) 
+![](.gitbook/assets/2023-07-02\_18-09-42\_140.png)
 
-------
-
+***

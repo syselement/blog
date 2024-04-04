@@ -1,54 +1,53 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<.gitbook/assets/tryhackme-logo-small (6).png>)
 
 > **Name**
 >
 > 🌐 [Introduction to Defensive Security](https://tryhackme.com/module/introduction-to-defensive-security) - TryHackMe Module
 >
-> ![](.gitbook/assets/intro-to-defensive.png)
+> <img src=".gitbook/assets/intro-to-defensive.png" alt="" data-size="original">
 >
 > **Description**
 >
-> 📝 *Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack.*
+> 📝 _Learn Defensive Security by using digital forensics in an investigation and applying security operations to stop a live cyber attack._
 >
 > * Analyze digital evidence with digital forensics
 > * Security Operations in the cyber industry
 > * Learn how protection works in a web-base simulation
->
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 
-> 📝 *Learn about digital forensics and related processes and experiment with a practical example*
+> 📝 _Learn about digital forensics and related processes and experiment with a practical example_
 
-A new field of ***forensics** (the science of crime investigations)* called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
+A new field of _**forensics** (the science of crime investigations)_ called **`digital forensics`** was born to examine crimes involving the usage of digital technologies like:
 
 * desktop computers, laptops
 * smartphones, digital cameras
 * digital media (CDs, USB drives, external storage)
 * etc
 
-The purpose of digital forensics is *the use of computer science to investigate digital data/evidence for a legal purpose*.
+The purpose of digital forensics is _the use of computer science to investigate digital data/evidence for a legal purpose_.
 
 * **Public sector investigations** - conducted by government and low enforcement agencies
 * **Private sector investigations** - conducted by corporate bodies with the help of a private investigator
 
 ### The Process
 
-*After obtaining the proper legal **authorization***, a digital forensics investigator should:
+_After obtaining the proper legal **authorization**_, a digital forensics investigator should:
 
 * acquire the **evidence** - collecting the digital devices (using special handling if turned on)
 * establish a **chain of custody** - fill out a form ensuring only authorized access to and handling of the evidence ([NIST Sample form](https://www.nist.gov/document/sample-chain-custody-formdocx))
 * secure the evidence in a **container** - to avoid damage or remote wiping (via network connection)
 * transport the evidence to the digital forensics **laboratory**
 
-In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. *The investigation will be done on the identical **copy** using a **forensics workstation***. The findings can be reproduced (**repeatability**).
+In the lab, the digital evidence must be retrieved from the secure container and **copied** using advanced validated software and **tools** to prevent altering the original data. _The investigation will be done on the identical **copy** using a **forensics workstation**_. The findings can be reproduced (**repeatability**).
 
 A **report** detailing the obtained evidence for the case concludes the digital forensics investigation.
 
 ### Practical Example
 
-> ❗*Everything we do on our digital devices, from smartphones to computers, leaves traces.*
+> ❗_Everything we do on our digital devices, from smartphones to computers, leaves traces._
 
 #### Doc Metadata
 
@@ -440,7 +439,6 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 ## [Security Operations](https://tryhackme.com/jr/securityoperations)
 
-> 📝 *Learn about Security Operations Center (SOC): its responsibilities, services, and data sources*
+> 📝 _Learn about Security Operations Center (SOC): its responsibilities, services, and data sources_
 
-------
-
+***
