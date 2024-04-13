@@ -312,6 +312,28 @@ pihole -a -p
 
 
 
+### [Homepage](https://gethomepage.dev/latest/)
+
+> http://192.168.5.13:3000/
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/homepage.sh)"
+
+# Homepage Interface: IP:3000
+
+# To Manually Update Homepage, run the command above (or type update) in the Homepage LXC Console.
+```
+
+- Configuration (bookmarks.yaml, services.yaml, widgets.yaml) path
+
+```bash
+cd /opt/homepage/config/
+```
+
+
+
 ------
 
 ## Ubuntu Server VM
