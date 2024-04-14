@@ -160,7 +160,7 @@ Set Custom **PATH**.
 
 ```bash
 nano $ZSH_CUSTOM/my_paths.zsh
-# Paste your custom aliases
+# Paste your custom paths
 ```
 
 - `e.g.` of my custom aliases
