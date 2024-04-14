@@ -73,6 +73,12 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > [![](.gitbook/assets/pwnx.svg)](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
 >
 > 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
+>
+> ---
+>
+> [![](.gitbook/assets/kodekloud.svg)](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
+>
+> 🔗 [KodeKloud](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
 
 
 

@@ -53,16 +53,24 @@
 > Audit:
 >  - Elastic: [https://www.elastic.co/blog/introducing-elastic-siem](https://www.elastic.co/blog/introducing-elastic-siem)
 
+---
+
 ## Courses
 
 - [TechWorld - DevOps Bootcamp By Nana](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
 
-![DevOps Bootcamp Schedule](.gitbook/assets/Recomm_%20Schedule%20-%20Part%202.png)
+![DevOps Bootcamp Schedule](.gitbook/assets/nana-schedule.png)
+
+![DevOps Bootcamp Schedule](.gitbook/assets/nana-schedule2.png)
 
 
 - [TechWorld - Certified Kubernetes Administrator (CKA Course)](https://www.techworld-with-nana.com/kubernetes-administrator-cka)
+- [KodeKloud Training Courses](https://kodekloud.com/)
+
+  - [KodeKloud Engineer Practice](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
 
 
+---
 
 ## Youtube
 
@@ -80,3 +88,6 @@
 ### DevSecOps
 
 - [DevSecOps Tutorial for Beginners | CI Pipeline with GitHub Actions and Docker Scout [1h]](https://www.youtube.com/watch?v=gLJdrXPn0ns)
+
+---
+
