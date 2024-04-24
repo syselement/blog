@@ -193,9 +193,7 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 - [CRTIA – CREST Registered Threat Intelligence Analyst](https://crest-approved.org/examination/crest-registered-threat-intelligence-analyst/index.html)
 - [CCTIM – CREST Certified Threat Intelligence Manager](https://crest-approved.org/examination/crest-certified-threat-intelligence-manager/index.html)
 
-## Links
-
-### Resources
+## 🌐 Resources 🔗
 
 > - [curated-intel - CTI-fundamentals](https://github.com/curated-intel/CTI-fundamentals)
 > - [TryHackMe - CTI **Learning** Module](https://tryhackme.com/module/cyber-threat-intelligence)

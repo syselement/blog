@@ -29,7 +29,7 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 > 22:15 - Setting the proxy and showing us intercept instagram traffic
 > ```
 
-> #### 🔗 Resources
+> #### 🌐 Resources 🔗
 >
 > * [Genymotion](https://www.genymotion.com/download/)
 > * [Frida](https://frida.re/)

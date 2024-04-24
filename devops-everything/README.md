@@ -2,6 +2,8 @@
 
 ## Generic Links
 
+- [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
+
 - [DevOps - Telegram](https://t.me/thedevs_devops)
 
 > Overview:

@@ -4,7 +4,7 @@
 
 ## [Access control vulnerabilities](https://portswigger.net/web-security/all-labs#access-control-vulnerabilities)
 
-> 🔗 **Resources**
+> 🌐 Resources 🔗
 >
 > - 📽️ [Broken Access Control (Long Version) - Rana Khalil](https://www.youtube.com/playlist?list=PLuyTk2_mYISId4_l9YET7Gv29cHcNguq-)
 > - [WSTG-ATHZ-02 - Testing for Bypassing Authorization Schema](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema)
@@ -324,7 +324,7 @@ HTTP/2 302 Found
 
 ## [Path traversal](https://portswigger.net/web-security/all-labs#path-traversal)
 
-> 🔗 **Resources**
+> 🌐 Resources 🔗
 >
 > - 📽️ [What is Directory Traversal? - Intigriti](https://www.youtube.com/watch?v=17KYOIf5ZbU)
 > - 📽️ [Directory Traversal attacks are scary easy - TCM](https://www.youtube.com/watch?v=99yJtmmtrJU)

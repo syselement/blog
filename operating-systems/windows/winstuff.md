@@ -289,7 +289,7 @@ rmdir /s ubuntu
 
 ---
 
-## 🌐 Resources
+## 🌐 Resources 🔗
 
 ### Install
 

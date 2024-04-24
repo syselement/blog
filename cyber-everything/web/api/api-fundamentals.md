@@ -8,11 +8,11 @@
 
 - Course Duration - `2h`
 
-## Resources & Links
+## 🌐 Resources 🔗
 
-> - 🔗 [OWASP API Security Top 10](https://owasp.org/API-Security/editions/2023/en/0x00-header/)
-> - 🔗 [OWASP API Security Top 10 Vulnerabilities - APIsecurity.io](https://apisecurity.io/owasp-api-security-top-10/)
-> - 🔗 [awesome-api-security-essentials](https://github.com/JBAhire/awesome-api-security-essentials)
+> - [OWASP API Security Top 10](https://owasp.org/API-Security/editions/2023/en/0x00-header/)
+> - [OWASP API Security Top 10 Vulnerabilities - APIsecurity.io](https://apisecurity.io/owasp-api-security-top-10/)
+> - [awesome-api-security-essentials](https://github.com/JBAhire/awesome-api-security-essentials)
 > - [OpenAPI.Tools](https://openapi.tools/)
 
 ------
