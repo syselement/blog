@@ -68,13 +68,6 @@ sed -i '/^plugins=/ { s/=.*/=(command-not-found zsh-autosuggestions zsh-syntax-h
 
 # Add additional lines before sourcing oh-my-zsh
 sed -i '/^source .*oh-my-zsh.sh/ i \
-# Fix errors\n\
-ZSH_DISABLE_COMPFIX="true"\n\
-# Skip all aliases in lib files\n\
-zstyle :omz:lib\* aliases no\n' "$ZSHRC"
-
-sed -i '/^source .*oh-my-zsh.sh/ i \
-\
 # Fix errors\
 ZSH_DISABLE_COMPFIX="true"\n\
 \
