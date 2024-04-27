@@ -46,7 +46,7 @@
 - Connect through SSH and/or Run the following commands
 
 ```bash
-sudo apt update -y && sudo apt -y dist-upgrade
+sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove
 ```
 
 - Reboot the system
@@ -70,9 +70,9 @@ sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
 sudo systemctl disable apt-daily{,-upgrade}.timer
 sudo systemctl mask apt-daily{,-upgrade}.service
 
+# If not using Ubuntu PRO:
 # Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
 sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
-sudo sed -i'' -e 's/^\(\s\+\)\([^#]\)/\1# \2/' /etc/apt/apt.conf.d/20apt-esm-hook.conf
 sudo sed -Ezi.orig \
   -e 's/(def _output_esm_service_status.outstream, have_esm_service, service_type.:\n)/\1    return\n/' \
   -e 's/(def _output_esm_package_alert.*?\n.*?\n.:\n)/\1    return\n/' \
@@ -156,7 +156,7 @@ sudo netplan apply
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https aptitude btop ca-certificates curl duf gnupg iftop gdu locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat tree ugrep wget zsh
+sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza gnupg iftop gdu git-all locate nano neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat tree ugrep vim wget zsh
 
 sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
@@ -195,12 +195,14 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 
 sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
-sudo chmod a+r /usr/share/keyrings/docker.gpg
+sudo sh -c '
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+    sudo chmod a+r /usr/share/keyrings/docker.gpg
 
-sudo sh -c 'echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list'
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
-sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+'
 
 sudo systemctl enable docker --now
 sudo gpasswd -a "${USER}" docker
@@ -225,10 +227,7 @@ Ubuntu Server with OpenSSH pre-installed comes with `PasswordAuthentication yes`
 - Generate an SSH Key Pair on the **local HOST** from which the connection is established
 
 ```bash
-ssh <sudo_user>@<remote_host_IP>
-```
-
-```bash
+# Local HOST
 cd
 mkdir -p ~/.ssh
 cd ~/.ssh
@@ -242,11 +241,11 @@ chmod 600 ~/.ssh/*
 eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
 ```
 
-- Add the Public Key to a system/sudo user on the Ubuntu VM
+- Add the Public Key to a system/sudo user on the Ubuntu Server VM
 
 ```bash
-# Automatic
-ssh-copy-id <sudo_user>@<remote_host_IP>
+# Automatic (if password SSH is allowed)
+ssh-copy-id <sudo_user>@<remote_Server_IP>
 ```
 
 ```bash
@@ -257,8 +256,8 @@ cat ~/.ssh/id_ed25519.pub
 # copy the string
 # Should start with ssh-ed25519 AAAA... or ssh-rsa AAAA... (if rsa)
 
-# Ubuntu VM
-echo pubkey_string >> ~/.ssh/authorized_keys
+# Ubuntu Server VM
+echo "pubkey_string" >> ~/.ssh/authorized_keys
 # Set permissions
 chmod -R go= ~/.ssh
 ```
@@ -266,7 +265,7 @@ chmod -R go= ~/.ssh
 - Log out and log in using the Private Key
 
 ```bash
-ssh <sudo_user>@<remote_host_IP>
+ssh <sudo_user>@<remote_Server_IP>
 
 # ssh -i ~/.ssh/id_ed25519 <sudo_user>@<remote_host_IP>
 

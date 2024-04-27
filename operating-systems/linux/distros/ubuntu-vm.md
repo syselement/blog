@@ -164,12 +164,7 @@ Keep the Ubuntu O.S. updated using one of the next methods.
   - This can be used when connected via SSH too.
 
 ```bash
-sudo apt update -y && sudo apt -y dist-upgrade
-```
-
-```bash
-# Use "apt autoremove" to remove all unused packages
-sudo apt -y autoremove
+sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo snap refresh
 ```
 
 > 📌 Refer to the official documentation of the distribution for instructions on installing alternative Linux distributions.
@@ -190,6 +185,7 @@ sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
 sudo systemctl disable apt-daily{,-upgrade}.timer
 sudo systemctl mask apt-daily{,-upgrade}.service
 
+# If not using Ubuntu PRO:
 # Disable Ubuntu Pro ESM Hook and MOTD Spam - thanks to UnspamifyUbuntu
 sudo mv /etc/apt/apt.conf.d/20apt-esm-hook.conf /etc/apt/apt.conf.d/20apt-esm-hook.conf.disabled
 sudo sed -Ezi.orig \
@@ -207,14 +203,235 @@ sudo passwd root
 
 ---
 
+## SSH-keys
+
+- Generate an SSH Key Pair on the **local HOST**
+
+```bash
+cd
+mkdir -p ~/.ssh
+cd ~/.ssh
+ssh-keygen -t ed25519
+# Type a secure passphrase when asked
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+
+# Add the SSH private key to the ssh-agent
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+```
+
+- Add the Public Key to a system/sudo user on a potential Ubuntu Server VM
+
+```bash
+# Local HOST (Ubuntu Desktop VM)
+cat ~/.ssh/id_ed25519.pub
+# copy the string
+# Should start with ssh-ed25519 AAAA... or ssh-rsa AAAA... (if rsa)
+
+# Ubuntu Server VM
+echo "pubkey_string" >> ~/.ssh/authorized_keys
+# Set permissions
+chmod -R go= ~/.ssh
+```
+
+```bash
+ssh <sudo_user>@<remote_Server_IP>
+```
+
+---
+
 ## Tools
 
 ### Basic Tools
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https aptitude btop ca-certificates curl duf gnupg htop iftop gdu locate nano ncdu neofetch net-tools nload npm pipx software-properties-common speedtest-cli sysstat terminator tree ugrep wget zsh
+packages=(
+    apt-transport-https
+    aptitude
+    btop
+    ca-certificates
+    coreutils
+    curl
+    duf
+    eza
+    filezilla
+    flameshot
+    flatpak
+    fonts-firacode
+    fonts-noto-color-emoji
+    gdu
+    git-all
+    gnupg
+    gpg
+    htop
+    iftop
+    imagemagick
+    locate
+    nano
+    neofetch
+    net-tools
+    nload
+    npm
+    pipx
+    software-properties-common
+    speedtest-cli
+    sysstat
+    terminator
+    tmux
+    tree
+    ugrep
+    vim
+    wget
+    zsh
+    # Add package here
+)
+# Install apt packages
+sudo apt update
+sudo apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
 ```
+
+---
+
+### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
+
+```bash
+sudo sh -c '
+    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
+    apt update && apt install -y sublime-text
+'
+```
+
+- Run it with **`subl`** command.
+
+---
+
+### [Typora](https://typora.io/#linux)
+
+```bash
+sudo sh -c '
+    wget -qO - https://typora.io/linux/public-key.asc | gpg --dearmor -o /usr/share/keyrings/typora.gpg > /dev/null
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/typora.gpg] https://typora.io/linux ./" | sudo tee /etc/apt/sources.list.d/typora.list
+    sudo apt update && sudo apt install -y typora
+'
+
+## Install Typora-Themeable theme
+cd ~/.config/Typora/themes/ \
+  && curl -L https://github.com/jhildenbiddle/typora-themeable/releases/latest/download/typora-themeable.zip -o typora-themeable.zip \
+  && unzip typora-themeable.zip \
+  && rm typora-themeable.zip
+```
+
+---
+
+### [Emote](https://github.com/tom-james-watson/Emote?tab=readme-ov-file)
+
+```bash
+sudo snap install emote
+```
+
+---
+
+### [Brave](https://brave.com/linux/)
+
+```bash
+sudo sh -c '
+    apt install -y curl
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+    apt update && apt install -y brave-browser
+'
+```
+
+---
+
+### [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
+
+```bash
+sudo apt install -y virtualbox
+sudo usermod -a -G vboxusers $USER
+
+# Download VirtualBox Extension Pack and open it with VirtualBox to install
+```
+
+---
+
+### [DBeaver](https://dbeaver.io/download/)
+
+```bash
+sudo sh -c '
+    sudo wget -O /usr/share/keyrings/dbeaver.gpg.key https://dbeaver.io/debs/dbeaver.gpg.key
+	echo "deb [signed-by=/usr/share/keyrings/dbeaver.gpg.key] https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+    sudo apt update && sudo apt install -y dbeaver-ce
+'
+```
+
+---
+
+### [Postman](https://www.postman.com/downloads/)
+
+```bash
+sudo snap install postman
+```
+
+---
+
+### [Flameshot](https://flameshot.org/docs/guide/wayland-help/#gnome-shortcut-does-not-trigger-flameshot)
+
+```bash
+sudo apt install flameshot
+```
+
+-  Set this as a custom Keyboard shortcut to make `flameshot` work with Gnome
+
+```bash
+ script --command "flameshot gui" /dev/null
+```
+
+---
+
+### [PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
+
+```bash
+sudo snap install pycharm-community --classic
+```
+
+---
+
+## DevOps Tools
+
+### [VSCode](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
+
+```bash
+sudo apt update && sudo apt install -y software-properties-common apt-transport-https wget
+
+sudo sh -c '
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+    echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
+    sudo apt update && sudo apt install -y code
+'
+```
+
+```bash
+EXTENSIONS=(
+	ms-azuretools.vscode-docker
+	streetsidesoftware.code-spell-checker \
+	mhutchie.git-graph \
+	esbenp.prettier-vscode \
+	redhat.vscode-yaml \
+	Tim-Koehler.helm-intellisense \
+	oderwat.indent-rainbow \
+	ms-kubernetes-tools.vscode-kubernetes-tools \
+)
+
+for EXT in "${EXTENSIONS[@]}"; do
+	code --install-extension "$EXT"
+done
+```
+
+- Open `VSCode`. From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`.
 
 ---
 
@@ -227,12 +444,14 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 
 sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
-sudo chmod a+r /usr/share/keyrings/docker.gpg
+sudo sh -c '
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+    sudo chmod a+r /usr/share/keyrings/docker.gpg
 
-sudo sh -c 'echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list'
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
-sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+'
 
 sudo systemctl enable docker --now
 sudo gpasswd -a "${USER}" docker
@@ -257,13 +476,13 @@ docker exec -it <CONTAINER-ID> bash
 
 
 
-#### Ubuntu Docker instance
+#### e.g. Ubuntu Docker instance
 
 ```bash
 docker run -it ubuntu bash
 ```
 
-#### Wordpress Docker instance
+#### e.g. Wordpress Docker instance
 
 > 🔗 Thanks to [AppSecExplained](https://gist.github.com/AppSecExplained/8bbf5366c6279ffc44beec16e6c39855) for the `yml` file.
 
@@ -316,6 +535,123 @@ docker compose up
 - Fix `localhost` with the VM's `IP` address in the Wordpress General Settings.
 
 ![](.gitbook/assets/2023-06-19_23-49-47_92.png)
+
+---
+
+### [Homebrew](https://brew.sh/)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+(echo; echo "eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"") >> /home/$(whoami)/.zshrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+```
+
+---
+
+### [k9s](https://k9scli.io/topics/install/) / [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
+
+```bash
+# Install k9s
+brew install derailed/k9s/k9s
+brew upgrade
+
+# Install kubectl
+sudo sh -c '
+	sudo apt install -y apt-transport-https ca-certificates curl
+	curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | gpg --dearmor -o /usr/share/keyrings/kubernetes-apt-keyring.gpg
+	echo "deb [signed-by=/usr/share/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+	sudo apt update && sudo apt install -y kubectl
+'
+mkdir -p $HOME/.kube
+sudo touch -f $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube && chmod 700 $HOME/.kube
+sudo chown $(id -u):$(id -g) $HOME/.kube/config && chmod 600 $HOME/.kube/config
+```
+
+---
+
+### [minikube](https://minikube.sigs.k8s.io/docs/start/)
+
+- Enable `VT-X/AMD-v` for the VM.
+
+```bash
+# Install minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+```
+
+---
+
+### [Helm](https://helm.sh/docs/intro/install/)
+
+```bash
+sudo sh -c '
+    curl -fsSL https://baltocdn.com/helm/signing.asc | gpg --dearmor -o /usr/share/keyrings/helm.gpg > /dev/null
+    sudo apt install -y apt-transport-https
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+    sudo apt update && sudo apt install -y helm
+'
+```
+
+---
+
+### [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+```bash
+# Install Terraform
+sudo apt update && sudo apt install -y gnupg software-properties-common
+sudo sh -c '
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+    #TR_DIST=$(lsb_release -cs)
+    TR_DIST="jammy"
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $TR_DIST main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update && sudo apt install -y terraform
+    terraform -install-autocomplete
+'
+```
+
+---
+
+### [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems)
+
+```bash
+pipx install --include-deps ansible
+pipx ensurepath
+```
+
+---
+
+### [Azure Cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+
+```bash
+sudo sh -c '
+    curl -sLS https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg > /dev/null
+    #AZ_DIST=$(lsb_release -cs)
+    AZ_DIST="jammy"
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_DIST main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+    sudo apt update && sudo apt install -y azure-cli
+'
+
+# Azure kubelogin
+sudo az aks install-cli
+```
+
+---
+
+### [gcloud CLI](https://cloud.google.com/sdk/docs/install#deb)
+
+- [GCP gke-gcloud-auth-plugin](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
+
+```bash
+# GCloud CLI, Gloud-auth-plugin
+sudo sh -c '
+    sudo apt install -y apt-transport-https ca-certificates gnupg curl
+    curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+    echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
+    sudo apt update && sudo apt install -y google-cloud-cli google-cloud-sdk-gke-gcloud-auth-plugin
+'
+```
 
 ---
 

@@ -7,7 +7,7 @@
 > 🔗 [Zsh for Humans](https://github.com/romkatv/zsh4humans)
 
 ```bash
-sudo apt install -y zsh fonts-powerline eza
+sudo apt install -y zsh fonts-powerline eza git-all
 sudo chsh -s $(which zsh) $(whoami)
 
 zsh
@@ -64,7 +64,7 @@ ZSHRC="$HOME/.zshrc"
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' "$ZSHRC"
 
 # Replace the plugins line with the new plugins
-sed -i '/^plugins=/ { s/=.*/=(command-not-found zsh-autosuggestions zsh-syntax-highlighting)/; }' "$ZSHRC"
+sed -i '/^plugins=/ { s/=.*/=(command-not-found kubectl zsh-autosuggestions zsh-syntax-highlighting)/; }' "$ZSHRC"
 
 # Add additional lines before sourcing oh-my-zsh
 sed -i '/^source .*oh-my-zsh.sh/ i \
@@ -102,13 +102,9 @@ zsh
 Set Custom **Aliases**.
 
 ```bash
-nano $ZSH_CUSTOM/aliases.zsh
-# Paste your custom aliases
-```
+# e.g. of my custom aliases
 
-- `e.g.` of my custom aliases
-
-```bash
+sudo tee $ZSH_CUSTOM/aliases.zsh > /dev/null <<EOF
 # Alias to update the system
 alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 
@@ -127,7 +123,7 @@ alias dir='dir --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
-alias h='history 100'
+alias h='history -100 -1'
 alias history=omz_history
 alias hl='history | less'
 alias hs='history | grep'
@@ -145,6 +141,7 @@ alias python='python3'
 alias sudo='sudo -v; sudo '
 alias ugq='ugrep --pretty --hidden -Qria'
 alias vdir='vdir --color=auto'
+EOF
 ```
 
 ### path
@@ -152,15 +149,18 @@ alias vdir='vdir --color=auto'
 Set Custom **PATH**.
 
 ```bash
-nano $ZSH_CUSTOM/my_paths.zsh
-# Paste your custom paths
+# e.g. of my custom PATH
+
+sudo tee $ZSH_CUSTOM/my_paths.zsh > /dev/null <<EOF
+# Add go to path
+export PATH=\$PATH:\$HOME/go/bin
+EOF
 ```
 
-- `e.g.` of my custom aliases
+Reboot the system to apply all the `zsh` settings
 
 ```bash
-# Add go to path
-export PATH=$PATH:$HOME/go/bin
+reboot
 ```
 
 ---
