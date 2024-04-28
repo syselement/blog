@@ -392,14 +392,6 @@ sudo apt install flameshot
 
 ---
 
-### [PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
-
-```bash
-sudo snap install pycharm-community --classic
-```
-
----
-
 ## DevOps Tools
 
 ### [VSCode](https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions)
@@ -412,9 +404,7 @@ sudo sh -c '
     echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
     sudo apt update && sudo apt install -y code
 '
-```
 
-```bash
 EXTENSIONS=(
 	ms-azuretools.vscode-docker
 	streetsidesoftware.code-spell-checker \
@@ -432,6 +422,14 @@ done
 ```
 
 - Open `VSCode`. From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`.
+
+---
+
+### [PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
+
+```bash
+sudo snap install pycharm-community --classic
+```
 
 ---
 

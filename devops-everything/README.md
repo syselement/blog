@@ -1,6 +1,6 @@
-# 🔗 DevOps Resources
+# 🌐 DevOps Resources 🔗
 
-## Generic Links
+## 🔗 Generic Links
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
 
@@ -57,7 +57,7 @@
 
 ---
 
-## Courses
+## 📚 Courses
 
 - [TechWorld - DevOps Bootcamp By Nana](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
 
@@ -74,7 +74,7 @@
 
 ---
 
-## Youtube
+## 📽️ Youtube
 
 ### Docker
 
