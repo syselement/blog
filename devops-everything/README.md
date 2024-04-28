@@ -1,6 +1,6 @@
-# 🌐 DevOps Resources 🔗
+# 🔗 DevOps Resources
 
-## 🔗 Generic Links
+## 🌐 Generic Links
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
 
