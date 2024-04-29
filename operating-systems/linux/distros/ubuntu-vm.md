@@ -263,6 +263,8 @@ packages=(
     fonts-noto-color-emoji
     gdu
     git-all
+    gnome-shell-extensions
+    gnome-shell-extension-manager
     gnupg
     gpg
     htop
