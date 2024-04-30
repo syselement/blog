@@ -484,6 +484,7 @@ docker compose up -d
 > [Portainer - https://192.168.5.200:9443](https://192.168.5.200:9443/)
 
 ```bash
+# Install Portainer
 docker volume create portainer_data
 docker run -d \
   -p 8000:8000 \
@@ -495,7 +496,17 @@ docker run -d \
   portainer/portainer-ce:latest
 ```
 
+- [Updating Docker Standalone Portainer](https://docs.portainer.io/start/upgrade/docker)
+  - Go to Settings > Back up Portainer - Download backup file
+  - Proceed with updating
 
+```bash
+# Update Portainer
+docker stop portainer
+docker rm portainer
+docker pull portainer/portainer-ce:2.20.1
+docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.20.1
+```
 
 #### [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
 

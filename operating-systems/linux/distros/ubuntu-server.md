@@ -66,7 +66,7 @@ reboot
 sudo timedatectl set-timezone Europe/Rome
 
 # DISABLE AUTOMATIC UPDATES
-sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
+sudo sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
 sudo systemctl disable apt-daily{,-upgrade}.timer
 sudo systemctl mask apt-daily{,-upgrade}.service
 
