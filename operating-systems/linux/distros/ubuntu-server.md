@@ -127,6 +127,8 @@ sudo nano /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
 # Open the netplan configuration file for editing
 sudo nano /etc/netplan/00-installer-config.yaml
+# or
+sudo nano /etc/netplan/50-cloud-init.yaml
 
     # This is the network config written by 'subiquity'
     network:
@@ -146,6 +148,23 @@ sudo netplan apply
 # Reboot the system
 ```
 
+- If necessary and the VM has 2 NICs, add the seccond one in the **netplan** `.yaml`
+
+```bash
+# List available network interfaces and check the second interface name
+ip -br -c a
+
+# Example of DHCP on both network interfaces
+sudo nano /etc/netplan/50-cloud-init.yaml
+
+    network:
+        ethernets:
+            enp0s3:
+                dhcp4: true
+            enp0s8:
+                dhcp4: true
+        version: 2
+```
 
 
 ---
