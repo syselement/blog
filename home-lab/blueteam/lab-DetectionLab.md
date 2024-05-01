@@ -21,6 +21,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >   * Azure
 >   * LibVirt (Not officially supported)
 >   * Proxmox (Not officially supported)
+> * [DetectionLabELK - by cyberdefenders](https://github.com/cyberdefenders/DetectionLabELK)
 
 ![DetectionLab](.gitbook/assets/lab.png)
 
@@ -338,7 +339,7 @@ vagrant up --provider=virtualbox
 >
 > Once it has passed that step of the provisioning process, you can run `vagrant up wef` and `vagrant up win10` in terminal windows 3 and 4 at the same time.
 
-* First bring up **`logger`** and **`dc`** inside two differents `PowerShell` terminals
+* First bring up **`logger`** and **`dc`** inside two diferents `PowerShell` terminals
 
 ```powershell
 vagrant up logger --provider=virtualbox
@@ -443,6 +444,16 @@ vagrant up --provider=virtualbox
 ![post\_build\_checks.ps1 error](.gitbook/assets/image-20230202134518758.png)
 
 > [Issue](https://github.com/clong/DetectionLab/issues/770). I've checked all the services and they are up (`post_build_checks.ps1` script must be checked).
+
+### Destroy lab
+
+- Open `PowerShell` as Administrator and navigate to the **`DetectionLab\Vagrant`** folder
+
+```bash
+vagrant destroy
+
+# confirm with y the destruction of every VM
+```
 
 ***
 
