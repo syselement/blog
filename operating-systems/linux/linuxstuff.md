@@ -496,6 +496,20 @@ sudo apt update
 sudo apt install -y anydesk
 ```
 
+### Install ForticlientVPN
+
+```bash
+sudo apt install firefox jq lz4json openfortivpn
+cd
+mkdir tools
+cd ~/tools
+git clone https://github.com/nonamed01/fuckForticlient.git
+cd ~/tools/fuckForticlient
+
+./fuckForticlient.sh -S <SERVER>:<PORT> -c
+# Login via browser and retry the command above after logged in
+```
+
 ### Install DnsLeakTest
 
 ```bash
