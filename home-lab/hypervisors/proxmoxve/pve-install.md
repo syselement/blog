@@ -69,6 +69,46 @@ alias ports='ss -lpntu'
 alias updatepve='apt update && apt -y dist-upgrade'
 ```
 
+### Backup Proxmox Config
+
+> - TO TRY
+
+- [https://github.com/DerDanilo/proxmox-stuff](https://github.com/DerDanilo/proxmox-stuff)
+
+**Backup**
+
+- Download the [script](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
+
+```bash
+cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh
+```
+
+- Set the permanent backups directory environment variable or edit the script to set the `$DEFAULT_BACK_DIR` variable to your preferred backup directory
+
+```bash
+export BACK_DIR="/path/to/backup/directory"
+```
+
+- Make the script executable
+
+```bash
+ chmod +x ./prox_config_backup.sh
+```
+
+- Shut down ALL VMs + LXC Containers if you want to go the safe way. (Not required)
+- Run the script
+
+```bash
+./prox_config_backup.sh
+```
+
+**Notification**
+
+The script supports [healthchecks.io](https://healthchecks.io/) notifications, either to the hosted service, or a self-hosted instance. The notification sends during the final cleanup stage, and either returns 0 to tell Healthchecks that the command was successful, or the exit error code (1-255) to tell Healthchecks that the command failed. To enable:
+
+- Set the `$HEALTHCHECK` variable to 1
+- Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
+
 ------
 
 ## Network configuration
@@ -123,6 +163,43 @@ ff02::3 ip6-allhosts
 ```
 
 ------
+
+## [Proxmox Backup Server LXC](https://www.proxmox.com/en/proxmox-backup-server/overview)
+
+> https://192.168.5.3:8007
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/pbs.sh)"
+
+# PBS Interface <IP>:3000
+
+# Set a root password if using autologin. This will be the PBS password.
+# Login to WebGUI and open PBS shell
+sudo passwd root
+```
+
+### PBS post install
+
+- Disable the Enterprise Repo
+- Add/Correct PBS Sources
+- Enable the No-Subscription Repo
+- Add Test Repo
+- Disable Subscription Nag
+- Update and reboot Proxmox Backup Server
+
+
+
+Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to all options presented
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pbs-install.sh)"
+```
+
+
+
+---
 
 ## LXC
 
@@ -334,6 +411,18 @@ cd /opt/homepage/config/
 
 
 
+### [Runtipi](https://runtipi.io/)
+
+> http://192.168.5.14/dashboard
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
+```
+
+
+
 ------
 
 ## Ubuntu Server VM
@@ -436,6 +525,7 @@ sudo passwd root
 
 ```bash
 sudo apt update -y && sudo apt -y upgrade
+
 sudo apt install -y btop curl duf eza iftop locate nano ncdu neofetch net-tools nload npm pipx qemu-guest-agent sysstat ugrep wget zsh
 ```
 
@@ -504,8 +594,8 @@ docker run -d \
 # Update Portainer
 docker stop portainer
 docker rm portainer
-docker pull portainer/portainer-ce:2.20.1
-docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.20.1
+docker pull portainer/portainer-ce:2.20.2
+docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.20.2
 ```
 
 #### [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
@@ -518,11 +608,50 @@ sudo chown 9901:9901 ~/docker/mobsf
 docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest
 ```
 
+#### [WatchYourLan](https://github.com/aceberg/WatchYourLAN)
+
+> http://192.168.5.200:8840/
+
+```bash
+docker run -d --name wyl \
+        -e "IFACE=eth0" \
+        -e "TZ=Europe/Rome" \
+        --network="host" \
+        -v watchyourlan_data:/data \
+    aceberg/watchyourlan
+```
+
+
+
 
 
 ### Zsh & Oh-My-Zsh
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+
+
+
+### [Tailscale](https://tailscale.com/)
+
+- Login to [Tailscale](https://login.tailscale.com/)
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+
+sudo tailscale up
+```
+
+[Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh)
+
+- On the host being connected to, you need to advertise that Tailscale is managing SSH connections which originate from the Tailscale network to this host
+
+```bash
+sudo tailscale up --ssh
+
+# This generates a host keypair, shares its public half with the Tailscale control plane for distribution to clients, and configures tailscaled to intercept all traffic from your tailnet that is routed to port 22 on the Tailscale IP address. This SSH initialization only needs to be done once per host.
+```
+
+
 
 ---
 
