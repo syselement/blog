@@ -43,74 +43,6 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/kernel-cle
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/microcode.sh)"
 ```
 
-## Software on PVE
-
-```bash
-apt install -y btop duf exa nano net-tools tree
-```
-
-### bash Config
-
-- Set custom aliases
-
-```bash
-nano ~/.bashrc
-```
-
-```bash
-# Custom aliases
-
-alias ipa='ip -br -c a'
-alias l='exa -lah'
-alias la='ls -A'
-alias ll='l -T'
-alias ls='ls -lh --color=auto'
-alias ports='ss -lpntu'
-alias updatepve='apt update && apt -y dist-upgrade'
-```
-
-### Backup Proxmox Config
-
-> - TO TRY
-
-- [https://github.com/DerDanilo/proxmox-stuff](https://github.com/DerDanilo/proxmox-stuff)
-
-**Backup**
-
-- Download the [script](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
-
-```bash
-cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh
-```
-
-- Set the permanent backups directory environment variable or edit the script to set the `$DEFAULT_BACK_DIR` variable to your preferred backup directory
-
-```bash
-export BACK_DIR="/path/to/backup/directory"
-```
-
-- Make the script executable
-
-```bash
- chmod +x ./prox_config_backup.sh
-```
-
-- Shut down ALL VMs + LXC Containers if you want to go the safe way. (Not required)
-- Run the script
-
-```bash
-./prox_config_backup.sh
-```
-
-**Notification**
-
-The script supports [healthchecks.io](https://healthchecks.io/) notifications, either to the hosted service, or a self-hosted instance. The notification sends during the final cleanup stage, and either returns 0 to tell Healthchecks that the command was successful, or the exit error code (1-255) to tell Healthchecks that the command failed. To enable:
-
-- Set the `$HEALTHCHECK` variable to 1
-- Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
-
-------
-
 ## Network configuration
 
 ```bash
@@ -162,11 +94,79 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 ```
 
+---
+
+## Software on PVE
+
+```bash
+apt install -y btop duf exa nano net-tools tree
+```
+
+### bash Config
+
+- Set custom aliases
+
+```bash
+nano ~/.bashrc
+```
+
+```bash
+# Custom aliases
+
+alias ipa='ip -br -c a'
+alias l='exa -lah'
+alias la='ls -A'
+alias ll='l -T'
+alias ls='ls -lh --color=auto'
+alias ports='ss -lpntu'
+alias updatepve='apt update && apt -y dist-upgrade'
+```
+
+### Backup Proxmox Config
+
+> - [ ] TO TRY
+
+- [https://github.com/DerDanilo/proxmox-stuff](https://github.com/DerDanilo/proxmox-stuff)
+
+**Backup**
+
+- Download the [script](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
+
+```bash
+cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh
+```
+
+- Set the permanent backups directory environment variable or edit the script to set the `$DEFAULT_BACK_DIR` variable to your preferred backup directory
+
+```bash
+export BACK_DIR="/path/to/backup/directory"
+```
+
+- Make the script executable
+
+```bash
+ chmod +x ./prox_config_backup.sh
+```
+
+- Shut down ALL VMs + LXC Containers if you want to go the safe way. (Not required)
+- Run the script
+
+```bash
+./prox_config_backup.sh
+```
+
+**Notification**
+
+The script supports [healthchecks.io](https://healthchecks.io/) notifications, either to the hosted service, or a self-hosted instance. The notification sends during the final cleanup stage, and either returns 0 to tell Healthchecks that the command was successful, or the exit error code (1-255) to tell Healthchecks that the command failed. To enable:
+
+- Set the `$HEALTHCHECK` variable to 1
+- Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
+
 ------
 
 ## [Proxmox Backup Server LXC](https://www.proxmox.com/en/proxmox-backup-server/overview)
 
-> https://192.168.5.3:8007
+> [Proxmox Backup Server - https://192.168.5.3:8007](https://192.168.5.3:8007)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -237,7 +237,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/uptimekuma.s
 
 ### [AdGuard Home LXC](https://adguard.com/en/adguard-home/overview.html)
 
-> [http://192.168.5.5:3080](http://192.168.5.5:3080)
+> [AdGuard - http://192.168.5.5:3080](http://192.168.5.5:3080)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -253,9 +253,9 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/adguard.sh)"
 
 ### [Vaultwarden LXC](https://www.vaultwarden.net/)
 
-> [http://192.168.5.7:8000](http://192.168.5.7:8000)
+> [Vaultwarden - http://192.168.5.7:8000](http://192.168.5.7:8000)
 >
-> [http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin)
+> [Vaultwarden Admin - http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin)
 >
 > [https://vaultwarden.lab.syselement.com/#/login](https://vaultwarden.lab.syselement.com/#/login)
 >
@@ -281,7 +281,7 @@ Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain 
 
 ### [Zoraxy LXC](https://zoraxy.arozos.com/)
 
-> [http://192.168.5.6:8000/](http://192.168.5.6:8000/)
+> [Zoraxy - http://192.168.5.6:8000/](http://192.168.5.6:8000/)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -307,9 +307,11 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
 
 - Check [Technitium DNS](#technitium-dns-lxc) configuration too and use the Technitium server IP as DNS Server.
 
+
+
 ### [Wiki.js LXC](https://js.wiki/)
 
-> [http://192.168.5.10:3000/](http://192.168.5.10:3000/)
+> [Wiki.js - http://192.168.5.10:3000/](http://192.168.5.10:3000/)
 >
 > [https://wiki.lab.syselement.com/login](https://wiki.lab.syselement.com/login)
 
@@ -329,7 +331,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/wikijs.sh)"
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-> [http://192.168.5.11:5380/](http://192.168.5.11:5380/)
+> [Technitium - http://192.168.5.11:5380/](http://192.168.5.11:5380/)
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/technitiumdns.sh)"
@@ -391,7 +393,7 @@ pihole -a -p
 
 ### [Homepage](https://gethomepage.dev/latest/)
 
-> http://192.168.5.13:3000/
+> [Homepage - http://192.168.5.13:3000/](http://192.168.5.13:3000/)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -413,7 +415,7 @@ cd /opt/homepage/config/
 
 ### [Runtipi](https://runtipi.io/)
 
-> http://192.168.5.14/dashboard
+> [Runtipi - http://192.168.5.14/dashboard](http://192.168.5.14/dashboard)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -427,7 +429,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
 
 ## Ubuntu Server VM
 
-> My [Ubuntu Server - VM](https://blog.syselement.com/home/operating-systems/linux/distros/ubuntu-server#first-boot-and-update) additional guide
+> 🔗 ➡️ My [Ubuntu Server - VM](https://blog.syselement.com/home/operating-systems/linux/distros/ubuntu-server#first-boot-and-update) additional/updated guide
 
 ```bash
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/vm/ubuntu-vm.sh)"
@@ -536,6 +538,12 @@ sudo apt update && sudo apt install asciinema
 
 
 
+### Zsh & Oh-My-Zsh
+
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+
+
+
 ### Docker
 
 ```bash
@@ -610,7 +618,7 @@ docker run -it --rm --name mobsf -p 8010:8010 -v ~/docker/mobsf:/home/mobsf/.Mob
 
 #### [WatchYourLan](https://github.com/aceberg/WatchYourLAN)
 
-> http://192.168.5.200:8840/
+> [WatchYourLan - http://192.168.5.200:8840/](http://192.168.5.200:8840/)
 
 ```bash
 docker run -d --name wyl \
@@ -623,22 +631,17 @@ docker run -d --name wyl \
 
 
 
-
-
-### Zsh & Oh-My-Zsh
-
-> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
-
-
-
 ### [Tailscale](https://tailscale.com/)
 
 - Login to [Tailscale](https://login.tailscale.com/)
+- Open the VM shell and run:
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 
 sudo tailscale up
+
+# Follow the instruction to register the device
 ```
 
 [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh)
@@ -657,9 +660,9 @@ sudo tailscale up --ssh
 
 ## Alpine VM
 
+> - [ ] TO TRY
+
 > [10 Alpine Linux apk Command Examples - nixCraft](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/)
-
-
 
 
 
@@ -667,19 +670,19 @@ sudo tailscale up --ssh
 
 ## BookStack VM
 
-- [ ] to do
+> - [ ] 
 
 > 🔗 [BookStack Admin Documentation - Installation](https://www.bookstackapp.com/docs/admin/installation/)
 >
-> 🔗 [docker-bookstack](https://github.com/linuxserver/docker-bookstack)
+> ​	🔗 [docker-bookstack](https://github.com/linuxserver/docker-bookstack)
 >
-> 🔗 [Ubuntu 22 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2204-installation-script)
+> ​	🔗 [Ubuntu 24.04 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2404)
 
-- Install an [Ubuntu VM](#ubuntu-vm)
+- Install an [Ubuntu Server VM](#ubuntu-server-vm)
 
-- SSH into the Ubuntu VM and run the BookStack Ubuntu Installation script
+- SSH into the Ubuntu VM and run the `BookStack` Ubuntu Installation script
 
-> ❗ This is a script to install BookStack on a fresh instance of Ubuntu 22.04 is available. This script is ONLY FOR A FRESH OS, **it will install Apache, MySQL 8.0 & PHP-8.1 and could OVERWRITE any existing web setup on the machine**. It also does not set up mail settings or configure system security so you will have to do those separately. You can use the script as a reference if you’re installing on a non-fresh machine.
+> ❗ A script to install BookStack on a fresh instance of **Ubuntu 24.04** is available. This script is ONLY FOR A FRESH OS, it will install **Apache, MySQL 8.0 & PHP 8.3** and could OVERWRITE any existing web setup on the machine. It also does not set up mail settings or configure system security so you will have to do those separately. You can use the script as a reference if you’re installing on a non-fresh machine.
 
 ```bash
 # Download the script
@@ -695,6 +698,8 @@ sudo ./installation-ubuntu-22.04.sh
 ```
 
 > 📌 Default login: `admin@admin.com`:`password`
+
+
 
 ------
 
