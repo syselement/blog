@@ -286,6 +286,7 @@ packages=(
     ugrep
     vim
     wget
+    xclip
     zsh
     # Add package here
 )

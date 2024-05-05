@@ -721,7 +721,7 @@ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
 # Test it:
 ssh -T git@github.com
 
-git remote set-url origin git@github.com:syselement/vaults.git
+git clone git@github.com:syselement/REPOSITORY.git
 ```
 
 ### Proxychains
