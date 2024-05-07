@@ -42,7 +42,7 @@
   * [Linux Distros](operating-systems/linux/distros/README.md)
     * [Kali Linux - VM](operating-systems/linux/distros/kali-vm.md)
     * [ParrotOS- VM](operating-systems/linux/distros/parrot-vm.md)
-    * [Ubuntu - VM VirtualBox](operating-systems/linux/distros/ubuntu-vm.md)
+    * [Ubuntu Desktop - VM](operating-systems/linux/distros/ubuntu-vm.md)
     * [Ubuntu Server - VM](operating-systems/linux/distros/ubuntu-server.md)
   * [Linux Tools](operating-systems/linux/tools/README.md)
     * [BookStack](operating-systems/linux/tools/bookstack.md)

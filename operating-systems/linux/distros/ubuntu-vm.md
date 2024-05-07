@@ -1,10 +1,12 @@
-# Ubuntu - VM VirtualBox
+# Ubuntu Desktop - VM
 
 ![](.gitbook/assets/ubuntu.svg) [Ubuntu](https://ubuntu.com/)
 
 ---
 
 ## Download and Install VirtualBox
+
+> Use the latest VirtualBox version (Screenshots may not be updated)
 
 VirtualBox is a virtualization open source software that runs on Linux, Windows and Mac OS.
 
@@ -21,7 +23,7 @@ VirtualBox is a virtualization open source software that runs on Linux, Windows 
 
 ## Download Linux Image
 
-For this tutorial Ubuntu Desktop Linux will be used.
+For this tutorial **Ubuntu Desktop** Linux will be used.
 
 If you want to use another distro check the [Popular Linux Distributions](README.md) list.
 
@@ -473,6 +475,7 @@ docker run hello-world
 ```bash
 docker ps -a
 docker exec -it <CONTAINER-ID> bash
+
 ```
 
 
@@ -542,6 +545,7 @@ docker compose up
 ### [Homebrew](https://brew.sh/)
 
 ```bash
+# Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 (echo; echo "eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"") >> /home/$(whoami)/.zshrc
