@@ -670,7 +670,17 @@ sudo tailscale up --ssh
 
 ## BookStack VM
 
-> - [ ] 
+> Use TurnKey LXC or a fresh Ubuntu Server VM
+>
+> ```bash
+> bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/turnkey/turnkey.sh)"
+> 
+> # Resource and network settings are adjustable post LXC creation.
+> 
+> # The script creates a *.creds file in the Proxmox root directory with the password of the newly created TurnKey LXC Appliance.
+> # Retrieve Password 
+> cat turnkey-name.creds
+> ```
 
 > 🔗 [BookStack Admin Documentation - Installation](https://www.bookstackapp.com/docs/admin/installation/)
 >
