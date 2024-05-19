@@ -4,17 +4,17 @@
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
 
+- [ProDevOpsGuy - Cloud & DevOps Blogs](https://prodevopsguy.xyz/)
+  - [Intro The DevOps - Github](https://github.com/NotHarshhaa/into-the-devops)
+  - [DevOps Tools - Github](https://github.com/NotHarshhaa/devops-tools)
+  - [prodevopsguy - Telegram channel](https://t.me/prodevopsguy)
+  
+- [DevOpsCube - Resources & Roadmaps](https://devopscube.com/)
+  
 - [DevOps - Telegram](https://t.me/thedevs_devops)
 
-> Overview:
->
->  - DevOps Landscape: [https://roadmap.sh/devops](https://roadmap.sh/devops)
->
-> Cloud:
->  - Docker: [https://www.docker.com](https://www.docker.com)
->  - Kubernetes: [https://kubernetes.io](https://kubernetes.io)
->  - Terraform: [https://www.terraform.io](https://www.terraform.io)
->
+- [DevOps Roadmap.sh](https://roadmap.sh/devops)
+
 > CI/CD:
 > - GitHub Actions: [https://github.com/features/actions](https://github.com/features/actions)
 > - Travis: [https://travis-ci.org](https://travis-ci.org)
@@ -23,32 +23,23 @@
 > - CircleCI: [https://circleci.com](https://circleci.com)
 > - AppVeyor: [https://www.appveyor.com](https://www.appveyor.com)
 > - Bamboo (Altassian): [https://www.atlassian.com/software/bamboo](https://www.atlassian.com/software/bamboo)
-> - Argo CD: [https://argoproj.github.io/cd/](https://argoproj.github.io/cd/)
+>- Argo CD: [https://argoproj.github.io/cd/](https://argoproj.github.io/cd/)
 > - Flux: [https://fluxcd.io/](https://fluxcd.io/)
 > - Agola: [https://github.com/agola-io/agola](https://github.com/agola-io/agola)
 > - Buildkite: [https://buildkite.com/](https://buildkite.com/)
 > - GoCD: [https://github.com/gocd/gocd](https://github.com/gocd/gocd)
 > - Octopus Deploy: [https://octopus.com/](https://octopus.com/)
 > - TeamCity: [https://www.jetbrains.com/teamcity/](https://www.jetbrains.com/teamcity/)
->
-> Repos:
->   - Artifactory (jFrog): [https://jfrog.com/artifactory/](https://jfrog.com/artifactory/)
->
+> 
+> 
+> 
 > Service Mesh:
 >  - Consul (Hashicorp): [https://www.consul.io/](https://www.consul.io/)
 > - Istio: [https://istio.io/](https://istio.io/)
->
-> Kubernetes:
->  - Backups:
->     - Velero: [https://github.com/vmware-tanzu/velero](https://github.com/vmware-tanzu/velero)
->   - Serverless:
->     - Knative: [https://github.com/knative](https://github.com/knative)
->
-> Standards:
->  - Open Containers Initiative (OCI): [https://www.opencontainers.org](https://www.opencontainers.org)
-> - Cloud Native Computing Foundation (CNCF): [https://www.cncf.io/](https://www.cncf.io/)
->
-> Documentation:
+> 
+> 
+> 
+>Documentation:
 > - Principles of Chaos: [http://principlesofchaos.org/](http://principlesofchaos.org/)
 > - Visualize your architecture: [http://c4model.com](http://c4model.com)
 >
@@ -60,6 +51,8 @@
 ## 📚 Courses
 
 - [TechWorld - DevOps Bootcamp By Nana](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
+  - [DevOps Bootcamp - Exercises](https://gitlab.com/devops-bootcamp3)
+
 
 ![DevOps Bootcamp Schedule](.gitbook/assets/nana-schedule.png)
 
@@ -68,8 +61,8 @@
 
 - [TechWorld - Certified Kubernetes Administrator (CKA Course)](https://www.techworld-with-nana.com/kubernetes-administrator-cka)
 - [KodeKloud Training Courses](https://kodekloud.com/)
-
   - [KodeKloud Engineer Practice](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
+  - [Udemy - Certified Kubernetes Administrator (CKA) with Practice Tests](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/)
 
 
 ---
