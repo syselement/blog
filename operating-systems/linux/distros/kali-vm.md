@@ -132,7 +132,7 @@ ssh-keygen -t rsa
 
 ### Zsh & Oh-My-Zsh
 
-> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](https://blog.syselement.com/home/operating-systems/linux/tools/zsh)
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
 
 ---
 

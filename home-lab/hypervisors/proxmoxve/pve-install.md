@@ -429,7 +429,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
 
 ## Ubuntu Server VM
 
-> 🔗 ➡️ My [Ubuntu Server - VM](https://blog.syselement.com/home/operating-systems/linux/distros/ubuntu-server#first-boot-and-update) additional/updated guide
+> 🔗 ➡️ My [Ubuntu Server - VM](../../../operating-systems/linux/distros/ubuntu-server.md#first-boot-and-update) additional/updated guide
 
 ```bash
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/vm/ubuntu-vm.sh)"
