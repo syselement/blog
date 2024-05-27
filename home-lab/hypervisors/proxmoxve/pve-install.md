@@ -223,6 +223,12 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/clean-lxcs
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/update-lxcs.sh)"
 ```
 
+### LXC - Filesystem Trim
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/fstrim.sh)"
+```
+
 
 
 ### [Uptime Kuma LXC](https://github.com/louislam/uptime-kuma)
@@ -421,6 +427,18 @@ cd /opt/homepage/config/
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
+```
+
+
+
+### [Prometheus](https://prometheus.io/)
+
+> [Prometheus - http://192.168.5.15:9090/](http://192.168.5.15:9090/)
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/prometheus.sh)"
 ```
 
 
