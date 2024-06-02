@@ -855,6 +855,46 @@ sudo apt install -y dkms
 sudo apt install -y virtualbox virtualbox-ext-packv
 ```
 
+### VirtManager backup qcow2 VM
+
+```bash
+# Backup VMs
+
+sudo -s
+# Now that the terminal is using root, run the virsh tool to create a backup of the VM definitions file.
+
+echo '' > nameofvm.xml
+virsh dumpxml nameofvm >  /var/lib/libvirt/images/nameofvm.xml
+# Use ls to find the name of the Qcow2 virtual hard drive in /var/lib/libvirt/images/. Copy the file name, and use mv to move it into a new sub-directory.
+
+mkdir -p vm-backup
+cd vm-backup
+mv example.qcow2 vm-backup
+
+mv nameofvm.xml vm-backup
+
+
+# Using tar, create an archive of the VM disk and XML file.
+tar jcvfp my-vm-backup.tar.bz2 vm-backup
+
+mv my-vm-backup.tar.bz2 /home/username/
+# Backing up VM disk images takes a long time. Depending on the file size, it could take an hour or more. Best to just let the PC do its thing. When the backup is complete, feel free to move my-vm-backup.tar.bz2 to another server, cloud backup and etc.
+
+
+# Restoring backups
+To restore a backup, you’ll first need to extract it.
+
+tar xvfp my-vm-backup.tar.bz2
+cd vm-backup
+
+# Use virsh to restore the XML file.
+sudo -s
+virsh define --file /home/username/location/of/exctracted/archive/vm-backup/nameofvm.xml
+
+# Lastly, move the disk image to the images directory.
+mv example.qcow2 /var/lib/libvirt/images/
+```
+
 ### METASPLOITABLE VM
 
 > 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
