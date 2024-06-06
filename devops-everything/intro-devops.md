@@ -1,5 +1,13 @@
 # Introduction to DevOps
 
+> 🔗 Jump to other notes here
+>
+> - [DevOps Resources](README.md)
+> - [Git](git.md)
+> - [Docker](docker.md)
+> - [Kubernetes](kubernetes.md)
+> - [Terraform](terraform.md)
+
 ![](.gitbook/assets/devops-logo.png)
 
 **DevOps Pipeline**
@@ -50,14 +58,6 @@ The DevOps engineer needs to assist developers in building the application. This
 > I'm using [Ubuntu Desktop LTS](https://ubuntu.com/download/desktop) as Linux distro and `zsh` as default SHELL
 >
 > The install commands of the following tools can be found on my notes here - [Ubuntu VM - DevOps Tools](../operating-systems/linux/distros/ubuntu-vm.md#devops-tools)
-
-> 🔗 Jump to other notes
->
-> - [DevOps Resources](README.md)
-> - [Git](git.md)
-> - [Docker](docker.md)
-> - [Kubernetes](kubernetes.md)
-> - [Terraform](terraform.md)
 
 - [Linux Basics](https://gitlab.com/devops-bootcamp3/linux) from the DevOps Bootcamp by Nana
 - Package Manager - `apt` for Debian/Ubuntu-based Linux distros
