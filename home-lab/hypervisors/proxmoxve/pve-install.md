@@ -674,6 +674,58 @@ sudo tailscale up --ssh
 
 
 
+### [microk8s](https://microk8s.io/docs/getting-started)
+
+- Install microk8s
+
+```bash
+sudo snap install microk8s --classic
+
+###
+sudo usermod -a -G microk8s $USER
+sudo mkdir -p ~/.kube
+sudo chmod 0700 ~/.kube
+sudo chown -f -R $USER ~/.kube
+
+# Close SSH session and reopen it
+
+microk8s status --wait-ready
+```
+
+- Some commands
+
+```bash
+microk8s stop
+microk8s start
+
+microk8s kubectl get nodes
+microk8s kubectl get services
+microk8s kubectl get pods
+
+microk8s enable dns
+microk8s enable hostpath-storage
+microk8s enable ingress
+microk8s enable core/metrics-server
+
+# Community Add-ons repository
+microk8s enable community
+microk8s enable portainer
+# microk8s disable portainer
+```
+
+- Set `.kube/config` file for [k9s](https://k9scli.io/topics/install/)
+
+```bash
+microk8s.kubectl config view --raw > $HOME/.kube/config
+
+# Install k9s
+ brew install derailed/k9s/k9s
+ # Run it and check microk8s cluster
+ k9s
+```
+
+
+
 ---
 
 ## Alpine VM

@@ -50,7 +50,7 @@ kali-tweaks
 ### zshell alias - Update packages
 
 ```bash
-nano ~/.zshrc
+nano ~/.zsh_aliases
 ```
 
 - Append the following text with the necessary commands to update all packages:
@@ -104,13 +104,14 @@ updateos
 ```bash
 sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
 sudo update-grub
-reboot
 
 # Or edit it manually
-sudo nano /etc/default/grub
+# sudo nano /etc/default/grub
 ```
 
-### NTP
+
+
+### Set Chrony NTP
 
 ```bash
 sudo apt install -y chrony
@@ -121,18 +122,88 @@ sudo timedatectl status
 
 
 
-### New SSH Keys
+### Set Timezone
 
 ```bash
+sudo unlink /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+sudo timedatectl set-timezone "Europe/Rome"
+```
+
+
+
+### New SSH Host and User Keys
+
+```bash
+# Host ssh keys
 sudo /bin/rm -v /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
 sudo systemctl restart ssh
-ssh-keygen -t rsa
+
+# User ssh key pair
+
+cd
+mkdir -p .ssh
+cd .ssh
+# Generate SSH Key Pair for User Authentication
+ssh-keygen -t ed25519
+# Set appropriate permissions
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
 ```
+
+
 
 ### Zsh & Oh-My-Zsh
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
+
+---
+
+## Personal Kali Config
+
+```bash
+# KALI Linux XFCE Theme mod #
+
+echo -ne "\n--------Kali Theme Mod--------\n"
+
+## Login: Kali-Dark + Wallpaper + User ##
+sudo apt install kali-wallpapers-2020.4
+sudo ln -sf /usr/share/backgrounds/kali/kali-neon-16x9.png /usr/share/desktop-base/kali-theme/login/background
+sudo sed s:"Kali-Light":"Kali-Dark":g -i /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed '/#greeter-hide-users=false/s/^#//g' -i /etc/lightdm/lightdm.conf
+
+## Set autologin for <username> ##
+# sudo nano /etc/lightdm/lightdm.conf
+# # In the [Seat:*] section of the file, set the following values:
+# autologin-user=<username>
+# autologin-user-timeout=0
+
+# Set Adwaita-dark Theme
+xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
+
+## Desktop Wallpaper ##
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s /usr/share/backgrounds/kali/kali-neon-16x9.png
+
+## Show Panel on primary display ##
+xfconf-query -c 'xfce4-panel' -p '/panels/panel-1/output-name' -t string -s "Primary" --create
+## Turn Numlock ON
+xfconf-query -c keyboards -p /Default/Numlock -t bool -s true --create
+```
+
+```bash
+## Set Keybindings - Print, Alt+Shift+D, Win+E, Alt+T ##
+
+nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+# Insert those lines under the first <property name="custom" type="empty">
+      <property name="&lt;Alt&gt;t" type="string" value="terminator"/>
+      <property name="&lt;Super&gt;e" type="string" value="/usr/bin/Thunar"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;d" type="string" value="/usr/bin/flameshot gui --clipboard"/>
+      <property name="Print" type="string" value="/usr/bin/flameshot gui --clipboard"/>
+```
+
+
 
 ---
 
@@ -143,7 +214,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza flameshot gdu htop kali-wallpapers-all locate nano neofetch net-tools pipx speedtest-cli telegram-desktop terminator tor tree ugrep vlc wget
+sudo apt install -y apt-transport-https btop curl duf eza flameshot gdu htop kali-wallpapers-all locate nano neofetch net-tools pipx software-properties-common speedtest-cli terminator tor tree ugrep vlc wget
 ```
 
 ### [Terminator](https://gnome-terminator.org/)
@@ -276,7 +347,10 @@ sudo sh -c '
     apt install -y curl
     curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
+    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb
+    dpkg -i libu2f-udev_1.1.10-3.2_all.deb
     apt update && apt install -y brave-browser
+    rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
 ```
 
@@ -324,6 +398,25 @@ sudo sh -c '
 
 ## Offensive Sec Tools
 
+### [SecLists](https://github.com/danielmiessler/SecLists)
+
+```bash
+seclists() {
+    if [[ -d /usr/share/seclists ]];
+     then
+      echo -e "\n /usr/share/seclists  already exists -- skipping"
+     else
+      echo -e "\n Download Seclists to /tmp/SecLists.zip"
+      sudo wget https://github.com/danielmiessler/SecLists/archive/master.zip -O /tmp/SecList.zip
+      echo -e "\n Extracing /tmp/Seclists.zip to /usr/share/seclists"
+      sudo unzip -o /tmp/SecList.zip -d /usr/share/seclists
+      # rm -f /tmp/SecList.zip
+      echo -e "\n Seclists complete" 
+    fi
+    }
+seclists
+```
+
 ### [Searchsploit](https://www.exploit-db.com/searchsploit)
 
 ```bash
@@ -353,25 +446,14 @@ sudo /opt/pimpmykali/pimpmykali.sh
 > *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
 
 ```bash
-sudo apt update
-
-sudo apt install -y python3 python3-pip seclists curl dnsrecon enum4linux feroxbuster gobuster impacket-scripts nbtscan nikto nmap onesixtyone oscanner redis-tools smbclient smbmap snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
-
-sudo apt install -y python3-venv
-python3 -m pip install --user pipx
-python3 -m pip install --upgrade pipx
-python3 -m pipx ensurepath
-source ~/.zshrc
-#source ~/.bashrc
-
-pipx install git+https://github.com/Tib3rius/AutoRecon.git
+sudo apt update -y && sudo apt install -y autorecon
 
 mkdir -p ~/scans/autorecon
 ```
 
 ```bash
 cd ~/scans/autorecon
-autorecon <TARGET-IP>
+sudo autorecon <TARGET-IP>
 ```
 
 ```bash
@@ -397,7 +479,7 @@ autorecon <TARGET-IP>
 > *Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.*
 
 ```bash
-sudo apt update && sudo apt install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
+sudo apt update && sudo apt install -y python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade pwntools
 ```
@@ -411,7 +493,7 @@ sudo apt install -y golang
 
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 
-sudo cp ~/go/bin/katana /bin/
+sudo cp ~/go/bin/katana /usr/bin/
 ```
 
 ```bash
