@@ -54,7 +54,33 @@
 
 ## 🖥️ Cyber Everything
 
-- 
+- [📌 Generic Resources](cyber-everything/generic/README.md)
+  * [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
+  * [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
+
+* [📱 Mobile](cyber-everything/mobile/README.md)
+  * [Apps Lab](cyber-everything/mobile/labs/README.md)
+    * [Android Rooting Guide](cyber-everything/mobile/labs/android-rooting.md)
+    * [iOS Jailbreak Guide](cyber-everything/mobile/labs/ios-jailbreak.md)
+    * [Intercepting Android App Traffic](cyber-everything/mobile/labs/android-traffic-intercept.md)
+  * [OWASP MAS](cyber-everything/mobile/mas/README.md)
+    * [MASTG Techniques](cyber-everything/mobile/mas/mastg-techniques.md)
+    * [MASTG Tests](cyber-everything/mobile/mas/mastg-tests.md)
+    * [MASTG Theory](cyber-everything/mobile/mas/mastg-theory.md)
+    * [MASVS Notes](cyber-everything/mobile/mas/masvs.md)
+  * [Tools](cyber-everything/mobile/tools/README.md)
+    * [MobSF](cyber-everything/mobile/tools/mobsf.md)
+* [🧬 Network](cyber-everything/network/README.md)
+* [🌐 Web](cyber-everything/web/README.md)
+  * [API](cyber-everything/web/api/README.md)
+    * [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)
+    * [API Penetration Testing](cyber-everything/web/api/api-pentesting.md)
+  * [PortSwigger Academy](cyber-everything/web/portswigger/README.md)
+    * [Server-Side Topics](cyber-everything/web/portswigger/server-side-topics/README.md)
+    * [Client-Side Topics](cyber-everything/web/portswigger/client-side-topics/README.md)
+    * [Advanced topics](cyber-everything/web/portswigger/advanced-topics/README.md)
+    * [🔬 Vulnerability Labs](cyber-everything/web/portswigger/all-labs/README.md)
+
 ## ♾️ DevOps Everything
 
 * [🔗 DevOps Resources](devops-everything/README.md)
