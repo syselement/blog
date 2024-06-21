@@ -1,1 +1,1 @@
-# 📌 Generic Resources
+# Generic Resources

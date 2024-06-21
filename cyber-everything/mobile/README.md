@@ -1,1 +1,1 @@
-# 📱 Mobile
+# Mobile
