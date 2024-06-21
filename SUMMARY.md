@@ -54,10 +54,10 @@
 
 ## 🖥️ Cyber Everything
 
-- [📌 Generic Resources](cyber-everything/generic/README.md)
+- 📌 Generic Resources
   * [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
   * [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
-* [📱 Mobile](cyber-everything/mobile/README.md)
+* 📱 Mobile
   * [Apps Lab](cyber-everything/mobile/labs/README.md)
     * [Android Rooting Guide](cyber-everything/mobile/labs/android-rooting.md)
     * [iOS Jailbreak Guide](cyber-everything/mobile/labs/ios-jailbreak.md)
@@ -69,8 +69,8 @@
     * [MASVS Notes](cyber-everything/mobile/mastg/masvs.md)
   * [Tools](cyber-everything/mobile/tools/README.md)
     * [MobSF](cyber-everything/mobile/tools/mobsf.md)
-* [🧬 Network](cyber-everything/network/README.md)
-* [🌐 Web](cyber-everything/web/README.md)
+* 🧬 Network
+* 🌐 Web
   * [API](cyber-everything/web/api/README.md)
     * [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)
     * [API Penetration Testing](cyber-everything/web/api/api-pentesting.md)
