@@ -23,6 +23,15 @@ uname -srm
 cat /etc/*release
 ```
 
+### Linux OS Install date
+
+```bash
+stat -c %w /
+
+stat / | grep "Birth" | sed 's/Birth: //g' | cut -b 2-11
+stat / | awk '/Birth: /{print $2}'
+```
+
 ### Cpu - Ram usage
 
 ```bash
