@@ -418,13 +418,25 @@ sudo sh -c '
 ### Install VSCode
 
 ```bash
-sudo apt install -y software-properties-common apt-transport-https wget
+sudo apt update && sudo apt install -y software-properties-common apt-transport-https wget
 
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
- 
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c '
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg > /dev/null
+    echo "deb [arch=amd64,arm64,armhf signed-by=//usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
+    sudo apt update && sudo apt install -y code
+'
 
-sudo apt update && sudo apt install -y code
+EXTENSIONS=(
+	mhutchie.git-graph \
+	esbenp.prettier-vscode \
+	redhat.vscode-yaml \
+	oderwat.indent-rainbow \
+	ms-python.python \
+)
+
+for EXT in "${EXTENSIONS[@]}"; do
+	code --install-extension "$EXT"
+done
 ```
 
 ### Install VS Codium

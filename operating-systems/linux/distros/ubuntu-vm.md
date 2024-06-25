@@ -415,13 +415,13 @@ sudo sh -c '
 
 EXTENSIONS=(
 	ms-azuretools.vscode-docker
-	streetsidesoftware.code-spell-checker \
 	mhutchie.git-graph \
 	esbenp.prettier-vscode \
 	redhat.vscode-yaml \
 	Tim-Koehler.helm-intellisense \
 	oderwat.indent-rainbow \
 	ms-kubernetes-tools.vscode-kubernetes-tools \
+	ms-python.python \
 )
 
 for EXT in "${EXTENSIONS[@]}"; do
