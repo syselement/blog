@@ -554,7 +554,7 @@ service tor status
 proxychains firefox www.duckduckgo.com
 	(do not close terminal)
 
-search for: check dns leaks
+# search for: check dns leaks
 ```
 
 ### Install Anonsurf
