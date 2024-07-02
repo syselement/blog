@@ -199,7 +199,7 @@ nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 # Insert those lines under the first <property name="custom" type="empty">
       <property name="&lt;Alt&gt;t" type="string" value="terminator"/>
       <property name="&lt;Super&gt;e" type="string" value="/usr/bin/Thunar"/>
-      <property name="&lt;Shift&gt;&lt;Alt&gt;d" type="string" value="/usr/bin/flameshot gui --clipboard"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;s" type="string" value="/usr/bin/flameshot gui --clipboard"/>
       <property name="Print" type="string" value="/usr/bin/flameshot gui --clipboard"/>
 ```
 
