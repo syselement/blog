@@ -443,6 +443,20 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/prometheus.s
 
 
 
+### [Jellyfin Media Server](https://jellyfin.org/)
+
+> TO DO
+>
+> 
+>
+> - https://github.com/awesome-jellyfin/awesome-jellyfin
+
+```bash
+bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/jellyfin.sh)"
+```
+
+
+
 ------
 
 ## Ubuntu Server VM
@@ -782,8 +796,4 @@ sudo ./installation-ubuntu-22.04.sh
 
 
 ------
-
-
-
-
 
