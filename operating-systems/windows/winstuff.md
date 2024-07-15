@@ -149,7 +149,7 @@ del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*"
 
 ## CMD commands
 
-> ❗ Most of the following commands have to be run by opening **`CMD ` as Administrator**.
+> ❗ Most of the following commands have to be run by opening **`CMD` as Administrator**.
 
 ### Change Windows Theme
 
