@@ -26,5 +26,14 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v Sys
 
 
 
+### Set Language & Keyboard
+
+```bash
+powershell -Command "Set-WinUILanguageOverride -Language it-IT"
+bcdedit /set {current} locale it-IT
+powershell -Command "Set-WinUserLanguageList it-IT"
+powershell -Command "Set-WinUILanguageFallback -Language en-US"
+```
+
 
 
