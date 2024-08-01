@@ -301,7 +301,7 @@ rmdir /s ubuntu
 - Disable `Memory Integrity` - Windows Security -> Device Security -> Core Isolation details
 - Open `cmd` as Administrator and run
 
-```cmd
+```powershell
 # Disables power throttling for the VMware virtual machine executable (64-bit version)
 powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe"
 
@@ -314,7 +314,7 @@ bcdedit /set hypervisorlaunchtype off
 
 **Enable or Disable Core Isolation and Memory Integrity using Registry**
 
-```
+```powershell
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity
 ```
 
