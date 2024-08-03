@@ -71,6 +71,7 @@
 
 ### Docker
 
+- [Docker Crash Course for Absolute Beginners [1h]](https://www.youtube.com/watch?v=pg19Z8LL06w)
 - [Docker Tutorial for Beginners [FULL COURSE in 3 Hours]](https://www.youtube.com/watch?v=3c-iBn73dDE)
 - [Ultimate Docker Compose Tutorial [1h]](https://www.youtube.com/watch?v=SXwC9fSwct8&list=PLy7NrYWoggjxtN4YbSMYFFdpaxb-fR4zC&index=20)
 
