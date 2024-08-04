@@ -229,6 +229,8 @@ Discards all history and changes back to the specified commit
 
 ![Essential Git Commands Cheat Sheet - Git Flow Chart](.gitbook/assets/git-workflow.png)
 
+---
+
 ## Remote Git repository
 
 > **Online**
@@ -301,6 +303,8 @@ A branch is based on the `main` branch and can be merged back to the main branch
 - Create a new branch when needed
 
 `HEAD` =  latest commit in the branch
+
+---
 
 ## Git commands
 
