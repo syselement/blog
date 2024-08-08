@@ -237,6 +237,18 @@ powercat -h
 
 
 
+### VMware Workstation Pro
+
+- Delay the bios boot in a VM
+
+```bash
+# Add line to .vmx file:
+
+bios.bootDelay = "5000"
+```
+
+
+
 ------
 
 ## Troubleshooting
