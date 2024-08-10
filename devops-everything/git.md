@@ -1,6 +1,6 @@
 # [Git](https://git-scm.com/)
 
-![](.gitbook/assets/git.png)
+![git-scm.com](.gitbook/assets/git.png)
 
 ---
 

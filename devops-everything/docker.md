@@ -2,7 +2,7 @@
 
 
 
-![www.docker.com](.gitbook/assets/docker-logo-blue.png)
+![docker.com](.gitbook/assets/docker-logo-blue.png)
 
 ---
 

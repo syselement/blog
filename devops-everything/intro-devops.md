@@ -7,6 +7,7 @@
 > - [Docker](docker.md)
 > - [Kubernetes](kubernetes.md)
 > - [Terraform](terraform.md)
+> - [Vim](vim.md)
 
 ---
 
@@ -83,11 +84,28 @@ The DevOps engineer needs to assist developers in building the application. This
 
 ## CI/CD Tools
 
-[CI/CD](https://about.gitlab.com/topics/ci-cd/) - **Continuous Integration** / **Continuous Delivery**, pipeline
+> [CI/CD](https://about.gitlab.com/topics/ci-cd/) - **Continuous Integration** / **Continuous Delivery**, pipeline
+>
+> [20 Best CI/CD Tools for 2024 - The CTO Club](https://thectoclub.com/tools/best-ci-cd-tools/)
+>
+> 📌 [List of Continuous Integration services | awesome-ci](https://ligurio.github.io/awesome-ci/)
 
 - [Github Actions](https://github.com/features/actions)
 - [Gitlab CI/CD](https://docs.gitlab.com/ee/ci/)
 - [Jenkins](https://www.jenkins.io/)
+- [Travis CI](https://www.travis-ci.com/)
+- [CircleCI](https://circleci.com/)
+- [SemaphoreCI](https://semaphoreci.com/)
+- [AppVeyor](https://www.appveyor.com/)
+- [Bamboo (Altassian)](https://www.atlassian.com/software/bamboo)
+- [Argo CD](https://argoproj.github.io/cd/)
+- [Harness](https://www.harness.io/)
+- [Flux](https://fluxcd.io/)
+- [Agola](https://github.com/agola-io/agola)
+- [Buildkite](https://buildkite.com/)
+- [GoCD](https://github.com/gocd/gocd)
+- [Octopus Deploy](https://octopus.com/)
+- [TeamCity](https://www.jetbrains.com/teamcity/)
 
 ---
 

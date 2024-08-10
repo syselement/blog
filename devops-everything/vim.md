@@ -1,6 +1,6 @@
 # [Vim](https://www.vim.org/)
 
-![](.gitbook/assets/vim.png)
+![vim.org](.gitbook/assets/vim.png)
 
 ---
 

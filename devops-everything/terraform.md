@@ -1,6 +1,6 @@
 # [Terraform](https://www.terraform.io/)
 
-![www.terraform.io](.gitbook/assets/terraform-logo.png)
+![terraform.io](.gitbook/assets/terraform-logo.png)
 
 ---
 

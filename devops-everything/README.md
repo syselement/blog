@@ -1,5 +1,7 @@
 # 🔗 DevOps Resources
 
+> Other useful tools links can be found here ➡️ [Introduction to DevOps](intro-devops.md)
+
 ## 🌐 Generic Links
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
@@ -15,36 +17,12 @@
 
 - [DevOps Roadmap.sh](https://roadmap.sh/devops)
 
-> CI/CD:
-> - GitHub Actions: [https://github.com/features/actions](https://github.com/features/actions)
-> - Travis: [https://travis-ci.org](https://travis-ci.org)
-> - GitLab CI: [https://docs.gitlab.com/ee/ci/](https://docs.gitlab.com/ee/ci/)
-> - Jenkins: [https://jenkins.io](https://jenkins.io)
-> - CircleCI: [https://circleci.com](https://circleci.com)
-> - AppVeyor: [https://www.appveyor.com](https://www.appveyor.com)
-> - Bamboo (Altassian): [https://www.atlassian.com/software/bamboo](https://www.atlassian.com/software/bamboo)
->- Argo CD: [https://argoproj.github.io/cd/](https://argoproj.github.io/cd/)
-> - Flux: [https://fluxcd.io/](https://fluxcd.io/)
-> - Agola: [https://github.com/agola-io/agola](https://github.com/agola-io/agola)
-> - Buildkite: [https://buildkite.com/](https://buildkite.com/)
-> - GoCD: [https://github.com/gocd/gocd](https://github.com/gocd/gocd)
-> - Octopus Deploy: [https://octopus.com/](https://octopus.com/)
-> - TeamCity: [https://www.jetbrains.com/teamcity/](https://www.jetbrains.com/teamcity/)
-> 
-> 
-> 
-> Service Mesh:
->  - Consul (Hashicorp): [https://www.consul.io/](https://www.consul.io/)
-> - Istio: [https://istio.io/](https://istio.io/)
-> 
-> 
-> 
->Documentation:
-> - Principles of Chaos: [http://principlesofchaos.org/](http://principlesofchaos.org/)
-> - Visualize your architecture: [http://c4model.com](http://c4model.com)
->
-> Audit:
->  - Elastic: [https://www.elastic.co/blog/introducing-elastic-siem](https://www.elastic.co/blog/introducing-elastic-siem)
+
+
+**Documentation**
+
+- Principles of Chaos: [http://principlesofchaos.org/](http://principlesofchaos.org/)
+- Visualize your architecture: [http://c4model.com](http://c4model.com)
 
 ---
 
