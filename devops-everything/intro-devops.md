@@ -48,6 +48,32 @@ The DevOps engineer needs to assist developers in building the application. This
 - [Maven Repository](https://mvnrepository.com/) - public (Java)
 - [npm](https://www.npmjs.com/) - public (Javascript)
 
+### Software Versioning
+
+> - [Semantic Versioning](https://semver.org/)
+> - [jubianchi.github.io/semver-check/#/](https://jubianchi.github.io/semver-check/#/)
+> - [Semver cheatsheet - devhints.io](https://devhints.io/semver)
+
+**Major Version**
+
+- Indicates big changes
+- Usually involves breaking changes
+- NOT backward-compatible.
+- Incompatible API changes are made
+
+**Minor Version**
+
+- Introduces new but backward-compatible changes
+- May include new API features
+- Does not break existing functionality
+
+**Patch Version**
+
+- Contains minor changes and bug fixes
+- Does not alter the API
+
+---
+
 ## IaaS
 
 **Infrastructure as a Service** (IaaS) offers compute, storage and networking on-demand from the cloud providers.

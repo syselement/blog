@@ -10,6 +10,10 @@
 
 > - [Jenkins](https://www.jenkins.io/)
 > - [Jenkins User Documentation](https://www.jenkins.io/doc/)
+>   - [Jenkins - Pipeline Syntax](https://www.jenkins.io/doc/book/pipeline/syntax/)
+>   - [Groovy - Syntax](https://groovy-lang.org/syntax.html)
+> - [Jenkins Best Practices](https://www.lambdatest.com/blog/jenkins-best-practices/)
+> - [Semantic Versioning](https://semver.org/)
 
 ---
 
@@ -82,6 +86,8 @@ nodejs -v
 npm -v
 ```
 
+---
+
 ### New Freestyle job
 
 - Create a **New Item** - Freestyle project
@@ -103,7 +109,7 @@ npm --version
 
 ```bash
 # Console Output
-Started by user syselement￼
+Started by user syselement
 Running as SYSTEM
 Building in workspace /var/jenkins_home/workspace/my-job
 [my-job] $ /bin/sh -xe /tmp/jenkins158048317029812819.sh
@@ -133,6 +139,8 @@ chmod +x freestyle-build.sh
 
 ![](.gitbook/assets/2024-08-10_09-15-17_672.png)
 
+---
+
 ### Java Maven build
 
 - Create a new Freestyle project item `java-maven-build` with Git `https://gitlab.com/nanuchi/java-maven-app.git` and branch `*/jenkins-jobs` and add 2 Maven build steps, each with:
@@ -155,6 +163,8 @@ ls /var/jenkins_home/workspace/java-maven-build/target
     surefire-reports
     test-classes
 ```
+
+---
 
 ### Docker in Jenkins - Build & Push
 
@@ -225,7 +235,7 @@ docker push syselement/demo-app:jma-1.1
 
 ---
 
-### New Pipeline Job
+### [Pipeline](https://www.jenkins.io/doc/book/pipeline/)
 
 **Pipeline jobs** are used for more complex workflows, more suitable for CI/CD pipleines
 
@@ -233,3 +243,123 @@ docker push syselement/demo-app:jma-1.1
 - Configure via UI and scripting ("Pipeline as Code") - `Jenkinsfile`
 - Parallel tasks execution
 - User input, conditional statements, variables
+
+Create a new item with Pipeline type - `my-pipeline`.
+
+- Set a `Pipeline script from SCM`, written in Groovy
+- The script should be in the Git repository, setup accordingly
+  - set the repository URL, the branch and the script path to `Jenkinsfile-simple-pipeline\Jenkinsfile`
+  - Check Nana's [java-maven-app/jenkins-jobs repository](https://gitlab.com/nanuchi/java-maven-app/-/tree/jenkins-jobs?ref_type=heads) for more examples
+
+Example of build jar, build and push image, with `Jenkinsfile` and `script.groovy` files :
+
+```groovy
+// Jenkinsfile
+
+#!/usr/bin/env groovy
+
+def gv
+
+pipeline {
+    agent any
+    tools {
+        maven 'Maven'
+    }
+    stages {
+        stage("init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
+        stage("build jar") {
+            steps {
+                script {
+                    gv.buildJar()
+                }
+            }
+        }
+        stage("build image") {
+            steps {
+                script {
+                    gv.buildImage()
+                }
+            }
+        }
+        stage("deploy") {
+            steps {
+                script {
+                    gv.deployApp()
+                }
+            }
+        }
+    }
+}
+```
+
+```groovy
+// script.groovy
+
+def buildJar() {
+    echo "building the application..."
+    sh 'mvn package'
+} 
+
+def buildImage() {
+    echo "building the docker image..."
+    withCredentials([usernamePassword(credentialsId: 'dockerhub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+        sh 'docker build -t syselement/demo-app:jma-2.0 .'
+        sh "echo $PASS | docker login -u $USER --password-stdin"
+        sh 'docker push syselement/demo-app:jma-2.0'
+    }
+} 
+
+def deployApp() {
+    echo 'deploying the application...'
+} 
+
+return this
+```
+
+---
+
+### [Credentials](https://www.jenkins.io/doc/book/security/credentials/)
+
+Jenkins needs credentials for all the tasks in the pipelines to
+
+- fetch git repository code
+- login to Docker registry
+- SSH to remote server for deployment
+
+Scopes:
+
+- **System** - only available on Jenkins server (not for jobs)
+- **Global** - everywhere accessible
+
+---
+
+### [Shared libraries](https://www.jenkins.io/doc/book/pipeline/shared-libraries/)
+
+- Used to share parts of Pipelines between various projects to reduce duplication
+- **Shared libraries** can be defined in external Git repositories and loaded into existing Pipelines
+
+**Definition of a shared library**:
+
+- A name
+- A source code retrieval method (e.g., by SCM)
+- Optionally, a default version
+- Path: `Manage Jenkins » System » Global Trusted Pipeline Libraries`.
+
+**Naming**:
+
+- The name should be a short identifier as it will be used in scripts
+
+**Version**:
+
+- Could be anything understood by that SCM (e.g., branches, tags, commit hashes for Git)
+- You may declare whether scripts need to explicitly request that library or if it is present by default
+- If a version is specified in Jenkins configuration, you can block scripts from selecting a different version
+
+---
+
