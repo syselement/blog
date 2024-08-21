@@ -430,6 +430,13 @@ done
 ```
 
 - Open `VSCode`. From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`.
+- Set `Git` user name and email address
+
+```bash
+# e.g.
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
 
 ---
 
