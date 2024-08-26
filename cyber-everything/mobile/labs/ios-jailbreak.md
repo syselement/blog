@@ -277,15 +277,3 @@ objection --network --host <iDevice_ip> --gadget com.apple.calculator explore -s
 
 ***
 
-```bash
-cd /private/var/mobile
-dpkg -i frida_*_iphoneos-arm.deb
-```
-
-### Listen on all interfaces
-
-Use Cydia/Sileo with `htps://build.frida.re` (as above) and install Frida.
-
-Find the `/Library/LaunchDaemons/re.frida.server.plist` file and modify it.
-
-SSH into the iDevice.
