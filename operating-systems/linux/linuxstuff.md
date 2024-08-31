@@ -212,6 +212,12 @@ sudo timedatectl status
 sudo dpkg-reconfigure keyboard-configuration
 ```
 
+### Disable Password prompt for sudo group
+
+```bash
+sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+```
+
 ### Install packages (deb, etc)
 
 ```bash
