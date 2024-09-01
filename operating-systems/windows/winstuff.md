@@ -30,8 +30,6 @@ Proceed with the final [Configuration](#configuration).
 
 ------
 
-
-
 ## Configuration
 
 > 📝 *Tip*: The following settings should be used with a [clean Windows install](https://pureinfotech.com/clean-install-windows-11/); otherwise, **proceed with caution** ⚠️.
@@ -170,13 +168,45 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v App
 reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v SystemUsesLightTheme /t REG_DWORD /d 1 /f
 ```
 
+### Winget Upgrade Script
 
+- Create a `UpgradePackages.bat` with the following content and run it to upgrade installed packages
+
+```bash
+@echo off
+:: Check for admin rights
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+:: If error flag set, we do not have admin rights, so prompt for them
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    powershell.exe -Command "Start-Process '%~dpnx0' -Verb RunAs"
+    exit /B
+)
+
+:: Set the execution policy to allow local scripts to run
+powershell -NoProfile -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
+
+:: Run the winget upgrade command and log the output live
+powershell -NoProfile -Command "Start-Transcript -Path UpgradeLog.txt -Force; winget upgrade --all; Stop-Transcript"
+
+:: Indicate completion
+echo All packages have been upgraded. Press any key to exit...
+pause
+```
 
 
 
 ------
 
 ## Powershell commands
+
+### [Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/upgrade)
+
+```bash
+# Upgrade all installed packages to the latest version if available
+winget upgrade --all
+```
 
 ### Powercat ###
 
