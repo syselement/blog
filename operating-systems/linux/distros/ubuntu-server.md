@@ -262,6 +262,16 @@ eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
 
 - Add the Public Key to a system/sudo user on the Ubuntu Server VM
 
+> If you want to use the same key saved on Github profile, having already the private key in the Ubuntu Local HOST (commands above), ssh into the Ubuntu Server VM and use the following `curl` command
+>
+> ```bash
+> # Ubuntu Server VM
+> curl -s https://github.com/<github-username>.keys >> $HOME/.ssh/authorized_keys
+> 
+> # e.g.
+> curl -s https://github.com/syselement.keys >> $HOME/.ssh/authorized_keys
+> ```
+
 ```bash
 # Automatic (if password SSH is allowed)
 ssh-copy-id <sudo_user>@<remote_Server_IP>
@@ -288,14 +298,14 @@ ssh <sudo_user>@<remote_Server_IP>
 
 # ssh -i ~/.ssh/id_ed25519 <sudo_user>@<remote_host_IP>
 
-# Enter the key Passphrase
+# Enter the key Passphrase if necessary
 ```
 
 - Disable SSH password authentication
 
 ```bash
 # Delete sshd_config.d/50-cloud-init.conf
-sudo rm  /etc/ssh/sshd_config.d/50-cloud-init.conf
+sudo rm /etc/ssh/sshd_config.d/50-cloud-init.conf
 
 # Inside /etc/ssh/sshd_config set PasswordAuthentication to "no"
 sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]yes/c\PasswordAuthentication no" /etc/ssh/sshd_config
