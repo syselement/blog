@@ -317,6 +317,7 @@ sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]yes/c\PasswordAuthenticatio
 - Try again to logout and login. Only SSH-key-base authentication is permitted.
 
 
+---
 
 ... more to come ...
 
