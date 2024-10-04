@@ -85,6 +85,7 @@
 
 * [🔗 DevOps Resources](devops-everything/README.md)
   * [Introduction to DevOps](devops-everything/intro-devops.md)
+  * [Ansible](devops-everything/ansible.md)
   * [Docker](devops-everything/docker.md)
   * [Git](devops-everything/git.md)
   * [Kubernetes](devops-everything/kubernetes.md)
