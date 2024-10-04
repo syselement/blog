@@ -3,8 +3,9 @@
 > 🔗 Jump to other notes here
 >
 > - [DevOps Resources](README.md)
-> - [Git](git.md)
+> - [Ansible](ansible.md)
 > - [Docker](docker.md)
+> - [Git](git.md)
 > - [Kubernetes](kubernetes.md)
 > - [Terraform](terraform.md)
 > - [Vim](vim.md)

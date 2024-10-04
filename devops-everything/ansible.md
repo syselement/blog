@@ -1,8 +1,6 @@
 # [Ansible](https://www.ansible.com/)
 
-![img](.gitbook/assets/ansible-logo.png)
-
-
+![](.gitbook/assets/ansible-logo.png)
 
 ---
 
