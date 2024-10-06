@@ -308,10 +308,10 @@ ssh <sudo_user>@<remote_Server_IP>
 sudo rm /etc/ssh/sshd_config.d/50-cloud-init.conf
 
 # Inside /etc/ssh/sshd_config set PasswordAuthentication to "no"
-sudo sed -i "/^[^#]*PasswordAuthentication[[:space:]]yes/c\PasswordAuthentication no" /etc/ssh/sshd_config
+sudo sed -i '/^[#]*[[:space:]]*PasswordAuthentication[[:space:]]*yes/c\PasswordAuthentication no' /etc/ssh/sshd_config
 
 # Restart SSH service
- sudo systemctl restart ssh
+ sudo systemctl restart sshd
 ```
 
 - Try again to logout and login. Only SSH-key-base authentication is permitted.
