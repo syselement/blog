@@ -46,7 +46,7 @@ sudo ./genymotion.bin
 cd /opt/genymobile/genymotion
 ./genymotion
 ```
-
+* Open Genymotion Settings and setup Hypervisor to **Virtualbox**
 * Install a new Google Pixel 3 XL device
 * Run Burpsuite and copy its certificate
 
