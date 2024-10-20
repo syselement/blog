@@ -2,21 +2,16 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Blog](https://tryhackme.com/room/blog)
->
-> ![](.gitbook/assets/blog.png)
->
-> **Description**
->
-> 📝 *Billy Joel made a blog on his home computer and has started working on it. It's going to be so awesome!* *Enumerate this box and find the 2 flags that are hiding on it! Billy has some weird things going on his laptop. Can you maneuver around and get what you need? Or will you fall down the rabbit hole... In order to get the blog to work with AWS, you'll need to **add blog.thm to your /etc/hosts file**.*
->
-> **Target IP**
->
-> 🎯 `10.10.54.35`
+| Room Info           | ![](.gitbook/assets/blog.png)           |
+| :------------------ | --------------------------------------- |
+| 🔗 Name              | [Blog](https://tryhackme.com/room/blog) |
+| 🎯 Target IP         | `10.10.54.35`                           |
+| 📈 Difficulty level  | 🟡Medium                                 |
+| 💲 Subscription type | Free                                    |
+
+---
 
 ## Recon
 
@@ -196,6 +191,8 @@ wpscan --url http://blog.thm -P /usr/share/wordlists/rockyou.txt -U user.txt -t 
 
 > 📌 `kwheeler`:`cutiepie1`
 
+---
+
 ## Exploitation
 
 Use Metasploit with module `exploit/multi/http/wp_crop_rce`
@@ -242,6 +239,8 @@ ls /media/usb
 ls: cannot open directory '/media/usb': Permission denied
 ```
 
+---
+
 ## Privilege Escalation
 
 ```bash
@@ -287,43 +286,13 @@ export admin=thm
 ```bash
 find / -type f -iname user.txt 2>/dev/null
 cat /media/usb/user.txt
+c8421***********************
+
 
 find / -type f -iname root.txt 2>/dev/null
 cat /root/root.txt
+9a0b***********************
 ```
-
-
-
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-
-
-`c8421899aae571f7af486492b71a8ab7`
-
-![](.gitbook/assets/image-20230515125714170.png)
-
-
-
-</details>
-
-
-
-
-
-<details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-`9a0b2b618bef9bfa7ac28c1353d9f318`
-
-![](.gitbook/assets/image-20230515125714170.png)
-
-
-
-</details>
-
-
 
 ------
 

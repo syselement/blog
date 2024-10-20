@@ -1,22 +1,17 @@
-# ROOM_NAME
+# RoomName
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 ROOM_LINK_HERE
->
->  ROOM_PICTURE_HERE
->
-> **Description**
->
-> 📝 *DESCRIPTION_HERE*
->
-> **Target IP**
->
-> 🎯 `IP_HERE`
+| Room Info           | RoomLogo.png               |
+| :------------------ | -------------------------- |
+| 🔗 Name              | RoomName&Link              |
+| 🎯 Target IP         | `IP`                       |
+| 📈 Difficulty level  | 🟢Easy 🟡Medium 🔴Hard/Insane |
+| 💲 Subscription type | Free/Sub only              |
+
+
 
 ## Recon
 
@@ -32,14 +27,15 @@ sed -i '$ d' /etc/hosts
 Start Reconnaissance
 
 ```bash
-mkdir thm/roomname
-cd thm/roomname
+mkdir $HOME/thm/roomname
+cd $HOME/thm/roomname
 nmap roomname.thm
 
 nmap -sV -sC -Pn -oA roomname roomname.thm
 ```
 
 ```bash
+# Nmap Output
 
 ```
 
@@ -81,7 +77,7 @@ nmap -sV -sC -Pn -oA roomname roomname.thm
 
 
 
-## Flags
+## Get Flags
 
 - 
 
@@ -92,40 +88,6 @@ find / -type f -iname user.txt 2>/dev/null
 
 find / -type f -iname root.txt 2>/dev/null
 ```
-
-
-
-
-
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-
-
-`[FLAG_HERE]`
-
-[FLAG_SCREEN_HERE]
-
-</details>
-
-
-
-
-
-<details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-
-`[FLAG_HERE]`
-
-[FLAG_SCREEN_HERE]
-
-</details>
-
-
-
-
 
 
 
