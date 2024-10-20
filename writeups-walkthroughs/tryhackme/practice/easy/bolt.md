@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Bolt](https://tryhackme.com/room/bolt)
->
-> ![](.gitbook/assets/bolt.png)
->
-> **Description**
->
-> 📝 *This room is designed for users to get familiar with the Bolt CMS and how it can be exploited using Authenticated Remote Code Execution*
->
-> **Target IP**
->
-> 🎯 `10.10.218.91`
+| Room Info           | ![](.gitbook/assets/bolt.png)           |
+| :------------------ | --------------------------------------- |
+| 🔗 Name              | [Bolt](https://tryhackme.com/room/bolt) |
+| 🎯 Target IP         | `10.10.218.91`                          |
+| 📈 Difficulty level  | 🟢Easy                                   |
+| 💲 Subscription type | Free                                    |
+| 🪟 🐧OS               | Linux                                   |
+
+---
 
 ## Recon
 
@@ -122,6 +118,8 @@ Once logged in, the Bolt version is at the bottom of the page.
 
 > 📌 `Bolt 3.7.1`
 
+---
+
 ## Exploitation
 
 ```bash
@@ -154,24 +152,10 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 find / -type f -name 'flag.txt' 2>/dev/null
 cat /root/flag.txt
+THM{w****************************
 ```
 
-
-
-
-
-<details>
-<summary>Reveal Flag - root: 🚩</summary>
-
-
-
-`THM{wh0_d035nt_l0ve5_b0l7_r1gh7?}`
-
-![](.gitbook/assets/image-20230515195919144.png)
-
-</details>
-
-
+![](.gitbook/assets/2024-10-20_22-14-18_761.png)
 
 ------
 

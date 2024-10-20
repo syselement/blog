@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Startup](https://tryhackme.com/room/startup)
->
-> ![](.gitbook/assets/startup.png)
->
-> **Description**
->
-> 📝 ***We are Spice Hut,** a new startup company that just made it big! We offer a variety of spices and club sandwiches (in case you get hungry), but that is not why you are here. To be truthful, we aren't sure if our developers know what they are doing and our security concerns are rising. We ask that you perform a thorough penetration test and try to own root.*
->
-> **Target IP**
->
-> 🎯 `10.10.173.77`
+| Room Info           | ![](.gitbook/assets/startup.png)              |
+| :------------------ | --------------------------------------------- |
+| 🔗 Name              | [Startup](https://tryhackme.com/room/startup) |
+| 🎯 Target IP         | `10.10.173.77`                                |
+| 📈 Difficulty level  | 🟢Easy                                         |
+| 💲 Subscription type | Free                                          |
+| 🪟 🐧OS               | Linux                                         |
+
+---
 
 ## Recon
 
@@ -98,6 +94,8 @@ ls
 
 ![](.gitbook/assets/image-20230515143526046.png)
 
+---
+
 ## Exploitation
 
 Get a Reverse shell by uploading a `PHP` file via FTP and run it through the web page.
@@ -172,23 +170,13 @@ su lennie
 
 > 📌 `lennie`:`c4ntg3t3n0ughsp1c3`
 
+- 🚩 Get `user.txt`
+
 ```bash
 find / -type f -iname user.txt 2>/dev/null
 cat /home/lennie/user.txt
+THM{0********************************
 ```
-
-
-
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-
-
-`THM{03ce3d619b80ccbfb3b7fc81e46c0e79}`
-
-![](.gitbook/assets/image-20230515153155071.png)
-
-</details>
 
 Close the reverse shell and connect via SSH
 
@@ -226,6 +214,8 @@ ls -lah /etc/print.sh
 
 ![](.gitbook/assets/image-20230515154046856.png)
 
+---
+
 ## Privilege Escalation
 
 Since `planner.sh` will be run as root (with a cron job), and it contains the `/etc/print.sh` command script, modify `/etc/print.sh` and input a payload (a reverse shell for example) into it to run it as `root`.
@@ -246,23 +236,8 @@ nc -nvlp 3333
 ```bash
 find / -type f -iname root.txt 2>/dev/null
 cat /root/root.txt
+THM{f********************************
 ```
-
-
-
-
-
-<details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-`THM{f963aaa6a430f210222158ae15c3d76d}`
-
-![](.gitbook/assets/image-20230515155220667.png)
-
-</details>
-
-
 
 ------
 

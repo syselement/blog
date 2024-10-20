@@ -286,12 +286,11 @@ export admin=thm
 ```bash
 find / -type f -iname user.txt 2>/dev/null
 cat /media/usb/user.txt
-c8421***********************
-
+c8421***************************
 
 find / -type f -iname root.txt 2>/dev/null
 cat /root/root.txt
-9a0b***********************
+9a0b2***************************
 ```
 
 ------

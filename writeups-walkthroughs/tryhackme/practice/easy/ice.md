@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Ice](https://tryhackme.com/room/ice)
->
-> ![](.gitbook/assets/ice.png)
->
-> **Description**
->
-> 📝 *Deploy & hack into a Windows machine, exploiting a very poorly secured media server.*
->
-> **Target IP**
->
-> 🎯 `10.10.159.9`
+| Room Info           | ![](.gitbook/assets/ice.png)          |
+| :------------------ | ------------------------------------- |
+| 🔗 Name              | [Ice](https://tryhackme.com/room/ice) |
+| 🎯 Target IP         | `10.10.159.9`                         |
+| 📈 Difficulty level  | 🟢Easy                                 |
+| 💲 Subscription type | Free                                  |
+| 🪟 🐧OS               | Windows                               |
+
+---
 
 ## Recon
 
@@ -43,6 +39,8 @@ PORT      STATE SERVICE      VERSION
 MAC Address: 02:58:8C:89:6C:3D (Unknown)
 Service Info: Host: DARK-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
+
+---
 
 ## Exploitation
 
@@ -85,6 +83,8 @@ Meterpreter     : x86/windows
 9 exploit/windows/local/tokenmagic                 Yes The target appears to be vulnerable.
 ```
 
+---
+
 ## Privilege Escalation
 
 ```bash
@@ -126,6 +126,8 @@ SeTakeOwnershipPrivilege
 SeTimeZonePrivilege
 SeUndockPrivilege
 ```
+
+---
 
 ## Post Exploitation
 

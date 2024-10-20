@@ -2,22 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Blaster](https://tryhackme.com/room/blaster)
->
-> ![](.gitbook/assets/blaster.png)
->
-> **Description**
->
-> 📝 *Throughout this room, we'll be looking at alternative modes of exploitation without the use of Metasploit or really exploitation tools in general beyond nmap and dirbuster.*
->
-> **Target IP**
->
-> 🎯 `10.10.27.22`
+| Room Info           | ![](.gitbook/assets/blaster.png)              |
+| :------------------ | --------------------------------------------- |
+| 🔗 Name              | [Blaster](https://tryhackme.com/room/blaster) |
+| 🎯 Target IP         | `10.10.27.22`                                 |
+| 📈 Difficulty level  | 🟢Easy                                         |
+| 💲 Subscription type | Free                                          |
+| 🪟 🐧OS               | Windows                                       |
 
+---
 
 ## Recon
 
@@ -83,17 +78,11 @@ xfreerdp /u:Wade /p:parzival /v:10.10.27.22
 # or use Remmina
 ```
 
-Read **`user.txt`** file.
+🚩 Read **`user.txt`** file.
 
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-
-`THM{HACK_PLAYER_ONE}`
-
-
-
-</details>
+```bash
+THM{H***************
+```
 
 ### Local Recon
 
@@ -102,6 +91,8 @@ Check Internet Explorer history.
 * `CVE-2019-1388` - Windows Privilege Escalation Through UAC
 * `hhupd.exe` on desktop
 
+---
+
 ## Privilege Escalation
 
 * Run `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
@@ -109,25 +100,18 @@ Check Internet Explorer history.
 
 ![](.gitbook/assets/certuacbypass.gif)
 
+🚩 Read **`root.txt`** file.
+
 ```bash
 cd c:\Users\Administrator\Desktop
 type root.txt
+
+THM{C**************************
 ```
 
+![](.gitbook/assets/image-20230510180611161.png)
 
-
-<details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-
-`THM{COIN_OPERATED_EXPLOITATION}`
-
-<img src=".gitbook/assets/image-20230510180611161.png" alt="" data-size="original">
-
-</details>
-
-
+---
 
 ## Exploitation
 
@@ -181,6 +165,8 @@ Domain          : WORKGROUP
 Logged On Users : 1
 Meterpreter     : x86/windows
 ```
+
+---
 
 ## Persistence
 

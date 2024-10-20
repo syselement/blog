@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Chill Hack](https://tryhackme.com/room/chillhack)
->
->  ![](.gitbook/assets/chillhack.png)
->
-> **Description**
->
-> 📝 *Easy level CTF. Capture the flags and have fun!*
->
-> **Target IP**
->
-> 🎯 `10.10.141.41`
+| Room Info           | ![](.gitbook/assets/chillhack.png)                 |
+| :------------------ | -------------------------------------------------- |
+| 🔗 Name              | [Chill Hack](https://tryhackme.com/room/chillhack) |
+| 🎯 Target IP         | `10.10.141.41`                                     |
+| 📈 Difficulty level  | 🟢Easy                                              |
+| 💲 Subscription type | Free                                               |
+| 🪟 🐧OS               | Linux                                              |
+
+---
 
 ## Recon
 
@@ -90,6 +86,8 @@ Navigate to
 
 ![](.gitbook/assets/image-20230515172955365.png)
 
+---
+
 ## Exploitation
 
 ```bash
@@ -158,26 +156,12 @@ sudo -u apaar /home/apaar/.helpline.sh
 
 cd
 cat /home/apaar/local.txt
+{USER****************************************
 ```
 
 !["apaar" shell](.gitbook/assets/image-20230515180051961.png)
 
-
-
-
-
-<details>
-<summary>Reveal Flag - user: 🚩</summary>
-
-
-
-`{USER-FLAG: e8vpd3323cfvlp0qpxxx9qtr5iq37oww}`
-
-![](.gitbook/assets/image-20230515180143009.png)
-
-</details>
-
-
+---
 
 ## Privilege Escalation
 
@@ -362,26 +346,14 @@ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 ls /root
 cat /root/proof.txt
+{ROOT****************************************
 ```
 
 ![](.gitbook/assets/image-20230515191530843.png)
 
+![](.gitbook/assets/2024-10-20_22-18-48_762.png)
 
-
-
-
-<details>
-<summary>Reveal Flag - root: 🚩</summary>
-
-
-
-`{ROOT-FLAG: w18gfpn9xehsgd3tovhk0hby4gdp89bg}`
-
-![](.gitbook/assets/image-20230515191559996.png)
-
-</details>
-
-
+---
 
 ## Persistence (extra)
 

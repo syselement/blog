@@ -22,7 +22,7 @@
 
 ```bash
 su
-echo "IP boxname.thm" >> /etc/hosts
+echo "IP boxname.htb" >> /etc/hosts
 
 # At the end of the box
 # To clean up the last line from the /etc/hosts file
@@ -32,11 +32,11 @@ sed -i '$ d' /etc/hosts
 Start Reconnaissance
 
 ```bash
-mkdir $HOME/thm/boxname
-cd $HOME/thm/boxname
-nmap boxname.thm
+mkdir $HOME/htb/boxname
+cd $HOME/htb/boxname
+nmap boxname.htb
 
-nmap -sV -sC -Pn -oA boxname boxname.thm
+nmap -sV -sC -Pn -oA boxname boxname.htb
 ```
 
 ```bash

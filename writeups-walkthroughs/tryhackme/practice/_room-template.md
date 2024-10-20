@@ -10,8 +10,9 @@
 | 🎯 Target IP         | `IP`                       |
 | 📈 Difficulty level  | 🟢Easy 🟡Medium 🔴Hard/Insane |
 | 💲 Subscription type | Free/Sub only              |
+| 🪟 🐧OS               | Linux/Windows              |
 
-
+---
 
 ## Recon
 
@@ -41,6 +42,8 @@ nmap -sV -sC -Pn -oA roomname roomname.thm
 
 
 
+---
+
 ## Exploitation
 
 - 
@@ -51,7 +54,7 @@ nmap -sV -sC -Pn -oA roomname roomname.thm
 
 
 
-
+---
 
 ## Privilege Escalation
 
@@ -63,21 +66,7 @@ nmap -sV -sC -Pn -oA roomname roomname.thm
 
 
 
-
-
-## Post Exploitation
-
-- 
-
-```bash
-
-```
-
-
-
-
-
-## Get Flags
+### Get Flags
 
 - 
 
@@ -90,6 +79,20 @@ find / -type f -iname root.txt 2>/dev/null
 ```
 
 
+
+---
+
+## Post Exploitation
+
+- 
+
+```bash
+
+```
+
+
+
+---
 
 ## Extra
 

@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Retro](https://tryhackme.com/room/retro)
->
-> ![](.gitbook/assets/retro.jpeg)
->
-> **Description**
->
-> 📝 *There are two distinct paths that can be taken on Retro. One requires significantly less trial and error, however, both will work. An alternative version of this room is available in it's remixed version [Blaster](blaster.md).*
->
-> **Target IP**
->
-> 🎯 `10.10.181.110`
+| Room Info           | ![](.gitbook/assets/retro.jpeg)           |
+| :------------------ | ----------------------------------------- |
+| 🔗 Name              | [Retro](https://tryhackme.com/room/retro) |
+| 🎯 Target IP         | `10.10.181.110`                           |
+| 📈 Difficulty level  | 🟢Easy                                     |
+| 💲 Subscription type | Free                                      |
+| 🪟 🐧OS               | Windows                                   |
+
+---
 
 ## Recon
 
@@ -90,22 +86,14 @@ remmina -c rdp://wade@10.10.181.110
 # It will open with the default set up resolution
 ```
 
-Open the **`user.txt`** file on Wade's user desktop to get the first flag.
+-  🚩 Open the **`user.txt`** file on Wade's user desktop to get the first flag.
 
+```bash
+3b99f***************************
 
+```
 
-<details>
-<summary>Reveal Flag - user.txt: 🚩</summary>
-
-
-
-`3b99fbdc6d430bfb51c72c651a261927`
-
-![](.gitbook/assets/image-20230513140554540.png)
-
-</details>
-
-
+---
 
 ## Exploitation
 
@@ -176,6 +164,8 @@ systeminfo
 
 ![](.gitbook/assets/image-20230513170606987.png)
 
+---
+
 ## Privilege Escalation
 
 Exploit the [CVE-2017-0213 - Windows COM Elevation of Privilege Vulnerability](https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213)
@@ -202,26 +192,15 @@ shell
 
 ![Elevated CMD Session](.gitbook/assets/image-20230513171909558.png)
 
+- 🚩 Read the `root.txt` file
+
 ```bash
 cd c:\Users\Administrator\Desktop
-type root.txt.txt
+type root.txt
+7958b***************************
 ```
 
-
-
-<details>
-<summary>Reveal Flag - root.txt: 🚩</summary>
-
-
-`7958b569565d7bd88d10c6f22d1c4063`
-
-![](.gitbook/assets/image-20230513172450267.png)
-
-
-
-</details>
-
-
+![](.gitbook/assets/2024-10-20_22-28-24_764.png)
 
 - Remember that there can be other attack vectors to exploit target's vulnerabilities.
 

