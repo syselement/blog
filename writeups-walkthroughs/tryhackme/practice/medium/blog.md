@@ -10,6 +10,7 @@
 | 🎯 Target IP         | `10.10.54.35`                           |
 | 📈 Difficulty level  | 🟡Medium                                 |
 | 💲 Subscription type | Free                                    |
+| 🐧 OS                | Linux                                   |
 
 ---
 

@@ -10,7 +10,7 @@
 | 🎯 Target IP         | `10.10.173.77`                                |
 | 📈 Difficulty level  | 🟢Easy                                         |
 | 💲 Subscription type | Free                                          |
-| 🪟 🐧OS               | Linux                                         |
+| 🐧 OS                | Linux                                         |
 
 ---
 

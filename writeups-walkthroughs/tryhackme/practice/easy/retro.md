@@ -10,7 +10,7 @@
 | 🎯 Target IP         | `10.10.181.110`                           |
 | 📈 Difficulty level  | 🟢Easy                                     |
 | 💲 Subscription type | Free                                      |
-| 🪟 🐧OS               | Windows                                   |
+| 🪟 OS                | Windows                                   |
 
 ---
 

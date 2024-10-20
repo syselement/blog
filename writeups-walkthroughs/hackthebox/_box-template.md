@@ -2,21 +2,17 @@
 
 ![hackthebox.com - © HACKTHEBOX](.gitbook/assets/logo-htb2.png)
 
-## box Info
+## Intro
 
-> **Name**
->
-> 🔗 box_LINK_HERE
->
->  box_PICTURE_HERE
->
-> **Description**
->
-> 📝 *DESCRIPTION_HERE*
->
-> **Target IP**
->
-> 🎯 `IP_HERE`
+| Box Info            | BoxLogo.png                 |
+| :------------------ | --------------------------- |
+| 🔗 Name              | BoxName&Link                |
+| 🎯 Target IP         | `IP`                        |
+| 📈 Difficulty level  | 🟩Easy 🟨Medium 🟥Hard ⬛Insane |
+| 💲 Subscription type | Free/Sub only               |
+| 🪟 🐧OS               | Linux/Windows               |
+
+---
 
 ## Recon
 
@@ -46,6 +42,8 @@ nmap -sV -sC -Pn -oA boxname boxname.htb
 
 
 
+---
+
 ## Exploitation
 
 - 
@@ -56,7 +54,7 @@ nmap -sV -sC -Pn -oA boxname boxname.htb
 
 
 
-
+---
 
 ## Privilege Escalation
 
@@ -68,21 +66,7 @@ nmap -sV -sC -Pn -oA boxname boxname.htb
 
 
 
-
-
-## Post Exploitation
-
-- 
-
-```bash
-
-```
-
-
-
-
-
-## Get Flags
+### Get Flags
 
 - 
 
@@ -95,6 +79,20 @@ find / -type f -iname root.txt 2>/dev/null
 ```
 
 
+
+---
+
+## Post Exploitation
+
+- 
+
+```bash
+
+```
+
+
+
+---
 
 ## Extra
 
