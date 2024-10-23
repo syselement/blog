@@ -28,15 +28,9 @@
 
 ## 📚 Courses
 
-- [TechWorld - DevOps Bootcamp By Nana](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
+- [TechWorld - DevOps Bootcamp](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
   - [DevOps Bootcamp - Exercises](https://gitlab.com/devops-bootcamp3)
-
-
-![DevOps Bootcamp Schedule](.gitbook/assets/nana-schedule.png)
-
-![DevOps Bootcamp Schedule](.gitbook/assets/nana-schedule2.png)
-
-
+- [TechWorld - DevSecOps Bootcamp](https://www.techworld-with-nana.com/devsecops-bootcamp)
 - [TechWorld - Certified Kubernetes Administrator (CKA Course)](https://www.techworld-with-nana.com/kubernetes-administrator-cka)
 - [KodeKloud Training Courses](https://kodekloud.com/)
   - [KodeKloud Engineer Practice](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)

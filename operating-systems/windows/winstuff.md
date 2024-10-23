@@ -172,7 +172,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v Sys
 
 - Create a `UpgradePackages.bat` with the following content and run it to upgrade installed packages
 
-```bash
+```powershell
 @echo off
 :: Check for admin rights
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -193,6 +193,12 @@ powershell -NoProfile -Command "Start-Transcript -Path UpgradeLog.txt -Force; wi
 :: Indicate completion
 echo All packages have been upgraded. Press any key to exit...
 pause
+```
+
+### Basic, Network, I/O, Task, Process
+
+```powershell
+
 ```
 
 
