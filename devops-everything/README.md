@@ -39,6 +39,12 @@
 
 ---
 
+## 🎈 Playgrounds
+
+- [iximiuz Labs - Master Server Side Craft](https://labs.iximiuz.com/playgrounds)
+
+---
+
 ## 📽️ Youtube
 
 ### Docker
