@@ -198,7 +198,45 @@ pause
 ### Basic, Network, I/O, Task, Process
 
 ```powershell
+# System
+set
+set /?
+ver
+systeminfo
+chkdsk
+driverquery
+sfc /scannow
+shutdown /r
+shutdown /a
 
+# Network
+ipconfig /all
+ping example.com
+tracert example.com
+nslookup example.com
+netstat -abon
+netstat -abon | findstr :3389
+
+# Files and Disk
+cd
+dir
+dir /a
+dir /s
+mkdir dirname
+rmdir dirname
+type
+more
+copy
+copy *.md
+move
+del
+erase
+
+# Tasks and Processes
+tasklist
+tasklist /FI "imagename eq notepad.exe"
+tasklist /FI "pid eq 1516"
+taskkill /PID targetpid
 ```
 
 
