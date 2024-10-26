@@ -195,7 +195,7 @@ echo All packages have been upgraded. Press any key to exit...
 pause
 ```
 
-### Basic, Network, I/O, Task, Process
+### cmd Cheatsheet
 
 ```powershell
 # System
@@ -261,6 +261,64 @@ IEX (New-Object System.Net.webclient).DownloadString('https://raw.githubusercont
 powercat -l -p 9000 -v
 powercat -h
 ```
+
+### Powershell Cheatsheet
+
+```powershell
+### Syntax ###
+# Cmdlet --> Verb-Noun
+# Cmdlet -Property "pattern*"
+
+Find-Module -Name "PowerShell*"
+Install-Module -Name "PowerShellGet"
+
+Get-Command
+Get-Command -CommandType "Function"
+Get-Command -Name "Remove*"
+
+Get-Help Get-Date
+Get-Help Get-Date -examples
+
+Get-Alias
+Get-Alias | findstr echo
+
+Get-ChildItem
+Get-ChildItem -r -Filter '*.txt'
+Get-ChildItem -Path ".\test\"
+Get-ChildItem | Sort-Object Length
+Get-ChildItem | Where-Object -Property "Extension" -eq ".txt"
+Get-ChildItem | Where-Object -Property "Name" -like "file*"
+Get-ChildItem | Where-Object -Property Length -gt 100
+Get-ChildItem | Select-Object Name,Length
+Get-ChildItem | Sort-Object Length -Descending | Select-Object -First 1
+Select-String -Path ".\file.txt" -Pattern "text" 
+
+New-Item -Path ".\test\dir" -ItemType "Directory"
+New-Item -Path ".\test\dir\file.txt" -ItemType "File"
+Remove-Item -Path ".\test\dir\file.txt"
+Remove-Item -Path  ".\test\dir"
+Copy-Item -Path .\test\dir\file.txt -Destination .\test\dir\file2.txt
+
+Get-Content file
+Set-Location -Path ".\Documents"
+
+Get-ComputerInfo
+Get-LocalUser
+Get-NetIPConfiguration
+Get-NetIPAddress
+Get-Process
+Get-Service
+Get-Service -DisplayName "*remote*"
+Get-NetTCPConnection
+Get-FileHash -Path .\file.txt
+
+Get-Help Invoke-Command -examples
+Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
+```
+
+
+
+
 
 
 
