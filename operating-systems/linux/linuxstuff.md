@@ -9,6 +9,12 @@
 
 ---
 
+## 🌐 Resources 🔗
+
+> - [DistroWatch.com](https://distrowatch.com/)
+
+---
+
 ## Terminal commands
 
 ### Linux Kernel version
@@ -947,4 +953,23 @@ mv example.qcow2 /var/lib/libvirt/images/
 
 
 ---
+
+## Logs
+
+```bash
+ls -lah /var/log/
+
+auth.log
+boot.log
+cron.log
+httpd
+dpkg.log
+kern.log
+syslog
+user.log
+...
+
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+```
 

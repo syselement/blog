@@ -1,5 +1,18 @@
 # Intercepting Android App Traffic
 
+---
+
+## 🌐 Resources 🔗
+
+> * [Genymotion](https://www.genymotion.com/download/)
+> * [Frida](https://frida.re/)
+> * [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate\_and\_Public\_Key\_Pinning)
+> * Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=\_HRpLPrlg1U)
+
+---
+
+
+
 I've used my KaliVM and this instructions to follow IppSec's video and get everything working as he described.
 
 > 🔗 [Intercepting Android App Traffic with BurpSuite](https://www.youtube.com/watch?v=xp8ufidc514) - by [IppSec](https://ippsec.rocks/)
@@ -28,13 +41,6 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 > 21:20 - Using frida to start instagram and loading the script to bypass the SSL Checking
 > 22:15 - Setting the proxy and showing us intercept instagram traffic
 > ```
-
-> #### 🌐 Resources 🔗
->
-> * [Genymotion](https://www.genymotion.com/download/)
-> * [Frida](https://frida.re/)
-> * [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate\_and\_Public\_Key\_Pinning)
-> * Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=\_HRpLPrlg1U)
 
 ```bash
 sudo apt install -y virtualbox adb

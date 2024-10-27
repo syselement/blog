@@ -57,6 +57,7 @@
 - [📌 Generic Resources](cyber-everything/generic/README.md)
   * [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
   * [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
+  * [Cryptography](cyber-everything/generic/cryptography.md)
 
 * [📱 Mobile](cyber-everything/mobile/README.md)
   * [Apps Lab](cyber-everything/mobile/labs/README.md)

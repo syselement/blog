@@ -1,5 +1,20 @@
 # CVSS v3.1
 
+---
+
+## 🌐 Resources 🔗
+
+> - [Learn FIRST](https://learn.first.org/dashboard)
+> - [CVSS v3.1: Specification Document](https://www.first.org/cvss/v3.1/specification-document)
+> - [CVSS v4.0: Specification Document](https://www.first.org/cvss/v4.0/specification-document)
+> - [NIST NVD CVSS](https://nvd.nist.gov/vuln-metrics/cvss)
+> - [CVSS v3.1 Calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator)
+> - Scenarios:
+>   - [Vulnerability Chaining Scenario](https://cdn2.talentlms.com/sc/gAAAAABkw4bmzIfjr4_p5au3h0NssDBNcftq-j2gOuOaFj3BVr8RHM476l0xY5Qib3gOlsv2WPXfjso2BtLKlML1HIN-WPTmoWYY3zoLW5dagV2AD36BLYHs53yenUEcx4dZSzke8Yg8mtgDNF-zHDvjI5FMhl10_Q==/firstdotorg/1684781132_course-v1-FIRST-CVSSv3.1-2020-20201216/assets/CVSS_3.1_Vulnerability-Chaining-Scenario.pdf)
+>   - [Vulnerability Scenario: Software Libraries](https://cdn2.talentlms.com/sc/gAAAAABkw4bmzIfjr4_p5au3h0NssDBNcftq-j2gOuOaFj3BVr8RHM476l0xY5Qib3gOlsv2WPXfjso2BtLKlML1HIN-WPTmoWYY3zoLW5dagV2AD36BLYHs53yenUEcx4dZSzke8Yg8mtgDNF-zHDvjI5FMhl10_Q==/firstdotorg/1684781132_course-v1-FIRST-CVSSv3.1-2020-20201216/assets/CVSS_3.1_Vulnerability-Scenario-Software-Libraries.pdf)
+
+---
+
 **`CVSS`** (**Common Vulnerability Scoring System**) - vendor-agnostic, industry-open standard designed to convey vulnerability severity and help determine urgency and priority of response.
 
 - Maintained by `FIRST` (Forum of Incident Response and Security Teams)
@@ -309,18 +324,6 @@ Firewall protect a set of systems providing investor relation information. Site 
 After workaround, the new Modified Attack Vector is:
 
 - Modified integrity - `None`
-
-## 🌐 Resources 🔗
-
-> - [Learn FIRST](https://learn.first.org/dashboard)
-> - [CVSS v3.1: Specification Document](https://www.first.org/cvss/v3.1/specification-document)
-> - [CVSS v4.0: Specification Document](https://www.first.org/cvss/v4.0/specification-document)
-> - [NIST NVD CVSS](https://nvd.nist.gov/vuln-metrics/cvss)
-> - [CVSS v3.1 Calculator](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator)
-> - Scenarios:
->   - [Vulnerability Chaining Scenario](https://cdn2.talentlms.com/sc/gAAAAABkw4bmzIfjr4_p5au3h0NssDBNcftq-j2gOuOaFj3BVr8RHM476l0xY5Qib3gOlsv2WPXfjso2BtLKlML1HIN-WPTmoWYY3zoLW5dagV2AD36BLYHs53yenUEcx4dZSzke8Yg8mtgDNF-zHDvjI5FMhl10_Q==/firstdotorg/1684781132_course-v1-FIRST-CVSSv3.1-2020-20201216/assets/CVSS_3.1_Vulnerability-Chaining-Scenario.pdf)
->   - [Vulnerability Scenario: Software Libraries](https://cdn2.talentlms.com/sc/gAAAAABkw4bmzIfjr4_p5au3h0NssDBNcftq-j2gOuOaFj3BVr8RHM476l0xY5Qib3gOlsv2WPXfjso2BtLKlML1HIN-WPTmoWYY3zoLW5dagV2AD36BLYHs53yenUEcx4dZSzke8Yg8mtgDNF-zHDvjI5FMhl10_Q==/firstdotorg/1684781132_course-v1-FIRST-CVSSv3.1-2020-20201216/assets/CVSS_3.1_Vulnerability-Scenario-Software-Libraries.pdf)
->
 
 ------
 

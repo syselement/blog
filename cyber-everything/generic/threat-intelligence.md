@@ -1,197 +1,6 @@
 # Cyber Threat Intelligence (CTI)
 
-## Definition
-
-**`Threat Intelligence`** (`T.I.`) is *data that is collected, processed and analyzed to understand a threat actor’s motives, targets and attack behaviors*.
-
-- it refers to information that organizations can use to combat cyber threats
-- cybersecurity experts and data scientists examine, visualize and analyze large volumes of unorganized data to turn it into actionable insights that power informed decisions
-
-> *Threat intelligence is evidence-based knowledge, including context, mechanisms, indicators, implications and actionable advice, about an existing or emerging menace or hazard to assets that can be used to inform decisions regarding the subject's response to that menace or hazard.* - [Gartner](https://www.gartner.com/en/documents/2487216)
-
-[`Cyberattacks`](https://www.crowdstrike.com/cybersecurity-101/cyberattacks/) - malware, ransomware, phishing, man-in-the-middle, denial-of-service, APTs ...
-
-### 3 Types of TI
-
-Maturity curve - The context and analysis of CTI become deeper and more sophisticated with each level.
-
-`TACTICAL` - *focus on the immediate future and identifies simple indicators of compromise (**`IOCs`**)* by performing malware analysis/enrichment and ingesting threat indicators into defensive systems.
-
-- almost always automated (feeds)
-- IOCs short lifespan
-- Stakeholders: SOC Analyst, SIEM, Firewall, Endpoints, IDS/IPS
-
-`OPERATIONAL` - *focus on understanding the attack adversaries, campaign tracking and actor profiling (the "who", the "why" and "how")*.
-
-- human analysis needed, longer useful life
-- Stakeholders: Threat Hunter, SOC Analyst, Vulnerability Management, Incident Response, Insider Threat
-
-`STRATEGIC` - *focus on understanding trends and adversarial motives, engage in strategic security, inform business decisions and the processes behind them*.
-
-- shows how global events, foreign policies, and other long-term local and international movements can potentially impact the cyber security of an organization
-
-- Stakeholders: CISO, CIO, CTO, Executive Board, Strategic Intel
-
-## Lifecycle
-
-![crowdstrike.com - © CrowdStrike](.gitbook/assets/threat-intelligence-lifecycle-3.png)
-
-**`T.I. lifecycle`** - the process of *turning raw data into finished intelligence for decision-making and action*.
-
-Every research is based on a variety of different versions of the intelligence cycle, but the *end aim is always the same*: **to lead a cybersecurity team through the development and execution of an effective threat intelligence program**.
-
-- `Requirements` - sets the scope/roadmap (goals & methodology) for a specific threat intelligence operation
-
-```
-- Which types of assets, processes, and personnel are at risk?
-- How will threat intelligence improve operational efficiency for my team?
-- What other systems and applications could benefit?
-```
-
-- `Collection` - data gathering to satisfy objectives (traffic logs, OSINT, etc)
-
-```
-- Where are your current internal and external blindspots?
-- What technical and automated collection techniques can you employ?
-- How well can you infiltrate cybercriminal forums and closed sources on the dark web?
-```
-
-- `Processing` - raw data filtered, categorized, translated into an analysis-suitable format
-- `Analysis` - find answers to the posed questions, asses intelligence significance and severity, spot IOCs (indicators of compromise)
-
-```
-- Which types of assets, processes, and personnel are at risk?
-- How will threat intelligence improve operational efficiency for my team?
-- What other systems and applications could benefit?
-```
-
-- `Dissemination` - translate analysis into a digestible format report for stakeholders/audience, analysts
-
-```
-- What are the most important findings of the analysis, and what’s the best way to illustrate them?
-- With what degree of confidence is the analysis reliable, relevant, and accurate?
-- Are there clear and concrete recommendations or next steps regarding the end analysis?
-```
-
-- `Feedback` - receive stakeholder feedback establishing future adjustments and reports
-
-```
-- Which stakeholders benefit from finished threat intelligence reporting?
-- What is the best way to present the intelligence and at what delivery frequency?
-- Ultimately, how valuable is the finished intelligence? How actionable is it, and does it enable your organization to make informed security decisions? 
-- And, finally, how can you improve on it going forward—both in terms of finished intelligence and ameliorating your organization’s intelligence cycle?
-```
-
-> - The above key considerations (listed with **-**) are taken from the [Flashpoint Blog post](https://flashpoint.io/blog/threat-intelligence-lifecycle/).
-
-## Benefits
-
-| **Function**             | **Benefits**                                                 |
-| :----------------------- | :----------------------------------------------------------- |
-| **Sec/IT Analyst**       | Optimize prevention and detection capabilities and strengthen defenses |
-| **SOC**                  | Prioritize incidents based on risk and impact on the organization |
-| **CSIRT**                | Accelerate incident investigations, management, and prioritization |
-| **Intel Analyst**        | Uncover and track threat actors targeting the organization   |
-| **Executive Management** | Understand the risks the organization faces and what the options are to address their impact |
-
-## Use Cases
-
-| **Function**             | **Use Cases**                                                |
-| :----------------------- | :----------------------------------------------------------- |
-| **Sec/IT Analyst**       | Integrate TI feeds with other security products<br />Block bad IPs, URLs, domains, files, etc |
-| **SOC**                  | Use TI to enrich alerts<br />Link alerts together into incidents<br />Tune newly deployed security controls |
-| **CSIRT**                | Look for information on the who/what/why/when/how of an incident<br />Analyze the root cause to determine the scope of the incident |
-| **Intel Analyst**        | Look wider and deeper for intrusion evidence<br />Review reports on threat actors to better detect them |
-| **Executive Management** | Assess overall threat level for the organization<br />Develop security roadmap |
-
-## Standards and Frameworks
-
-### [STIX & TAXII](https://oasis-open.github.io/cti-documentation/)
-
-Cyber Threat Intelligence is shared/exchanged with tools, products or other entities via two (independent) standards - **STIX** and **TAXII**.
-
-**`STIX`** ([**S**tructured **T**hreat **I**nformation E**x**pression](https://oasis-open.github.io/cti-documentation/stix/intro)) - an open-source structured **language** and serialization format used to exchange CTI, designed to improve:
-
-- collaborative threat analysis
-- automated threat exchange
-- automated detection and response, and more
-- [STIX examples](https://oasis-open.github.io/cti-documentation/stix/examples)
-
-![STIX Relationship Example - oasis-open.github.io](.gitbook/assets/stix2_relationship_example_2.png)
-
-**`TAXII`** ([**T**rusted **A**utomated E**x**change of **I**ntelligence **I**nformation](https://oasis-open.github.io/cti-documentation/taxii/intro)) - a transport mechanism, an application layer **protocol** for the communication of cyber threat information in a simple and scalable manner, over HTTPS.
-
-- designed to support the exchange of STIX-represented CTI
-- can be used to share non-STIX data
-
-![TAXII Collections - oasis-open.github.io](.gitbook/assets/taxii_diagram.png)
-
-> STIX states the *what* of T.I. and it is the *packaging*.
->
-> TAXII defines the *how* and is the *vehicle carrying* the package.
->
-> STIX and TAXII are *machine-readable* and can easily be *automated*.
-
-### [MITRE ATT&CK](https://attack.mitre.org/)
-
-### [Lockheed Martin - Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
-
-### [The Unified Kill Chain](https://www.unifiedkillchain.com/)
-
-## Applications
-
-- Threat Landscape
-- Campaign Analysis
-- Threat Actor Tracking
-- Intelligence Requirements
-- Current Intelligence
-- Threat Detection & Hunting
-- Forensics
-- Malware Analysis
-- Incident Response
-- Vulnerability & Risk Management
-
-## Analyst Competencies
-
-- `Critical Thinking` - problem-solving, hypothesis development
-- `Data Collection & Examination` - process important or noise information
-- `Communication & Collaboration` - writing, public speaking, interpersonal skills
-- `Technical Exploitation` - malware analysis, pentesting, social engineering, etc
-- `Information Security` - level of awareness, vulnerability research, network defense, incident response
-- `Computing Fundamentals` - networking, operating systems, programming/scripting
-
-> 📌 Be a lifelong **learner**, **connect** with the community, **build** communication skills and **evolve**.
-
-## Resources
-
-- `Awareness`
-  - RSS Feed
-  - Social Media
-  - Blogs
-  - Podcasts
-- `Education`
-  - Self-Initiated
-  - CTFs
-  - Academic Programs
-  - Vendor Certifications & Training
-  - Open-source tools & Tutorials
-- `Networking`
-  - Social Media
-  - Conferences
-  - Infinity Groups
-
-## Certifications
-
-- [C|TIA – Certified Threat Intelligence Analyst](https://www.eccouncil.org/programs/certified-threat-intelligence-analyst-ctia/)
-- [GCTI – GIAC Cyber Threat Intelligence](https://www.giac.org/certification/cyber-threat-intelligence-gcti)
-- [RCIA – Rocheston Cyberthreat Intelligence Analyst](https://www.rocheston.com/certification/Cyberthreat-Intelligence-Analyst/)
-- [CCTIA by the NICCS – Certified Cyber Threat Intelligence Analyst](https://niccs.us-cert.gov/training/search/cybertraining-365/certified-cyber-threat-intelligence-analyst)
-- [CTI (Center for TI) Certificates](https://www.centerforti.com/certifications)
-- [The Certified Threat Intelligence Analyst – Cyber Intelligence Tradecraft](https://www.treadstone71.com/index.php/cyber-intelligence-training/cyber-intelligence-tradecraft-certification)
-- [The OSINT Pathfinder Programme](https://arnoreuser.com/)
-- [CPTIA – CREST Practitioner Threat Intelligence Analyst](https://www.crest-approved.org/examination/crest-practitioner-threat-intelligence-analyst/index.html)
-- [CRTIA – CREST Registered Threat Intelligence Analyst](https://crest-approved.org/examination/crest-registered-threat-intelligence-analyst/index.html)
-- [CCTIM – CREST Certified Threat Intelligence Manager](https://crest-approved.org/examination/crest-certified-threat-intelligence-manager/index.html)
+---
 
 ## 🌐 Resources 🔗
 
@@ -269,3 +78,215 @@ Cyber Threat Intelligence is shared/exchanged with tools, products or other enti
 >   - [URLvoid](https://www.urlvoid.com/)
 >   - [VirusTotal](https://www.virustotal.com/)
 >   - [...]
+
+### Certifications
+
+> - [C|TIA – Certified Threat Intelligence Analyst](https://www.eccouncil.org/programs/certified-threat-intelligence-analyst-ctia/)
+> - [GCTI – GIAC Cyber Threat Intelligence](https://www.giac.org/certification/cyber-threat-intelligence-gcti)
+> - [RCIA – Rocheston Cyberthreat Intelligence Analyst](https://www.rocheston.com/certification/Cyberthreat-Intelligence-Analyst/)
+> - [CCTIA by the NICCS – Certified Cyber Threat Intelligence Analyst](https://niccs.us-cert.gov/training/search/cybertraining-365/certified-cyber-threat-intelligence-analyst)
+> - [CTI (Center for TI) Certificates](https://www.centerforti.com/certifications)
+> - [The Certified Threat Intelligence Analyst – Cyber Intelligence Tradecraft](https://www.treadstone71.com/index.php/cyber-intelligence-training/cyber-intelligence-tradecraft-certification)
+> - [The OSINT Pathfinder Programme](https://arnoreuser.com/)
+> - [CPTIA – CREST Practitioner Threat Intelligence Analyst](https://www.crest-approved.org/examination/crest-practitioner-threat-intelligence-analyst/index.html)
+> - [CRTIA – CREST Registered Threat Intelligence Analyst](https://crest-approved.org/examination/crest-registered-threat-intelligence-analyst/index.html)
+> - [CCTIM – CREST Certified Threat Intelligence Manager](https://crest-approved.org/examination/crest-certified-threat-intelligence-manager/index.html)
+
+---
+
+## Definition
+
+**`Threat Intelligence`** (`T.I.`) is *data that is collected, processed and analyzed to understand a threat actor’s motives, targets and attack behaviors*.
+
+- it refers to information that organizations can use to combat cyber threats
+- cybersecurity experts and data scientists examine, visualize and analyze large volumes of unorganized data to turn it into actionable insights that power informed decisions
+
+> *Threat intelligence is evidence-based knowledge, including context, mechanisms, indicators, implications and actionable advice, about an existing or emerging menace or hazard to assets that can be used to inform decisions regarding the subject's response to that menace or hazard.* - [Gartner](https://www.gartner.com/en/documents/2487216)
+
+[`Cyberattacks`](https://www.crowdstrike.com/cybersecurity-101/cyberattacks/) - malware, ransomware, phishing, man-in-the-middle, denial-of-service, APTs ...
+
+### 3 Types of TI
+
+Maturity curve - The context and analysis of CTI become deeper and more sophisticated with each level.
+
+`TACTICAL` - *focus on the immediate future and identifies simple indicators of compromise (**`IOCs`**)* by performing malware analysis/enrichment and ingesting threat indicators into defensive systems.
+
+- almost always automated (feeds)
+- IOCs short lifespan
+- Stakeholders: SOC Analyst, SIEM, Firewall, Endpoints, IDS/IPS
+
+`OPERATIONAL` - *focus on understanding the attack adversaries, campaign tracking and actor profiling (the "who", the "why" and "how")*.
+
+- human analysis needed, longer useful life
+- Stakeholders: Threat Hunter, SOC Analyst, Vulnerability Management, Incident Response, Insider Threat
+
+`STRATEGIC` - *focus on understanding trends and adversarial motives, engage in strategic security, inform business decisions and the processes behind them*.
+
+- shows how global events, foreign policies, and other long-term local and international movements can potentially impact the cyber security of an organization
+
+- Stakeholders: CISO, CIO, CTO, Executive Board, Strategic Intel
+
+---
+
+## Lifecycle
+
+![crowdstrike.com - © CrowdStrike](.gitbook/assets/threat-intelligence-lifecycle-3.png)
+
+**`T.I. lifecycle`** - the process of *turning raw data into finished intelligence for decision-making and action*.
+
+Every research is based on a variety of different versions of the intelligence cycle, but the *end aim is always the same*: **to lead a cybersecurity team through the development and execution of an effective threat intelligence program**.
+
+- `Requirements` - sets the scope/roadmap (goals & methodology) for a specific threat intelligence operation
+
+```
+- Which types of assets, processes, and personnel are at risk?
+- How will threat intelligence improve operational efficiency for my team?
+- What other systems and applications could benefit?
+```
+
+- `Collection` - data gathering to satisfy objectives (traffic logs, OSINT, etc)
+
+```
+- Where are your current internal and external blindspots?
+- What technical and automated collection techniques can you employ?
+- How well can you infiltrate cybercriminal forums and closed sources on the dark web?
+```
+
+- `Processing` - raw data filtered, categorized, translated into an analysis-suitable format
+- `Analysis` - find answers to the posed questions, asses intelligence significance and severity, spot IOCs (indicators of compromise)
+
+```
+- Which types of assets, processes, and personnel are at risk?
+- How will threat intelligence improve operational efficiency for my team?
+- What other systems and applications could benefit?
+```
+
+- `Dissemination` - translate analysis into a digestible format report for stakeholders/audience, analysts
+
+```
+- What are the most important findings of the analysis, and what’s the best way to illustrate them?
+- With what degree of confidence is the analysis reliable, relevant, and accurate?
+- Are there clear and concrete recommendations or next steps regarding the end analysis?
+```
+
+- `Feedback` - receive stakeholder feedback establishing future adjustments and reports
+
+```
+- Which stakeholders benefit from finished threat intelligence reporting?
+- What is the best way to present the intelligence and at what delivery frequency?
+- Ultimately, how valuable is the finished intelligence? How actionable is it, and does it enable your organization to make informed security decisions? 
+- And, finally, how can you improve on it going forward—both in terms of finished intelligence and ameliorating your organization’s intelligence cycle?
+```
+
+> - The above key considerations (listed with **-**) are taken from the [Flashpoint Blog post](https://flashpoint.io/blog/threat-intelligence-lifecycle/).
+
+---
+
+## Benefits
+
+| **Function**             | **Benefits**                                                 |
+| :----------------------- | :----------------------------------------------------------- |
+| **Sec/IT Analyst**       | Optimize prevention and detection capabilities and strengthen defenses |
+| **SOC**                  | Prioritize incidents based on risk and impact on the organization |
+| **CSIRT**                | Accelerate incident investigations, management, and prioritization |
+| **Intel Analyst**        | Uncover and track threat actors targeting the organization   |
+| **Executive Management** | Understand the risks the organization faces and what the options are to address their impact |
+
+---
+
+## Use Cases
+
+| **Function**             | **Use Cases**                                                |
+| :----------------------- | :----------------------------------------------------------- |
+| **Sec/IT Analyst**       | Integrate TI feeds with other security products<br />Block bad IPs, URLs, domains, files, etc |
+| **SOC**                  | Use TI to enrich alerts<br />Link alerts together into incidents<br />Tune newly deployed security controls |
+| **CSIRT**                | Look for information on the who/what/why/when/how of an incident<br />Analyze the root cause to determine the scope of the incident |
+| **Intel Analyst**        | Look wider and deeper for intrusion evidence<br />Review reports on threat actors to better detect them |
+| **Executive Management** | Assess overall threat level for the organization<br />Develop security roadmap |
+
+---
+
+## Standards and Frameworks
+
+### [STIX & TAXII](https://oasis-open.github.io/cti-documentation/)
+
+Cyber Threat Intelligence is shared/exchanged with tools, products or other entities via two (independent) standards - **STIX** and **TAXII**.
+
+**`STIX`** ([**S**tructured **T**hreat **I**nformation E**x**pression](https://oasis-open.github.io/cti-documentation/stix/intro)) - an open-source structured **language** and serialization format used to exchange CTI, designed to improve:
+
+- collaborative threat analysis
+- automated threat exchange
+- automated detection and response, and more
+- [STIX examples](https://oasis-open.github.io/cti-documentation/stix/examples)
+
+![STIX Relationship Example - oasis-open.github.io](.gitbook/assets/stix2_relationship_example_2.png)
+
+**`TAXII`** ([**T**rusted **A**utomated E**x**change of **I**ntelligence **I**nformation](https://oasis-open.github.io/cti-documentation/taxii/intro)) - a transport mechanism, an application layer **protocol** for the communication of cyber threat information in a simple and scalable manner, over HTTPS.
+
+- designed to support the exchange of STIX-represented CTI
+- can be used to share non-STIX data
+
+![TAXII Collections - oasis-open.github.io](.gitbook/assets/taxii_diagram.png)
+
+> STIX states the *what* of T.I. and it is the *packaging*.
+>
+> TAXII defines the *how* and is the *vehicle carrying* the package.
+>
+> STIX and TAXII are *machine-readable* and can easily be *automated*.
+
+### [MITRE ATT&CK](https://attack.mitre.org/)
+
+### [Lockheed Martin - Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
+
+### [The Unified Kill Chain](https://www.unifiedkillchain.com/)
+
+---
+
+## Applications
+
+- Threat Landscape
+- Campaign Analysis
+- Threat Actor Tracking
+- Intelligence Requirements
+- Current Intelligence
+- Threat Detection & Hunting
+- Forensics
+- Malware Analysis
+- Incident Response
+- Vulnerability & Risk Management
+
+---
+
+## Analyst Competencies
+
+- `Critical Thinking` - problem-solving, hypothesis development
+- `Data Collection & Examination` - process important or noise information
+- `Communication & Collaboration` - writing, public speaking, interpersonal skills
+- `Technical Exploitation` - malware analysis, pentesting, social engineering, etc
+- `Information Security` - level of awareness, vulnerability research, network defense, incident response
+- `Computing Fundamentals` - networking, operating systems, programming/scripting
+
+> 📌 Be a lifelong **learner**, **connect** with the community, **build** communication skills and **evolve**.
+
+---
+
+## Resources
+
+- `Awareness`
+  - RSS Feed
+  - Social Media
+  - Blogs
+  - Podcasts
+- `Education`
+  - Self-Initiated
+  - CTFs
+  - Academic Programs
+  - Vendor Certifications & Training
+  - Open-source tools & Tutorials
+- `Networking`
+  - Social Media
+  - Conferences
+  - Infinity Groups
+
+---
+
