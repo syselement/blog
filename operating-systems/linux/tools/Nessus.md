@@ -13,13 +13,14 @@
 - Download Ubuntu version with `curl` (command created from the Downloads site)
 
 ```bash
+cd /tmp
 curl --request GET \
-  --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.5.0-ubuntu1404_amd64.deb' \
-  --output 'Nessus-10.5.0-ubuntu1404_amd64.deb'
+  --url 'https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.8.3-debian10_amd64.deb' \
+  --output 'Nessus-10.8.3-debian10_amd64.deb'
 ```
 
 ```bash
-sudo dpkg -i Nessus-<version number>-debian6_amd64.deb
+sudo dpkg -i Nessus-*.deb
 
 sudo systemctl start nessusd.service
 
