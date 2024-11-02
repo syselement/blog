@@ -76,6 +76,8 @@ ubuntu-srv.local
 ansible_python_interpreter=/usr/bin/python3
 ```
 
+---
+
 ## Commands
 
 ```bash
@@ -107,6 +109,8 @@ ansible all -m apt -a "name=nginx" --become -K
 
 ansible all -a "systemctl restart nginx" --become
 ```
+
+---
 
 ## Labs
 
