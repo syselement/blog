@@ -1,6 +1,6 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](<.gitbook/assets/tryhackme-logo-small (6).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
 > **Name**
 >

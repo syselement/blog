@@ -113,8 +113,10 @@
 
 * [🌩️ TryHackMe](writeups-walkthroughs/tryhackme/README.md)
   * [📖 Learn](writeups-walkthroughs/tryhackme/learn/README.md)
-    * [Intro to Defensive Security](writeups-walkthroughs/tryhackme/learn/introduction-to-defensive-security.md)
     * [Cyber Threat Intelligence](writeups-walkthroughs/tryhackme/learn/cyber-threat-intelligence.md)
+    * [Intro to Defensive Security](writeups-walkthroughs/tryhackme/learn/introduction-to-defensive-security.md)
+    * [Juice Shop](writeups-walkthroughs/tryhackme/learn/juiceshop.md)
+    * [Upload Vulnerabilities](writeups-walkthroughs/tryhackme/learn/upload-vulns.md)
   * [🎯 Practice](writeups-walkthroughs/tryhackme/practice/README.md)
     * [Easy](writeups-walkthroughs/tryhackme/practice/easy/README.md)
       * [Blaster](writeups-walkthroughs/tryhackme/practice/easy/blaster.md)
