@@ -6,6 +6,8 @@
 
 > - [TryHackMe | Upload Vulnerabilities](https://tryhackme.com/r/room/uploadvulns)
 >   - [File Upload Vulnerabilities HINTS](https://muirlandoracle.co.uk/2020/06/30/file-upload-vulnerabilities-hints/)
+> - [File Upload | HackTricks](https://book.hacktricks.xyz/pentesting-web/file-upload)
+> - [PayloadsAllTheThings/Upload Insecure Files](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Upload%20Insecure%20Files)
 
 ---
 
