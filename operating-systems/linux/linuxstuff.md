@@ -389,6 +389,14 @@ sudo dhclient -r
 sudo dhclient
 ```
 
+### [Benchmark](https://bench.sh/)
+
+```bash
+# bench.sh
+wget -qO- bench.sh | bash
+curl -Lso- bench.sh | bash
+```
+
 ---
 
 ## Software
@@ -791,7 +799,22 @@ sudo openvpn --config yournickname.ovpn --daemon
 sudo pkill -f openvpn
 ```
 
-### NMAP
+### [Global Socket](https://www.gsocket.io/)
+
+> *Global Socket allows two workstations on different private networks to communicate with each other. Through firewalls and through NAT - like there is no firewall.*
+
+```bash
+# Install
+bash -c "$(curl -fsSL https://gsocket.io/y)"
+
+# Uninstall
+GS_UNDO=1 bash -c "$(curl -fsSL https://gsocket.io/y)"
+
+# Access (from another place)
+S="ExampleSecretChangeMe" bash -c "$(curl -fsSL https://gsocket.io/y)"
+```
+
+### nmap
 
 ```bash
 nmap 192.168.254.129
@@ -931,18 +954,30 @@ virsh define --file /home/username/location/of/exctracted/archive/vm-backup/name
 mv example.qcow2 /var/lib/libvirt/images/
 ```
 
-### METASPLOITABLE VM
+### Metaspoitable VM
 
 > 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
-
-- [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
-- Guides:
-  - [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
-  - [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
+>
+> - [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+> - Guides:
+>   - [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
+>   - [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
 
 ```bash
 # Login: msfadmin:msfadmin
 ```
+
+### Root Servers Shells
+
+> - [Free Linux Cloud Root Shells](https://iq.thc.org/free-linux-cloud-root-shells)
+> - [Segfault | The Hacker’s Choice](https://www.thc.org/segfault/)
+
+```bash
+ssh root@segfault.net
+# The password is 'segfault'
+```
+
+
 
 ---
 
