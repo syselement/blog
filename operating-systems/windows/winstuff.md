@@ -6,7 +6,7 @@
 
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 >
-> - 📌 *Some commands can be outdated.*
+> - 📌 *Some commands may be outdated.*
 
 ---
 
@@ -15,6 +15,9 @@
 > ### Install
 >
 > - [PERFORM CLEAN INSTALL OF WINDOWS 11 (SIX WAYS)](https://pureinfotech.com/clean-install-windows-11/)
+> - [Rufus - Create bootable USB](https://rufus.ie/en/)
+> - [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11)
+> - [Windows Server Evaluate edition ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)
 >
 > ### Privacy
 >
@@ -37,12 +40,15 @@
 > - [BloatyNosy - Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 > - [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
 > - [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
+> - [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
 
 ---
 
 ## Install
 
 ### Windows 11 without Internet
+
+> 📌 This can be done using the latest [Rufus](https://rufus.ie/en/) version to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
 
 > 🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
 
@@ -84,8 +90,29 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 > 🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 >
 > 🔗 [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
+>
+> 🔗 [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
+>
+> 🔗 [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
+>
+> ❗ The repositories above contain many useful and powerful scripts. Be sure to review them carefully before applying to your system, and do so at your own risk. ⚠️
+
+1. Download [https://github.com/Raphire/Win11Debloat](https://github.com/Raphire/Win11Debloat) repo and run `Run.bat` to configure
+   - Run additional tweaks like `Regfiles\Hide_Onedrive_Folder.reg`
+2. Download [https://github.com/LeDragoX/Win-Debloat-Tools](https://github.com/LeDragoX/Win-Debloat-Tools) repo and run other scripts if necessary
+   - Backup-System
+   - Optimize-Privacy
+   - Optimize-ServicesRunning
+   - Optimize-TaskScheduler
+   - Optimize-WindowsFeaturesList
+   - Remove-BloatwareAppsList
+   - Install-NerdFont
+   - ...
+   - and Software install tool
 
 **Removing Telemetry and other unnecessary services**
+
+> 📌 *The following commands may have already been executed by the scripts above. The command list is outdated and requires some cleaning and fixing.*
 
 - Open `cmd.exe` and type the following commands
 
@@ -133,47 +160,50 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution 
 **Scheduled tasks**
 
 ```powershell
-schtasks /Change /TN "Microsoft\Windows\AppID\SmartScreenSpecific" /disable
-schtasks /Change /TN "Microsoft\Windows\Application Experience\AitAgent" /disable
-schtasks /Change /TN "Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /disable
-schtasks /Change /TN "Microsoft\Windows\Application Experience\ProgramDataUpdater" /disable
-schtasks /Change /TN "Microsoft\Windows\Application Experience\StartupAppTask" /disable
-schtasks /Change /TN "Microsoft\Windows\Autochk\Proxy" /disable
-schtasks /Change /TN "Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /disable
-schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\BthSQM" /disable
-schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
-schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /disable
-schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\Uploader" /disable
-schtasks /Change /TN "Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /disable
-schtasks /Change /TN "Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /disable
-schtasks /Change /TN "Microsoft\Windows\DiskFootprint\Diagnostics" /disable
-schtasks /Change /TN "Microsoft\Windows\FileHistory\File History (maintenance mode)" /disable
-schtasks /Change /TN "Microsoft\Windows\Maintenance\WinSAT" /disable
-schtasks /Change /TN "Microsoft\Windows\PI\Sqm-Tasks" /disable
-schtasks /Change /TN "Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /disable
-schtasks /Change /TN "Microsoft\Windows\Shell\FamilySafetyMonitor" /disable
-schtasks /Change /TN "Microsoft\Windows\Shell\FamilySafetyRefresh" /disable
-schtasks /Change /TN "Microsoft\Windows\Shell\FamilySafetyUpload" /disable
-schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /disable
-schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /disable
-schtasks /Change /TN "Microsoft\Windows\License Manager\TempSignedLicenseExchange" /disable
-schtasks /Change /TN "Microsoft\Windows\Clip\License Validation" /disable
+del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
+schtasks /Change /TN "\Microsoft\Windows\AppID\SmartScreenSpecific" /disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\AitAgent" /disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" /disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\StartupAppTask" /disable
 schtasks /Change /TN "\Microsoft\Windows\ApplicationData\DsSvcCleanup" /disable
+schtasks /Change /TN "\Microsoft\Windows\Autochk\Proxy" /disable
+schtasks /Change /TN "\Microsoft\Windows\Clip\License Validation" /disable
+schtasks /Change /TN "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM" /disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Uploader" /disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /disable
+schtasks /Change /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /disable
+schtasks /Change /TN "\Microsoft\Windows\Diagnosis\Scheduled" /disable
+schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /disable
+schtasks /Change /TN "\Microsoft\Windows\DiskFootprint\Diagnostics" /disable
+schtasks /Change /TN "\Microsoft\Windows\FileHistory\File History (maintenance mode)" /disable
+schtasks /Change /TN "\Microsoft\Windows\License Manager\TempSignedLicenseExchange" /disable
+schtasks /Change /TN "\Microsoft\Windows\Location\Notifications" /disable
+schtasks /Change /TN "\Microsoft\Windows\Location\WindowsActionDialog" /disable
+schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /disable
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsToastTask"  /disable
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /disable
+schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /disable
+schtasks /Change /TN "\Microsoft\Windows\PI\Sqm-Tasks" /disable
+schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /disable
 schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /disable
 schtasks /Change /TN "\Microsoft\Windows\PushToInstall\LoginCheck" /disable
 schtasks /Change /TN "\Microsoft\Windows\PushToInstall\Registration" /disable
+schtasks /Change /TN "\Microsoft\Windows\Retail Demo\CleanupOfflineContent" /disable
 schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyMonitor" /disable
-schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyMonitorToastTask" /disable
 schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyRefreshTask" /disable
+schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyUpload" /disable
 schtasks /Change /TN "\Microsoft\Windows\Subscription\EnableLicenseAcquisition" /disable
 schtasks /Change /TN "\Microsoft\Windows\Subscription\LicenseAcquisition" /disable
-schtasks /Change /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /disable
-schtasks /Change /TN "\Microsoft\Windows\Diagnosis\Scheduled" /disable
-schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /disable
-del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
+schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /disable
 ```
 
+### Italian Dev Keyboard - Tilde and Backtick
 
+- Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
 
 ------
 
@@ -385,6 +415,8 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 
 - **`e.g.`** Copy `tools` folder to `C:\Program Files\` and rename it to **`sysinternals`**
 
+---
+
 ### [VirusTotal Uploader ContextMenu](https://github.com/SamuelTulach/VirusTotalUploader)
 
 1. Download `vt_setup.msi` from [https://github.com/SamuelTulach/VirusTotalUploader/releases](https://github.com/SamuelTulach/VirusTotalUploader/releases)
@@ -411,11 +443,61 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 > | Daily quota                  | 500 lookups / day      |
 > | Monthly quota                | 15.5 K lookups / month |
 
+---
 
+### VMware Workstation Pro + Windows tweaks
 
-### VMware Workstation Pro
+> ❗ I do not assume any responsibility for the potential risks or consequences associated with the disabled memory integrity.
+>
+> 🔗 [Options to optimize gaming performance in Windows 11 - Microsoft Support](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)
+>
+> 🔗 [Enable or Disable Core Isolation and Memory Integrity in Windows 11](https://www.thewindowsclub.com/core-isolation-and-memory-integrity-in-windows-10)
+>
+> 🔗 [How to Disable or Remove Hyper-V in Windows 11](https://www.makeuseof.com/windows-11-disable-hyper-v/)
+>
+> - **This is done to ensure VMware Workstation virtualization operates smoothly without any performance issues.**
+> - **Memory integrity** (hypervisor-protected code integrity) is a security feature of Core isolation that prevents attacks from inserting malicious code into high-security processes. Take your own risk by disabling it.
 
-- Delay the bios boot in a VM
+1. Run the command from an elevated Powershell to **disable Hyper-V**:
+
+```powershell
+# Disables the Windows Hyper-V
+bcdedit /set hypervisorlaunchtype off
+
+Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux,Microsoft-Hyper-V-All, VirtualMachinePlatform
+
+Get-AppxPackage -AllUsers *WindowsSubsystemForLinux* | Remove-AppxPackage -AllUsers
+```
+
+2. Run the command from an elevated Powershell to **disable Memory Integrity and Virtualization-based security** (Device/Credential Guard) via Registry:
+
+```powershell
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\SystemGuard" /v "Enabled" /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d 0 /f
+```
+
+3. Reboot PC
+
+4. Install VMware Workstation Pro - [https://support.broadcom.com/group/ecx/downloads](https://support.broadcom.com/group/ecx/downloads) (login necessary)
+
+5. Disable power throttling for the VMware executables
+
+```powershell
+# Disables power throttling for the VMware virtual machine executable (64-bit version)
+powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe"
+
+# Disables power throttling for the main VMware Workstation executable
+powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe"
+```
+
+#### VMware tips
+
+Delay the bios boot in a VM
 
 ```bash
 # Add line to .vmx file:
@@ -470,50 +552,6 @@ cd EFI
 ls
 rmdir /s ubuntu
 ```
-
----
-
-### VMware performance - Disable Memory Integrity
-
-> ❗ I do not assume any responsibility for the potential risks or consequences associated with the disabled memory integrity.
->
-> 🔗 [Options to optimize gaming performance in Windows 11 - Microsoft Support](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)
->
-> 🔗 [Enable or Disable Core Isolation and Memory Integrity in Windows 11](https://www.thewindowsclub.com/core-isolation-and-memory-integrity-in-windows-10)
->
-> 🔗 [How to Disable or Remove Hyper-V in Windows 11](https://www.makeuseof.com/windows-11-disable-hyper-v/)
->
-> - **This is done to ensure VMware Workstation virtualization operates smoothly without any performance issues.**
-> - **Memory integrity** (hypervisor-protected code integrity) is a security feature of Core isolation that prevents attacks from inserting malicious code into high-security processes. Take your own risk by disabling it.
-
-- Disable `Memory Integrity` - Windows Security -> Device Security -> Core Isolation details
-- Open `cmd` as Administrator and run
-
-```powershell
-# Disables power throttling for the VMware virtual machine executable (64-bit version)
-powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe"
-
-# Disables power throttling for the main VMware Workstation executable
-powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe"
-
-# Disables the Windows Hyper-V
-bcdedit /set hypervisorlaunchtype off
-```
-
-**Enable or Disable Core Isolation and Memory Integrity using Registry**
-
-```powershell
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity
-```
-
-1. Open `regedit`
-2. Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\`
-3. Right-click on *Scenarios > New > Key*.
-4. Name it as `HypervisorEnforcedCodeIntegrity`.
-5. Create a New `DWORD (32-bit) Value`.
-6. Name it as `Enabled`.
-7. Set the Value data as `0` to disable.
-8. Restart the computer.
 
 ---
 
