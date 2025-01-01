@@ -34,8 +34,9 @@
 >
 > ### Debloat Windows 11
 >
-> - [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
+> - [BloatyNosy - Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 > - [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
+> - [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
 
 ---
 
@@ -293,6 +294,18 @@ powercat -l -p 9000 -v
 powercat -h
 ```
 
+### Directory and File Listing Without Extensions
+
+```bash
+Get-ChildItem -Recurse -Directory | ForEach-Object {
+    Write-Output "Directory: $($_.FullName)"
+    Get-ChildItem -Path $_.FullName | Where-Object { -not $_.PSIsContainer } | ForEach-Object {
+        $_.BaseName
+    }
+    Write-Output ""
+} | Out-File -FilePath "C:\path\to\output.txt"
+```
+
 ### Powershell Cheatsheet
 
 ```powershell
@@ -503,5 +516,4 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\Hyperv
 8. Restart the computer.
 
 ---
-
 

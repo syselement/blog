@@ -12,7 +12,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > *The content on this notes blog is intended for educational, personal, non-commercial, testing and research purposes only. It should not be used for illegal or malicious activities. The information is based on open-source material, my own interpretation and writing, and may not be up-to-date. Use it at your own risk. By using these notes, you agree to absolve me of any liability. All notes and comments from external resources will include a reference link to the original source.*
 >
-> ✏️ **Copyright** ©️ 2024 syselement
+> ✏️ **Copyright** ©️ 2025 syselement
 >
 > *The content on this blog is based on public material and is not subject to copyright protection. However, my original commentary and analysis are protected. Feel free to share links to the content on social media or other websites, and distribute the content by always mentioning me and the link of the utilized resource from this blog.*
 
