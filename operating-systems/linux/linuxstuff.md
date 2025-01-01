@@ -4,8 +4,8 @@
 
 > 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
 >
-> - 📌_Some commands can be outdated._
-> - ❗_Most of the commands are for **Debian-based** distributions._
+> - 📌*Some commands can be outdated.*
+> - ❗*Most of the commands are for **Debian-based** distributions.*
 
 ---
 
