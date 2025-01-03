@@ -170,3 +170,104 @@ ansible-playbook ./intro_playbook.yml -K -v
 
 ---
 
+## Semaphore UI
+
+### Install via Snap (Ubuntu Desktop)
+
+```bash
+# Install Semaphore using Snap
+sudo snap install semaphore
+
+# Stop Semaphore (if needed)
+sudo snap stop semaphore
+
+# Add an admin user to Semaphore
+sudo semaphore user add --admin --login user --name=User --email=user@example.com --password=P@ssw0rd!
+
+# Start Semaphore and view its services
+sudo snap start semaphore
+sudo snap services semaphore
+
+# Configure SSH for Semaphore
+sudo cp $HOME/.ssh/config /root/snap/semaphore/common/sshconfig
+chmod 644 /root/snap/semaphore/common/sshconfig
+```
+
+> ### Install via Docker
+>
+> *Not tested*
+>
+> Follow the steps outlined in the [official Semaphore documentation](https://github.com/semaphoreui/semaphore) for Docker-based deployment. Use the [container configurator](https://semaphoreui.com/install/docker/) to get the ideal Docker configuration for Semaphore.
+>
+> Here is a summary for convenience to deploy via docker with data persistence:
+>
+> ```bash
+> docker run --name semaphore \
+> -p 3000:3000 \
+> -e SEMAPHORE_DB_DIALECT=bolt \
+> -e SEMAPHORE_ADMIN=admin \
+> -e SEMAPHORE_ADMIN_PASSWORD=changeme \
+> -e SEMAPHORE_ADMIN_NAME="Admin" \
+> -e SEMAPHORE_ADMIN_EMAIL=admin@localhost \
+> -v semaphore_data:/var/lib/semaphore \
+> -v semaphore_config:/etc/semaphore \
+> -v semaphore_tmp:/tmp/semaphore \
+> -d semaphoreui/semaphore:latest
+> ```
+>
+> - [ ] Missing `.ssh/config` setup
+
+### Post-install configuration
+
+1. **Log In**
+   - Access Semaphore at [http://localhost:3000](http://localhost:3000/)
+   - Use the admin credentials set during the setup process
+2. **Keystore Configuration**
+   - Add the SSH keys + passphrases for secure connections
+3. **Repository Configuration**
+   - Link the Git repository using SSH credentials
+   - **e.g.** - `git@github.com:syselement/ansibletest.git`
+4. **Environment**
+   - Set up an empty environment
+5. **Static Inventory Configuration**
+   - Define an inventory file with host and group details
+   - **e.g.**
+
+```bash
+[pihole]
+pihole.lan.syselement.com
+
+[ubuntu]
+ubuntu-srv.lan.syselement.com
+
+[all:vars]
+ansible_ssh_common_args = '-F /root/snap/semaphore/common/sshconfig'
+```
+
+### Creating Ansible Task Templates
+
+Task templates in Semaphore point to Ansible playbooks stored in the repository. Here’s how to set them up:
+
+1. **Organize the repository**
+   - Structure the repository to store playbooks logically.
+   - **e.g.**
+
+```bash
+ansible/
+├── playbooks/
+│   ├── updatelinux.yaml
+│   ├── deployweb.yaml
+└── roles/
+    ├── common/
+    ├── webserver/
+
+```
+
+2. **Create a template in Semaphore**
+   - Add a new **Task Template** in Semaphore
+     - **e.g.**
+     - Name - `AptUpdateUbuntu`
+       - Playbook Path - Relative path to the playbook - `ansible/playbooks/updatelinux.yaml`
+
+------
+
