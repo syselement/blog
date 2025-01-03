@@ -172,6 +172,12 @@ ansible-playbook ./intro_playbook.yml -K -v
 
 ## Semaphore UI
 
+[Semaphore](https://github.com/semaphoreui/semaphore) is a powerful open-source tool for managing Ansible tasks through a web-based interface. This guide demonstrates how to install Semaphore on an **Ubuntu Desktop VM** using Snap (❗) and configure it for SSH-based Ansible playbooks.
+
+> ❗ As per [Semaphore docs](https://docs.semaphoreui.com/administration-guide/installation/) Snap install is **deprecated** (but still works).
+>
+> - I need to do some testing to integrate [Package manager](https://docs.semaphoreui.com/administration-guide/installation/package-manager/) and/or [Docker](https://docs.semaphoreui.com/administration-guide/installation/docker/) installation documentation.
+
 ### Install via Snap (Ubuntu Desktop)
 
 ```bash
