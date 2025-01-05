@@ -252,6 +252,7 @@ ssh <sudo_user>@<remote_Server_IP>
 packages=(
     apt-transport-https
     aptitude
+    bat
     btop
     ca-certificates
     coreutils
@@ -263,6 +264,7 @@ packages=(
     flatpak
     fonts-firacode
     fonts-noto-color-emoji
+    fzf
     gdu
     git-all
     gnome-shell-extensions
@@ -272,11 +274,13 @@ packages=(
     htop
     iftop
     imagemagick
+    iperf3
     locate
     nano
     neofetch
     net-tools
     nload
+    nmap
     npm
     pipx
     software-properties-common
@@ -295,6 +299,9 @@ packages=(
 # Install apt packages
 sudo apt update
 sudo apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
+
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 ```
 
 ---
@@ -564,7 +571,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ---
 
-### [k9s](https://k9scli.io/topics/install/) / [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
+### [k9s](https://k9scli.io/topics/install/) / [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management) / [kubectx](https://github.com/ahmetb/kubectx)
 
 ```bash
 # Install k9s
@@ -573,15 +580,21 @@ brew upgrade
 
 # Install kubectl
 sudo sh -c '
-	sudo apt install -y apt-transport-https ca-certificates curl
-	curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | gpg --dearmor -o /usr/share/keyrings/kubernetes-apt-keyring.gpg
-	echo "deb [signed-by=/usr/share/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+	sudo apt install -y apt-transport-https ca-certificates curl gnupg
+	sudo mkdir -p -m 755 /etc/apt/keyrings
+	curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+	chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+	echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+	chmod 644 /etc/apt/sources.list.d/kubernetes.list
 	sudo apt update && sudo apt install -y kubectl
 '
 mkdir -p $HOME/.kube
 sudo touch -f $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube && chmod 700 $HOME/.kube
 sudo chown $(id -u):$(id -g) $HOME/.kube/config && chmod 600 $HOME/.kube/config
+
+# Install kubectx
+sudo apt install -y kubectx
 ```
 
 ---

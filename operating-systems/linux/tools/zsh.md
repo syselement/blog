@@ -130,7 +130,7 @@ alias hs='history | grep'
 alias hsi='history | grep -i'
 alias hz=omz_history
 alias ipa='ip -br -c a'
-alias l='eza -lah'
+alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
