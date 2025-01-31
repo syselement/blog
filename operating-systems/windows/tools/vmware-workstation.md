@@ -1,5 +1,7 @@
 # VMware Workstation Pro
 
+![](.gitbook/assets/vmware_workstation.png)
+
 ---
 
 ## 🌐 Resources 🔗
