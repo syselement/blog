@@ -259,6 +259,7 @@ packages=(
     curl
     duf
     eza
+    fastfetch
     filezilla
     flameshot
     flatpak
@@ -277,7 +278,6 @@ packages=(
     iperf3
     locate
     nano
-    neofetch
     net-tools
     nload
     nmap

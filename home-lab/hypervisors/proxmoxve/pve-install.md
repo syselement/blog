@@ -560,7 +560,7 @@ sudo passwd root
 ```bash
 sudo apt update -y && sudo apt -y upgrade
 
-sudo apt install -y btop curl duf eza iftop locate nano ncdu neofetch net-tools nload npm pipx qemu-guest-agent sysstat ugrep wget zsh
+sudo apt install -y btop curl duf eza iftop locate nano ncdu fastfetch net-tools nload npm pipx qemu-guest-agent sysstat ugrep wget zsh
 ```
 
 ```bash

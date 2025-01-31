@@ -145,7 +145,7 @@ ssh-keygen -t rsa
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop chrony curl duf flameshot gdu htop locate nano neofetch net-tools pipx speedtest-cli telegram-desktop terminator tor tree ugrep vlc wget
+sudo apt install -y apt-transport-https btop chrony curl duf fastfetch flameshot gdu htop locate nano net-tools pipx speedtest-cli telegram-desktop terminator tor tree ugrep vlc wget
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
