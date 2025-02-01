@@ -36,7 +36,7 @@
     * [Vagrant](operating-systems/windows/tools/vagrant-win.md)
   * [Windows Virtual Machines](operating-systems/windows/vms/README.md)
     * [Windows 11 - VM](operating-systems/windows/vms/win11-vm.md)
-    * [Windows Server 2022 - VM](operating-systems/windows/vms/win-srv-vm.md)
+    * [Windows Server 2025 - VM](operating-systems/windows/vms/win-srv-vm.md)
 * [🐧 Linux](operating-systems/linux/README.md)
   * [📃 Everything Linux](operating-systems/linux/linuxstuff.md)
   * [Linux Distros](operating-systems/linux/distros/README.md)
