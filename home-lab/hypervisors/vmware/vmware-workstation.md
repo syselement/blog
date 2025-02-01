@@ -2,6 +2,8 @@
 
 ![](.gitbook/assets/vmware_workstation.png)
 
+> **VMware Workstation** is a hosted (Type 2) hypervisor that runs on x64 versions of Windows and Linux operating systems. It enables users to set up and manage virtual machines (VMs) on a single physical machine, allowing for the execution of multiple operating systems simultaneously.
+
 ---
 
 ## 🌐 Resources 🔗
@@ -14,7 +16,7 @@
 
 ## Install and Windows tweaks
 
-> ❗ I do not assume any responsibility for the potential risks or consequences associated with the disabled memory integrity.
+> ❗ I do not assume any responsibility for the potential risks or consequences associated with the disabled memory integrity and Virtualization-based security.
 >
 > 🔗 [Options to optimize gaming performance in Windows 11 - Microsoft Support](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)
 >
@@ -26,10 +28,14 @@
 >
 > 🔗 [Disabling Hyper-V hypervisor on Windows 11 Pro host (to get VMWare 17's CPL0 vs. ULM monitor mode)](https://community.broadcom.com/vmware-cloud-foundation/discussion/disabling-hyper-v-hypervisor-on-windows-11-pro-host-to-get-vmware-17s-cpl0-vs-ulm-monitor-mode) - 📌 The following steps include some key points from this highly informative article, which provides an excellent explanation of the issue.
 >
-> - **This is done to ensure VMware Workstation virtualization operates smoothly without any performance issues, using its own VMware virtualization engine, instead of the slower Hyper-V API, to create the virtualized environment.**
->   - **CPL0 (Current Privilege Level 0):** The VMM (Virtual Machine Monitor) runs directly on the host hardware using Intel VT-x or AMD-V, providing full control and optimal performance, with no nested layers.
->   - **ULM (User-Level Monitor):** The VMM runs on top of Hyper-V, allowing coexistence with VMware Workstation but with added overhead and reduced performance, with an extra level of nesting.
+> ### Nesting considerations
+>
+> **The following is done to ensure VMware Workstation virtualization operates smoothly without any performance issues, using its own VMware virtualization engine, instead of the slower Hyper-V API, to create the virtualized environment.**
+>
+> - **CPL0 (Current Privilege Level 0):** The VMM (Virtual Machine Monitor) runs directly on the host hardware using Intel VT-x or AMD-V, providing full control and optimal performance, with no nested layers.
+> - **ULM (User-Level Monitor):** The VMM runs on top of Hyper-V, allowing coexistence with VMware Workstation but with added overhead and reduced performance, with an extra level of nesting.
 >   - these values can be seen by searching `Monitor Mode:` in the `vmware.log` file of a running VM.
+>
 > - VMware and Hyper-V can coexist using the newer VMware version and `Windows Hypervisor Platform (WHP)`, but nested virtualization can be slower than normal. Your choice.
 > - **Memory integrity** (hypervisor-protected code integrity) is a security feature of Core isolation that prevents attacks from inserting malicious code into high-security processes. Take your own risk by disabling it.
 
@@ -45,13 +51,13 @@ Get-AppxPackage -AllUsers *WindowsSubsystemForLinux* | Remove-AppxPackage -AllUs
 ```
 
 ```powershell
-# Check the state of the features
+# Check the state of the features, should be State: Disabled
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 Get-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 ```
 
-2. Run the command from an elevated Powershell to **disable Memory Integrity and Virtualization-based security** (Device/Credential Guard) via Registry:
+2. Run the command from an elevated Powershell to **DISABLE Memory Integrity and Virtualization-based security** (Device/Credential Guard) via Registry:
 
 ```powershell
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d 0 /f
@@ -86,7 +92,7 @@ foreach ($key in $keys) {
 }
 ```
 
-In case this is still not working, use the `Device Guard and Credential Guard hardware readiness tool` with the `-Disable` command.
+In case this is still not working, use the [Device Guard and Credential Guard hardware readiness tool](https://www.microsoft.com/en-us/download/details.aspx?id=53337) with the `-Disable` command.
 
 3. ❗ **Reboot PC**
 
