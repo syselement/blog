@@ -1,6 +1,6 @@
 # VMware Workstation Pro
 
-![](.gitbook/assets/vmware_workstation.png)
+![vmware.com](.gitbook/assets/vmware_workstation.png)
 
 > **VMware Workstation** is a hosted (Type 2) hypervisor that runs on x64 versions of Windows and Linux operating systems. It enables users to set up and manage virtual machines (VMs) on a single physical machine, allowing for the execution of multiple operating systems simultaneously.
 

@@ -1,6 +1,6 @@
 # Windows WSL
 
-![](.gitbook/assets/wsl.png)
+![microsoft.com](.gitbook/assets/wsl.png)
 
 > **WSL** (Windows Subsystem for Linux) is a compatibility layer that lets you run Linux distributions directly on Windows, providing a seamless command-line experience without the need for a separate virtual machine. WSL 2 takes this further by employing a lightweight virtual machine managed by the Hyper-V hypervisor, offering a full Linux kernel with improved performance and system call compatibility.
 

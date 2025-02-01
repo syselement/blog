@@ -1,7 +1,15 @@
 # Proxmox Upgrade 7 to 8
 
+---
+
+## 🌐 Resources 🔗
+
 > - [PVE - Upgrade_from_7_to_8](https://pve.proxmox.com/wiki/Upgrade_from_7_to_8)
 > - [PVE - Roadmap 8.0 - known-issues](https://pve.proxmox.com/wiki/Roadmap#8.0-known-issues)
+
+---
+
+## Connection
 
 > Open [https://PVE-IP:8006](https://PVE-IP:8006) and Enable `root` user from Permissions/Users menu.
 >

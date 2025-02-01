@@ -1,9 +1,20 @@
 # Proxmox VE
 
+![proxmox.com](.gitbook/assets/proxmox-full-lockup-inverted.png)
+
+> **Proxmox Virtual Environment** (Proxmox VE) is an open-source server virtualization platform that lets you manage both virtual machines and containers in a unified environment. It utilizes the Type 1 (bare-metal) KVM hypervisor for full hardware virtualization, providing robust and efficient management of diverse workloads while also offering lightweight container-based virtualization through LXC.
+
+---
+
+## 🌐 Resources 🔗
+
 > - 🔗 [Proxmox Virtual Environment (PVE) Administration Guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_install_proxmox_ve_on_debian)
+>   - [Proxmox Virtual Environment - Open-Source Server Virtualization Platform](https://proxmox.com/en/products/proxmox-virtual-environment/overview)
 > - ➡️ [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/)
 
-📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/).
+---
+
+> 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/).
 
 ## Updating PVE - Manually
 
