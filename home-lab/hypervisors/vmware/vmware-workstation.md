@@ -39,7 +39,7 @@
 > - VMware and Hyper-V can coexist using the newer VMware version and `Windows Hypervisor Platform (WHP)`, but nested virtualization can be slower than normal. Your choice.
 > - **Memory integrity** (hypervisor-protected code integrity) is a security feature of Core isolation that prevents attacks from inserting malicious code into high-security processes. Take your own risk by disabling it.
 
-1. Run the command from an elevated Powershell to **DISABLE Hyper-V, all its subfeatures, Windows Hypervisor Platform, Virtual Machine Platform, and Windows Sandbox**:
+1. Run the commands from an elevated Powershell to **DISABLE Hyper-V, all its subfeatures, Windows Hypervisor Platform, Virtual Machine Platform, and Windows Sandbox**:
 
 ```powershell
 # Disables the Windows Hyper-V
@@ -57,7 +57,7 @@ Get-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 ```
 
-2. Run the command from an elevated Powershell to **DISABLE Memory Integrity and Virtualization-based security** (Device/Credential Guard) via Registry:
+2. Run the commands from an elevated Powershell to **DISABLE Memory Integrity and Virtualization-based security** (Device/Credential Guard) via Registry:
 
 ```powershell
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d 0 /f
