@@ -97,6 +97,8 @@
 ## 🔬 Home Lab
 
 * [🖥️ Hypervisors](home-lab/hypervisors/README.md)
+  * [Hyper-V](home-lab/hypervisors/hyperv/README.md)
+    * [Windows WSL](home-lab/hypervisors/hyperv/wsl.md)
   * [Proxmox](home-lab/hypervisors/proxmox/README.md)
     * [Proxmox VE](home-lab/hypervisors/proxmox/pve-install.md)
     * [Proxmox Upgrade 7 to 8](home-lab/hypervisors/proxmox/pve-upgrade.md)
