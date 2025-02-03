@@ -10,11 +10,11 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 > ❗ **Disclaimer**
 >
-> *The content on this notes blog is intended for educational, personal, non-commercial, testing and research purposes only. It should not be used for illegal or malicious activities. The information is based on open-source material, my own interpretation and writing, and may not be up-to-date. Use it at your own risk. By using these notes, you agree to absolve me of any liability. All notes and comments from external resources will include a reference link to the original source.*
+> *The content on this notes blog is intended solely for educational, personal, non-commercial, testing, and research purposes. It must not be used for illegal or malicious activities. The information provided is based on publicly available material, as well as on my own interpretations and commentary, which may not always be up-to-date. Use this content at your own risk. By accessing these notes, you agree to absolve me of any liability. All references and comments from external resources will include a link to the original source.*
 >
-> ✏️ **Copyright** ©️ 2025 syselement
+> ✏️ **Copyright ©️ 2025 syselement**
 >
-> *The content on this blog is based on public material and is not subject to copyright protection. However, my original commentary and analysis are protected. Feel free to share links to the content on social media or other websites, and distribute the content by always mentioning me and the link of the utilized resource from this blog.*
+> *While much of the material in this blog is derived from public sources and is not subject to copyright, my original commentary, analysis, and writing are protected. You are free to share and redistribute this content as long as proper attribution is provided, including a reference to me (**syselement**) and a link to the utilized resource. Redistribution and adaptations must respect the principles of responsible sharing and this license. **Sharing responsibly helps maintain the integrity and value of the work while encouraging collaboration and learning.***
 
 ------
 
