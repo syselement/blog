@@ -10,6 +10,8 @@
 >   - [Public Key Cryptography Basics - TryHackMe](https://tryhackme.com/r/room/publickeycrypto)
 >   - [Hashing Basics - TryHackMe](https://tryhackme.com/r/room/hashingbasics)
 >   - [Introduction to Cryptography](https://tryhackme.com/r/room/cryptographyintro)
+> - [CryptoBook](https://cryptohack.gitbook.io/cryptobook)
+>   - [CryptoHack – A fun, free platform for learning cryptography](https://cryptohack.org/)
 > - [What is encryption? - Cloudflare](https://www.cloudflare.com/learning/ssl/what-is-encryption/)
 > - [Wolfram|Alpha](https://www.wolframalpha.com/)
 > - [Modular arithmetic - Britannica](https://www.britannica.com/science/modular-arithmetic)
