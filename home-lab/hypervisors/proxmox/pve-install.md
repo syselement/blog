@@ -458,13 +458,24 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/prometheus.s
 
 > TO DO
 >
-> 
->
 > - https://github.com/awesome-jellyfin/awesome-jellyfin
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/jellyfin.sh)"
 ```
+
+**Windows**
+
+- Installed on Windows via `exe` at [https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64](https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64)
+- **Update**
+  1. Download the latest version.
+  2. Close or Stop Jellyfin (service) if it is running.
+  3. Run the installer.
+  4. If everything was completed successfully, the new version is installed.
+  5. Run `services.msc`
+     - open `Jellyfin Server` service properties
+     - set Log On to `Local System account`
+     - save and start the service
 
 
 
