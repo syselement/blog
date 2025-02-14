@@ -1,5 +1,7 @@
 # CVSS v3.1
 
+![first.org - CVSS](.gitbook/assets/cvss.svg)
+
 ---
 
 ## 🌐 Resources 🔗
