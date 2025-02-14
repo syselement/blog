@@ -37,8 +37,6 @@ sudo apt update && sudo apt full-upgrade -y
 reboot
 ```
 
-![Kali Upgrade](.gitbook/assets/kali-upgrade.gif)
-
 - Customize Kali and finish off the setup using `kali-tweaks`
 
 ```bash

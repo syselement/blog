@@ -579,6 +579,9 @@ brew install derailed/k9s/k9s
 brew upgrade
 
 # Install kubectl
+# Fix this with correct version from
+# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
 sudo sh -c '
 	sudo apt install -y apt-transport-https ca-certificates curl gnupg
 	sudo mkdir -p -m 755 /etc/apt/keyrings
