@@ -2,14 +2,10 @@
 
 ![openwrt.org](.gitbook/assets/logo.png)
 
-> 🔬 **Hardware Used**
->
-> * `TP-Link EAP225 v2`
->
-> <img src=".gitbook/assets/eap225-hw.png" alt="TP-Link EAP225 v2" data-size="original">
->
-> 🔗 **Useful links**
->
+---
+
+## 🌐 Resources 🔗
+
 > * [TP-Link EAP225 series - openwrt](https://openwrt.org/toh/tp-link/eap225)
 >   * Installation & Switching back to vendor firmware
 > * [EAP225 v1 firmware - forum](https://forum.openwrt.org/t/eap225-v1-firmware/87116)
@@ -22,6 +18,14 @@
 > * [https://openwrt.org/](https://openwrt.org/)
 > * [OpenWrt Packages](https://github.com/openwrt/packages)
 
+---
+
+## 🔬 Hardware Used
+
+> * `TP-Link EAP225 v2`
+>
+> <img src=".gitbook/assets/eap225-hw.png" alt="TP-Link EAP225 v2" data-size="original">
+
 | Brand       | Model      | Version | Current Release | OEM Info                                                                                                         | Forum Topic                                                                                                                              | Technical Data                                                               |
 | ----------- | ---------- | ------- | --------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | **TP-Link** | **EAP225** | **v2**  | 22.03.3         | [https://www.tp-link.com/au/support/download/eap225/v2/](https://www.tp-link.com/au/support/download/eap225/v2/) | [https://forum.openwrt.org/t/anyone-working-on-tp-link-eap225/33956](https://forum.openwrt.org/t/anyone-working-on-tp-link-eap225/33956) | [View/Edit data](https://openwrt.org/toh/hwdata/tp-link/tp-link\_eap225\_v2) |
@@ -29,6 +33,8 @@
 | Model  | Version | SoC                      | CPU MHz | Flash MB | RAM MB | WLAN Hardware                                      | WLAN2.4 | WLAN5.0 |
 | ------ | ------- | ------------------------ | ------- | -------- | ------ | -------------------------------------------------- | ------- | ------- |
 | EAP225 | v2      | Qualcomm Atheros QCA9563 | 775     | 16       | 128    | Qualcomm Atheros QCA9563, Qualcomm Atheros QCA9882 | b/g/n   | a/n/ac  |
+
+---
 
 ## OpenWrt Install
 
@@ -62,7 +68,7 @@
 5. Use telnet to connect to your router (`telnet ${device-ip}`) and issue `chmod 777 /tmp` to make it writable
    * ```bash
      telnet <DEVICE-IP>
-
+     
      chmod 777 /tmp
      ```
 
@@ -148,6 +154,8 @@ opkg update
 >    3. kill currently running dropbear process
 >    4. run command `/usr/local/sbin/dropbear -p 22 -r /tmp/dropbear_rsa_host_key2 -d /tmp/dropbear_dss_host_key -L`
 >    5. now you should be able to SSH using the ssh commands supplied
+
+---
 
 ## OpenWrt Docs
 

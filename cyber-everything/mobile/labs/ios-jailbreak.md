@@ -1,11 +1,17 @@
 # iOS Jailbreak Guide
 
-## 🔗 Useful Links
+![apple.com - iOS](.gitbook/assets/iOS-Symbol.png)
+
+---
+
+## 🌐 Resources 🔗
 
 > * [CFW iOS Guide](https://ios.cfw.guide/get-started/select-iphone/) (always refer to this for iOS Versions and Jailbreak software)
 > * [Installing palera1n](https://ios.cfw.guide/installing-palera1n/)
 > * [Config Frida for rootless Jailbreak](https://www.linkedin.com/pulse/using-frida-server-rootless-jailbreak-ios-15-c%C3%A9sar-calder%C3%B3n/)
 > * [Sileo](https://ios.cfw.guide/using-sileo/)
+
+---
 
 ## [Checkra1n Jailbreak](https://checkra.in/)
 

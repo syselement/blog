@@ -2,7 +2,9 @@
 
 ![practicalnetworking.net - © Practical Networking](.gitbook/assets/pracnet-banner-logo.png)
 
-## 🔗 Useful Links
+---
+
+## 🌐 Resources 🔗
 
 > - [Practical Networking .net](https://www.practicalnetworking.net/)
 >   - by [Ed Harmoush](https://twitter.com/ed_pracnet)

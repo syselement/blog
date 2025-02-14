@@ -1,10 +1,16 @@
 # Android Rooting Guide
 
+---
+
+## 🌐 Resources 🔗
+
 > `e.g.` with a Google Pixel phone
 >
 > 🔗 [Pixel 6a](https://forum.xda-developers.com/f/google-pixel-6a.12605/)
 >
 > 🔗 [A13 detailed guide to Root & OTA's & pass SafetyNet / Play Integrity](https://forum.xda-developers.com/t/a13-detailed-guide-to-root-otas-pass-safetynet-play-integrity.4530221/)
+
+---
 
 ## Introduction
 

@@ -11,7 +11,7 @@
 
 ---
 
-
+## Bypass certificate pinning with Frida
 
 I've used my KaliVM and this instructions to follow IppSec's video and get everything working as he described.
 
