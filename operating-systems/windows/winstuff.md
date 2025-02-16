@@ -307,6 +307,40 @@ taskkill /PID targetpid
 
 ## Powershell commands
 
+### PS1 Scripts
+
+```powershell
+# 1. Run the script with Bypass mode (One-time execution)
+powershell -ExecutionPolicy Bypass -File <SCRIPT.ps1>
+# Shorter version
+powershell -ep Bypass -f <SCRIPT.ps1>
+
+# 2. Temporarily set execution policy for the current session
+Set-ExecutionPolicy Bypass -Scope Process -Force
+<SCRIPT.ps1>  # Now run the script
+
+# 3. Unblock the script file (if marked as untrusted)
+Unblock-File -Path <SCRIPT.ps1>
+<SCRIPT.ps1>  # Try running again
+
+# 4. Run the script without changing execution policy (using Invoke-Expression)
+powershell -Command "Get-Content <SCRIPT.ps1> | Invoke-Expression"
+# Alternative (more compact)
+iex (Get-Content <SCRIPT.ps1> -Raw)
+
+# 5. Change execution policy permanently (requires admin)
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force  # Allows all scripts
+Set-ExecutionPolicy RemoteSigned -Scope LocalMachine -Force  # Allows only signed remote scripts
+
+# 6. Run with -NoProfile to ignore execution policies
+powershell -NoProfile -ExecutionPolicy Bypass -File <SCRIPT.ps1>
+
+# 7. Reset execution policy back to restricted (optional, for security)
+Set-ExecutionPolicy Restricted -Scope CurrentUser -Force  # Blocks all scripts again
+```
+
+
+
 ### [Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/upgrade)
 
 ```bash
