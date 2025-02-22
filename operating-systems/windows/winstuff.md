@@ -7,7 +7,8 @@
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 >
 > - 📌 *Some commands may be outdated.*
-> - ❗⚠️ This document contains powerful Windows commands - review each carefully before execution, as they may impact your system, and use them at your own risk!
+
+> ❗⚠️ This document contains powerful Windows commands - review each carefully before execution, as they may impact your system, and use them at your own risk!
 
 ---
 
