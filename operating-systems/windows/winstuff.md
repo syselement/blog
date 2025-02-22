@@ -7,6 +7,7 @@
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 >
 > - 📌 *Some commands may be outdated.*
+> - ❗⚠️ This document contains powerful Windows commands - review each carefully before execution, as they may impact your system, and use them at your own risk!
 
 ---
 
@@ -95,11 +96,11 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 >
 > 🔗 [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
 >
-> ❗ The repositories above contain many useful and powerful scripts. Be sure to review them carefully before applying to your system, and do so at your own risk. ⚠️
+> ❗ **The repositories above contain many useful and powerful scripts. Be sure to review them carefully before applying to your system, and do so at your own risk!** ⚠️
 
 1. Download [https://github.com/Raphire/Win11Debloat](https://github.com/Raphire/Win11Debloat) repo and run `Run.bat` to configure
    - Run additional tweaks like `Regfiles\Hide_Onedrive_Folder.reg`
-2. Download [https://github.com/LeDragoX/Win-Debloat-Tools](https://github.com/LeDragoX/Win-Debloat-Tools) repo and run other scripts if necessary
+2. Download [https://github.com/LeDragoX/Win-Debloat-Tools](https://github.com/LeDragoX/Win-Debloat-Tools) repo and run other scripts if necessary (I prefer to run them manually)
    - Backup-System
    - Optimize-Privacy
    - Optimize-ServicesRunning
@@ -112,7 +113,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 
 **Removing Telemetry and other unnecessary services**
 
-> 📌 *The following commands may have already been executed by the scripts above. The command list is outdated and requires some cleaning and fixing.*
+> 📌 *The following commands may have already been executed by the scripts above. The command list may be outdated and requires some cleaning and fixing.*
 
 - Open `cmd.exe` and type the following commands
 
