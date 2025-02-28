@@ -10,4 +10,4 @@ description: Direct links to the certifications and training notes
 
 - [x] [Linux101](https://blog.syselement.com/tcm/courses/linux-101)
 - [x] [Mobile Application Penetration Testing](https://blog.syselement.com/tcm/courses/mapt)
-- [ ] [Practical Ethical Hacking](https://blog.syselement.com/tcm/courses/peh)
+- [x] [Practical Ethical Hacking](https://blog.syselement.com/tcm/courses/peh)
