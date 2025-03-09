@@ -394,7 +394,7 @@ sudo sh -c '
 
 ---
 
-## Offensive Sec Tools
+## Security Tools
 
 ### [SecLists](https://github.com/danielmiessler/SecLists)
 
@@ -496,5 +496,31 @@ sudo cp ~/go/bin/katana /usr/bin/
 
 ```bash
 katana -u <URL>
+```
+
+### [Sherlock](https://sherlockproject.xyz/)
+
+> *Hunt down social media accounts by username across social networks*
+
+```bash
+# On Kali
+sudo apt install sherlock
+```
+
+```bash
+sherlock <USER>
+```
+
+### [maigret](https://github.com/soxoj/maigret)
+
+> *Collect a dossier on a person by username from thousands of sites*
+
+```bash
+pipx install git+https://github.com/soxoj/maigret
+pipx ensurepath
+```
+
+```bash
+maigret <USER>
 ```
 

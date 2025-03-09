@@ -10,15 +10,17 @@
 
 > - 🔗 [Proxmox Virtual Environment (PVE) Administration Guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_install_proxmox_ve_on_debian)
 >   - [Proxmox Virtual Environment - Open-Source Server Virtualization Platform](https://proxmox.com/en/products/proxmox-virtual-environment/overview)
-> - ➡️ [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/)
+> - ➡️ [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts)
 
 ---
 
-> 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://tteck.github.io/Proxmox/).
+> 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts)
+>
+> ❗ Use the Proxmox **shell** on the main node via the pve web GUI
 
 ## Updating PVE - Manually
 
-- SSH into PVE
+- Open the Proxmox shell on the main node (or SSH into PVE -> risky)
 
 ```bash
 apt update && apt -y dist-upgrade
@@ -37,7 +39,7 @@ apt update && apt -y dist-upgrade
   - Update Proxmox VE
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pve-install.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"
 
 # It is recommended to answer “yes” (y) to all options presented during the process.
 ```
@@ -45,13 +47,13 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pve-i
 ## Kernel Clean
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/kernel-clean.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/kernel-clean.sh)"
 ```
 
 ## Processor Microcode
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/microcode.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/microcode.sh)"
 ```
 
 ## Network configuration
@@ -133,6 +135,16 @@ alias ports='ss -lpntu'
 alias updatepve='apt update && apt -y dist-upgrade'
 ```
 
+### Netdata
+
+> [Netdata - http://192.168.5.2:19999/](http://192.168.5.2:19999/)
+
+```bash
+
+```
+
+
+
 ### Backup Proxmox Config
 
 > - [ ] TO TRY
@@ -182,9 +194,9 @@ The script supports [healthchecks.io](https://healthchecks.io/) notifications, e
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/pbs.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/proxmox-backup-server.sh)"
 
-# PBS Interface <IP>:3000
+# PBS Interface <IP>:8007
 
 # Set a root password if using autologin. This will be the PBS password.
 # Login to WebGUI and open PBS shell
@@ -205,7 +217,7 @@ sudo passwd root
 Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to all options presented
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pbs-install.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)"
 ```
 
 
@@ -225,19 +237,19 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pbs-i
 ### LXCs - Cleaner
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/clean-lxcs.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/clean-lxcs.sh)"
 ```
 
 ### LXCs - Updater
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/update-lxcs.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/update-lxcs.sh)"
 ```
 
 ### LXC - Filesystem Trim
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/fstrim.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"
 ```
 
 
@@ -247,7 +259,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/fstrim.sh)
 > *DELETED*
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/uptimekuma.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/uptimekuma.sh)"
 ```
 
 
@@ -259,7 +271,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/uptimekuma.s
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/adguard.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/adguard.sh)"
 
 # Setup interface <IP>:3000
 
@@ -281,7 +293,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/adguard.sh)"
 - Based on Alpine Linux
 
 ```bash
-bash -c "$(wget -qO - https://github.com/tteck/Proxmox/raw/main/ct/alpine-vaultwarden.sh)"
+bash -c "$(wget -qO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/alpine-vaultwarden.sh)"
 
 # To Update Alpine-Vaultwarden, or Set the Admin Token, run the command above in the Vaultwarden LXC Console.
 # or run
@@ -303,7 +315,9 @@ Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/zoraxy.sh)"
+
+# To Manually Update Zoraxy, run the command above (or type update) in the Zoaxy LXC Console.
 ```
 
 - `Set Proxy Root` to `localhost:8080`
@@ -335,11 +349,11 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/zoraxy.sh)"
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/wikijs.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/wikijs.sh)"
 
 # Wiki.js Interface <IP>:3000
 
-# To Manually Update Wiki.js , run the command above (or type update) in the Wiki.js LXC Console.
+# To Manually Update Wiki.js, run the command above (or type update) in the Wiki.js LXC Console.
 ```
 
 
@@ -351,9 +365,11 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/wikijs.sh)"
 > [Technitium - http://192.168.5.11:5380/](http://192.168.5.11:5380/)
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/technitiumdns.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/technitiumdns.sh)"
 
 # Technitium DNS Interface <IP>:5380
+
+# To Manually Update Technitium DNS, run the command above (or type update) in the Technitium DNS LXC Console.
 ```
 
 Open the webpage and navigate to **Zones**
@@ -397,7 +413,7 @@ Open the webpage and navigate to **Zones**
 > OFF
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/pihole.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/pihole.sh)"
 
 # Reboot Pi-hole LXC after install
 #P i-hole Interface <IP>/admin
@@ -415,7 +431,7 @@ pihole -a -p
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/homepage.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homepage.sh)"
 
 # Homepage Interface: IP:3000
 
@@ -437,7 +453,7 @@ cd /opt/homepage/config/
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/runtipi.sh)"
 ```
 
 
@@ -449,7 +465,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/runtipi.sh)"
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/prometheus.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/prometheus.sh)"
 ```
 
 
@@ -461,7 +477,7 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/prometheus.s
 > - https://github.com/awesome-jellyfin/awesome-jellyfin
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/jellyfin.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/jellyfin.sh)"
 ```
 
 **Windows**
@@ -479,6 +495,73 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/jellyfin.sh)
 
 
 
+### [BookStack](https://www.bookstackapp.com/)
+
+> [BookStack - http://192.168.5.164/](http://192.168.5.164/)
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/bookstack.sh)"
+
+# BookStack Interface <IP>:80
+
+# Bookstack works only with static ip. If you Change the IP of your LXC, you Need to edit the .env File nano /opt/bookstack/.env
+
+# To Manually Update BookStack, run the command above (or type update) in the BookStack LXC Console.
+```
+
+```bash
+# Default Login Credentials
+# Username:
+admin@admin.com
+# Password:
+password
+```
+
+
+
+### [phpIPAM](https://phpipam.net/)
+
+> [phpIPAM - http://192.168.5.8](http://192.168.5.8)
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/phpipam.sh)"
+
+# Run the "3 Advanced Setting" to set static IP
+# phpIPAM Interface <IP>:80
+
+# To Manually Update phpIPAM, run the command above (or type update) in the phpIPAM LXC Console.
+```
+
+```bash
+# Default Login Credentials
+# Username:
+Admin
+# Password:
+ipamadmin
+```
+
+
+
+### [NetBox](https://netboxlabs.com/oss/netbox/)
+
+> - [ ] TO TRY
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/netbox.sh)"
+```
+
+
+
+### Checkmk
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
+
+
+```
+
+
+
 ------
 
 ## Ubuntu Server VM
@@ -486,18 +569,18 @@ bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/jellyfin.sh)
 > 🔗 ➡️ My [Ubuntu Server - VM](../../../operating-systems/linux/distros/ubuntu-server.md#first-boot-and-update) additional/updated guide
 
 ```bash
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/vm/ubuntu-vm.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/vm/ubuntu2404-vm.sh)"
 ```
 
 Turn OFF the VM (if ON).
 
-Follow the instruction at [Useful Ubuntu 22.04 VM Commands](https://github.com/tteck/Proxmox/discussions/2072) to set up Cloud-Init on the VM:
+Follow the instruction at [Useful Ubuntu 22.04 VM Commands](https://github.com/community-scripts/ProxmoxVE/discussions/272) to set up Cloud-Init on the VM:
 
 - User
 - Password
 - SSH public key for SSH Key login
 - Upgrade packages - `No`
-- Static IP
+- Static IP (may need DHCP)
 - Click `Regenerate Image`
 
 Start the VM.
@@ -762,31 +845,7 @@ microk8s.kubectl config view --raw > $HOME/.kube/config
 
 
 
----
-
-## Alpine VM
-
-> - [ ] TO TRY
-
-> [10 Alpine Linux apk Command Examples - nixCraft](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/)
-
-
-
----
-
-## BookStack VM
-
-> Use TurnKey LXC or a fresh Ubuntu Server VM
->
-> ```bash
-> bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/turnkey/turnkey.sh)"
-> 
-> # Resource and network settings are adjustable post LXC creation.
-> 
-> # The script creates a *.creds file in the Proxmox root directory with the password of the newly created TurnKey LXC Appliance.
-> # Retrieve Password 
-> cat turnkey-name.creds
-> ```
+### BookStack (only on fresh Ubuntu)
 
 > 🔗 [BookStack Admin Documentation - Installation](https://www.bookstackapp.com/docs/admin/installation/)
 >
@@ -794,7 +853,7 @@ microk8s.kubectl config view --raw > $HOME/.kube/config
 >
 > ​	🔗 [Ubuntu 24.04 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2404)
 
-- Install an [Ubuntu Server VM](#ubuntu-server-vm)
+- Install a fresh [Ubuntu Server VM](#ubuntu-server-vm)
 
 - SSH into the Ubuntu VM and run the `BookStack` Ubuntu Installation script
 
@@ -816,6 +875,23 @@ sudo ./installation-ubuntu-22.04.sh
 > 📌 Default login: `admin@admin.com`:`password`
 
 
+
+---
+
+## [Alpine VM](https://community-scripts.github.io/ProxmoxVE/scripts?id=alpine)
+
+> - [ ] TO TRY
+
+> [10 Alpine Linux apk Command Examples - nixCraft](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/)
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/alpine.sh)"
+```
+
+```bash
+# To update
+apk update && apk upgrade
+```
 
 ------
 
