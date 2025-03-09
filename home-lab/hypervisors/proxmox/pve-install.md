@@ -254,7 +254,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 
 
-### [Uptime Kuma LXC](https://github.com/louislam/uptime-kuma)
+### [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 
 > *DELETED*
 
@@ -264,7 +264,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 
 
-### [AdGuard Home LXC](https://adguard.com/en/adguard-home/overview.html)
+### [AdGuard Home](https://adguard.com/en/adguard-home/overview.html)
 
 > [AdGuard - http://192.168.5.5:3080](http://192.168.5.5:3080)
 
@@ -280,7 +280,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 
 
-### [Vaultwarden LXC](https://www.vaultwarden.net/)
+### [Vaultwarden](https://www.vaultwarden.net/)
 
 > [Vaultwarden - http://192.168.5.7:8000](http://192.168.5.7:8000)
 >
@@ -308,7 +308,7 @@ Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain 
 
 
 
-### [Zoraxy LXC](https://zoraxy.arozos.com/)
+### [Zoraxy](https://zoraxy.arozos.com/)
 
 > [Zoraxy - http://192.168.5.6:8000/](http://192.168.5.6:8000/)
 
@@ -340,7 +340,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 
 
-### [Wiki.js LXC](https://js.wiki/)
+### [Wiki.js](https://js.wiki/)
 
 > [Wiki.js - http://192.168.5.10:3000/](http://192.168.5.10:3000/)
 >
@@ -358,7 +358,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 
 
-### [Technitium DNS LXC](https://technitium.com/dns/)
+### [Technitium DNS](https://technitium.com/dns/)
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
@@ -472,7 +472,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 ### [Jellyfin Media Server](https://jellyfin.org/)
 
-> TO DO
+> - [ ] TO DO
+>
 >
 > - https://github.com/awesome-jellyfin/awesome-jellyfin
 
@@ -542,6 +543,36 @@ ipamadmin
 
 
 
+### [Cosmos Cloud](https://cosmos-cloud.io/)
+
+> [Cosmos Cloud - http://192.168.5.159/](http://192.168.5.159/)
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/cosmos.sh)"
+
+# Cosmos Interface <IP>:80
+
+# To Manually Update Cosmos, run the command above (or type update) in the Cosmos LXC Console.
+```
+
+
+
+### [Kavita](https://www.kavitareader.com/)
+
+> [Kavita - http://192.168.5.145:5000/](http://192.168.5.145:5000/)
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/kavita.sh)"
+
+# Kavita Interface <IP>:5000
+
+# To enable folder adding append your lxc.conf on your host with 'lxc.environment: DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1'
+
+# To Manually Update Kavita, run the command above (or type update) in the Kavita LXC Console.
+```
+
+
+
 ### [NetBox](https://netboxlabs.com/oss/netbox/)
 
 > - [ ] TO TRY
@@ -554,10 +585,20 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 ### Checkmk
 
+> - [ ] TO TRY
+
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
+```
 
 
+
+### Kasm
+
+> - [ ] TO TRY
+
+```bash
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
 ```
 
 
