@@ -1,5 +1,11 @@
 # Vagrant
 
+![vagrantup.com](.gitbook/assets/vagrantup-logo.png)
+
+---
+
+## 🌐 Resources 🔗
+
 > - [Vagrant Installation](https://developer.hashicorp.com/vagrant/docs/installation)
 >   - [Download](https://developer.hashicorp.com/vagrant/downloads) and Run the installer for Windows system.
 >   - The installer will automatically add `vagrant` to your system path so that it is available in terminals.
@@ -9,9 +15,11 @@
 > - Vagrant is meant to run with one Vagrantfile per project.
 > - When you run any `vagrant` command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory.
 >   - This feature lets you run `vagrant` from any directory in your project.
-> - Find more boxes at [HashiCorp's Vagrant Cloud box catalog](https://vagrantcloud.com/boxes/search)
+> - Find more boxes at [HashiCorp's Vagrant Cloud box catalog](https://portal.cloud.hashicorp.com/vagrant/discover)
 
 ![](.gitbook/assets/image-20230201220702304.png)
+
+---
 
 ## Default Provider
 
@@ -29,7 +37,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-
+---
 
 ## VirtualBox
 
@@ -51,7 +59,7 @@ vagrant init hashicorp/bionic64
 vagrant box add hashicorp/bionic64
 ```
 
-> This will download the box named `hashicorp/bionic64` from [HashiCorp's Vagrant Cloud box catalog](https://vagrantcloud.com/boxes/search), where you can find and host boxes.
+> This will download the box named `hashicorp/bionic64` from [HashiCorp's Vagrant Cloud box catalog](https://portal.cloud.hashicorp.com/vagrant/discover), where you can find and host boxes.
 >
 > Boxes are globally stored for the current user. Each project uses a box as an initial image to clone from, and never modifies the actual base image. This means that if you have two projects both using the `hashicorp/bionic64` box you just added, adding files in one guest machine will have no effect on the other machine.
 
@@ -135,16 +143,19 @@ vagrant box remove hashicorp/bionic64
   vagrant halt
   ```
   
-  
+
+---
 
 ## VMware Workstation
 
-- Install VMware
+- [Install VMware](../../../home-lab/hypervisors/vmware/vmware-workstation.md)
 - To upgrade the Vagrant VMware utility, download the latest version from the [Vagrant VMware utility downloads page](https://developer.hashicorp.com/vagrant/downloads/vmware) and install the system package to your local system.
 - You can install or update the Vagrant VMware plugin to the latest version by re-running the install command:
 
 ```powershell
 vagrant plugin install vagrant-vmware-desktop
+
+vagrant plugin update
 ```
 
 ![](.gitbook/assets/image-20230201211135873.png)
@@ -203,4 +214,26 @@ vagrant destroy
 > - Then bring up again the VM with `vagrant up --provider=vmware_desktop` command.
 
 ------
+
+## 📝 Cheatsheet
+
+```powershell
+vagrant plugin install vagrant-vmware-desktop
+vagrant plugin update
+
+vagrant init <IMAGE>
+vagrant up
+vagrant up --provider=vmware_desktop
+vagrant ssh
+
+vagrant suspend
+vagrant halt
+vagrant destroy
+
+vagrant box list
+vagrant box remove <BOX_NAME>
+
+```
+
+---
 

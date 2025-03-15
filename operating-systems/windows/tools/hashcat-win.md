@@ -1,6 +1,8 @@
 # Hashcat
 
-> - Check my entire guide to Windows, Linux and VM Hashcat installation and test [here](../../home-lab/redteam/lab_hashcat.md).
+> - Check my entire guide to Windows, Linux and VM Hashcat installation and test [here](../../../home-lab/redteam/lab-hashcat.md).
+
+---
 
 ## Windows Installation
 
@@ -13,6 +15,8 @@
 ![](.gitbook/assets/image-20220810211936796.png)
 
 ![](.gitbook/assets/image-20220810212037493.png)
+
+---
 
 ## Usage
 

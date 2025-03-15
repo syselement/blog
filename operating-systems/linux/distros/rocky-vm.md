@@ -54,6 +54,10 @@ date +%F
 date +%x
 date +%T
 date -d 20250310 +%j
+# Convert timestamp to a date
+date -d "1970-01-01 20156 days"
+# Convert date to timestamp
+echo $(($(date --date="2025-01-25" +%s)/86400+1))
 
 id root
 whoami
@@ -232,7 +236,8 @@ cat /etc/group
 cat /etc/gshadow
 
 groupadd -g 1020 group1
-addgroup # Debian
+# Debian
+addgroup
 
 groupmod -g 1022 group1
 groupmod -n group3 group2
@@ -244,8 +249,36 @@ groupdel group1
 
 ```bash
 # Users
+# root (uid=0) - system admin
+# system users (uid=201~999)
+# regulare users (uid>=1000)
+cat /etc/passwd
+cat /etc/shadow
+# ! For each line in the /etc/passwd file there must be a corresponding line in the /etc/shadow file.
 
-userldel -r # deletes user's primary group too
+# default settings
+cat /etc/login.defs
+cat /etc/default/useradd
+ls -lah /etc/skel/
+
+useradd user1
+useradd -u 1002 -g 1020 -d /home/user user2
+passwd user1
+tail -n 2 /etc/passwd
+tail -n 2 /etc/shadow
+tail -n 2 /etc/group ; tail -n 2 /etc/gshadow
+# Debian
+adduser
+deluser
+
+usermod -u 1005 user1
+usermod -L user2 # lock user
+
+userldel -r user1 # deletes user's home dir, mail files and primary group
+```
+
+```bash
+chown ...
 ```
 
 
