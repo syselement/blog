@@ -2,6 +2,8 @@
 
 ![](.gitbook/assets/rocky.png)
 
+> 📌 *These are Linux commands notes taken from the Rocky Linux docs, maybe I'll move them to a more Linux general section later.*
+
 ---
 
 ## 🌐 Resources 🔗
@@ -245,6 +247,12 @@ sudo find / -gid 1020 -exec chgrp 1022 {} \;
 groupdel group1
 
 # root GID = 0
+
+gpasswd -a user2 group1
+gpasswd -d user2 group1
+
+echo $SHLVL ; echo $BASH_SUBSHELL
+newgrp group1 # child shell with temp group1
 ```
 
 ```bash
@@ -257,11 +265,13 @@ cat /etc/shadow
 # ! For each line in the /etc/passwd file there must be a corresponding line in the /etc/shadow file.
 
 # default settings
+ls -lah /etc/skel/ # file templates for new user home dir
 cat /etc/login.defs
 cat /etc/default/useradd
-ls -lah /etc/skel/
 
-useradd user1
+useradd -D # shows /etc/default/useradd contents
+useradd user1 # defaults from /etc/default/useradd
+useradd -N user1 # no user group, uses the default (users:100)
 useradd -u 1002 -g 1020 -d /home/user user2
 passwd user1
 tail -n 2 /etc/passwd
@@ -273,12 +283,39 @@ deluser
 
 usermod -u 1005 user1
 usermod -L user2 # lock user
+usermod -G user1 user2
 
 userldel -r user1 # deletes user's home dir, mail files and primary group
+
+# File owners
+chown user1 file
+chown :group1 file
+chown user1:group1 file
+chown -R -v user1:group1 /tmp/dir
+chown --reference=./file2 file
+chgrp group1 file
 ```
 
 ```bash
-chown ...
+passwd
+passwd user1
+passwd -S user1
+passwd -l user1 # lock user
+passwd -u user1 # unlock user
+sudo echo "p@ssw0rd" | passwd --stdin user1 # default pw, e.g. in scripts
+
+chage user1
+chage -m 60 -M 90 -W 80 -I 10 user1 # pw expire
+
+su # login as root
+su - user1
+su - root -c "cat /etc/shadow"
+```
+
+### File System
+
+```bash
+...
 ```
 
 
