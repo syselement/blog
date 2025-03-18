@@ -1,5 +1,7 @@
 # Detection Lab
 
+---
+
 ## DetectionLab Intro
 
 _DetectionLab is a repository containing a variety of `Packer`, `Vagrant`, `Powershell`, `Ansible`, and `Terraform` scripts that allow you to automate the process of bringing an ActiveDirectory environment online complete with logging and security tooling using a variety of different platforms. **DetectionLab was built with defenders in mind**._
@@ -28,6 +30,8 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 ![Packer](.gitbook/assets/packer-wiki.png)
 
 ![Vagrant](.gitbook/assets/vagrant-wiki.png)
+
+---
 
 ### Primary Lab Features
 
@@ -122,20 +126,19 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >   * Velociraptor server
 >
 > #### Splunk Indexes
-
-| Index Name                     | Description                                                                                                           |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| evtx\_attack\_samples          | Samples from [https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES) |
-| osquery                        | osquery/Fleet result logs                                                                                             |
-| osquery-status                 | osquery/fleet INFO/WARN/ERROR logs                                                                                    |
-| powershell                     | Powershell transcription logs                                                                                         |
-| suricata                       | Suricata IDS logs                                                                                                     |
-| sysmon                         | Logs from the Sysmon service                                                                                          |
-| threathunting                  | Used for the ThreatHunting app                                                                                        |
-| wineventlog                    | Windows Event Logs                                                                                                    |
-| zeek                           | Zeek network traffic logs                                                                                             |
-| ### Installed Tools on Windows |                                                                                                                       |
-
+>
+> | Index Name                     | Description                                                  |
+> | ------------------------------ | ------------------------------------------------------------ |
+> | evtx_attack_samples            | Samples from https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES |
+> | osquery                        | osquery/Fleet result logs                                    |
+> | osquery-status                 | osquery/fleet INFO/WARN/ERROR logs                           |
+> | powershell                     | Powershell transcription logs                                |
+> | suricata                       | Suricata IDS logs                                            |
+> | sysmon                         | Logs from the Sysmon service                                 |
+> | threathunting                  | Used for the ThreatHunting app                               |
+> | wineventlog                    | Windows Event Logs                                           |
+> | zeek                           | Zeek network traffic logs                                    |
+> | ### Installed Tools on Windows |                                                              |
 > * Sysmon
 > * Velociraptor Agent
 > * osquery
@@ -298,6 +301,8 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 * Clone the DetectionLab repo into the dedicated folder
 
 ```powershell
+cd X:\VIRTUALBOX # in my case
+
 git clone https://github.com/clong/DetectionLab.git
 ```
 
@@ -460,6 +465,8 @@ vagrant destroy
 ## DetectionLab Usage
 
 * 🔗 Check the [Usage official repo](https://detectionlab.network/usage/)
+
+---
 
 ## DetectionLab Customization
 
