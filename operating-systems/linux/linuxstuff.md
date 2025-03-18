@@ -956,7 +956,7 @@ mv example.qcow2 /var/lib/libvirt/images/
 
 ### Metaspoitable VM
 
-> 📌 Check **Metasploitable3** VM [here](../home-lab/redteam/metasploitable3.md)
+> 📌 Check **Metasploitable3** VM [here](../../home-lab/redteam/metasploitable3.md)
 >
 > - [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
 > - Guides:
@@ -1007,4 +1007,6 @@ user.log
 /var/log/apache2/access.log
 /var/log/apache2/error.log
 ```
+
+---
 
