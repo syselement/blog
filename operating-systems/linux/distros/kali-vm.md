@@ -212,7 +212,7 @@ nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu htop kali-wallpapers-all locate nano net-tools pipx software-properties-common speedtest-cli terminator tor tree ugrep vlc wget
+sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu htop kali-wallpapers-all locate nano net-tools pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
 ```
 
 ### [Terminator](https://gnome-terminator.org/)

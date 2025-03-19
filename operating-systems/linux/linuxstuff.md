@@ -890,6 +890,38 @@ sudo apt install qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch
 qemu-aarch64-static -L /usr/aarch64-linux-gnu/ sandbox
 ```
 
+### Kali repos on Debian/Ubuntu apt
+
+```bash
+#!/bin/bash
+
+# Add kali repository to apt sources
+echo "[i] Adding Kali Linux repository to apt sources"
+sudo apt install gnupg
+
+# Download the Kali archive key, dearmor it, and save it to the keyring
+sudo sh -c 'wget -qO - https://archive.kali.org/archive-key.asc | gpg --dearmor | tee /usr/share/keyrings/kali-archive-keyring.gpg > /dev/null'
+
+# Add Kali repository entry to sources list
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.gpg] https://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list.d/kali.list'
+
+# Set low priority for Kali repository
+echo "[i] Setting low priority for Kali repository"
+sudo touch /etc/apt/preferences.d/kali.pref
+sudo chmod 666 /etc/apt/preferences.d/kali.pref
+echo 'Package: *' > /etc/apt/preferences.d/kali.pref
+echo 'Pin: release a=kali-rolling' >> /etc/apt/preferences.d/kali.pref
+echo 'Pin-Priority: 50' >> /etc/apt/preferences.d/kali.pref
+sudo chmod 644 /etc/apt/preferences.d/kali.pref
+
+# Update package lists
+sudo apt update
+
+echo "[i] Install completed."
+```
+
+
+
 ---
 
 ## Virtual Machines

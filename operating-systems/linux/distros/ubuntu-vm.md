@@ -285,12 +285,15 @@ packages=(
     pipx
     software-properties-common
     speedtest-cli
+    sshpass
     sysstat
     terminator
     tmux
+    tor
     tree
     ugrep
     vim
+    vlc
     wget
     xclip
     zsh
