@@ -586,6 +586,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 ### Checkmk
 
 > - [ ] TO TRY
+>
+> - https://www.youtube.com/watch?v=Rb1_7gbgS7k
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
