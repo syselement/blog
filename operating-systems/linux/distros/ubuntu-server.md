@@ -2,7 +2,15 @@
 
 ![](.gitbook/assets/ubuntu.svg) [Ubuntu Server](https://ubuntu.com/server/docs)
 
-## First Install - Virtual Machine
+---
+
+## 🌐 Resources 🔗
+
+> - [Ubuntu Server docs](https://documentation.ubuntu.com/server/)
+
+---
+
+## [First Install - Virtual Machine](https://documentation.ubuntu.com/server/tutorial/basic-installation/)
 
 - Create a new Virtual Machine in VMWare with preferred specs:
   - **Processors**: `1 CPU - 2 Cores`

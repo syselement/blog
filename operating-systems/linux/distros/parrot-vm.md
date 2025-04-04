@@ -2,7 +2,13 @@
 
 ![](.gitbook/assets/parrot.svg) [ParrotOS](https://www.parrotsec.org/)
 
+---
+
+## 🌐 Resources 🔗
+
 > 🔗 [Parrot Security Blog - Release Notes](https://parrotsec.org/blog/)
+
+---
 
 ## [First Install - Virtual Machine](https://parrotsec.org/docs/virtualization/parrot-on-vmware)
 

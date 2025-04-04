@@ -12,6 +12,7 @@
 ## 🌐 Resources 🔗
 
 > - [DistroWatch.com](https://distrowatch.com/)
+> - [modern-unix: A collection of modern/faster/saner alternatives to common unix commands.](https://github.com/ibraheemdev/modern-unix)
 
 ---
 
@@ -235,7 +236,7 @@ sudo dpkg -i packname
 ```bash
 passwd root
 passwd kali
-sudo apt install terminator -y
+sudo apt install -y terminator
 sudo update-alternatives --config x-terminal-emulator
 # gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
 ```
@@ -317,7 +318,7 @@ wget -O /dev/null -q --show-progress https://ash-speed.hetzner.com/10GB.bin
 - Or install `speedtest-cli`
 
 ```bash
-sudo apt install speedtest-cli
+sudo apt install -y speedtest-cli
 ```
 
 ```bash
@@ -327,9 +328,9 @@ speedtest-cli --secure
 ### [Speedtest by Ookla](https://www.speedtest.net/apps/cli)
 
 ```bash
-sudo apt install curl
+sudo apt install -y curl
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-sudo apt install speedtest
+sudo apt install -y speedtest
 ```
 
 ```bash
@@ -357,7 +358,7 @@ reboot -f
 ### Check Hardware Temperatures
 
 ```bash
-sudo apt install lm-sensors hddtemp
+sudo apt install -y lm-sensors hddtemp
 sudo sensors-detect
 /etc/init.d/kmod start
 sensors
@@ -369,7 +370,7 @@ vcgencmd measure_temp
 ### [CPU Stress-Terminal UI - s-tui](https://github.com/amanusk/s-tui)
 
 ```bash
-sudo apt install s-tui stress
+sudo apt install -y s-tui stress
 ```
 
 ```bash
@@ -503,14 +504,14 @@ wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee 
 
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
 
-sudo apt update && sudo apt install github-desktop
+sudo apt update && sudo apt install -y github-desktop
 ```
 
 ### Install Telegram
 
 ```bash
 # Via apt
-sudo apt install telegram-desktop
+sudo apt install -y telegram-desktop
 ```
 
 ```bash
@@ -522,6 +523,18 @@ sudo mv Telegram/ /opt
 /opt/Telegram/./Telegram
 /opt/Telegram/./Updater
 ```
+
+### Discord
+
+```bash
+sudo apt install -y gdebi-core wget
+
+wget -O ~/discord.deb "https://discord.com/api/download?platform=linux&format=deb"
+
+sudo gdebi ~/discord.deb
+```
+
+
 
 ### Install Anydesk
 
@@ -543,7 +556,7 @@ sudo apt install -y anydesk
 ### Install ForticlientVPN
 
 ```bash
-sudo apt install firefox jq lz4json openfortivpn
+sudo apt install -y firefox jq lz4json openfortivpn
 cd
 mkdir tools
 cd ~/tools
@@ -740,6 +753,15 @@ source $HOME/.bashrc
 source $HOME/.zshrc
 ```
 
+### [Install Rust](https://rustup.rs/)
+
+```bash
+sudo apt install -y curl
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+
+
 ---
 
 ## Usage and Configuration
@@ -885,7 +907,7 @@ sudo systemctl restart xrdp
 
 ```bash
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential libc6-dev-arm64-cross
+sudo apt install -y qemu-user qemu-user-static gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu binutils-aarch64-linux-gnu-dbg build-essential libc6-dev-arm64-cross
 
 qemu-aarch64-static -L /usr/aarch64-linux-gnu/ sandbox
 ```
@@ -897,7 +919,7 @@ qemu-aarch64-static -L /usr/aarch64-linux-gnu/ sandbox
 
 # Add kali repository to apt sources
 echo "[i] Adding Kali Linux repository to apt sources"
-sudo apt install gnupg
+sudo apt install -y gnupg
 
 # Download the Kali archive key, dearmor it, and save it to the keyring
 sudo sh -c 'wget -qO - https://archive.kali.org/archive-key.asc | gpg --dearmor | tee /usr/share/keyrings/kali-archive-keyring.gpg > /dev/null'
@@ -1015,7 +1037,101 @@ ssh root@segfault.net
 
 ## Troubleshooting
 
+### Disable a specific bluetooth adapter
 
+```bash
+hciconfig -a
+
+hci1:   Type: Primary  Bus: USB
+    BD Address: 5C:F3:70:77:17:42  ACL MTU: 1021:8  SCO MTU: 64:1
+    UP RUNNING 
+    RX bytes:41905 acl:130 sco:0 events:5165 errors:0
+    TX bytes:5896886 acl:9645 sco:0 commands:304 errors:0
+    Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+    Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+    Link policy: RSWITCH SNIFF 
+    Link mode: PERIPHERAL ACCEPT 
+    Name: 'asus-bt-usb'
+    Class: 0x7c010c
+    Service Classes: Rendering, Capturing, Object Transfer, Audio, Telephony
+    Device Class: Computer, Laptop
+    HCI Version: 4.0 (0x6)  Revision: 0x1000
+    LMP Version: 4.0 (0x6)  Subversion: 0x220e
+    Manufacturer: Broadcom Corporation (15)
+
+hci0:   Type: Primary  Bus: USB
+    BD Address: 5C:51:4F:13:7E:22  ACL MTU: 1021:5  SCO MTU: 96:5
+    UP RUNNING 
+    RX bytes:68635 acl:301 sco:0 events:8237 errors:0
+    TX bytes:4500654 acl:7333 sco:0 commands:849 errors:0
+    Features: 0xff 0xfe 0x0f 0xfe 0xdb 0xff 0x7b 0x87
+    Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+    Link policy: RSWITCH HOLD SNIFF 
+    Link mode: PERIPHERAL ACCEPT 
+    Name: 'asus-internal-bt'
+    Class: 0x7c010c
+    Service Classes: Rendering, Capturing, Object Transfer, Audio, Telephony
+    Device Class: Computer, Laptop
+    HCI Version: 4.0 (0x6)  Revision: 0x500
+    LMP Version: 4.0 (0x6)  Subversion: 0x500
+    Manufacturer: Intel Corp. (2)
+```
+
+```bash
+sudo nano /etc/init.d/disable_builtin_bluetooth
+
+#!/bin/bash
+echo "Disabling hci0 bluetooth adapter"
+/usr/sbin/hciconfig hci0 down &
+
+sudo chmod +x /etc/init.d/disable_builtin_bluetooth
+
+update-rc.d disable_builtin_bluetooth start 26 2 3 4 5  .
+
+sudo systemctl enable bluetooth 
+
+reboot
+```
+
+---
+
+### Audio/Microphone Bluetooth Fix with HFP/HSP (Headset Head Unit)
+
+```bash
+sudo apt-get update
+sudo apt install -y pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries
+systemctl --user daemon-reload
+systemctl --user --now disable pulseaudio.service pulseaudio.socket
+systemctl --user --now enable pipewire pipewire-pulse
+systemctl --user mask pulseaudio
+
+sudo systemctl --user restart pipewire-pulse
+pactl info
+```
+
+```bash
+# Parrot OS
+sudo systemctl list-unit-files --type=service
+sudo systemctl disable blueman-mechanism.service
+sudo systemctl disable bluetooth.service
+sudo apt install -y libspa-0.2-modules=0.3.19-4
+sudo apt install -y libspa-0.2-bluetooth
+sudo apt purge -y pulseaudio-module-bluetooth
+sudo apt install -y pulseaudio-module-bluetooth
+sudo systemctl enable --now bluetooth.service
+sudo reboot
+
+sudo systemctl enable --now blueman-mechanism.service
+sudo systemctl enable --now bluetooth.service
+```
+
+```bash
+sudo systemctl list-unit-files --type=service | grep blue
+
+blueman-mechanism.service enabled         enabled
+bluetooth.service	enabled         enabled
+dbus-org.bluez.service alias           -
+```
 
 
 

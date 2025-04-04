@@ -4,7 +4,9 @@
 
 ---
 
-## Download and Install VirtualBox
+## VirtualBox VM
+
+### Download and Install VirtualBox
 
 > Use the latest VirtualBox version (Screenshots may not be updated)
 
@@ -21,7 +23,7 @@ VirtualBox is a virtualization open source software that runs on Linux, Windows 
 
 ---
 
-## Download Linux Image
+### Download Linux Image
 
 For this tutorial **Ubuntu Desktop** Linux will be used.
 
@@ -31,7 +33,7 @@ If you want to use another distro check the [Popular Linux Distributions](README
 
 ---
 
-## Create Virtual Machine
+### Create Virtual Machine
 
 - Run VirtualBox.
 - Click on the ***New*** button to create a new virtual machine (***VM***)
@@ -80,7 +82,7 @@ If you want to use another distro check the [Popular Linux Distributions](README
 
 ---
 
-## Install Linux Image
+### Install Linux Image
 
 - Select the new VM and click on the ***Start*** button to start it
 
@@ -125,7 +127,7 @@ If you want to use another distro check the [Popular Linux Distributions](README
 
 ---
 
-## Install VirtualBox Guest Additions
+### Install VirtualBox Guest Additions
 
 Guest Additions software unlocks some advanced features of VirtualBox to better integrate the VM and the host machine, as well as improved video support using VMSVGA graphics controller.
 

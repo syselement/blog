@@ -2,7 +2,15 @@
 
 ![](.gitbook/assets/kali.svg) [Kali Linux](https://www.kali.org/)
 
-## First Install - Virtual Machine
+---
+
+## 🌐 Resources 🔗
+
+> 🔗 [Kali docs](https://www.kali.org/docs/)
+
+---
+
+## [First Install - Virtual Machine](https://www.kali.org/docs/installation/hard-disk-install/)
 
 - Create a new Virtual Machine in VMWare with preferred specs:
   - Processors: `1 CPU - 2 Cores`
