@@ -60,17 +60,10 @@ nano ~/.bashrc
 alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
-![](.gitbook/assets/image-20230611193528488.png)
-
-- Search for `PS1` and add a space after between `]` and `"` of the `PS1` variable in the following places, to get a space after the `$` of the bash session
-
-![](.gitbook/assets/2023-07-04_18-18-57_154.png)
-
-![](.gitbook/assets/2023-07-04_18-15-29_153.png)
-
 - Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
 
 ```bash
+cd
 mkdir htb tcm pwnx
 # Copy every .ovpn file in the respective dir
 ```
@@ -83,7 +76,7 @@ alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 ```
 
-- Save and exit.
+- Save and exit
 
 - Reload the bash configuration:
 
@@ -97,43 +90,61 @@ source ~/.bashrc
 updateos
 ```
 
-![](.gitbook/assets/image-20230611193627780.png)
-
 ------
 
 ## Configurations
 
-### GRUB Timeout
-
-- Set the seconds in the GRUB_TIMEOUT value to `1`
+### Basic config
 
 ```bash
+# Timezone
+sudo unlink /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+sudo timedatectl set-timezone "Europe/Rome"
+
+# GRUB Timeout
 sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
 sudo update-grub
-reboot
 
-# Or edit it manually
-sudo nano /etc/default/grub
-```
-
-![](.gitbook/assets/image-20230611193823609.png)
-
-### NTP
-
-```bash
+# Chrony NTP
 sudo apt install -y chrony
 sudo systemctl enable --now chrony
 sudo systemctl status chrony --no-pager
 sudo timedatectl status
 ```
 
-### New SSH Keys
+### SSH keys
 
 ```bash
+# Host ssh keys
 sudo /bin/rm -v /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
 sudo systemctl restart ssh
-ssh-keygen -t rsa
+
+# User ssh key pair
+cd
+mkdir -p ~/.ssh
+cd ~/.ssh
+ssh-keygen -t ed25519
+# Type a secure passphrase when asked
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+
+# Add the SSH private key to the ssh-agent
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+```
+
+### Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
+
+```bash
+cd
+mkdir -p $HOME/.local/share/fonts
+cd $HOME/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+rm JetBrainsMono.zip
+
+fc-cache -fv
 ```
 
 ### Zsh & Oh-My-Zsh
@@ -164,6 +175,62 @@ sudo sh -c '
 
 - Run it with **`subl`** command.
 
+### [Terminator](https://gnome-terminator.org/)
+
+```bash
+sudo apt install -y terminator
+```
+
+- From the `System / Preferences / Personal / Preferred Applications` menu, set `terminator` as the default terminal to use
+
+![](.gitbook/assets/2023-07-04_19-18-18_155.png)
+
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
+
+![](.gitbook/assets/2023-07-04_19-19-36_156.png)
+
+- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
+- Go to `Preferences - Global` and set **Window state** to `Maximized`
+- Go to `Preferences - Profiles - General` and set the **Font** to `Monotspace Regular 16`.
+- Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
+- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
+- The same above preferences can be configure within the following config file
+
+```bash
+touch ~/.config/terminator/config
+```
+
+```bash
+# Basic layout with custom font
+
+cat > "$HOME/.config/terminator/config" << 'EOF'
+[global_config]
+  window_state = maximise
+[keybindings]
+[profiles]
+  [[default]]
+    font = JetBrainsMono Nerd Font Mono 16
+    foreground_color = "#f6f5f4"
+    show_titlebar = False
+    scrollback_infinite = True
+    disable_mousewheel_zoom = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
+EOF
+```
+
+- `ALT+T` is a keyboard shortcut already configured in ParrotOS. It should open the `terminator` with your configured layout.
+
 ### [Brave](https://brave.com/linux/)
 
 ```bash
@@ -187,47 +254,6 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-package
 
 sudo apt update && sudo apt install -y github-desktop
 ```
-
-### [Terminator](https://gnome-terminator.org/)
-
-```bash
-sudo apt install -y terminator
-```
-
-- From the `System / Preferences / Personal / Preferred Applications` menu, set `terminator` as the default terminal to use
-
-![](.gitbook/assets/2023-07-04_19-18-18_155.png)
-
-```bash
-sudo update-alternatives --config x-terminal-emulator
-```
-
-![](.gitbook/assets/2023-07-04_19-19-36_156.png)
-
-- Set up your layout. Full screen the Terminator window and split it in half using `CTRL+SHIFT+E` keyboard shortcut.
-  - [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
-
-- Go to `Preferences - Global` and set **Window state** to `Maximized`
-- Go to `Preferences - Profiles - General` and set the **Font** to `Monotspace Regular 16`.
-- Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
-- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
-- Go to `Preferences - Layouts` and click on `Add` button to create a new layout and give it a name.
-- This should create the `~/.config/terminator/config` file.
-- Now you can start `terminator` using the saved layout using: 
-
-```bash
-terminator -l <yourLayout>
-```
-
-- Edit the `~/.config/terminator/config` file, rename *yourLayout* to `default` and remove/rename the previous default layout. Now, when Terminator starts without any parameters, it will load your custom [[default]] layout!
-
-```bash
-nano ~/.config/terminator/config
-```
-
-![e.g.](.gitbook/assets/2023-07-04_19-30-49_157.png)
-
-- **`ALT+T`** is a keyboard shortcut already configured in ParrotOS. It should open the `terminator` with your configured layout.
 
 ### [VS Codium](https://github.com/VSCodium/vscodium)
 
@@ -267,24 +293,4 @@ docker run hello-world
 ```
 
 ------
-
-## Offensive Sec Tools
-
-### [Searchsploit](https://www.exploit-db.com/searchsploit)
-
-```bash
-sudo apt update && sudo apt -y install exploitdb
-
-searchsploit -u
-```
-
-### [Katana](https://github.com/projectdiscovery/katana)
-
-```bash
-sudo apt install -y golang
-
-go install github.com/projectdiscovery/katana/cmd/katana@latest
-
-sudo cp ~/go/bin/katana /bin/
-```
 

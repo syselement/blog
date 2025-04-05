@@ -83,16 +83,17 @@ sudo swapon /swapfile
 ### Disk - Extend LVM Partition
 
 ```bash
+sudo -i
 echo 1>/sys/class/block/sda/device/rescan
-sudo cfdisk
+# cfdisk
 # Resize the wanted partition
-# sudo lsblk
-# sudo vgdisplay -v
-# sudo pvresize /dev/<your_sda>
-# sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
-# sudo vgdisplay -v
-# sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
-df -h
+sudo lsblk
+sudo vgdisplay -v
+sudo pvresize /dev/<your_sda>
+sudo lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+sudo vgdisplay -v
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+df -hT
 ```
 
 ### Hardware Check

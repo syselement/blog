@@ -70,6 +70,7 @@ alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo ap
 - Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
 
 ```bash
+cd
 mkdir htb tcm pwnx
 # Copy every .ovpn file in the respective dir
 ```
@@ -83,7 +84,7 @@ alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 ```
 
-- Save and exit.
+- Save and exit
 
 - Reload the zshell configuration:
 
@@ -97,48 +98,30 @@ source ~/.zshrc
 updateos
 ```
 
-![](.gitbook/assets/image-20230307150035865.png)
-
 ---
 
 ## Configurations
 
-### GRUB Timeout
-
-- Set the seconds in the GRUB_TIMEOUT value to `1`
+### Basic config
 
 ```bash
+# Timezone
+sudo unlink /etc/localtime
+sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+sudo timedatectl set-timezone "Europe/Rome"
+
+# GRUB Timeout
 sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
 sudo update-grub
 
-# Or edit it manually
-# sudo nano /etc/default/grub
-```
-
-
-
-### Set Chrony NTP
-
-```bash
+# Chrony NTP
 sudo apt install -y chrony
 sudo systemctl enable --now chrony
 sudo systemctl status chrony --no-pager
 sudo timedatectl status
 ```
 
-
-
-### Set Timezone
-
-```bash
-sudo unlink /etc/localtime
-sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
-sudo timedatectl set-timezone "Europe/Rome"
-```
-
-
-
-### New SSH Host and User Keys
+### SSH keys
 
 ```bash
 # Host ssh keys
@@ -147,18 +130,30 @@ sudo dpkg-reconfigure openssh-server
 sudo systemctl restart ssh
 
 # User ssh key pair
-
 cd
-mkdir -p .ssh
-cd .ssh
-# Generate SSH Key Pair for User Authentication
+mkdir -p ~/.ssh
+cd ~/.ssh
 ssh-keygen -t ed25519
-# Set appropriate permissions
+# Type a secure passphrase when asked
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
+
+# Add the SSH private key to the ssh-agent
+eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
 ```
 
+### Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
+```bash
+cd
+mkdir -p $HOME/.local/share/fonts
+cd $HOME/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+rm JetBrainsMono.zip
+
+fc-cache -fv
+```
 
 ### Zsh & Oh-My-Zsh
 
@@ -169,6 +164,9 @@ chmod 600 ~/.ssh/*
 ## Personal Kali Config
 
 ```bash
+# Disable Password prompt for sudo group
+sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+
 # KALI Linux XFCE Theme mod #
 
 echo -ne "\n--------Kali Theme Mod--------\n"
@@ -209,8 +207,6 @@ nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
       <property name="Print" type="string" value="/usr/bin/flameshot gui --clipboard"/>
 ```
 
-
-
 ---
 
 ## Tools
@@ -222,6 +218,19 @@ nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 ```bash
 sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu htop kali-wallpapers-all locate nano net-tools pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
 ```
+
+### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
+
+```bash
+sudo sh -c '
+    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
+    apt update &&
+    apt install -y sublime-text
+'
+```
+
+- Run it with **`subl`** command.
 
 ### [Terminator](https://gnome-terminator.org/)
 
@@ -239,112 +248,43 @@ sudo update-alternatives --config x-terminal-emulator
 
 ![](.gitbook/assets/image-20230307152343811.png)
 
-- Set up your layout. `CTRL+SHIFT+O` and `CTRL+SHIFT+E` in my case.
-  - [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
-
+- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
 - Go to `Preferences - Global` and set **Window state** to `Maximized`
 - Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
 - Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
-- Go to `Preferences - Layouts` and click on `Add` button to create a new layout and give it a name.
-- This should create the `~/.config/terminator/config` file.
-- Now you can start `terminator` using the saved layout using: 
 
 ```bash
-terminator -l <yourLayout>
-```
-
-- Edit the `~/.config/terminator/config` file, rename *yourLayout* to `default` and remove/rename the previous default layout. Now, when Terminator starts without any parameters, it will load your custom [[default]] layout!
-  - Edit the [[[terminalx]]]/ `command = neofetch;zsh` for the desired terminal, so that it will run your custom command during startup!!
-
-```bash
-nano ~/.config/terminator/config
+touch ~/.config/terminator/config
 ```
 
 ```bash
+# Basic layout with custom font
+
+cat > "$HOME/.config/terminator/config" << 'EOF'
 [global_config]
   window_state = maximise
-  suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.99
-    background_type = transparent
+    font = JetBrainsMono Nerd Font Mono 16
+    foreground_color = "#f6f5f4"
+    show_titlebar = False
     scrollback_infinite = True
-    palette = "#1f2229:#d41919:#5ebdab:#fea44c:#367bf0:#9755b3:#49aee6:#e6e6e6:#198388:#ec0101:#47d4b9:#ff8a18:#277fff:#962ac3:#05a1f7:#ffffff"
-    use_theme_colors = True
-    title_transmit_bg_color = "#1c71d8"
-    title_receive_bg_color = "#3584e4"
+    disable_mousewheel_zoom = True
+    use_system_font = False
 [layouts]
-#  [[default]]
-#    [[[window0]]]
-#      type = Window
-#      parent = ""
-#    [[[child1]]]
-#      type = Terminal
-#      parent = window0
-#      profile = default
   [[default]]
-    [[[child0]]]
+    [[[window0]]]
       type = Window
       parent = ""
-      order = 0
-      position = 0:35
-      maximised = True
-      fullscreen = False
-      size = 2550, 1529
-      title = syselement@syskali: ~
-      last_active_term = bad1ac94-7015-4914-b44a-dbeb25a78357
-      last_active_window = True
     [[[child1]]]
-      type = VPaned
-      parent = child0
-      order = 0
-      position = 762
-      ratio = 0.5
-    [[[terminal2]]]
       type = Terminal
-      parent = child1
-      order = 0
-      profile = default
-      uuid = bad1ac94-7015-4914-b44a-dbeb25a78357
-      command = fastfetch;zsh
-    [[[child3]]]
-      type = HPaned
-      parent = child1
-      order = 1
-      position = 1272
-      ratio = 0.499803536345776
-    [[[terminal4]]]
-      type = Terminal
-      parent = child3
-      order = 0
-      profile = default
-      uuid = f9bdedfc-607c-4975-abaa-7c64fc7076b2
-    [[[terminal5]]]
-      type = Terminal
-      parent = child3
-      order = 1
-      profile = default
-      uuid = e7f2289c-ce5b-4b54-ba1c-59cdad3b77c3
+      parent = window0
 [plugins]
+EOF
 ```
 
-- **`CTRL+ALT+T`** is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
-
-![](.gitbook/assets/image-20230307154541533.png)
-
-### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
-
-```bash
-sudo sh -c '
-    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
-    apt update &&
-    apt install -y sublime-text
-'
-```
-
-- Run it with **`subl`** command.
+- `CTRL+ALT+T` is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
 
 ### [Brave](https://brave.com/linux/)
 
@@ -404,49 +344,6 @@ sudo sh -c '
 
 ## Security Tools
 
-### [SecLists](https://github.com/danielmiessler/SecLists)
-
-```bash
-seclists() {
-    if [[ -d /usr/share/seclists ]];
-     then
-      echo -e "\n /usr/share/seclists  already exists -- skipping"
-     else
-      echo -e "\n Download Seclists to /tmp/SecLists.zip"
-      sudo wget https://github.com/danielmiessler/SecLists/archive/master.zip -O /tmp/SecList.zip
-      echo -e "\n Extracing /tmp/Seclists.zip to /usr/share/seclists"
-      sudo unzip -o /tmp/SecList.zip -d /usr/share/seclists
-      # rm -f /tmp/SecList.zip
-      echo -e "\n Seclists complete" 
-    fi
-    }
-seclists
-```
-
-### [Searchsploit](https://www.exploit-db.com/searchsploit)
-
-```bash
-sudo apt update && sudo apt -y install exploitdb
-
-searchsploit -u
-```
-
-### [pimpmykali](https://github.com/Dewalt-arch/pimpmykali)
-
-> *Kali Linux Fixes for Newly Imported VM's*
->
-> ❗ **Read [docs](https://github.com/Dewalt-arch/pimpmykali) before running it! It may contains mods that you do not want.**
-
-```bash
-cd /opt
-sudo rm -rf pimpmykali/
-sudo git clone https://github.com/Dewalt-arch/pimpmykali
-
-sudo /opt/pimpmykali/pimpmykali.sh
-
-# For a new kali vm, run menu option N
-```
-
 ### [AutoRecon](https://github.com/Tib3rius/AutoRecon)
 
 > *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
@@ -480,16 +377,6 @@ sudo autorecon <TARGET-IP>
 	└── xml/
 ```
 
-### [pwntools](https://github.com/Gallopsled/pwntools)
-
-> *Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.*
-
-```bash
-sudo apt update && sudo apt install -y python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade pwntools
-```
-
 ### [Katana](https://github.com/projectdiscovery/katana)
 
 > *A next-generation crawling and spidering framework*
@@ -506,19 +393,6 @@ sudo cp ~/go/bin/katana /usr/bin/
 katana -u <URL>
 ```
 
-### [Sherlock](https://sherlockproject.xyz/)
-
-> *Hunt down social media accounts by username across social networks*
-
-```bash
-# On Kali
-sudo apt install sherlock
-```
-
-```bash
-sherlock <USER>
-```
-
 ### [maigret](https://github.com/soxoj/maigret)
 
 > *Collect a dossier on a person by username from thousands of sites*
@@ -530,5 +404,71 @@ pipx ensurepath
 
 ```bash
 maigret <USER>
+```
+
+### [pimpmykali](https://github.com/Dewalt-arch/pimpmykali)
+
+> *Kali Linux Fixes for Newly Imported VM's*
+>
+> ❗ **Read [docs](https://github.com/Dewalt-arch/pimpmykali) before running it! It may contains mods that you do not want.**
+
+```bash
+cd /opt
+sudo rm -rf pimpmykali/
+sudo git clone https://github.com/Dewalt-arch/pimpmykali
+
+sudo /opt/pimpmykali/pimpmykali.sh
+
+# For a new kali vm, run menu option N
+```
+
+### [pwntools](https://github.com/Gallopsled/pwntools)
+
+> *Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.*
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade pwntools
+```
+
+### [Searchsploit](https://www.exploit-db.com/searchsploit)
+
+```bash
+sudo apt update && sudo apt -y install exploitdb
+
+searchsploit -u
+```
+
+### [SecLists](https://github.com/danielmiessler/SecLists)
+
+```bash
+seclists() {
+    if [[ -d /usr/share/seclists ]];
+     then
+      echo -e "\n /usr/share/seclists  already exists -- skipping"
+     else
+      echo -e "\n Download Seclists to /tmp/SecLists.zip"
+      sudo wget https://github.com/danielmiessler/SecLists/archive/master.zip -O /tmp/SecList.zip
+      echo -e "\n Extracing /tmp/Seclists.zip to /usr/share/seclists"
+      sudo unzip -o /tmp/SecList.zip -d /usr/share/seclists
+      # rm -f /tmp/SecList.zip
+      echo -e "\n Seclists complete" 
+    fi
+    }
+seclists
+```
+
+### [Sherlock](https://sherlockproject.xyz/)
+
+> *Hunt down social media accounts by username across social networks*
+
+```bash
+# On Kali
+sudo apt install sherlock
+```
+
+```bash
+sherlock <USER>
 ```
 

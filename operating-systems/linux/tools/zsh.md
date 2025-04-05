@@ -1,13 +1,28 @@
 # Zsh & Oh-My-Zsh
 
-> 🔗 [Zsh](https://www.zsh.org/)
+---
+
+## 🌐 Resources 🔗
+
+> - [Zsh](https://www.zsh.org/)
 >
-> 🔗 [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+>   - [zsh community projects](https://github.com/zsh-users)
 >
-> 🔗 [Zsh for Humans](https://github.com/romkatv/zsh4humans)
+> - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+>
+> - [Zsh for Humans](https://github.com/romkatv/zsh4humans)
+>
+> - [Nerd Fonts](https://www.nerdfonts.com/)
+>
+> - e.g. [NeuralNine/config-files](https://github.com/NeuralNine/config-files)
+>
+
+---
+
+## Zsh Installation
 
 ```bash
-sudo apt install -y zsh fonts-powerline eza git-all
+sudo apt update -y && sudo apt install -y curl eza git-all zsh
 sudo chsh -s $(which zsh) $(whoami)
 
 zsh
@@ -17,15 +32,33 @@ zsh
 
 ```bash
 sudo sh -c '
-apt update &&
-apt install -y gpg &&
-mkdir -p /usr/share/keyrings &&
-wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /usr/share/keyrings/gierens.gpg &&
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list &&
-chmod 644 /usr/share/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list &&
-apt update &&
-apt install -y eza
+    apt update &&
+    apt install -y gpg &&
+    mkdir -p /usr/share/keyrings &&
+    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /usr/share/keyrings/gierens.gpg &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list &&
+    chmod 644 /usr/share/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list &&
+    apt update &&
+    apt install -y eza
 '
+```
+
+- Install a specific [nerd font](https://www.nerdfonts.com/font-downloads) and set it as terminal emulator font
+  - e.g. **JetBrainsMono Nerd Font**
+
+```bash
+cd
+mkdir -p $HOME/.local/share/fonts
+cd $HOME/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+rm JetBrainsMono.zip
+
+fc-cache -fv
+
+# Set "JeBrainsMono Nerd Font Mono" Regular font for the terminal
+# e.g. for Terminator
+sed -i '/\[\[default\]\]/,/^\[/s/^ *font = .*/    font = JetBrainsMono Nerd Font Mono 16/' "$HOME/.config/terminator/config"
 ```
 
 ---
@@ -38,7 +71,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 # Confirm with y to chage the default shell to zsh
 ```
 
-Install the desired plugins and themes.
+Install the desired plugins and themes
 
 ```bash
 # Auto-suggestions
@@ -79,6 +112,9 @@ zstyle '\'' :omz:lib:* '\'' aliases no\n' "$ZSHRC"
 
 ```bash
 zsh
+
+# Add "user" to be shown in the prompt
+grep -q '^[[:space:]]*user[[:space:]]*$' "$HOME/.p10k.zsh" || sed -i '/os_icon.*# os identifier/ a\    user' "$HOME/.p10k.zsh"
 ```
 
 > **EXTRA**
@@ -99,7 +135,7 @@ zsh
 
 ### aliases
 
-Set Custom **Aliases**.
+Define custom **Aliases** within the `ZSH_CUSTOM` folder (if a `oh-my-zsh` user), or in the `$HOME/.zshrc` file if only `zsh` user.
 
 ```bash
 # e.g. of my custom aliases
@@ -107,6 +143,9 @@ Set Custom **Aliases**.
 sudo tee $ZSH_CUSTOM/aliases.zsh > /dev/null <<EOF
 # Alias to update the system
 alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+
+# Comment above & Uncomment the following for full Ubuntu + Snap + Brew update
+# alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo snap refresh" && brew upgrade'
 
 # OpenVpn Aliases
 alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'        # HTB FREE VPN
