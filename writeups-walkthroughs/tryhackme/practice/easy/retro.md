@@ -4,7 +4,7 @@
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/retro.jpeg)           |
+| Room Info           | ![](.gitbook/assets/retro.png)            |
 | :------------------ | ----------------------------------------- |
 | 🔗 Name              | [Retro](https://tryhackme.com/room/retro) |
 | 🎯 Target IP         | `10.10.181.110`                           |
