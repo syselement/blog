@@ -23,8 +23,6 @@
 
 ![](.gitbook/assets/image-20230611192331531.png)
 
-![ParrotOS Install](.gitbook/assets/parrot-install.gif)
-
 ---
 
 ## First Boot & Update

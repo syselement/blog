@@ -186,8 +186,6 @@ curl -Lso /opt/bitwarden/bitwarden.sh "https://func.bitwarden.com/api/dl/?app=se
 /opt/bitwarden/bwdata/scripts/updatebw.sh
 ```
 
-![Bitwarden Update](.gitbook/assets/bw_update.gif)
-
 ## Start and Stop Bitwarden
 
 ```bash

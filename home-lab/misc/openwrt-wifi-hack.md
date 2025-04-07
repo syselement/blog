@@ -120,7 +120,7 @@
       chmod +x /tmp/uclited && /tmp/uclited -u
       ```
 
-![](.gitbook/assets/openwrt-eap225.gif)
+![](.gitbook/assets/2025-04-07_22-06-40_971.png)
 
 ✅ Success! - **`OpenWrt 22.03.3`**
 

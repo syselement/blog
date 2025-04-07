@@ -22,7 +22,7 @@
 
 ![](.gitbook/assets/image-20230307160636827.png)
 
-![Kali Install](.gitbook/assets/kali-install.gif)
+---
 
 ## First Boot & Update
 

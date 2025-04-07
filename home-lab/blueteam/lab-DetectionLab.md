@@ -370,7 +370,7 @@ vagrant up wef --provider=virtualbox
 vagrant up win10 --provider=virtualbox
 ```
 
-![DetectionLab Deploy](.gitbook/assets/DetectionLab-prepare.gif)
+![DetectionLab Deploy](.gitbook/assets/2025-04-07_22-22-37_974.png)
 
 > * Once provisioning is finished, you can access the VMs through the GUI or SSH/RDP to them directly.
 > * If you encounter an error or any issues, checkout the [troubleshooting section](lab\_DetectionLab.md#troubleshooting-and-known-issues).
@@ -401,7 +401,7 @@ vagrant halt
 vagrant up --provider=virtualbox
 ```
 
-![DetectionLab entire Deploy](.gitbook/assets/DetectionLab-Deploy2.gif)
+![DetectionLab Start](.gitbook/assets/DetectionLab-Deploy2.gif)
 
 ### Errors
 

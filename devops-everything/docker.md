@@ -12,23 +12,22 @@
 >   - [Building best practices - Docker Docs](https://docs.docker.com/build/building/best-practices/)
 >   - [Intro Guide to Dockerfile Best Practices | Docker](https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/)
 >   - [Docker Hub - Container Image Library](https://hub.docker.com/)
->
+> 
 >  - [Docker Engine](https://docs.docker.com/engine/)
 > - [Docker Network](https://docs.docker.com/network/)
 >  - [Beginner's Guide to Docker Networking](https://k21academy.com/docker-kubernetes/docker-networking-different-types-of-networking-overview-for-beginners/)
 >   - [The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
-> - [Docker Compose](https://docs.docker.com/compose/)
+>- [Docker Compose](https://docs.docker.com/compose/)
 > - [Dockerfile](https://docs.docker.com/reference/dockerfile/)
 >   - [Top 8 container registries - Octopus Deploy](https://octopus.com/blog/top-8-container-registries)
-> - [Docker Volumes](https://docs.docker.com/storage/volumes/)
+>- [Docker Volumes](https://docs.docker.com/storage/volumes/)
 > - [Docker security - Penetration Testing Tools, ML and Linux Tutorials](https://reconshell.com/docker-security/)
-> - [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
+>- [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
 > - [Intro The DevOps - Containers - NotHarshhaa Github](https://github.com/NotHarshhaa/into-the-devops/blob/master/topics/containers/README.md)
-> - [container.training - Github](https://github.com/jpetazzo/container.training)
+>- [container.training - Github](https://github.com/jpetazzo/container.training)
 > - [TryHackMe - Intro to Docker](https://tryhackme.com/r/room/introtodockerk8pdqk)
-> - [containerd](https://containerd.io/)
+>- [containerd](https://containerd.io/)
 > - [cri-o](https://cri-o.io/)
-> - [Docker The Hands-On Way - iximiuz labs](https://labs.iximiuz.com/roadmaps/docker)
 
 ![containerd.io/](.gitbook/assets/containerd-architecture.png)
 
@@ -215,8 +214,6 @@ reboot
 docker run hello-world
 ```
 
-![](.gitbook/assets/2023-06-19_23-38-34_91.png)
-
 ---
 
 ## Commands
@@ -321,65 +318,7 @@ docker run -v /var/lib/mysql/data
 git clone https://gitlab.com/nanuchi/developing-with-docker.git
 ```
 
-### Ubuntu Docker instance
 
-```bash
-docker run -it ubuntu bash
-```
-
-### Wordpress Docker instance
-
-> 🔗 Thanks to [AppSecExplained](https://gist.github.com/AppSecExplained/8bbf5366c6279ffc44beec16e6c39855) for the `yml` file.
-
-```bash
-sudo mkdir /opt/wordpress
-sudo nano /opt/wordpress/docker-compose.yml
-```
-
-```bash
-version: "3"
-services:
-  database:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: wppassword
-      MYSQL_DATABASE: wpdb
-      MYSQL_USER: wpuser
-      MYSQL_PASSWORD: wppassword
-    volumes:
-      - mysql:/var/lib/mysql
-
-  wordpress:
-    depends_on:
-      - database
-    image: wordpress:latest
-    restart: always
-    ports:
-      - "80:80"
-    environment:
-      WORDPRESS_DB_HOST: database:3306
-      WORDPRESS_DB_USER: wpuser
-      WORDPRESS_DB_PASSWORD: wppassword
-      WORDPRESS_DB_NAME: wpdb
-    volumes:
-      ["./:/var/www/html"]
-volumes:
-  mysql: {}
-```
-
-```bash
-cd /opt/wordpress
-docker compose up
-```
-
-- Open the Wordpress site
-
-`http://localhost/wp-admin/`
-
-- Fix `localhost` with the VM's `IP` address in the Wordpress General Settings.
-
-![](.gitbook/assets/2023-06-19_23-49-47_92.png)
 
 ---
 
