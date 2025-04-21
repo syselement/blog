@@ -4,14 +4,6 @@
 
 ## 🔳 Operating Systems
 
-- [🪟 Windows](operating-systems/windows/README.md)
-  - [📃 Everything Windows](operating-systems/windows/winstuff.md)
-  - [Windows Tools](operating-systems/windows/tools/README.md)
-    - [Hashcat](operating-systems/windows/tools/hashcat-win.md)
-    - [Vagrant](operating-systems/windows/tools/vagrant-win.md)
-  - [Windows Virtual Machines](operating-systems/windows/vms/README.md)
-    - [Windows 11 - VM](operating-systems/windows/vms/win11-vm.md)
-    - [Windows Server 2025 - VM](operating-systems/windows/vms/win-srv-vm.md)
 - [🐧 Linux](operating-systems/linux/README.md)
   - [📃 Everything Linux](operating-systems/linux/linuxstuff.md)
   - [Linux Distros](operating-systems/linux/distros/README.md)
@@ -27,6 +19,14 @@
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
     - [UniFi](operating-systems/linux/tools/unifi.md)
     - [Zsh & Oh-My-Zsh](operating-systems/linux/tools/zsh.md)
+- [🪟 Windows](operating-systems/windows/README.md)
+  - [📃 Everything Windows](operating-systems/windows/winstuff.md)
+  - [Windows Tools](operating-systems/windows/tools/README.md)
+    - [Hashcat](operating-systems/windows/tools/hashcat-win.md)
+    - [Vagrant](operating-systems/windows/tools/vagrant-win.md)
+  - [Windows Virtual Machines](operating-systems/windows/vms/README.md)
+    - [Windows 11 - VM](operating-systems/windows/vms/win11-vm.md)
+    - [Windows Server 2025 - VM](operating-systems/windows/vms/win-srv-vm.md)
 
 ## 📝 Courses Notes
 
