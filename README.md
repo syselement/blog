@@ -46,12 +46,6 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## 🍕 Referrals
 
-> [![](.gitbook/assets/securitycert.svg)](https://upgrade.chat/securitycert?referralCode=778322883629023243)
->
-> 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
->
-> ------
->
 > [![](.gitbook/assets/tryhackme.svg)](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) 
 >
 > 🔗 [TryHackMe](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) *(Get 5$ on a Premium Subscription)*
@@ -73,6 +67,12 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > [![](.gitbook/assets/pwnx.svg)](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
 >
 > 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
+>
+> ---
+>
+> [![](.gitbook/assets/securitycert.svg)](https://upgrade.chat/securitycert?referralCode=778322883629023243)
+>
+> 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
 >
 > ---
 >
