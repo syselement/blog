@@ -308,14 +308,35 @@ chage user1
 chage -m 60 -M 90 -W 80 -I 10 user1 # pw expire
 
 su # login as root
-su - user1
+su - user1 # - = -l = make the shell a login shell
 su - root -c "cat /etc/shadow"
 ```
 
 ### File System
 
 ```bash
-...
+ls -lah /dev/
+
+# (Standard) Partitions
+cat /proc/partitions
+fdisk -l
+fdisk -l /dev/nvme0n1
+cfdisk /dev/nvme0 # optimized, to managed partitions
+parted
+parted -l /dev/nvme0
+gparted # GUI
+
+# Disk preparation steps (no LVM)
+# 1. Physical disk setup
+# 2. Volumes partitioning
+# 3. File systems creation
+# 4. File systems mounting
+# 5. User access management
+```
+
+```bash
+# LVM - Logical Volume Manager
+
 ```
 
 
