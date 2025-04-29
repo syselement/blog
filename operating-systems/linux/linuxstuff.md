@@ -80,7 +80,53 @@ sudo btrfs filesystem mkswapfile --size 4G /swapfile
 sudo swapon /swapfile
 ```
 
-### Disk - Extend LVM Partition
+### Disk - Expand Partition
+
+```bash
+# List all disks and partitions
+sudo fdisk -l
+lsblk
+
+# Manually verify: which device is your main disk, usually /dev/sda or /dev/nvme0n1
+# Manually verify: your Linux root partition, usually /dev/sda1
+
+# growpart may fail to resize /dev/sda1 if no adjacent free space exists; in this case, the swap and extended partitions must be removed.
+
+# 1. Turn off swap
+sudo swapoff -a
+
+# 2. Delete swap partition and extended container (replace 5 and 2 with actual numbers if different!)
+sudo parted /dev/sda --script rm 5
+sudo parted /dev/sda --script rm 2
+# If old swap partition UUID is still referenced in initramfs, delete the "resume" file and rebuild initramfs again
+sudo rm /etc/initramfs-tools/conf.d/resume
+sudo update-initramfs -u
+
+# 3. Expand the root partition
+sudo growpart /dev/sda 1
+
+# 4. Check and fix filesystem
+sudo e2fsck -f /dev/sda1
+
+# 5. Resize filesystem to fill partition
+sudo resize2fs /dev/sda1
+
+# 6. Re-Create a new swapfile (optional but recommended)
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo sh -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
+
+# 7. Reboot and verify disk and partitions
+sudo reboot
+sudo fdisk -l
+lsblk
+df -h
+free -h
+```
+
+### Disk - Expand LVM Partition
 
 ```bash
 sudo -i
@@ -761,6 +807,31 @@ sudo apt install -y curl
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+### Install Arch Linux
+
+- [Arch Linux in 12 Minutes - Chris Titus](https://www.youtube.com/watch?v=PqGnlEmfYjM)
+
+```bash
+# Create VM with Arch ISO - https://archlinux.org/download/
+
+# Proceed with https://github.com/ChrisTitusTech/linutil
+curl -fsSL https://christitus.com/linux | sh
+# System Setup -> Arch Linux -> Arch Server Setup
+
+yay -S fastfetch
+
+# Install GUI
+curl -fsSL https://christitus.com/linux | sh
+# System Setup -> Arch Linux -> Yay AUR Helper
+# Application Setup -> v and multi select:
+# Alacritty
+# Bash Prompt
+# DWM-Titus (custom window manager)
+# Rofi
+reboot # and login
+yay -S firefox
+```
+
 
 
 ---
@@ -1132,6 +1203,31 @@ sudo systemctl list-unit-files --type=service | grep blue
 blueman-mechanism.service enabled         enabled
 bluetooth.service	enabled         enabled
 dbus-org.bluez.service alias           -
+```
+
+---
+
+### Debug and optimize long boot
+
+```bash
+sudo systemd-analyze
+sudo systemd-analyze blame
+sudo systemd-analyze critical-chain
+# This shows exactly which services are slowing the boot (ordered by delay)
+
+# Disable or Mask unneeded services
+# e.g.
+sudo systemctl disable --now plocate-updatedb.timer locate.timer exim4-base.timer && \
+sudo systemctl mask plocate-updatedb.timer locate.timer exim4-base.timer && \
+sudo systemctl disable --now plocate-updatedb.service locate.service exim4-base.service && \
+sudo systemctl mask plocate-updatedb.service locate.service exim4-base.service
+
+# Reboot and re-analyze
+sudo reboot
+sudo systemd-analyze
+sudo systemd-analyze blame
+sudo systemd-analyze critical-chain
+sudo dmesg --ctime --level=err,warn
 ```
 
 

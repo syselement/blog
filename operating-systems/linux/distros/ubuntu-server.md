@@ -95,20 +95,23 @@ sudo passwd root
 > - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
 > - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
-### Extend Partition and Filesystem
+### Expand Partition and Filesystem
 
-- Add space to disk on the hypervisor
+- Turn off the VM, increase disk space on the hypervisor, turn on the VM
+- Proceed with expanding the necessary partition on the server
 
 ```bash
-sudo apt -y install cloud-guest-utils gdisk
+sudo -i
+apt -y install cloud-guest-utils gdisk
 df -h
-
-growpart /dev/sda 3
 lsblk
-sudo resize2fs /dev/sda3
+
+growpart /dev/sda 3 # 3 is the partition number
+lsblk
+resize2fs /dev/sda3
 
 # or this for LVM
-sudo lvextend -r -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+lvextend -r -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
 
 df -h
 ```

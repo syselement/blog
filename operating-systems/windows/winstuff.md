@@ -52,19 +52,30 @@
 
 > 📌 This can be done using the latest [Rufus](https://rufus.ie/en/) version to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
 
-> 🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
+>  🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
+>
+> 🔗 UPDATED 2025 -> [The New BypassNRO - YouTube](https://www.youtube.com/watch?v=LK75SWX4F2s)
 
 - Install Windows 11 via [USB ISO](https://pureinfotech.com/create-bootable-windows-11-usb-install-media/)
 - At the first boot in OOBE (Out-of-the-box experience), select Region and Keyboard layout
-- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt`, type the following command and wait for the reboot.
+- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt`, type the following command and wait for the reboot
 
 ```bash
 OOBE\BYPASSNRO
 ```
 
 - After the reboot, click `I don't have internet` when asked to connect and `Continue with limited setup`.
-- Create a local default Windows 11 account and proceed.
-  - Disable and answer `No` to all the Privacy Settings if not needed.
+
+📌 If `BYPASSNRO` does not work (), proceed with the following
+
+- Open the `Command Prompt` again (press `SHIFT+F10`) and run
+
+```bash
+start ms-cxh:localonly
+```
+
+- Create a local default Windows 11 account and proceed
+  - Disable and answer `No` to all the Privacy Settings if not needed
 
 Proceed with the final [Configuration](#configuration).
 
