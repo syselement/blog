@@ -338,6 +338,10 @@ sudo sh -c '
     apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
     sudo gpasswd -a "${USER}" docker
 '
+
+# Disable the services at boot
+sudo systemctl disable docker.service containerd.service
+# still has docker.socket active to start the Docker service only when necessary
 ```
 
 ---

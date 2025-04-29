@@ -286,6 +286,10 @@ sudo sh -c '
     sudo gpasswd -a "${USER}" docker
 '
 
+# Disable the services at boot
+sudo systemctl disable docker.service containerd.service
+# still has docker.socket active to start the Docker service only when necessary
+
 # Test
 docker run hello-world
 ```

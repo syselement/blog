@@ -1210,9 +1210,8 @@ dbus-org.bluez.service alias           -
 ### Debug and optimize long boot
 
 ```bash
-sudo systemd-analyze
-sudo systemd-analyze blame
-sudo systemd-analyze critical-chain
+systemd-analyze && systemd-analyze blame | head -n 15
+systemd-analyze critical-chain
 # This shows exactly which services are slowing the boot (ordered by delay)
 
 # Disable or Mask unneeded services
@@ -1224,10 +1223,73 @@ sudo systemctl mask plocate-updatedb.service locate.service exim4-base.service
 
 # Reboot and re-analyze
 sudo reboot
-sudo systemd-analyze
-sudo systemd-analyze blame
-sudo systemd-analyze critical-chain
+systemd-analyze && systemd-analyze blame | head -n 15
+systemd-analyze critical-chain
 sudo dmesg --ctime --level=err,warn
+```
+
+---
+
+### Disable NetworkManager-wait-online.service - script
+
+```bash
+nano nm-wait-toggle.sh
+```
+
+```bash
+#!/bin/bash
+
+SERVICE="NetworkManager-wait-online.service"
+STATUS_FILE="$HOME/${SERVICE}.status"
+ACTIVE_FILE="$HOME/${SERVICE}.active"
+
+case "$1" in
+  backup)
+    systemctl is-enabled $SERVICE > "$STATUS_FILE"
+    systemctl is-active $SERVICE > "$ACTIVE_FILE"
+    echo "[✔] Backed up state to:"
+    echo "    $STATUS_FILE"
+    echo "    $ACTIVE_FILE"
+    ;;
+    
+  disable)
+    sudo systemctl disable --now $SERVICE
+    sudo systemctl mask $SERVICE
+    echo "[✔] Disabled and masked $SERVICE"
+    ;;
+
+  restore)
+    if [ -f "$STATUS_FILE" ] && [ -f "$ACTIVE_FILE" ]; then
+      sudo systemctl unmask $SERVICE
+      if grep -q enabled "$STATUS_FILE"; then
+        sudo systemctl enable $SERVICE
+      else
+        sudo systemctl disable $SERVICE
+      fi
+
+      if grep -q active "$ACTIVE_FILE"; then
+        sudo systemctl start $SERVICE
+      fi
+      echo "[✔] Restored $SERVICE to previous state"
+    else
+      echo "[✖] Backup files not found. Run '$0 backup' first."
+    fi
+    ;;
+
+  *)
+    echo "Usage: $0 {backup|disable|restore}"
+    exit 1
+    ;;
+esac
+```
+
+```bash
+# Usage
+chmod +x nm-wait-toggle.sh
+
+bash nm-wait-toggle.sh backup     # Save current service state
+bash nm-wait-toggle.sh disable    # Disable and mask it for faster boot
+bash nm-wait-toggle.sh restore    # Restore original state if needed
 ```
 
 
