@@ -314,6 +314,30 @@ su - root -c "cat /etc/shadow"
 
 ### File System
 
+| Directory  | Functionality                                                | Complete word                 |
+| :--------- | :----------------------------------------------------------- | :---------------------------- |
+| `/`        | Contains special directories                                 |                               |
+| `/boot`    | Files related to system startup                              |                               |
+| `/sbin`    | Commands necessary for system startup and repair             | *system binaries*             |
+| `/bin`     | Executables of basic system commands                         | *binaries*                    |
+| `/usr/bin` | System administration commands                               |                               |
+| `/lib`     | Shared libraries and kernel modules                          | *libraries*                   |
+| `/usr`     | Saves data resources related to UNIX                         | *UNIX System Resources*       |
+| `/mnt`     | Temporary mount point directory                              | *mount*                       |
+| `/media`   | For mounting removable media                                 |                               |
+| `/misc`    | To mount the shared directory of the NFS service.            |                               |
+| `/root`    | Administrator's login directory                              |                               |
+| `/home`    | The upper-level directory of a common user's home directory  |                               |
+| `/tmp`     | The directory containing temporary files                     | *temporary*                   |
+| `/dev`     | Special device files                                         | *device*                      |
+| `/etc`     | Configuration and script files                               | *editable text configuration* |
+| `/opt`     | Specific to installed applications                           | *optional*                    |
+| `/proc`    | This is a mount point for the proc filesystem, which provides information about running processes and the kernel | *processes*                   |
+| `/var`     | This directory contains files which may change in size, such as spool and log files | *variables*                   |
+| `/sys`     | Virtual file system, similar to /proc                        |                               |
+| `/run`     | That is /var/run                                             |                               |
+| `/srv`     | Service Data Directory                                       | *service*                     |
+
 ```bash
 ls -lah /dev/
 
@@ -326,6 +350,9 @@ parted
 parted -l /dev/nvme0
 gparted # GUI
 
+lsblk
+dmsetup ls
+
 # Disk preparation steps (no LVM)
 # 1. Physical disk setup
 # 2. Volumes partitioning
@@ -334,9 +361,370 @@ gparted # GUI
 # 5. User access management
 ```
 
+| LVM STORAGE<br />MECHANISMS | Performance | Redundancy | Space Efficiency | Use Case                  |
+| --------------------------- | ----------- | ---------- | ---------------- | ------------------------- |
+| Linear                      | Normal      | ❌ No       | ✅ High           | Basic storage growth      |
+| Striped                     | ✅ High      | ❌ No       | ✅ High           | Fast I/O, performance     |
+| Mirrored                    | Moderate    | ✅ Yes      | ❌ Low            | Data safety, critical use |
+
 ```bash
 # LVM - Logical Volume Manager
 
+# PV (Physical Volume): Raw storage (disk/partition)
+# PE (Physical Extent): Chunk of space in PVs
+# VG (Volume Group): Pool of storage from PVs
+# LV (Logical Volume): Usable partitions created from VG
+# FS (File System): each LV can be formatted (ext4, xfs, ...)
+
+# PV commands
+pvscan
+pvcreate
+pvdisplay
+pvremove
+pvs
+
+# VG commands
+vgscan
+vgcreate
+vgdisplay
+vgremove
+vgextend
+vgreduce
+vgs
+
+# LV commands
+lvscan
+lvcreate
+lvdisplay
+lvremove
+lvextend
+lvreduce
+lvs
+
+# DISK PREPARATION
+
+# 0. Prepare Physical disk and Partitions (if necessary)
+# check for existing LVM volumes
+pvs
+vgs
+lvs
+# Wipe nvme0n2 disk - WIPES ALL LVM/DATA/HEADERS!
+wipefs --all --force /dev/nvme0n2
+dd if=/dev/zero of=/dev/nvme0n2 bs=1M count=100
+# dd if=/dev/zero of=/dev/nvme0n2 bs=1M status=progress
+# ^^^ OWERWRITES ENTIRE DISK (SLOW) ^^^
+hexdump -C /dev/nvme0n2 # should be clean
+
+# Create new GPT partition table on disk nvme0n2
+parted /dev/nvme0n2 mklabel gpt
+# create single primary partition on disk nvme0n2
+parted /dev/nvme0n2 mkpart primary 1MiB 100% 
+
+fdisk -l /dev/nvme0n2
+# Disk /dev/nvme0n2: 5 GiB, 5368709120 bytes, 10485760 sectors
+# Disk model: VMware Virtual NVMe Disk
+# Units: sectors of 1 * 512 = 512 bytes
+# Sector size (logical/physical): 512 bytes / 512 bytes
+# I/O size (minimum/optimal): 512 bytes / 512 bytes
+# Disklabel type: gpt
+# Disk identifier: 34A69BE9-CA31-4ADC-B30A-AE22BB47A281
+# 
+# Device         Start      End  Sectors Size Type
+# /dev/nvme0n2p1  2048 10483711 10481664   5G Linux filesystem
+
+# ------ 1. LVM Physical Volume (no partitions case) ------
+lsblk
+pvcreate /dev/nvme0n2p1
+pvdisplay /dev/nvme0n2p1
+# --- NEW Physical volume ---
+# PV Name               /dev/nvme0n2p1
+# VG Name
+# PV Size               <5.00 GiB
+# Allocatable           NO
+# PE Size               0
+# Total PE              0
+# Free PE               0
+# Allocated PE          0
+# PV UUID               b6bQp6-57SG-vTST-wu3r-F2r7-z5ML-FHHV8W
+
+# ------ 2. LVM Volume Group ------
+vgcreate vol2 /dev/nvme0n2p1
+vgdisplay /dev/vol2
+# --- Volume group ---
+# VG Name               vol2
+# System ID
+# Format                lvm2
+# Metadata Areas        1
+# Metadata Sequence No  1
+# VG Access             read/write
+# VG Status             resizable
+# MAX LV                0
+# Cur LV                0
+# Open LV               0
+# Max PV                0
+# Cur PV                1
+# Act PV                1
+# VG Size               <5.00 GiB
+# PE Size               4.00 MiB
+# Total PE              1279
+# Alloc PE / Size       0 / 0
+# Free  PE / Size       1279 / <5.00 GiB
+# VG UUID               cGPnl2-e1Xx-JF7l-uS8r-KmAa-NwX9-LLcxFo
+
+# ------ 3. LVM Logical Volume ------
+# lvcreate -L 5G -n lv2 vol2
+lvcreate -l 100%FREE -n lv2 vol2
+lvdisplay /dev/vol2/lv2
+# --- Logical volume ---
+# LV Path                /dev/vol2/lv2
+# LV Name                lv2
+# VG Name                vol2
+# LV UUID                DZ3CCM-twpf-arLX-JYt7-9BQE-zoKq-Os5NxE
+# LV Write Access        read/write
+# LV Creation host, time rockyvm, 2025-05-01 10:00:40 +0200
+# LV Status              available
+# # open                 0
+# LV Size                <5.00 GiB
+# Current LE             1279
+# Segments               1
+# Allocation             inherit
+# Read ahead sectors     auto
+# - currently set to     8192
+# Block device           253:2
+
+# ------ 4. File System creation/mounting ------
+# ext2, ext3, ext4, FAT16, FAT32, NTFS, HFS, BtrFS, JFS, XFS, ...
+mkfs -t xfs /dev/vol2/lv2
+blkid /dev/vol2/lv2
+# /dev/vol2/lv2: UUID="fc6f54cc-e718-45e4-9620-169bdcd143ce" TYPE="xfs"
+mkdir -p /mnt/lv2
+echo 'UUID=fc6f54cc-e718-45e4-9620-169bdcd143ce  /mnt/lv2  xfs  defaults  0 2' | tee -a /etc/fstab
+systemctl daemon-reload
+mount -a
+df -hT /mnt/lv2
+# Filesystem           Type  Size  Used Avail Use% Mounted on
+# /dev/mapper/vol2-lv2 xfs   5.0G   68M  4.9G   2% /mnt/lv2
+
+# Final check Disk -> PV -> VG -> LV -> FS
+echo "=== LVM ===" && pvs && vgs && lvs && echo "=== Disks ===" && lsblk -f && echo "=== Mounts ===" && findmnt
+```
+
+```bash
+# Boot sector -> Super Block -> inodes table -> Data block
+
+# In Linux, everything is a file.
+# Linux meets the FHS (Filesystems Hierarchy Standard)
+man hier
+
+# Check file system consistency - partition must be UNmounted
+umount /mnt/lv2
+fsck -V /dev/vol2/lv2
+xfs_repair -v /dev/vol2/lv2
+
+# Mount point automatically mounted at boot time
+cat /etc/fstab
+# /dev/mapper/rl-root     /                       xfs     defaults        0 0
+# UUID=652d402b-d797-4b8f-94f1-ba39a3537811 /boot                   xfs     defaults        0 0
+# /dev/mapper/rl-swap     none                    swap    defaults        0 0
+# UUID=fc6f54cc-e718-45e4-9620-169bdcd143ce  /mnt/lv2  xfs  defaults  0 2
+
+# UUID = Universally Unique Identifier
+lsblk -o name,uuid
+
+# Mount all filesystems mentioned in /etc/fstab
+systemctl daemon-reload
+mount
+mount -a
+# mounted info written to /etc/mtab
+cat /etc/mtab
+mount
+
+man 8 mount
+# mount -o defaults = mount -o rw,suid,dev,exec,auto,nouser,async
+umount /mnt/lv2
+
+# e.g. Temporary mount
+mkdir -p /mnt/usb
+mount -t vfat /dev/sdb1 /mnt/usb
+cd /mnt/usb/
+umount /mnt/usb
+```
+
+```bash
+# ------ File naming ------
+mkdir "dir_1"
+touch .hidden_file
+
+# .c : source file in C language
+# .h : C and Fortran header file
+# .o : object file in C language
+# .tar : data file archived with the tar utility
+# .cpio : data file archived with the cpio utility
+# .gz : data file compressed with the gzip utility
+# .tgz : data file archived with the tar utility and compressed with the gzip utility
+# .html : web page
+
+ls -liah /usr/bin/passwd
+# 9317257 -rwsr-xr-x. 1 root root 32K May 15 2022 /usr/bin/passwd
+#  1      2    3      4  5    6    7   8            9
+
+# 1	Inode number
+# 2	File type (1st character of the block of 10). "-" = ordinary file
+# 3	Access rights (last 9 characters of the block of 10)
+# 4	Directories: entry/subdirs count. Files: hard link count (1 = single link)
+# 5	Owner name
+# 6	Group name
+# 7	Size (byte, kilo, mega)
+# 8	Date of last update
+# 9	Name of the file
+
+# ------ 7 File types in GNU/Linux ------
+# . Current directory  
+# .. Parent directory 
+# - Regular file (text, binary, data, compressed)
+# d Directory
+# b Block device (disks, USBs)
+# c Character device (keyboard, mouse)
+# s Socket (network IPC)
+# p Pipe/FIFO (inter-process communication). FIFO = First-In-First-Out
+# l Symbolic/soft/hard link (like a shortcut)
+
+ls -ld
+# dr-xr-x---. 3 root root 4096 May  1 11:57 .
+ls -la
+# dr-xr-x---.  3 root root  4096 May  1 11:57 .
+# dr-xr-xr-x. 18 root root   235 Mar  9 14:37 ..
+
+ls -l /dev/nvme0n1
+# brw-rw----. 1 root disk 259, 0 May  1 09:29 /dev/nvme0n1
+
+ls -l /dev/tty
+# crw-rw-rw-. 1 root tty 5, 0 May  1 08:28 /dev/tty
+
+ls -l /etc/grub2.cfg
+# lrwxrwxrwx. 1 root root 22 Mar 18 12:41 /etc/grub2.cfg -> ../boot/grub2/grub.cfg
+
+# ------ e.g. Soft and Hard links ------
+touch original.txt
+# Create a soft (symbolic) link
+ln -s original.txt softlink.txt
+ls -l
+    # -rw-r--r--. 1 root root     0 May  1 17:59 original.txt
+    # lrwxrwxrwx. 1 root root    12 May  1 18:00 softlink.txt -> original.txt
+# Delete original file, soft link breaks
+rm original.txt
+ls -l
+# softlink.txt points to nothing (broken, in red)
+
+# Create a hard link
+touch fileA
+ln fileA hardlinkA
+ls -li
+# Same inode, hardlinkA and fileA are indistinguishable
+    # 8835024 -rw-r--r--. 2 root root     0 May  1 18:02 fileA
+    # 8835024 -rw-r--r--. 2 root root     0 May  1 18:02 hardlinkA
+# Remove one, the other still works
+rm fileA
+cat hardlinkA
+# File content still exists
+# Hard link to directories is not allowed
+```
+
+```bash
+# ------ File attributes ------
+# Basic file/directory permissions
+# r / 4 = read       (file: view, dir: list)
+# w / 2 = write      (file: edit, dir: create/delete)
+# x / 1 = execute    (file: run, dir: cd into)
+# - / 0 = no right/access
+
+ls -l   # -rwxr-xr--
+#          └──┴──┴── owner, group, others
+
+# User types
+# u  = owner
+# g  = owner group
+# o  = others users
+# a  = all (u+g+o)
+
+# ------ Octal representation ------
+#            USER       GROUP      OTHER
+#          +--------+ +--------+ +--------+
+# Read (r) |   4    | |   4    | |   4    |
+# Write(w) |   2    | |   0    | |   0    |
+# Exec (x) |   1    | |   1    | |   1    |
+#          +--------+ +--------+ +--------+
+# Total:   4+2+1 = 7   4+0+1 = 5   4+0+1 = 5
+# Octal permission: 755 → rwxr-xr-x
+chmod 755 file.sh
+# rwxr-xr-x
+chmod -R 644 /data
+# recursive, files: rw-r--r--
+
+# ------ Symbolic representation ------
+# Who?        Symbol
+# ---------------------
+# User         u
+# Group        g
+# Other        o
+# All          a
+# 
+# Operation   Symbol
+# ---------------------
+# Add          +
+# Remove       -
+# Replace      =
+# 
+# Rights      Symbol
+# ---------------------
+# Read         r
+# Write        w
+# Execute      x
+chmod u+x file
+# add execute to owner
+chmod u+rwx,g+wx,o-r file
+# remove write from group, read from others
+chmod -R a=r folder/
+# add read for all recursively
+
+# ------ Rights and mask (default permissions) ------
+# Default Permissions Calculation
+# --------------------------------------------------------------------------------
+# | Type       | Max Rights | Umask | Effective Rights | -x Bits | Final Rights |
+# |------------|------------|-------|------------------|---------|---------------|
+# | Directory  | 777        | 022   | 755 (rwxr-xr-x)  |   -     | 755           |
+# | File       | 666*       | 022   | 644 (rw-r--r--)  | remove x| 644           |
+# --------------------------------------------------------------------------------
+# 
+# * Note: Max rights for files is 666 (rw-rw-rw-) because execute (x) is not granted
+#         by default when creating a file, for security reasons.
+# 
+# Explanation:
+# - Max Rights: theoretical full permissions (777 for dirs, 666 for files)
+# - Umask: subtracts permission bits (e.g. 022 removes write for group/others)
+# - -x Bits: execution bits are removed from files even if umask allows them
+# - Final Rights: resulting permissions on creation
+umask
+man umask
+help umask
+# 0022 = permissions 755 (rwxr-xr-x)
+umask -S
+# u=rwx,g=rx,o=rx - symbolic/file rights
+
+# e.g.
+umask 027
+# new files for current session: 640, dirs: 750
+touch test.txt
+ls -l test.txt
+# -rw-r-----
+
+# /etc/login.defs file defines the default UMASK
+grep -Ri umask /etc/login.defs
+
+# Config persistence for custom umask
+# ~/.bashrc (particular user) 
+# /etc/bashrc and /etc/profile (all users)
+# ^^^ these overrides the umask parameter of /etc/login.defs
 ```
 
 

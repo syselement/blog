@@ -126,6 +126,24 @@ df -h
 free -h
 ```
 
+### Bash history
+
+```bash
+nano ~/.bashrc
+```
+
+```bash
+# Append every command to the history file immediately
+export PROMPT_COMMAND='history -a'
+
+# Optionally: reload history from the file in case other sessions wrote to it
+shopt -s histappend
+export HISTFILESIZE=10000
+export HISTSIZE=100000
+```
+
+
+
 ### Disk - Expand LVM Partition
 
 ```bash
@@ -444,6 +462,13 @@ sudo dhclient
 wget -qO- bench.sh | bash
 curl -Lso- bench.sh | bash
 ```
+
+```bash
+# DISK Benchmark
+hdparm -tT /dev/nvme0n2
+```
+
+
 
 ---
 
