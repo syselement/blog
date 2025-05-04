@@ -312,7 +312,7 @@ su - user1 # - = -l = make the shell a login shell
 su - root -c "cat /etc/shadow"
 ```
 
-### File System
+### File system
 
 | Directory  | Functionality                                                | Complete word                 |
 | :--------- | :----------------------------------------------------------- | :---------------------------- |
@@ -726,6 +726,212 @@ grep -Ri umask /etc/login.defs
 # /etc/bashrc and /etc/profile (all users)
 # ^^^ these overrides the umask parameter of /etc/login.defs
 ```
+
+### Process management
+
+```bash
+# PID = Process IDentifier
+# PPID = Parent Process IDentifier
+
+# "init" process = father of all processes
+# Parent/Child relationship between processes
+
+ps
+ps -ef
+ps -fu root
+
+# Show processes in the same session (process group)
+ps -g $(ps -o sess= -p $$)
+
+# Show processes associated with a specific terminal (e.g., pts/0 or tty1)
+ps -t pts/0
+
+# Show process info for a specific PID (replace 1234 with actual PID)
+ps -p 1234
+
+# Display processes in a hierarchical tree structure (parent/child)
+ps -H
+
+# Long format: includes PPID, priority, nice, etc.
+ps -l
+ps -f
+
+# Sort by memory usage (descending)
+ps aux --sort=-%mem
+
+# Show headers on each paginated page (useful with 'less')
+ps aux --headers | less
+
+# Custom output format: show PID, UID, and command
+ps --format "pid,uid,cmd"
+ps -e --format "%P %p %c %n" --sort ppid --headers
+# PPID     PID COMMAND          NI
+#    0       1 systemd           0
+#    0       2 kthreadd          0
+#    1     629 systemd-journal   0
+#    1     643 systemd-udevd     0
+#    1     724 auditd           -4
+#    1     757 dbus-broker-lau   0
+#    1     765 firewalld         0
+```
+
+```bash
+# ------ Process types ------
+# User process:
+# - Started from terminal
+# - Linked to a user session
+# - Accesses resources via system daemons
+#
+# Daemon (System process):
+# - Started by system (boot time)
+# - No controlling terminal (TTY)
+# - Owned by system/root
+# - Often ends in 'd' (e.g., sshd, systemd)
+# DAEMON = Disk And Execution MONitor
+
+# ------ Permissions & rights ------
+# When a user runs a command:
+# - Real UID/GID = user ID
+# - Effective process UID/GID = same as real UID/GID
+#
+# If SUID/SGID is set on a command:
+# - Effective process UID/GID = owner/group of the commmand file
+# - Real UID != Effective UID
+# - Used for privileged commands (e.g., passwd)
+
+# ------ Process states ------
+# ready     			- waiting for CPU time slice/process availability
+# running/in execution  - actively using CPU
+# suspended 			- waiting for I/O
+# stopped   			- paused by signal (e.g., SIGSTOP), waiting for a signal
+# zombie    			- request for destruction
+# dead      			- terminated by the parrent process
+# orphan    			- child of dead parent process, adopted by init
+
+# ------ Process exit sequence ------
+# On termination:
+# - Closes all open files
+# - Frees allocated memory
+# - Sends signal to parent (SIGCHLD)
+# - Orphaned children processes get adopted (and eventually destroyed) by init (PID 1)
+
+# ------ Priorities and scheduling ------
+# Real-time processes:
+# - Priority range: 0–99
+# - Scheduled with real-time scheduling algorithms
+#
+# Normal/ordinary processes:
+# - Priority range: 100–139 (dynamic)
+# - Scheduled by Completely Fair Scheduler (CFS)
+#
+# Nice value - to adjust the priority of an ordinary process:
+# - Range: -20 (high priority) to 19 (low)
+# - Default: 0
+nice -n 10 ./myscript.sh  # run with adjusted priority
+
+# ------ Execution modes ------
+# Synchronous:
+# - Shell waits until command completes
+# - Must wait the end of the process for command prompt
+
+# Asynchronous:
+# - Shell returns prompt immediately
+# - Use '&' to run in background
+sleep 5 &
+# Constraints for async:
+# - Must not wait for user input
+# - Should not output to terminal
+# - Will terminate when shell exits unless disowned or protected (e.g., nohup)
+
+# Sends a signal to a process by PID
+pidof bash
+kill -9 23998
+kill -19 23999
+# Common signals:
+# 2  SIGINT   - Interrupt (Ctrl+C)
+# 9  SIGKILL  - Force kill
+# 15 SIGTERM  - Graceful stop
+# 18 SIGCONT  - Resume
+# 19 SIGSTOP  - Suspend (Ctrl+Z)
+
+# List all signals
+man 7 signal
+
+# Run process immune to hangup (connection logout)
+nohup ./myprogram.sh 0</dev/null &
+
+# ------ Ctrl+Z ------
+# synchronous process suspended, returns control to shell
+
+# ------ & Asynchronous execution ------
+# Run command in background
+time ls -lR / > list.ls 2> /dev/null &
+# [job_number] PID
+
+# fg [job] – bring job to foreground
+# bg [job] – resume suspended job in background
+fg 1
+
+# CTRL+Z a synchronous process, then place it in the background
+bg 1
+
+# Lists background jobs and their status
+jobs
+# [1]- Running   sleep 1000
+# [2]+ Stopped   find /
+
+# Start a command with adjusted priority (niceness)
+nice -n -5 find / -name "file"    # Higher priority
+nice -n 5 find / -name "file"     # Lower priority
+nice find / -name "file"          # Default (niceness = 10)
+
+# Limits file
+cat /etc/security/limits.conf
+
+# Change priority of a running process
+renice -n 15 -p 24156
+
+# Example using xargs:
+pidof sleep | xargs renice -n 20
+
+# Real-time process monitor
+top
+
+# pgrep – find PID(s) by name
+pgrep -u root sshd
+
+# pkill – send SIGTERM (default) signal to process by name
+pkill tomcat
+# Kill user session according to the terminal number
+pkill -t pts/1
+
+# Kill all processes with a given name
+killall tomcat
+
+# Show process tree
+pstree -pnhu
+
+# Orphan: parent dies -> init (PID 1) adopts child
+# Zombie: child exits but parent has not reaped it
+# Check for zombies:
+ps -lef | awk '{print $2}' | grep Z
+# Process state codes:
+# D - uninterruptible sleep
+# R - running/runnable
+# S - sleeping
+# T - stopped
+# t - traced (debug)
+# Z - zombie
+# X - dead
+```
+
+### Backup and restore
+
+```bash
+
+```
+
+
 
 
 
