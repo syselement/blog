@@ -1,6 +1,6 @@
 # Table of contents
 
-- [ℹ️ Home](README.md)
+- [🏠 Home](README.md)
 
 ## 🔳 Operating Systems
 
