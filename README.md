@@ -20,27 +20,27 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## ✉️ Contact
 
-> [![](.gitbook/assets/proton.svg)](mailto:syselement@proton.me)
+> [![](.gitbook/assets/buymeacoffeee.svg)](https://go.syselement.com/buymeacoffee)
 >
-> [![](.gitbook/assets/protonmail.svg)](mailto:syselement@proton.me)
+> [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
 >
-> ------
->
-> [![](.gitbook/assets/twitter.svg)](https://go.syselement.com/twitter)
->
-> [![](.gitbook/assets/twitter-syselement.svg)](https://go.syselement.com/twitter)
->
-> ------
+> ---
 >
 > [![](.gitbook/assets/github.svg)](https://go.syselement.com/github)
 >
 > [![](.gitbook/assets/github-syselement.svg)](https://go.syselement.com/github)
 >
-> ------
+> ---
 >
-> [![](.gitbook/assets/buymeacoffeee.svg)](https://go.syselement.com/buymeacoffee)
+> [![](.gitbook/assets/x.svg)](https://go.syselement.com/twitter)
 >
-> [![](.gitbook/assets/buymeacoffee.svg)](https://go.syselement.com/buymeacoffee)
+> [![](.gitbook/assets/x-syselement.svg)](https://go.syselement.com/twitter)
+>
+> ---
+>
+> [![](.gitbook/assets/proton.svg)](mailto:syselement@proton.me)
+>
+> [![](.gitbook/assets/protonmail.svg)](mailto:syselement@proton.me)
 
 ------
 
@@ -80,7 +80,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 🔗 [KodeKloud](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
 
-
+---
 
 [🏠](README.md)
 
