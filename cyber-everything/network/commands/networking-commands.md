@@ -16,7 +16,6 @@
 >   - [R57 Shell](https://www.r57shell.net/index.php)
 > - [Upgrading Simple Shells to Fully Interactive TTYs - ropnop](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)
 > - [TryHackMe | Intro to shells](https://tryhackme.com/r/room/introtoshells)
-> - 
 
 ---
 
