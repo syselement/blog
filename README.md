@@ -1,4 +1,4 @@
-# ℹ️ Home
+# 🏠 Home
 
 ## 🤝 Introduction
 
