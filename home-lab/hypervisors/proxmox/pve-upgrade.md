@@ -1,20 +1,19 @@
 # Proxmox Upgrade 7 to 8
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [PVE - Upgrade_from_7_to_8](https://pve.proxmox.com/wiki/Upgrade_from_7_to_8)
-> - [PVE - Roadmap 8.0 - known-issues](https://pve.proxmox.com/wiki/Roadmap#8.0-known-issues)
+> * [PVE - Upgrade\_from\_7\_to\_8](https://pve.proxmox.com/wiki/Upgrade_from_7_to_8)
+> * [PVE - Roadmap 8.0 - known-issues](https://pve.proxmox.com/wiki/Roadmap#8.0-known-issues)
 
----
+***
 
 ## Connection
 
-> Open [https://PVE-IP:8006](https://PVE-IP:8006) and Enable `root` user from Permissions/Users menu.
->
+> Open [https://PVE-IP:8006](https://pve-ip:8006) and Enable `root` user from Permissions/Users menu.
 
-- Login with SSH
+* Login with SSH
 
 ```bash
 ssh <pve-IP>
@@ -24,21 +23,15 @@ su
 
 ## Prerequisites
 
-- [ ] Upgraded to the latest version of Proxmox VE 7.4 on all nodes.
-
-  - [ ] Ensure your node(s) have correct package repository configuration (web UI, Node -> Repositories) if your pve-manager version isn't at least 7.4-15.
-
-- [ ] N/A Hyper-converged Ceph: upgrade any Ceph Octopus or Ceph Pacific cluster to Ceph 17.2 Quincy before you start the Proxmox VE upgrade to 8.0.
-
-  - [ ] N/A Follow the guide Ceph Octopus to Pacific and Ceph Pacific to Quincy, respectively.
-
-- [ ] N/A Co-installed Proxmox Backup Server: see the Proxmox Backup Server 2 to 3 upgrade how-to
-  Reliable access to the node. It's recommended to have access over a host independent channel like iKVM/IPMI or physical access.
-  - [ ] N/A If only SSH is available we recommend testing the upgrade on an identical, but non-production machine first.
-
-- [ ] A healthy cluster
-- [ ] ~ Valid and tested backup of all VMs and CTs (in case something goes wrong)
-- [ ] At least 5 GB free disk space on the root mount point. - 54G
+* [ ] Upgraded to the latest version of Proxmox VE 7.4 on all nodes.
+  * [ ] Ensure your node(s) have correct package repository configuration (web UI, Node -> Repositories) if your pve-manager version isn't at least 7.4-15.
+* [ ] N/A Hyper-converged Ceph: upgrade any Ceph Octopus or Ceph Pacific cluster to Ceph 17.2 Quincy before you start the Proxmox VE upgrade to 8.0.
+  * [ ] N/A Follow the guide Ceph Octopus to Pacific and Ceph Pacific to Quincy, respectively.
+* [ ] N/A Co-installed Proxmox Backup Server: see the Proxmox Backup Server 2 to 3 upgrade how-to Reliable access to the node. It's recommended to have access over a host independent channel like iKVM/IPMI or physical access.
+  * [ ] N/A If only SSH is available we recommend testing the upgrade on an identical, but non-production machine first.
+* [ ] A healthy cluster
+* [ ] \~ Valid and tested backup of all VMs and CTs (in case something goes wrong)
+* [ ] At least 5 GB free disk space on the root mount point. - 54G
 
 ```bash
 root@pve:~# df -h
@@ -80,21 +73,19 @@ root@pve:~# /usr/sbin/lvs -a
   vm-105-disk-0                         vg1 Vwi-a-tz--   32.00g thinpool1        24.31
 ```
 
-- [ ] Check [known upgrade issues](https://pve.proxmox.com/wiki/Upgrade_from_7_to_8#Known_Upgrade_Issues)
-
-
+* [ ] Check [known upgrade issues](https://pve.proxmox.com/wiki/Upgrade_from_7_to_8#Known_Upgrade_Issues)
 
 ## Actions step-by-step
 
 The following actions need to be carried out from the command line of each Proxmox VE node in your cluster
 
-**Perform the actions via console or ssh; preferably via console to avoid interrupted ssh connections. Do not carry out the upgrade when connected via the virtual console offered by the GUI; as this will get  interrupted during the upgrade.**
+**Perform the actions via console or ssh; preferably via console to avoid interrupted ssh connections. Do not carry out the upgrade when connected via the virtual console offered by the GUI; as this will get interrupted during the upgrade.**
 
 Remember to ensure that a valid backup of all VMs and CTs has been created before proceeding.
 
 ### Continuously use the **pve7to8** checklist script
 
-A small checklist program named **`pve7to8`** is  included in the latest Proxmox VE 7.4 packages. The program will provide hints and warnings about potential issues before, during and after the  upgrade process.
+A small checklist program named **`pve7to8`** is included in the latest Proxmox VE 7.4 packages. The program will provide hints and warnings about potential issues before, during and after the upgrade process.
 
 To run it with **all** checks enabled, execute:
 
@@ -104,7 +95,7 @@ pve7to8 --full
 
 Make sure to run the full checks at least once before the upgrade.
 
-- Run `pve7to8 --full`
+* Run `pve7to8 --full`
 
 ```bash
 root@pve:~# pve7to8 --full
@@ -229,7 +220,7 @@ Update all Debian and Proxmox VE repository entries to Bookworm.
 sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
 ```
 
-Ensure that there are no remaining Debian Bullseye specific repositories left, if you can use the `#` symbol at the start of the respective line to comment these repositories out. Check all files in the /etc/apt/sources.list.d/pve-enterprise.list and `/etc/apt/sources.list` and see [Package_Repositories](https://pve.proxmox.com/wiki/Package_Repositories) for the correct Proxmox VE 8 / Debian Bookworm repositories.
+Ensure that there are no remaining Debian Bullseye specific repositories left, if you can use the `#` symbol at the start of the respective line to comment these repositories out. Check all files in the /etc/apt/sources.list.d/pve-enterprise.list and `/etc/apt/sources.list` and see [Package\_Repositories](https://pve.proxmox.com/wiki/Package_Repositories) for the correct Proxmox VE 8 / Debian Bookworm repositories.
 
 ### Add the Proxmox VE 8 Package Repository
 
@@ -254,7 +245,6 @@ apt update
 ## Upgrade the system to Debian Bookworm and Proxmox VE 8.0
 
 > ❗️Note that the time required for finishing this step heavily depends on the system's performance, especially the root filesystem's IOPS and bandwidth. A slow spinner can take up to 60 minutes or more, while for a high-performance server with SSD storage, the dist-upgrade can be finished in under 5 minutes.
->
 
 Start with this step, to get the initial set of upgraded packages:
 
@@ -262,48 +252,40 @@ Start with this step, to get the initial set of upgraded packages:
 apt dist-upgrade
 ```
 
-During the above step, you will be asked to approve changes to  configuration files, where the default config has been updated by their  respective package.
+During the above step, you will be asked to approve changes to configuration files, where the default config has been updated by their respective package.
 
-It's suggested to check the difference for each file in question  and choose the answer accordingly to what's most appropriate for your  setup.
+It's suggested to check the difference for each file in question and choose the answer accordingly to what's most appropriate for your setup.
 
 📌 Common configuration files with changes, and the recommended choices are:
 
-- ```bash
-  /etc/issue
-  ```
+*   ```bash
+    /etc/issue
+    ```
 
-   -> Proxmox VE will auto-generate this file on boot, and it has only cosmetic effects on the login console.
+    -> Proxmox VE will auto-generate this file on boot, and it has only cosmetic effects on the login console.
 
-  ​    Using the default "No" (keep your currently-installed version) is safe here.
+    ​ Using the default "No" (keep your currently-installed version) is safe here.
+*   ```bash
+    /etc/lvm/lvm.conf
+    ```
 
+    -> Changes relevant for Proxmox VE will be updated, and a newer config version might be useful.
 
-- ```bash
-  /etc/lvm/lvm.conf
-  ```
+    ​ If you did not make extra changes yourself and are unsure it's suggested to choose "Yes" (install the package maintainer's version) here.
+*   ```bash
+    /etc/ssh/sshd_config
+    ```
 
-   -> Changes relevant for Proxmox VE will be updated, and a newer config version might be useful.
+    -> If you have not changed this file manually, the only differences should be a replacement of `ChallengeResponseAuthentication no` with `KbdInteractiveAuthentication no` and some irrelevant changes in comments (lines starting with #).
 
-  ​    If you did not make extra changes yourself and are unsure it's suggested to choose "Yes" (install the package maintainer's version) here.
+    ​ If this is the case, both options are safe, though we would recommend installing the package maintainer's version in order to move away from the deprecated ChallengeResponseAuthentication option. If there are other changes, we suggest to inspect them closely and decide accordingly.
+*   ```bash
+    /etc/default/grub
+    ```
 
+    -> Here you may want to take special care, as this is normally only asked for if you changed it manually, e.g., for adding some kernel command line option.
 
-- ```bash
-  /etc/ssh/sshd_config
-  ```
-
-   -> If you have not changed this file manually, the only differences should be a replacement of `ChallengeResponseAuthentication no` with `KbdInteractiveAuthentication no` and some irrelevant changes in comments (lines starting with #).
-
-  ​    If this is the case, both options are safe, though we would recommend installing the package maintainer's version in order to move away from the deprecated ChallengeResponseAuthentication option. If there are other changes, we suggest to inspect them closely and decide accordingly.
-
-
-- ```bash
-  /etc/default/grub
-  ```
-
-   -> Here you may want to take  special care, as this is normally only asked for if you changed it  manually, e.g., for adding some kernel command line option.
-
-  It's recommended to check the difference for any relevant change, note that changes in comments (lines starting with #) are not relevant.
-  If unsure, we suggested to selected "No" (keep your currently-installed version)
-
+    It's recommended to check the difference for any relevant change, note that changes in comments (lines starting with #) are not relevant. If unsure, we suggested to selected "No" (keep your currently-installed version)
 
 ### Check Result & Reboot Into Updated Kernel
 
@@ -398,10 +380,10 @@ FAILURES: 0
 ATTENTION: Please check the output for detailed information!
 ```
 
-Please note that you should reboot even if you already used the  6.2 kernel previously, through the opt-in package on Proxmox VE 7. This is required to guarantee the best compatibility with the rest of  the system, as the updated kernel was (re-)build with the newer Proxmox  VE 8 compiler and ABI versions.
+Please note that you should reboot even if you already used the 6.2 kernel previously, through the opt-in package on Proxmox VE 7. This is required to guarantee the best compatibility with the rest of the system, as the updated kernel was (re-)build with the newer Proxmox VE 8 compiler and ABI versions.
 
-- Reboot node from GUI
-- Install `chrony` to fix the warning:
+* Reboot node from GUI
+* Install `chrony` to fix the warning:
 
 ```bash
 root@pve:~# apt install chrony
@@ -525,19 +507,16 @@ FAILURES: 0
 ATTENTION: Please check the output for detailed information!
 ```
 
-
-
 ## After the Proxmox VE upgrade
 
 Empty the browser cache and/or force-reload (CTRL + SHIFT + R, or for MacOS ⌘ + Alt + R) the Web UI.
 
-- [ ] Check that all VMs/Containers are up and running
+* [ ] Check that all VMs/Containers are up and running
 
 ### For Clusters
 
-- Check that all nodes are up and running on the latest package versions.
+* Check that all nodes are up and running on the latest package versions.
 
 > Disable `root` user from Proxmox Datacenter Permissions/Users menu
 
-------
-
+***
