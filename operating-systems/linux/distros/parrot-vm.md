@@ -165,9 +165,23 @@ sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gd
 
 ```bash
 sudo sh -c '
-    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-    apt update && apt install -y sublime-text
+    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
+    apt update &&
+    apt install -y sublime-text
+'
+
+# APT DEB822 source format
+sudo sh -c '
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null
+	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
+Types: deb
+URIs: https://download.sublimetext.com/
+Suites: apt/stable/
+Signed-By: /usr/share/keyrings/sublimehq-pub.asc
+EOF
+	apt update &&
+	apt install sublime-text
 '
 ```
 
