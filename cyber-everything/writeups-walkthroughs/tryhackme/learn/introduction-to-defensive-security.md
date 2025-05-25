@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 > **Name**
 >
 > 🌐 [Introduction to Defensive Security](https://tryhackme.com/module/introduction-to-defensive-security) - TryHackMe Module
@@ -15,6 +17,8 @@
 > * Analyze digital evidence with digital forensics
 > * Security Operations in the cyber industry
 > * Learn how protection works in a web-base simulation
+
+---
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 

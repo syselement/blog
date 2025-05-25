@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 ## 🌐 Resources 🔗
 
 > - [TryHackMe | OWASP Juice Shop](https://tryhackme.com/r/room/owaspjuiceshop)

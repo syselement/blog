@@ -72,6 +72,10 @@
   - [Tools](cyber-everything/mobile/tools/README.md)
     - [MobSF](cyber-everything/mobile/tools/mobsf.md)
 - [🧬 Network](cyber-everything/network/README.md)
+  - [Commands](cyber-everything/network/commands/README.md)
+    - [Linux Privesc Commands](cyber-everything/network/commands/linux-privesc-commands.md)
+    - [Networking Commands](cyber-everything/network/commands/networking-commands.md)
+
 - [🌐 Web](cyber-everything/web/README.md)
   - [API](cyber-everything/web/api/README.md)
     - [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)

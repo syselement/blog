@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 ## 🌐 Resources 🔗
 
 > - [TryHackMe | Upload Vulnerabilities](https://tryhackme.com/r/room/uploadvulns)

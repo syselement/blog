@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 > **Name**
 >
 > 🌐 MODULE_PATH_LINK_HERE - Tryhackme Module/Path

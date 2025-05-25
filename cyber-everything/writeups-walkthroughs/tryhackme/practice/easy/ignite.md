@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 ## Intro
 
 | Room Info           | ![](.gitbook/assets/ignite.png)             |
