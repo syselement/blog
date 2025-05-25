@@ -32,9 +32,9 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > ---
 >
-> [![](.gitbook/assets/x.svg)](https://go.syselement.com/twitter)
+> [![](.gitbook/assets/x.svg)](https://go.syselement.com/x)
 >
-> [![](.gitbook/assets/x-syselement.svg)](https://go.syselement.com/twitter)
+> [![](.gitbook/assets/x-syselement.svg)](https://go.syselement.com/x)
 >
 > ---
 >
