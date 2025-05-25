@@ -1,45 +1,47 @@
-# Ansible
+# [Ansible](https://www.ansible.com/)
 
 ![ansible.com](.gitbook/assets/ansible-logo.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [User Guide - Ansible Community Documentation](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-> * [jdauphant/awesome-ansible: A collaborative curated list of awesome Ansible resources](https://github.com/jdauphant/awesome-ansible)
-> * [ansible-community/awesome-ansible: Awesome Ansible List](https://github.com/ansible-community/awesome-ansible)
-> * [Semaphore UI](https://semaphoreui.com/)
+> - [User Guide - Ansible Community Documentation](https://docs.ansible.com/ansible/latest/user_guide/index.html)
+> - [jdauphant/awesome-ansible: A collaborative curated list of awesome Ansible resources](https://github.com/jdauphant/awesome-ansible)
+> - [ansible-community/awesome-ansible: Awesome Ansible List](https://github.com/ansible-community/awesome-ansible)
+> - [Semaphore UI](https://semaphoreui.com/)
 >
 > Blogs:
 >
-> * [An Introduction to Configuration Management with Ansible | DigitalOcean](https://www.digitalocean.com/community/conceptual-articles/an-introduction-to-configuration-management-with-ansible)
-> * [How to Use Ansible: A Reference Guide | DigitalOcean](https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide)
-> * [Ansible Tutorial for Beginners: Playbook & Examples](https://spacelift.io/blog/ansible-tutorial)
+> - [An Introduction to Configuration Management with Ansible | DigitalOcean](https://www.digitalocean.com/community/conceptual-articles/an-introduction-to-configuration-management-with-ansible)
+> - [How to Use Ansible: A Reference Guide | DigitalOcean](https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide)
+> - [Ansible Tutorial for Beginners: Playbook & Examples](https://spacelift.io/blog/ansible-tutorial)
 
-***
+---
 
 ## [Ansible Intro](https://docs.ansible.com/ansible/latest/getting_started/introduction.html)
 
-* **Open-source tool** for automation and configuration management
-* **Agentless**: Uses SSH or WinRM for communication
-* **YAML-based playbooks** for defining configurations
-* **Idempotent**: Applies changes without unintended side effects
-* **Modular**: Offers built-in modules for various tasks
-* **Roles**: Organizes tasks for better reuse and collaboration
-* **Strong community support** and extensive documentation
+- **Open-source tool** for automation and configuration management
+- **Agentless**: Uses SSH or WinRM for communication
+- **YAML-based playbooks** for defining configurations
+- **Idempotent**: Applies changes without unintended side effects
+- **Modular**: Offers built-in modules for various tasks
+- **Roles**: Organizes tasks for better reuse and collaboration
+- **Strong community support** and extensive documentation
+
+
 
 **Terminology**
 
-* **Control Node**: The system running Ansible, typically on Linux/Unix
-* **Managed Nodes**: Target systems controlled by Ansible, requiring SSH and Python (2.6+/3.5+). Supports various OS types, including Windows
-* **Inventory**: A file listing managed hosts. Can be static (.ini) or dynamic (JSON output) for project-specific management
-* **Tasks**: Units of work executed on managed nodes, either ad-hoc or within playbooks
-* **Playbook**: An ordered list of tasks specifying target hosts and execution details, written in YAML
-* **Handlers**: Special tasks for managing services, triggered by other tasks and run after all tasks are completed
-* **Roles**: Structured collections of playbooks and files for reusable automation packages, streamlining specific deployments
+- **Control Node**: The system running Ansible, typically on Linux/Unix
+- **Managed Nodes**: Target systems controlled by Ansible, requiring SSH and Python (2.6+/3.5+). Supports various OS types, including Windows
+- **Inventory**: A file listing managed hosts. Can be static (.ini) or dynamic (JSON output) for project-specific management
+- **Tasks**: Units of work executed on managed nodes, either ad-hoc or within playbooks
+- **Playbook**: An ordered list of tasks specifying target hosts and execution details, written in YAML
+- **Handlers**: Special tasks for managing services, triggered by other tasks and run after all tasks are completed
+- **Roles**: Structured collections of playbooks and files for reusable automation packages, streamlining specific deployments
 
-***
+---
 
 ## [Ansible Install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pipx)
 
@@ -51,7 +53,7 @@ pipx ensurepath
 # pipx upgrade --include-injected ansible
 ```
 
-* Generate `ansible.cfg` file
+- Generate `ansible.cfg` file
 
 ```bash
 ansible-config init --disabled > ansible.cfg
@@ -59,7 +61,7 @@ ansible-config init --disabled > ansible.cfg
 
 ### [Inventory](https://docs.ansible.com/ansible/latest/inventory_guide/index.html)
 
-* Even if you do not define any groups in your inventory file, Ansible creates two default groups: `all` and `ungrouped`. The `all` group contains every host. The `ungrouped` group contains all hosts that don’t have another group aside from `all`.
+- Even if you do not define any groups in your inventory file, Ansible creates two default groups: `all` and `ungrouped`. The `all` group contains every host. The `ungrouped` group contains all hosts that don’t have another group aside from `all`.
 
 ```bash
 sudo mkdir -p /etc/ansible
@@ -74,7 +76,7 @@ ubuntu-srv.local
 ansible_python_interpreter=/usr/bin/python3
 ```
 
-***
+---
 
 ## Commands
 
@@ -108,7 +110,7 @@ ansible all -m apt -a "name=nginx" --become -K
 ansible all -a "systemctl restart nginx" --become
 ```
 
-***
+---
 
 ## Labs
 
@@ -166,7 +168,7 @@ ansible-playbook ./intro_playbook.yml -K -v
 # This will use the current system user as remote SSH user, and the current system user’s SSH key to authenticate to the nodes.
 ```
 
-***
+---
 
 ## Semaphore UI
 
@@ -174,7 +176,7 @@ ansible-playbook ./intro_playbook.yml -K -v
 
 > ❗ As per [Semaphore docs](https://docs.semaphoreui.com/administration-guide/installation/) Snap install is **deprecated** (but still works).
 >
-> * I need to do some testing to integrate [Package manager](https://docs.semaphoreui.com/administration-guide/installation/package-manager/) and/or [Docker](https://docs.semaphoreui.com/administration-guide/installation/docker/) installation documentation.
+> - I need to do some testing to integrate [Package manager](https://docs.semaphoreui.com/administration-guide/installation/package-manager/) and/or [Docker](https://docs.semaphoreui.com/administration-guide/installation/docker/) installation documentation.
 
 ### Install via Snap (Ubuntu Desktop)
 
@@ -197,9 +199,9 @@ sudo cp $HOME/.ssh/config /root/snap/semaphore/common/sshconfig
 chmod 644 /root/snap/semaphore/common/sshconfig
 ```
 
-> #### Install via Docker
+> ### Install via Docker
 >
-> _Not tested_
+> *Not tested*
 >
 > Follow the steps outlined in the [official Semaphore documentation](https://github.com/semaphoreui/semaphore) for Docker-based deployment. Use the [container configurator](https://semaphoreui.com/install/docker/) to get the ideal Docker configuration for Semaphore.
 >
@@ -219,23 +221,23 @@ chmod 644 /root/snap/semaphore/common/sshconfig
 > -d semaphoreui/semaphore:latest
 > ```
 >
-> * [ ] Missing `.ssh/config` setup
+> - [ ] Missing `.ssh/config` setup
 
 ### Post-install configuration
 
 1. **Log In**
-   * Access Semaphore at [http://localhost:3000](http://localhost:3000/)
-   * Use the admin credentials set during the setup process
+   - Access Semaphore at [http://localhost:3000](http://localhost:3000/)
+   - Use the admin credentials set during the setup process
 2. **Keystore Configuration**
-   * Add the SSH keys + passphrases for secure connections
+   - Add the SSH keys + passphrases for secure connections
 3. **Repository Configuration**
-   * Link the Git repository using SSH credentials
-   * **e.g.** - `git@github.com:syselement/ansibletest.git`
+   - Link the Git repository using SSH credentials
+   - **e.g.** - `git@github.com:syselement/ansibletest.git`
 4. **Environment**
-   * Set up an empty environment
+   - Set up an empty environment
 5. **Static Inventory Configuration**
-   * Define an inventory file with host and group details
-   * **e.g.**
+   - Define an inventory file with host and group details
+   - **e.g.**
 
 ```bash
 [pihole]
@@ -253,8 +255,8 @@ ansible_ssh_common_args = '-F /root/snap/semaphore/common/sshconfig'
 Task templates in Semaphore point to Ansible playbooks stored in the repository. Here’s how to set them up:
 
 1. **Organize the repository**
-   * Structure the repository to store playbooks logically.
-   * **e.g.**
+   - Structure the repository to store playbooks logically.
+   - **e.g.**
 
 ```bash
 ansible/
@@ -268,9 +270,10 @@ ansible/
 ```
 
 2. **Create a template in Semaphore**
-   * Add a new **Task Template** in Semaphore
-     * **e.g.**
-     * Name - `AptUpdateUbuntu`
-       * Playbook Path - Relative path to the playbook - `ansible/playbooks/updatelinux.yaml`
+   - Add a new **Task Template** in Semaphore
+     - **e.g.**
+     - Name - `AptUpdateUbuntu`
+       - Playbook Path - Relative path to the playbook - `ansible/playbooks/updatelinux.yaml`
 
-***
+------
+

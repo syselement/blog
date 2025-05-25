@@ -2,19 +2,19 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-***
+---
 
 ## Intro
 
-| Room Info            | ![](.gitbook/assets/blog.png)           |
-| -------------------- | --------------------------------------- |
+| Room Info           | ![](.gitbook/assets/blog.png)           |
+| :------------------ | --------------------------------------- |
 | 🔗 Name              | [Blog](https://tryhackme.com/room/blog) |
 | 🎯 Target IP         | `10.10.54.35`                           |
-| 📈 Difficulty level  | 🟡Medium                                |
+| 📈 Difficulty level  | 🟡Medium                                 |
 | 💲 Subscription type | Free                                    |
 | 🐧 OS                | Linux                                   |
 
-***
+---
 
 ## Recon
 
@@ -108,14 +108,14 @@ nmap -p 80 --script=http-enum -sV blog.thm
 |_http-server-header: Apache/2.4.29 (Ubuntu)
 ```
 
-* `http://blog.thm/`
-* `http://blog.thm/robots.txt`
-  * Disallow: `/wp-admin/`
+- `http://blog.thm/`
+- `http://blog.thm/robots.txt`
+  - Disallow: `/wp-admin/`
 
 > 🚩 The web server uses the **`WordPress 5.0`** CMS
 
-* `http://blog.thm/wp-admin/`
-  * tried default `admin`:`password` - does not work
+- `http://blog.thm/wp-admin/`
+  - tried default `admin`:`password` - does not work
 
 Perform some SMB enumeration
 
@@ -171,10 +171,10 @@ searchsploit wordpress 5.0
 
 > There is a vulnerability called [WordPress Core 5.0.0 - Crop-image Shell Upload](https://www.exploit-db.com/exploits/46662)
 >
-> _This module exploits a path traversal and a local file inclusion vulnerability on WordPress versions 5.0.0 and <= 4.9.8._\
-> _The crop-image function allows a user, with at least author privileges,_\
-> _to resize an image and perform a path traversal by changing the \_wp\_attached\_file reference during the upload._\
-> _The second part of the exploit will include this image in the current theme by changing the \_wp\_page\_template attribute when creating a post._
+> *This module exploits a path traversal and a local file inclusion vulnerability on WordPress versions 5.0.0 and <= 4.9.8.
+> The crop-image function allows a user, with at least author privileges,
+> to resize an image and perform a path traversal by changing the _wp_attached_file reference during the upload.
+> The second part of the exploit will include this image in the current theme by changing the _wp_page_template attribute when creating a post.*
 
 Since Karen Wheeler has author access to the blog, brute force the user `kwheel`.
 
@@ -194,7 +194,7 @@ wpscan --url http://blog.thm -P /usr/share/wordlists/rockyou.txt -U user.txt -t 
 
 > 📌 `kwheeler`:`cutiepie1`
 
-***
+---
 
 ## Exploitation
 
@@ -242,7 +242,7 @@ ls /media/usb
 ls: cannot open directory '/media/usb': Permission denied
 ```
 
-***
+---
 
 ## Privilege Escalation
 
@@ -296,4 +296,5 @@ cat /root/root.txt
 9a0b2***************************
 ```
 
-***
+------
+
