@@ -18,6 +18,8 @@
 >
 > - [PERFORM CLEAN INSTALL OF WINDOWS 11 (SIX WAYS)](https://pureinfotech.com/clean-install-windows-11/)
 > - [Rufus - Create bootable USB](https://rufus.ie/en/)
+>   - [memstechtips/UnattendedWinstall](https://github.com/memstechtips/UnattendedWinstall)
+>
 > - [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11)
 > - [Windows Server Evaluate edition ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)
 >
@@ -50,25 +52,23 @@
 
 ### Windows 11 without Internet
 
-> 📌 This can be done using the latest [Rufus](https://rufus.ie/en/) version to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
+> 📌 **RECOMMENDED INSTALL SOLUTION** ➡️ **Rufus** (**simple**)
+>
+> - The latest [Rufus](https://rufus.ie/en/) version can be used to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
+>
+> 📌 [Unattend-generator](https://schneegans.de/windows/unattend-generator/) (**advanced**)
+>
+> - An additional answer file can be used for more specific first-install settings. Make sure to include `autounattend.xml` file at the root of the Windows installation media to be executed during Windows setup.
 
 >  🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
 >
-> 🔗 UPDATED 2025 -> [The New BypassNRO - YouTube](https://www.youtube.com/watch?v=LK75SWX4F2s)
+>  🔗 UPDATED 2025 -> [The New BypassNRO - YouTube](https://www.youtube.com/watch?v=LK75SWX4F2s)
+
+**Manual bypass during standard install**
 
 - Install Windows 11 via [USB ISO](https://pureinfotech.com/create-bootable-windows-11-usb-install-media/)
 - At the first boot in OOBE (Out-of-the-box experience), select Region and Keyboard layout
-- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt`, type the following command and wait for the reboot
-
-```bash
-OOBE\BYPASSNRO
-```
-
-- After the reboot, click `I don't have internet` when asked to connect and `Continue with limited setup`.
-
-📌 If `BYPASSNRO` does not work (), proceed with the following
-
-- Open the `Command Prompt` again (press `SHIFT+F10`) and run
+- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt` and type the following command
 
 ```bash
 start ms-cxh:localonly
@@ -89,12 +89,13 @@ Proceed with the final [Configuration](#configuration).
 
 -TBA-
 
-### Disable Bing Search
+### Disable Online Start Search
 
-> 🔗 [How To Disable Bing Search On Windows 11](https://www.onmsft.com/how-to/how-to-disable-bing-search-on-windows-11/)
->
+> 🔗 [How to Disable Online or Web Results in Start Menu in Windows 10](https://windowsloop.com/disable-online-or-web-results-in-start-menu/)
 
 ```powershell
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v AllowSearchToUseLocation /t REG_DWORD /d 0 /f
+
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /t REG_DWORD /d 0 /f
 ```
 
@@ -168,6 +169,13 @@ reg add "HKCU\Software\Microsoft\Internet Explorer\PhishingFilter" /v "EnabledV9
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
+reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v AllowRecallEnablement /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowCopilotButton /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
+pause
 ```
 
 **Scheduled tasks**
