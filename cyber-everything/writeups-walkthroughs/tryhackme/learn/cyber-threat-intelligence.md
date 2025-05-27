@@ -2,6 +2,8 @@
 
 ![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
+---
+
 > **Name**
 >
 > 🌐 [Cyber Threat Intelligence](https://tryhackme.com/module/cyber-threat-intelligence) - Tryhackme Module

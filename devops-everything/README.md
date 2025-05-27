@@ -6,7 +6,7 @@
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
 
-- [ProDevOpsGuy Tech Community - Cloud & DevOps Blogs](https://www.prodevopsguytech.com/)
+- [ProDevOpsGuy - Cloud & DevOps Blogs](https://prodevopsguy.xyz/)
   - [Intro The DevOps - Github](https://github.com/NotHarshhaa/into-the-devops)
   - [DevOps Tools - Github](https://github.com/NotHarshhaa/devops-tools)
   - [prodevopsguy - Telegram channel](https://t.me/prodevopsguy)

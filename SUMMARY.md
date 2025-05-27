@@ -1,7 +1,6 @@
 # Table of contents
 
-- [ℹ️ Home](README.md)
-
+- [🏠 Home](README.md)
 ## 🔳 Operating Systems
 
 - [🐧 Linux](operating-systems/linux/README.md)
@@ -72,6 +71,9 @@
   - [Tools](cyber-everything/mobile/tools/README.md)
     - [MobSF](cyber-everything/mobile/tools/mobsf.md)
 - [🧬 Network](cyber-everything/network/README.md)
+  - [Commands](cyber-everything/network/commands/README.md)
+    - [Linux Privesc Commands](cyber-everything/network/commands/linux-privesc-commands.md)
+    - [Networking Commands](cyber-everything/network/commands/networking-commands.md)
 - [🌐 Web](cyber-everything/web/README.md)
   - [API](cyber-everything/web/api/README.md)
     - [API Sec Fundamentals](cyber-everything/web/api/api-fundamentals.md)
@@ -103,7 +105,6 @@
   - [📦 HackTheBox](cyber-everything/writeups-walkthroughs/hackthebox/README.md)
   - [🚩 Capture The Flag](cyber-everything/writeups-walkthroughs/ctfs/README.md)
 
-
 ## ♾️ DevOps Everything
 
 - [🔗 DevOps Resources](devops-everything/README.md)
@@ -114,7 +115,6 @@
   - [Kubernetes](devops-everything/kubernetes.md)
   - [Terraform](devops-everything/terraform.md)
   - [Vim](devops-everything/vim.md)
-
 
 ## 🔬 Home Lab
 
@@ -135,4 +135,3 @@
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
   - [Passbolt CE - Ubuntu Server](home-lab/misc/passbolt-ce.md)
-

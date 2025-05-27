@@ -1,4 +1,4 @@
-# CVSS v3.1
+# CVSS 3.1
 
 ![first.org - CVSS](.gitbook/assets/cvss.svg)
 
@@ -109,7 +109,6 @@ In the **`e.g. 1`** , the Scope is `Unchanged (S:U)` - the web app is both the v
 ### Confidentiality Impact (C)
 
 - *Measures the impact to the **confidentiality** of the information resources managed by a software component due to a successfully exploited vulnerability*
-
 - The *Base Score increases with the degree of information **disclosed***
 
 ![Confidentiality Impact Rubric](.gitbook/assets/Mod3_Slide067.png)
@@ -119,7 +118,6 @@ In the **`e.g. 1`** , the Confidentiality Impact is `None (C:N)` - the attacker 
 ### Integrity Impact (I)
 
 - *Measures the impact to **data trustworthiness and veracity** resulting from a successfully exploited vulnerability*
-
 - The *Base Score increases with the degree of information that can be **modified***
 
 ![Integrity Impact Rubric](.gitbook/assets/Mod3_Slide074.png)
@@ -129,8 +127,7 @@ In the **`e.g. 1`** , the Integrity Impact is `Low (I:l)` - the attacker can onl
 ### Availability Impact (A)
 
 - *Measures the impact to the **availability** of the impacted component resulting from a successfully exploited vuln*
-
-- The *Base Score increases with the degree of disruption of availability
+- The \*Base Score increases with the degree of disruption of availability
 
 ![Availability Impact Rubric](.gitbook/assets/Mod3_Slide081.png)
 
@@ -191,8 +188,7 @@ In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - resea
 
 - **Vector String** - text representation of a set of CVSS metrics
 
-> CVSS v3.1 Vector
-> [AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:H/E:P/RL:T/RC:R/CR:L/IR:M/AR:H/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:N](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:H/E:P/RL:T/RC:R/CR:L/IR:M/AR:H/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:N&version=3.1)
+> CVSS v3.1 Vector [AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:H/E:P/RL:T/RC:R/CR:L/IR:M/AR:H/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:N](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:L/UI:R/S:U/C:N/I:L/A:H/E:P/RL:T/RC:R/CR:L/IR:M/AR:H/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:N\&version=3.1)
 
 ## Scoring Scenarios
 
@@ -230,7 +226,7 @@ In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - resea
 
 > **CVSS v3.1 Vector**
 >
-> [AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L/E:X/RL:W/RC:R/CR:L/IR:H/AR:L/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L/E:X/RL:W/RC:R/CR:L/IR:H/AR:L/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X&version=3.1)
+> [AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L/E:X/RL:W/RC:R/CR:L/IR:H/AR:L/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L/E:X/RL:W/RC:R/CR:L/IR:H/AR:L/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:X/MA:X\&version=3.1)
 
 ### Scenario 2
 
@@ -269,7 +265,7 @@ In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - resea
 
 > **CVSS v3.1 Vector**
 >
-> [AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N/E:P/RL:T/RC:C/CR:L/IR:M/AR:L/MAV:A/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:N/MA:X](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N/E:P/RL:T/RC:C/CR:L/IR:M/AR:L/MAV:A/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:N/MA:X&version=3.1)
+> [AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N/E:P/RL:T/RC:C/CR:L/IR:M/AR:L/MAV:A/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:N/MA:X](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N/E:P/RL:T/RC:C/CR:L/IR:M/AR:L/MAV:A/MAC:X/MPR:X/MUI:X/MS:X/MC:X/MI:N/MA:X\&version=3.1)
 
 ### Scenario 3
 
@@ -279,7 +275,7 @@ In the **`e.g. 1`** , the Report Confidence Level is `Reasonable (RC:R)` - resea
 
 > **CVSS v3.1 Vector**
 >
-> [AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:X/IR:X/AR:X/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:H/MI:H/MA:H](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:X/IR:X/AR:X/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:H/MI:H/MA:H&version=3.1)
+> [AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:X/IR:X/AR:X/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:H/MI:H/MA:H](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:X/IR:X/AR:X/MAV:X/MAC:X/MPR:X/MUI:X/MS:X/MC:H/MI:H/MA:H\&version=3.1)
 
 ## Course Project
 
@@ -327,5 +323,4 @@ After workaround, the new Modified Attack Vector is:
 
 - Modified integrity - `None`
 
-------
-
+---
