@@ -163,18 +163,17 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias h='history -100 -1'
-alias history=omz_history
+alias history='omz_history'
 alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
-alias hz=omz_history
+alias hz='omz_history -E'
 alias ipa='ip -br -c a'
 alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
-alias mask='awk '"'"'{ printf substr($0, 1, 5); for (i=6; i<=length($0); i++) printf "*"; print "" }'"'"''
-alias mobsf='docker run -it --rm --name mobsf -p 8000:8000 -v ~/docker/mobsf:/home/mobsf/.MobSF opensecurity/mobile-security-framework-mobsf:latest'
+alias mask="awk '{ printf substr(\$0, 1, 5); for (i=6; i<=length(\$0); i++) printf \"*\"; print \"\" }'"
 alias p3='python3'
 alias ports='ss -lpntu'
 alias python='python3'
@@ -192,8 +191,13 @@ Set Custom **PATH**.
 # e.g. of my custom PATH
 
 sudo tee $ZSH_CUSTOM/my_paths.zsh > /dev/null <<EOF
-# Add go to path
+# Go
 export PATH=\$PATH:\$HOME/go/bin
+
+# iximiuz Labs
+export PATH=\$PATH:\$HOME/.iximiuz/labctl/bin
+source <(labctl completion zsh)
+
 EOF
 ```
 

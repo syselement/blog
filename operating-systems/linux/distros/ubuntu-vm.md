@@ -605,9 +605,9 @@ brew upgrade
 sudo sh -c '
 	sudo apt install -y apt-transport-https ca-certificates curl gnupg
 	sudo mkdir -p -m 755 /etc/apt/keyrings
-	curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+	curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.33/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 	chmod 644 /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-	echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+	echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.33/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 	chmod 644 /etc/apt/sources.list.d/kubernetes.list
 	sudo apt update && sudo apt install -y kubectl
 '
@@ -695,6 +695,8 @@ sudo az aks install-cli
 - [GCP gke-gcloud-auth-plugin](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
 
 ```bash
+# ATTENTION ! it installs its own kubectl and symlinks /usr/bin/kubectl to it 
+
 # GCloud CLI, Gloud-auth-plugin
 sudo sh -c '
     sudo apt install -y apt-transport-https ca-certificates gnupg curl
