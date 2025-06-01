@@ -12,21 +12,21 @@
 >   - [Building best practices - Docker Docs](https://docs.docker.com/build/building/best-practices/)
 >   - [Intro Guide to Dockerfile Best Practices | Docker](https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/)
 >   - [Docker Hub - Container Image Library](https://hub.docker.com/)
-> 
 >  - [Docker Engine](https://docs.docker.com/engine/)
 > - [Docker Network](https://docs.docker.com/network/)
 >  - [Beginner's Guide to Docker Networking](https://k21academy.com/docker-kubernetes/docker-networking-different-types-of-networking-overview-for-beginners/)
 >   - [The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
->- [Docker Compose](https://docs.docker.com/compose/)
+> - [Docker Compose](https://docs.docker.com/compose/)
 > - [Dockerfile](https://docs.docker.com/reference/dockerfile/)
 >   - [Top 8 container registries - Octopus Deploy](https://octopus.com/blog/top-8-container-registries)
->- [Docker Volumes](https://docs.docker.com/storage/volumes/)
+> - [Docker Volumes](https://docs.docker.com/storage/volumes/)
 > - [Docker security - Penetration Testing Tools, ML and Linux Tutorials](https://reconshell.com/docker-security/)
->- [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
+> - [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
+> - [Docker The Hands-On Way ROADMAP - iximiuz Labs](https://labs.iximiuz.com/roadmaps/docker)
 > - [Intro The DevOps - Containers - NotHarshhaa Github](https://github.com/NotHarshhaa/into-the-devops/blob/master/topics/containers/README.md)
->- [container.training - Github](https://github.com/jpetazzo/container.training)
+> - [container.training - Github](https://github.com/jpetazzo/container.training)
 > - [TryHackMe - Intro to Docker](https://tryhackme.com/r/room/introtodockerk8pdqk)
->- [containerd](https://containerd.io/)
+> - [containerd](https://containerd.io/)
 > - [cri-o](https://cri-o.io/)
 
 ![containerd.io/](.gitbook/assets/containerd-architecture.png)
@@ -315,6 +315,8 @@ docker run -v /var/lib/mysql/data
 - [Developing with Docker - TechWorld with Nana](https://gitlab.com/nanuchi/developing-with-docker)
 
 ```bash
+mkdir -p $HOME/repo/techworld
+cd $HOME/repo/techworld
 git clone https://gitlab.com/nanuchi/developing-with-docker.git
 ```
 
