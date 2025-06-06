@@ -4,7 +4,7 @@
 
 ---
 
-## 🌐 Resources
+## 🌐 Resources 🔗
 
 > - [Kali docs](https://www.kali.org/docs/)
 > - [kali-meta | Kali Linux Tools](https://www.kali.org/tools/kali-meta/)
