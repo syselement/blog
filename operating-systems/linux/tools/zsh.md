@@ -184,7 +184,7 @@ alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
-alias mask="awk '{ printf substr(\$0, 1, 5); for (i=6; i<=length(\$0); i++) printf \"*\"; print \"\" }'"
+alias mask='awk '\''{ printf substr($0, 1, 5); for (i=6; i<=length($0); i++) printf "*"; print "" }'\'''
 alias p3='python3'
 alias ports='ss -lpntu'
 alias python='python3'
