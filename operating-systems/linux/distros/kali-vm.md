@@ -6,7 +6,8 @@
 
 ## 🌐 Resources 🔗
 
-> 🔗 [Kali docs](https://www.kali.org/docs/)
+> - [Kali docs](https://www.kali.org/docs/)
+> - [kali-meta | Kali Linux Tools](https://www.kali.org/tools/kali-meta/)
 
 ---
 
@@ -14,7 +15,7 @@
 
 - Create a new Virtual Machine in VMWare with preferred specs:
   - Processors: `1 CPU - 2 Cores`
-  - RAM Memory: `4 GB`
+  - RAM Memory: `8 GB`
   - Hard Disk: `60 GB`
   - CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check *Connect at power on*
   - Network: set it as *NAT*
@@ -24,13 +25,13 @@
 
 ---
 
-## First Boot & Update
+## First Boot & [Update](https://www.kali.org/docs/general-use/updating-kali/)
 
 - Boot Kali Linux
 - Open the Terminal and run the command
 
 ```bash
-sudo apt update && sudo apt full-upgrade -y
+sudo apt update && sudo apt full-upgrade -y && sudo apt -y autoremove
 ```
 
 > - **`full-upgrade`** performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
@@ -45,58 +46,13 @@ sudo apt update && sudo apt full-upgrade -y
 reboot
 ```
 
-- Customize Kali and finish off the setup using `kali-tweaks`
+- Customize Kali and finish off the setup using `kali-tweaks` if necessary
 
 ```bash
 kali-tweaks
 ```
 
 ![kali-tweaks](.gitbook/assets/image-20230307161431755.png)
-
-### zshell alias - Update packages
-
-```bash
-nano ~/.zsh_aliases
-```
-
-- Append the following text with the necessary commands to update all packages:
-
-```bash
-# Upgrade all packages and remove unused packages
-
-alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
-```
-
-- Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
-
-```bash
-cd
-mkdir htb tcm pwnx
-# Copy every .ovpn file in the respective dir
-```
-
-```bash
-# OpenVpn Aliases
-alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'        # HTB FREE VPN
-alias htbvipvpn='sudo openvpn --config ~/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
-alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
-alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
-alias killopenvpn='sudo pkill openvpn'
-```
-
-- Save and exit
-
-- Reload the zshell configuration:
-
-```bash
-source ~/.zshrc
-```
-
-- Test the command
-
-```bash
-updateos
-```
 
 ---
 
@@ -105,46 +61,53 @@ updateos
 ### Basic config
 
 ```bash
-# Timezone
+# Timezone for "Europe/Rome"
 sudo unlink /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 sudo timedatectl set-timezone "Europe/Rome"
 
-# GRUB Timeout
+# Change "root" user password
+sudo passwd root
+
+# Disable Password prompt for sudo group
+sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+
+# Set GRUB Timeout
 sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
 sudo update-grub
-
-# Chrony NTP
-sudo apt install -y chrony
-sudo systemctl enable --now chrony
-sudo systemctl status chrony --no-pager
-sudo timedatectl status
 ```
 
 ### SSH keys
+
+- **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
+- **User SSH key pair** - creates a new personal SSH login key
+- **Add to ssh-agent** - loads the key for automatic use
 
 ```bash
 # Host ssh keys
 sudo /bin/rm -v /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
-sudo systemctl restart ssh
+sudo systemctl enable --now ssh
 
 # User ssh key pair
 cd
-mkdir -p ~/.ssh
-cd ~/.ssh
+mkdir -p $HOME/.ssh
+cd $HOME/.ssh
 ssh-keygen -t ed25519
 # Type a secure passphrase when asked
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
+chmod 700 $HOME/.ssh
+chmod 600 $HOME/.ssh/*
 
 # Add the SSH private key to the ssh-agent
-eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
+
+---
 
 ### Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ```bash
+# Install etBrainsMono Nerd Font
 cd
 mkdir -p $HOME/.local/share/fonts
 cd $HOME/.local/share/fonts
@@ -155,123 +118,19 @@ rm JetBrainsMono.zip
 fc-cache -fv
 ```
 
-### Zsh & Oh-My-Zsh
-
-> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
-
----
-
-## Personal Kali Config
-
-```bash
-# Disable Password prompt for sudo group
-sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
-
-# KALI Linux XFCE Theme mod #
-
-echo -ne "\n--------Kali Theme Mod--------\n"
-
-## Login: Kali-Dark + Wallpaper + User ##
-sudo apt install kali-wallpapers-2020.4
-sudo ln -sf /usr/share/backgrounds/kali/kali-neon-16x9.png /usr/share/desktop-base/kali-theme/login/background
-sudo sed s:"Kali-Light":"Kali-Dark":g -i /etc/lightdm/lightdm-gtk-greeter.conf
-sudo sed '/#greeter-hide-users=false/s/^#//g' -i /etc/lightdm/lightdm.conf
-
-## Set autologin for <username> ##
-# sudo nano /etc/lightdm/lightdm.conf
-# # In the [Seat:*] section of the file, set the following values:
-# autologin-user=<username>
-# autologin-user-timeout=0
-
-# Set Adwaita-dark Theme
-xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
-
-## Desktop Wallpaper ##
-xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image -s /usr/share/backgrounds/kali/kali-neon-16x9.png
-
-## Show Panel on primary display ##
-xfconf-query -c 'xfce4-panel' -p '/panels/panel-1/output-name' -t string -s "Primary" --create
-## Turn Numlock ON
-xfconf-query -c keyboards -p /Default/Numlock -t bool -s true --create
-```
-
-```bash
-## Set Keybindings - Print, Alt+Shift+D, Win+E, Alt+T ##
-
-nano ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-
-# Insert those lines under the first <property name="custom" type="empty">
-      <property name="&lt;Alt&gt;t" type="string" value="terminator"/>
-      <property name="&lt;Super&gt;e" type="string" value="/usr/bin/Thunar"/>
-      <property name="&lt;Shift&gt;&lt;Alt&gt;s" type="string" value="/usr/bin/flameshot gui --clipboard"/>
-      <property name="Print" type="string" value="/usr/bin/flameshot gui --clipboard"/>
-```
-
----
-
-## Tools
-
-### Basic Tools
-
-- Install basic tools
-
-```bash
-sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu htop kali-wallpapers-all locate nano net-tools pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
-```
-
-### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
-
-```bash
-sudo sh -c '
-    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
-    apt update &&
-    apt install -y sublime-text
-'
-
-# APT DEB822 source format
-sudo sh -c '
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null
-	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
-Types: deb
-URIs: https://download.sublimetext.com/
-Suites: apt/stable/
-Signed-By: /usr/share/keyrings/sublimehq-pub.asc
-EOF
-	apt update &&
-	apt install sublime-text
-'
-```
-
-- Run it with **`subl`** command.
-
-### [Terminator](https://gnome-terminator.org/)
+### [Terminator](https://github.com/gnome-terminator/terminator)
 
 ```bash
 sudo apt install -y terminator
 ```
 
-- From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
-
-![](.gitbook/assets/image-20230307153127021.png)
-
-```bash
-sudo update-alternatives --config x-terminal-emulator
-```
-
-![](.gitbook/assets/image-20230307152343811.png)
-
-- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
-- Go to `Preferences - Global` and set **Window state** to `Maximized`
-- Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
-- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
+- Config file -> `$HOME/.config/terminator/config`
+  - Make sure to have already installed the necessary font
 
 ```bash
-touch ~/.config/terminator/config
-```
+mkdir -p "$HOME/.config/terminator" && touch "$HOME/.config/terminator/config"
 
-```bash
-# Basic layout with custom font
+# Basic layout with maximized windows, custom font, infinite scrollback, no transparency
 
 cat > "$HOME/.config/terminator/config" << 'EOF'
 [global_config]
@@ -297,18 +156,167 @@ cat > "$HOME/.config/terminator/config" << 'EOF'
 EOF
 ```
 
-- `CTRL+ALT+T` is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
+- From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
+
+![](.gitbook/assets/image-20230307153127021.png)
+
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
+
+![](.gitbook/assets/image-20230307152343811.png)
+
+- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
+- ⌨️ `CTRL+ALT+T` is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
+
+### Zsh & Oh-My-Zsh
+
+> Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md) and some useful aliases
+
+---
+
+## Personal Kali Config
+
+```bash
+# KALI Linux XFCE Theme mod
+echo -ne "\n--------Kali Theme Mod--------\n"
+
+## Login: Kali-Dark + Wallpaper + User
+sudo apt install kali-wallpapers-2020.4
+sudo ln -sf /usr/share/backgrounds/kali/kali-neon-16x9.png /usr/share/desktop-base/kali-theme/login/background
+sudo sed s:"Kali-Light":"Kali-Dark":g -i /etc/lightdm/lightdm-gtk-greeter.conf
+sudo sed '/#greeter-hide-users=false/s/^#//g' -i /etc/lightdm/lightdm.conf
+
+## Desktop Wallpaper
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image --create -t string -s /usr/share/backgrounds/kali/kali-neon-16x9.png
+
+## Show Panel on primary display
+xfconf-query -c xfce4-panel -p /panels/panel-1/output-name --create -t string -s "Primary" 
+
+## Turn Numlock ON
+xfconf-query -c keyboards -p /Default/Numlock --create -t bool -s true 
+
+## Disable Display sleep and Disable Screensaver
+xfconf-query -c xfce4-screensaver -p /lock/enabled -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /lock/saver-activation/enabled -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+xfconf-query -c xfce4-screensaver -p /saver/fullscreen-inhibit -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /saver/idle-activation/enabled -n -t bool -s false
+xfconf-query -c xfce4-screensaver -p /saver/mode -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -n -t bool -s false
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/general-notification -n -t bool -s true
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lock-screen-suspend-hibernate -n -t bool -s true
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -n -t int -s 3
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-panel-label -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -n -t bool -s false
+```
+
+```bash
+## Set Keybindings - Print, Alt+Shift+S, Win+E, Alt+T ##
+      
+cp "$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml" "$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml.bak"
+
+# Insert the following lines under the first <property name="custom" type="empty">
+awk '
+    found == 0 && /<property name="custom" type="empty">/ {
+        print;
+        print "      <property name=\"&lt;Alt&gt;t\" type=\"string\" value=\"terminator\"/>";
+        print "      <property name=\"&lt;Shift&gt;&lt;Alt&gt;s\" type=\"string\" value=\"/usr/bin/flameshot gui --clipboard\"/>";
+        print "      <property name=\"Print\" type=\"string\" value=\"/usr/bin/flameshot gui --clipboard\"/>";
+        found = 1;
+        next;
+    }
+    { print }
+' "$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml" > /tmp/xfce4-keyboard-shortcuts.xml && \
+mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+```
+
+```bash
+## Panel configuration
+# to git pull from Github repo and import into $HOME/.config/xfce4/panel/
+```
+
+```bash
+## Set autologin for <username> ##
+# sudo nano /etc/lightdm/lightdm.conf
+# # In the [Seat:*] section of the file, set the following values:
+# autologin-user=<username>
+# autologin-user-timeout=0
+
+# Set Adwaita-dark Theme
+# xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
+```
+
+
+
+### CTF Ovpn directories
+
+- Download and add hacking platforms `.ovpn` files
+- To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
+
+```bash
+mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx
+# Copy every .ovpn file in the respective dir
+# e.g. File names
+# htb.ovpn
+# htbvip.ovpn
+# thm.ovpn
+# pwnx.ovpn
+```
+
+---
+
+## Tools
+
+### Basic Tools
+
+- Install basic tools
+
+```bash
+sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
+```
+
+### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
+
+```bash
+sudo sh -c '
+    wget -qO- https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor -o /usr/share/keyrings/sublimehq-archive.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/sublimehq-archive.gpg] https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list &&
+    apt update &&
+    apt install -y sublime-text
+'
+```
+
+```bash
+# APT DEB822 source format
+sudo sh -c '
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null &&
+	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
+Types: deb
+URIs: https://download.sublimetext.com/
+Suites: apt/stable/
+Signed-By: /usr/share/keyrings/sublimehq-pub.asc
+EOF &&
+	apt update &&
+	apt install sublime-text
+'
+```
+
+- Run it with **`subl`** command.
 
 ### [Brave](https://brave.com/linux/)
 
 ```bash
 sudo sh -c '
-    apt install -y curl
-    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
-    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb
-    dpkg -i libu2f-udev_1.1.10-3.2_all.deb
-    apt update && apt install -y brave-browser
+    apt install -y curl &&
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list &&
+    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb &&
+    dpkg -i libu2f-udev_1.1.10-3.2_all.deb &&
+    apt update &&
+    apt install -y brave-browser &&
     rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
 ```
@@ -316,26 +324,30 @@ sudo sh -c '
 ### [Github Desktop](https://github.com/shiftkey/desktop)
 
 ```bash
-wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
-
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
-
-sudo apt update && sudo apt install -y github-desktop
+sudo sh -c '
+	wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list &&
+    apt update &&
+    apt install -y github-desktop
+'
 ```
 
 ### [VS Codium](https://github.com/VSCodium/vscodium)
 
 ```bash
-wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
-
-sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
-
-sudo apt update && sudo apt install -y codium
+sudo sh -c '
+    curl -fsSLo /usr/share/keyrings/vscodium-archive-keyring.asc https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg &&
+	echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list &&
+	apt update &&
+	apt install -y codium
+'
 ```
 
 ### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)
 
 ```bash
+# Install Docker Engine via APT repository
+
 sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
 packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
@@ -348,14 +360,57 @@ sudo sh -c '
     chmod a+r /usr/share/keyrings/docker.gpg &&
     echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
     apt update && 
-    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
-    sudo gpasswd -a "${USER}" docker
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 '
 
-# Disable the services at boot
+# Add the current user to the "docker" group to let it run Docker
+sudo groupadd docker
+sudo gpasswd -a "${USER}" docker
+
+# Enable the services at boot
+# sudo systemctl enable --now docker.service containerd.service
+
+# OR Disable the services at boot
 sudo systemctl disable docker.service containerd.service
 # still has docker.socket active to start the Docker service only when necessary
+
+# Reboot and Test
+reboot
+docker run hello-world
 ```
+
+### [Flameshot](https://flameshot.org/docs/guide/wayland-help/#gnome-shortcut-does-not-trigger-flameshot)
+
+```bash
+sudo apt install flameshot
+```
+
+- Config file -> `$HOME/.config/flameshot/flameshot.ini`
+  - Make sure to have already installed the necessary font
+
+```bash
+mkdir -p "$HOME/.config/flameshot/" && touch "$HOME/.config/flameshot/flameshot.ini"
+
+cat > "$HOME/.config/flameshot/flameshot.ini" << 'EOF'
+[General]
+contrastOpacity=188
+copyPathAfterSave=false
+saveAfterCopy=true
+saveAsFileExtension=png
+saveLastRegion=true
+savePath=/home/syselement/Pictures/flameshot
+savePathFixed=true
+showHelp=false
+showMagnifier=false
+showStartupLaunchMessage=false
+squareMagnifier=true
+startupLaunch=true
+EOF
+```
+
+-  Set this as a custom **Keyboard/Application shortcut** for `flameshot`
+   -  I use `Shift+Alt+S` (configured in the **Personal Kali Config** above)
+
 
 ---
 
@@ -364,15 +419,30 @@ sudo systemctl disable docker.service containerd.service
 ### [AutoRecon](https://github.com/Tib3rius/AutoRecon)
 
 > *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
+>
+> 
+>
+> 📌 Installs dependencies:
+>
+> - dirsearch
+> - enum4linux-ng
+> - feroxbuster
+> - oscanner
+> - python3-ntlm-auth
+> - python3-requests-ntlm
+> - python3-toml
+> - seclists
+> - sipvicious
+> - tnscmd10g
 
 ```bash
 sudo apt update -y && sudo apt install -y autorecon
 
-mkdir -p ~/scans/autorecon
+mkdir -p $HOME/scans/autorecon
 ```
 
 ```bash
-cd ~/scans/autorecon
+cd $HOME/scans/autorecon
 sudo autorecon <TARGET-IP>
 ```
 
@@ -394,6 +464,17 @@ sudo autorecon <TARGET-IP>
 	└── xml/
 ```
 
+### [kali-linux-labs](https://www.kali.org/tools/kali-meta/#kali-linux-labs)
+
+> *These applications are meant to be insecure & vulnerable to help users experiment in a controlled manner. This metapackage depends on all the packages containing vulnerable environments for safe testing.*
+
+- `dvwa`
+- `juice-shop`
+
+```bash
+sudo apt install -y kali-linux-labs
+```
+
 ### [Katana](https://github.com/projectdiscovery/katana)
 
 > *A next-generation crawling and spidering framework*
@@ -403,7 +484,7 @@ sudo apt install -y golang
 
 go install github.com/projectdiscovery/katana/cmd/katana@latest
 
-sudo cp ~/go/bin/katana /usr/bin/
+sudo cp $HOME/go/bin/katana /usr/bin/
 ```
 
 ```bash
@@ -445,15 +526,16 @@ sudo /opt/pimpmykali/pimpmykali.sh
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade pwntools
+python3 -m pipx install pwntools
 ```
 
 ### [Searchsploit](https://www.exploit-db.com/searchsploit)
 
 ```bash
+# ~3GB of space necessary
 sudo apt update && sudo apt -y install exploitdb
 
+# Update via apt
 searchsploit -u
 ```
 

@@ -211,7 +211,7 @@ curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-com
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 
-# Add a user to the "docker" group to let it run Docker
+# Add the current user to the "docker" group to let it run Docker
 sudo groupadd docker
 sudo gpasswd -a "${USER}" docker
 ```
@@ -221,25 +221,27 @@ sudo gpasswd -a "${USER}" docker
 ```bash
 # Install Docker Engine via APT repository
 
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
-sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
+packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
+for pkg in "${packages[@]}"; do
+    sudo apt remove "$pkg" -y
+done &&
 
 sudo sh -c '
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
-    sudo chmod a+r /usr/share/keyrings/docker.gpg
-
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list
-
-    sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
+    chmod a+r /usr/share/keyrings/docker.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
+    apt update && 
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 '
 
-sudo systemctl enable docker --now
+# Add the current user to the "docker" group to let it run Docker
+sudo groupadd docker
 sudo gpasswd -a "${USER}" docker
 
-# On Debian and Ubuntu, the Docker service starts on boot by default, if not run
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+# Enable the services at boot
+sudo systemctl enable --now docker.service containerd.service
 
 # OR Disable the services at boot
 sudo systemctl disable docker.service containerd.service

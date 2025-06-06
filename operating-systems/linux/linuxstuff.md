@@ -506,16 +506,18 @@ sudo sh -c '
     apt update &&
     apt install -y sublime-text
 '
+```
 
+```bash
 # APT DEB822 source format
 sudo sh -c '
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null &&
 	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
 Types: deb
 URIs: https://download.sublimetext.com/
 Suites: apt/stable/
 Signed-By: /usr/share/keyrings/sublimehq-pub.asc
-EOF
+EOF &&
 	apt update &&
 	apt install sublime-text
 '
@@ -545,14 +547,15 @@ for EXT in "${EXTENSIONS[@]}"; do
 done
 ```
 
-### Install VS Codium
+### Install [VS Codium](https://github.com/VSCodium/vscodium)
 
 ```bash
-wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
-
-sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
-
-sudo apt update && sudo apt install -y codium
+sudo sh -c '
+    curl -fsSLo /usr/share/keyrings/vscodium-archive-keyring.asc https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg &&
+	echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list &&
+	apt update &&
+	apt install -y codium
+'
 ```
 
 ### Install Obsidian
@@ -567,12 +570,13 @@ chmod +x usr/local/bin/obsidian
 
 ```bash
 sudo sh -c '
-    apt install -y curl
-    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
-    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb
-    dpkg -i libu2f-udev_1.1.10-3.2_all.deb
-    apt update && apt install -y brave-browser
+    apt install -y curl &&
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list &&
+    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb &&
+    dpkg -i libu2f-udev_1.1.10-3.2_all.deb &&
+    apt update &&
+    apt install -y brave-browser &&
     rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
 ```
@@ -580,16 +584,12 @@ sudo sh -c '
 ### [Install GitHub Desktop](https://mirror.mwt.me/shiftkey-desktop/)
 
 ```bash
-wget -qO- "https://mirror.mwt.me/shiftkey-desktop/install.sh" | sudo -s
-```
-
-```bash
-# or
-wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
-
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
-
-sudo apt update && sudo apt install -y github-desktop
+sudo sh -c '
+	wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list &&
+    apt update &&
+    apt install -y github-desktop
+'
 ```
 
 ### Install Telegram
@@ -722,6 +722,8 @@ msfconsole
 ### [Install Docker](https://docs.docker.com/engine/install/debian/)
 
 ```bash
+# Install Docker Engine via APT repository
+
 sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
 packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
@@ -734,9 +736,23 @@ sudo sh -c '
     chmod a+r /usr/share/keyrings/docker.gpg &&
     echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
     apt update && 
-    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin &&
-    sudo gpasswd -a "${USER}" docker
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 '
+
+# Add the current user to the "docker" group to let it run Docker
+sudo groupadd docker
+sudo gpasswd -a "${USER}" docker
+
+# Enable the services at boot
+sudo systemctl enable --now docker.service containerd.service
+
+# OR Disable the services at boot
+sudo systemctl disable docker.service containerd.service
+# still has docker.socket active to start the Docker service only when necessary
+
+# Reboot and Test
+reboot
+docker run hello-world
 ```
 
 ### [Install Gophish](https://github.com/gophish/gophish/releases/)
@@ -1010,6 +1026,41 @@ sudo systemctl restart xrdp
 # unset XDG_RUNTIME_DIR
 # . $HOME/.profile
 ```
+
+### Xfce Power manager and Screensaver
+
+```bash
+for channel in xfce4-screensaver xfce4-power-manager; do
+  echo "=== $channel ==="
+  xfconf-query -c "$channel" -l | while read -r prop; do
+    echo -n "$prop = "
+    xfconf-query -c "$channel" -p "$prop"
+  done
+  echo
+done
+```
+
+```bash
+# e.g. on KALI LINUX
+
+## Disable Display sleep and Disable Screensaver
+xfconf-query -c xfce4-screensaver -p /lock/enabled -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /lock/saver-activation/enabled -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
+xfconf-query -c xfce4-screensaver -p /saver/fullscreen-inhibit -n -t bool -s true
+xfconf-query -c xfce4-screensaver -p /saver/idle-activation/enabled -n -t bool -s false
+xfconf-query -c xfce4-screensaver -p /saver/mode -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -n -t bool -s false
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/general-notification -n -t bool -s true
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/lock-screen-suspend-hibernate -n -t bool -s true
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action -n -t int -s 3
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-panel-label -n -t int -s 0
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -n -t bool -s false
+```
+
+
 
 ### Arm on x86 QEMU-USER
 

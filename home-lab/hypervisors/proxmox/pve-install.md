@@ -740,9 +740,8 @@ curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-com
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 
-# Add a user to the "docker" group to let it run Docker
+# Add the current user to the "docker" group to let it run Docker
 sudo groupadd docker
-
 sudo gpasswd -a "${USER}" docker
 ```
 

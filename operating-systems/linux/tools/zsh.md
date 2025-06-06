@@ -28,20 +28,21 @@ sudo chsh -s $(which zsh) $(whoami)
 zsh
 ```
 
-- If `eza` does not install via `apt`, install it manually
-
-```bash
-sudo sh -c '
-    apt update &&
-    apt install -y gpg &&
-    mkdir -p /usr/share/keyrings &&
-    wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /usr/share/keyrings/gierens.gpg &&
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list &&
-    chmod 644 /usr/share/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list &&
-    apt update &&
-    apt install -y eza
-'
-```
+> - If `eza` does not install via `apt`, install it manually
+>
+> ```bash
+> sudo sh -c '
+>     apt update &&
+>     apt install -y gpg &&
+>     mkdir -p /usr/share/keyrings &&
+>     wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /usr/share/keyrings/gierens.gpg &&
+>     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list &&
+>     chmod 644 /usr/share/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list &&
+>     apt update &&
+>     apt install -y eza
+> '
+> ```
+>
 
 - Install a specific [nerd font](https://www.nerdfonts.com/font-downloads) and set it as terminal emulator font
   - e.g. **JetBrainsMono Nerd Font**
@@ -57,7 +58,7 @@ rm JetBrainsMono.zip
 fc-cache -fv
 
 # Set "JeBrainsMono Nerd Font Mono" Regular font for the terminal
-# e.g. for Terminator
+# e.g. for Terminator - must be run at least one time
 sed -i '/\[\[default\]\]/,/^\[/s/^ *font = .*/    font = JetBrainsMono Nerd Font Mono 16/' "$HOME/.config/terminator/config"
 ```
 
@@ -75,13 +76,13 @@ Install the desired plugins and themes
 
 ```bash
 # Auto-suggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Powerlevek10k Theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 ### zshrc
@@ -117,18 +118,28 @@ zsh
 grep -q '^[[:space:]]*user[[:space:]]*$' "$HOME/.p10k.zsh" || sed -i '/os_icon.*# os identifier/ a\    user' "$HOME/.p10k.zsh"
 ```
 
+- EXTRA: to manually access the Powerlevel10k built-in configuration wizard again, run:
+
+```bash
+p10k configure
+```
+
+
+
 > **EXTRA**
 >
 > Set the same `ohmyzsh` config for the `root` user by symlinking the current user's `zsh` configuration.
 >
 > ```bash
 > ROOTUSER=root
-> USER_HOME_PATH=~$ROOTUSER
+> USER_HOME_PATH=$(eval echo "~$ROOTUSER")
 > 
-> sudo mv ${USER_HOME_PATH}/.zshrc ${USER_HOME_PATH}/.zshrc.bak
+> sudo mv ${USER_HOME_PATH}/.zshrc ${USER_HOME_PATH}/.zshrc.bak 2>/dev/null
+> 
 > sudo ln -sf $HOME/.zshrc ${USER_HOME_PATH}/.zshrc
 > sudo ln -sf $HOME/.oh-my-zsh ${USER_HOME_PATH}/.oh-my-zsh
 > sudo ln -sf $HOME/.p10k.zsh ${USER_HOME_PATH}/.p10k.zsh
+> 
 > sudo chsh -s $(which zsh) $ROOTUSER
 > ```
 >
@@ -140,18 +151,18 @@ Define custom **Aliases** within the `ZSH_CUSTOM` folder (if a `oh-my-zsh` user)
 ```bash
 # e.g. of my custom aliases
 
-sudo tee $ZSH_CUSTOM/aliases.zsh > /dev/null <<EOF
+tee $ZSH_CUSTOM/aliases.zsh > /dev/null <<EOF
 # Alias to update the system
-alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
+alias updateos='sudo sh -c "apt update && apt -y upgrade && apt -y autoremove"'
 
 # Comment above & Uncomment the following for full Ubuntu + Snap + Brew update
 # alias updateos='sudo sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo snap refresh" && brew upgrade'
 
 # OpenVpn Aliases
-alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'        # HTB FREE VPN
-alias htbvipvpn='sudo openvpn --config ~/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
-alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
-alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
+alias htbvpn='sudo openvpn --config $HOME/htb/htb.ovpn --daemon'        # HTB FREE VPN
+alias htbvipvpn='sudo openvpn --config $HOME/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
+alias thmvpn='sudo openvpn --config $HOME/thm/thm.ovpn --daemon'
+alias pwnxvpn='sudo openvpn --config $HOME/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 
 # Additional Aliases
@@ -190,13 +201,15 @@ Set Custom **PATH**.
 ```bash
 # e.g. of my custom PATH
 
-sudo tee $ZSH_CUSTOM/my_paths.zsh > /dev/null <<EOF
+tee $ZSH_CUSTOM/my_paths.zsh > /dev/null <<EOF
 # Go
 export PATH=\$PATH:\$HOME/go/bin
 
 # iximiuz Labs
 export PATH=\$PATH:\$HOME/.iximiuz/labctl/bin
-source <(labctl completion zsh)
+if command -v labctl > /dev/null; then
+  source <(labctl completion zsh)
+fi
 
 EOF
 ```

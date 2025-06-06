@@ -180,15 +180,25 @@ sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo
 ### Basic config
 
 ```bash
-# TIMEZONE
+# Timezone for "Europe/Rome"
 sudo unlink /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 sudo timedatectl set-timezone "Europe/Rome"
 
-# Set OS DARK MODE
+# Change "root" user password
+sudo passwd root
+
+# Disable Password prompt for sudo group
+sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
+
+# Set GRUB Timeout
+sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=1/' -i /etc/default/grub
+sudo update-grub
+
+# Set OS DARK MODE - GNOME
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-# DISABLE AUTOMATIC UPDATES
+# Disable APT Automatic updates
 sudo sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
 sudo systemctl disable apt-daily{,-upgrade}.timer
 sudo systemctl mask apt-daily{,-upgrade}.service
@@ -201,53 +211,45 @@ sudo sed -Ezi.orig \
   -e 's/(def _output_esm_package_alert.*?\n.*?\n.:\n)/\1    return\n/' \
   /usr/lib/update-notifier/apt_check.py
 sudo /usr/lib/update-notifier/update-motd-updates-available --force
-
-# Change "root" user password
-sudo passwd root
-
-# Disable Password prompt for sudo group
-sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
-
-# Set GRUB Timeout
-sudo sed -E '/^GRUB_TIMEOUT=/s/=(.*)/=0/' -i /etc/default/grub
-sudo update-grub
 ```
 
 ### SSH keys
 
-- Generate an SSH Key Pair on the **local HOST**
+- **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
+- **User SSH key pair** - creates a new personal SSH login key
+- **Add to ssh-agent** - loads the key for automatic use
 
 ```bash
 # Host ssh keys
 sudo /bin/rm -v /etc/ssh/ssh_host_*
 sudo dpkg-reconfigure openssh-server
-sudo systemctl restart ssh
+sudo systemctl enable --now ssh
 
 # User ssh key pair
 cd
-mkdir -p ~/.ssh
-cd ~/.ssh
+mkdir -p $HOME/.ssh
+cd $HOME/.ssh
 ssh-keygen -t ed25519
 # Type a secure passphrase when asked
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
+chmod 700 $HOME/.ssh
+chmod 600 $HOME/.ssh/*
 
 # Add the SSH private key to the ssh-agent
-eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
 
 - Add the Public Key to a system/sudo user on a potential Ubuntu Server VM
 
 ```bash
 # Local HOST (Ubuntu Desktop VM)
-cat ~/.ssh/id_ed25519.pub
+cat $HOME/.ssh/id_ed25519.pub
 # copy the string
 # Should start with ssh-ed25519 AAAA... or ssh-rsa AAAA... (if rsa)
 
 # Ubuntu Server VM
-echo "pubkey_string" >> ~/.ssh/authorized_keys
+echo "pubkey_string" >> $HOME/.ssh/authorized_keys
 # Set permissions
-chmod -R go= ~/.ssh
+chmod -R go= $HOME/.ssh
 ```
 
 ```bash
@@ -269,9 +271,47 @@ rm JetBrainsMono.zip
 fc-cache -fv
 ```
 
+### [Terminator](https://github.com/gnome-terminator/terminator)
+
+```bash
+sudo apt install -y terminator
+```
+
+- Config file -> `$HOME/.config/terminator/config`
+  - Make sure to have already installed the necessary font
+
+```bash
+mkdir -p "$HOME/.config/terminator" && touch "$HOME/.config/terminator/config"
+
+# Basic layout with maximized windows, custom font, infinite scrollback, no transparency
+
+cat > "$HOME/.config/terminator/config" << 'EOF'
+[global_config]
+  window_state = maximise
+[keybindings]
+[profiles]
+  [[default]]
+    font = JetBrainsMono Nerd Font Mono 16
+    foreground_color = "#f6f5f4"
+    show_titlebar = False
+    scrollback_infinite = True
+    disable_mousewheel_zoom = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
+EOF
+```
+
 ### Zsh & Oh-My-Zsh
 
-> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
+> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md) and some useful aliases
 > - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
 ---
@@ -336,8 +376,8 @@ packages=(
 sudo apt update
 sudo apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
 
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+mkdir -p $HOME/.local/bin
+ln -s /usr/bin/batcat $HOME/.local/bin/bat
 ```
 
 ---
@@ -351,54 +391,26 @@ sudo sh -c '
     apt update &&
     apt install -y sublime-text
 '
+```
 
+```bash
 # APT DEB822 source format
 sudo sh -c '
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null &&
 	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
 Types: deb
 URIs: https://download.sublimetext.com/
 Suites: apt/stable/
 Signed-By: /usr/share/keyrings/sublimehq-pub.asc
-EOF
+EOF &&
 	apt update &&
 	apt install sublime-text
 '
 ```
 
+
+
 - Run it with **`subl`** command.
-
----
-
-### [Terminator](https://github.com/gnome-terminator/terminator)
-
-- Config file -> `$HOME/.config/terminator/config`
-  - Make sure to have already installed the necessary font
-
-```bash
-cat > "$HOME/.config/terminator/config" << 'EOF'
-[global_config]
-  window_state = maximise
-[keybindings]
-[profiles]
-  [[default]]
-    font = JetBrainsMono Nerd Font Mono 16
-    foreground_color = "#f6f5f4"
-    show_titlebar = False
-    scrollback_infinite = True
-    disable_mousewheel_zoom = True
-    use_system_font = False
-[layouts]
-  [[default]]
-    [[[window0]]]
-      type = Window
-      parent = ""
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-[plugins]
-EOF
-```
 
 ---
 
@@ -406,12 +418,13 @@ EOF
 
 ```bash
 sudo sh -c '
-    apt install -y curl
-    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
-    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb
-    dpkg -i libu2f-udev_1.1.10-3.2_all.deb
-    apt update && apt install -y brave-browser
+    apt install -y curl &&
+    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list &&
+    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb &&
+    dpkg -i libu2f-udev_1.1.10-3.2_all.deb &&
+    apt update &&
+    apt install -y brave-browser &&
     rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
 ```
@@ -428,7 +441,7 @@ sudo sh -c '
 '
 
 ## Install Typora-Themeable theme
-cd ~/.config/Typora/themes/ \
+cd $HOME/.config/Typora/themes/ \
   && curl -L https://github.com/jhildenbiddle/typora-themeable/releases/latest/download/typora-themeable.zip -o typora-themeable.zip \
   && unzip typora-themeable.zip \
   && rm typora-themeable.zip
@@ -481,11 +494,37 @@ sudo snap install postman
 sudo apt install flameshot
 ```
 
--  Set this as a custom Keyboard shortcut to make `flameshot` work with Gnome
+- Config file -> `$HOME/.config/flameshot/flameshot.ini`
+  - Make sure to have already installed the necessary font
 
 ```bash
- script --command "flameshot gui" /dev/null
+mkdir -p "$HOME/.config/flameshot/" && touch "$HOME/.config/flameshot/flameshot.ini"
+
+cat > "$HOME/.config/flameshot/flameshot.ini" << 'EOF'
+[General]
+contrastOpacity=188
+copyPathAfterSave=false
+saveAfterCopy=true
+saveAsFileExtension=png
+saveLastRegion=true
+savePath=/home/syselement/Pictures/flameshot
+savePathFixed=true
+showHelp=false
+showMagnifier=false
+showStartupLaunchMessage=false
+squareMagnifier=true
+startupLaunch=true
+EOF
 ```
+
+-  Set this as a custom **Keyboard shortcut** for `flameshot`
+   -  I use `Shift+Alt+S`
+
+```bash
+script --command "flameshot gui" /dev/null
+```
+
+
 
 ---
 
@@ -494,25 +533,31 @@ sudo apt install flameshot
 ```bash
 # Install Docker Engine via APT repository
 
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
 
-sudo apt update -y && sudo apt install -y ca-certificates curl gnupg
+packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
+for pkg in "${packages[@]}"; do
+    sudo apt remove "$pkg" -y
+done &&
 
 sudo sh -c '
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
-    sudo chmod a+r /usr/share/keyrings/docker.gpg
-
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list
-
-    sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
+    chmod a+r /usr/share/keyrings/docker.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
+    apt update && 
+    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 '
 
-sudo systemctl enable docker --now
+# Add the current user to the "docker" group to let it run Docker
+sudo groupadd docker
 sudo gpasswd -a "${USER}" docker
 
-# On Debian and Ubuntu, the Docker service starts on boot by default, if not run
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
+# Enable the services at boot
+sudo systemctl enable --now docker.service containerd.service
+
+# OR Disable the services at boot
+sudo systemctl disable docker.service containerd.service
+# still has docker.socket active to start the Docker service only when necessary
 
 # Reboot and Test
 reboot
@@ -562,11 +607,12 @@ git config --global user.email johndoe@example.com
 #### or [VS Codium](https://github.com/VSCodium/vscodium)
 
 ```bash
-sudo wget -q https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
-
-sudo sh -c 'echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list'
-
-sudo apt update && sudo apt install -y codium
+sudo sh -c '
+    curl -fsSLo /usr/share/keyrings/vscodium-archive-keyring.asc https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg &&
+	echo "deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.asc ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main" > /etc/apt/sources.list.d/vscodium.list &&
+	apt update &&
+	apt install -y codium
+'
 ```
 
 ---
@@ -704,6 +750,14 @@ sudo sh -c '
     echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
     sudo apt update && sudo apt install -y google-cloud-cli google-cloud-sdk-gke-gcloud-auth-plugin
 '
+```
+
+---
+
+### [iximiuz Labctl](https://labs.iximiuz.com/dashboard)
+
+```bash
+curl -sf https://labs.iximiuz.com/cli/install.sh | sh
 ```
 
 ---
