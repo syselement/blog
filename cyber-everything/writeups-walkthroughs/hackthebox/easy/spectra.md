@@ -449,10 +449,9 @@ e89d2***************************
 
 ```bash
 groups
-	katie developers
+katie developers
 
 sudo -l
-
 User katie may run the following commands on spectra:
     (ALL) SETENV: NOPASSWD: /sbin/initctl
 ```
