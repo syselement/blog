@@ -50,8 +50,6 @@
 
 ## Install
 
-### Windows 11 without Internet
-
 > 📌 **RECOMMENDED INSTALL SOLUTION** ➡️ **Rufus** (**simple**)
 >
 > - The latest [Rufus](https://rufus.ie/en/) version can be used to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
@@ -59,6 +57,13 @@
 > 📌 [Unattend-generator](https://schneegans.de/windows/unattend-generator/) (**advanced**)
 >
 > - An additional answer file can be used for more specific first-install settings. Make sure to include `autounattend.xml` file at the root of the Windows installation media to be executed during Windows setup.
+>
+> 📌 [winutil - Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates](https://github.com/christitustech/winutil)
+>
+> - [How To Setup Windows - Chris Titus Tech](https://www.youtube.com/watch?v=0PA1wgdMeeI) - follow this video for full install with custom `iso`
+> - [User Guide – Winutil Documentation](https://winutil.christitus.com/userguide/)
+
+### Windows 11 without Internet (manual)
 
 >  🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
 >
@@ -101,6 +106,8 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 
 ### Debloat Win
 
+> 🔗 [winutil - Chris Titus Tech's Windows Utility](https://github.com/christitustech/winutil)
+>
 > 🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 >
 > 🔗 [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)

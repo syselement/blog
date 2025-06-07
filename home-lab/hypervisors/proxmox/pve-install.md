@@ -23,7 +23,11 @@
 - Open the Proxmox shell on the main node (or SSH into PVE -> risky)
 
 ```bash
-apt update && apt -y dist-upgrade
+pveupgrade
+
+reboot
+
+# apt update && apt -y dist-upgrade
 ```
 
 ## Post Install
