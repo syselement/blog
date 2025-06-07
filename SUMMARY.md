@@ -103,6 +103,8 @@
       - [Medium](cyber-everything/writeups-walkthroughs/tryhackme/practice/medium/README.md)
         - [Blog](cyber-everything/writeups-walkthroughs/tryhackme/practice/medium/blog.md)
   - [📦 HackTheBox](cyber-everything/writeups-walkthroughs/hackthebox/README.md)
+    - [Easy](cyber-everything/writeups-walkthroughs/hackthebox/easy/README.md)
+      - [Spectra](cyber-everything/writeups-walkthroughs/hackthebox/easy/spectra.md)
   - [🚩 Capture The Flag](cyber-everything/writeups-walkthroughs/ctfs/README.md)
 
 ## ♾️ DevOps Everything
