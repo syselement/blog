@@ -211,11 +211,10 @@ sudo update-alternatives --config x-terminal-emulator
 - The same above preferences can be configure within the following config file
 
 ```bash
-touch ~/.config/terminator/config
-```
+rm -f "$HOME/.config/terminator/config"
+mkdir -p "$HOME/.config/terminator" && touch "$HOME/.config/terminator/config"
 
-```bash
-# Basic layout with custom font
+# Basic layout with maximized windows, custom font, infinite scrollback, no transparency
 
 cat > "$HOME/.config/terminator/config" << 'EOF'
 [global_config]

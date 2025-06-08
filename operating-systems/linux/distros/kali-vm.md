@@ -128,6 +128,7 @@ sudo apt install -y terminator
   - Make sure to have already installed the necessary font
 
 ```bash
+rm -f "$HOME/.config/terminator/config"
 mkdir -p "$HOME/.config/terminator" && touch "$HOME/.config/terminator/config"
 
 # Basic layout with maximized windows, custom font, infinite scrollback, no transparency
