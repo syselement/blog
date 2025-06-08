@@ -299,7 +299,7 @@ Papers: No Results
 To perform a reverse shell using a WordPress 404 page, follow these steps:
 
 1. Log in to the WordPress admin panel and navigate to the theme editor
-2. Take note of the current theme being edited. Let's use `Twenty Nineteen` and locate the `404.php` file within the theme's files
+2. Take note of the current theme being edited. Let's use an inactive theme, e.g. `Twenty Nineteen` and locate the `404.php` file within the theme's files
 3. Replace the content of the `404.php` file with a PHP reverse shell code. For example, you can use a simple bash reverse shell or the code from `/usr/share/webshells/php/php-reverse-shell.php`, modifying the IP address and port to match the attacker machine's details.
 
 ```bash
@@ -578,6 +578,7 @@ done
 ## Extra
 
 - [https://0xdf.gitlab.io/2021/06/26/htb-spectra.html](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
+- [Spectra - Ippsec](https://www.youtube.com/watch?v=mC7G3i2gV54)
 
 ------
 

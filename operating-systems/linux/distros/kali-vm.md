@@ -257,7 +257,7 @@ mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel
 - To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
 
 ```bash
-mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx
+mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
 # Copy every .ovpn file in the respective dir
 # e.g. File names
 # htb.ovpn
@@ -416,6 +416,8 @@ EOF
 
 ## Security Tools
 
+> - [Active directory pentesting: cheatsheet and beginner guide - HTB](https://www.hackthebox.com/blog/active-directory-penetration-testing-cheatsheet-and-guide)
+
 ### [AutoRecon](https://github.com/Tib3rius/AutoRecon)
 
 > *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
@@ -462,6 +464,66 @@ sudo autorecon <TARGET-IP>
 	├── tcp80/
 	├── udp53/
 	└── xml/
+```
+
+### [BloodHound CE](https://github.com/SpecterOps/BloodHound)
+
+> BloodHound - uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment
+>
+> - [BloodHound Community Edition Quickstart - SpecterOps](https://bloodhound.specterops.io/get-started/quickstart/community-edition-quickstart)
+
+```bash
+# Requirement: Install Docker (see above)
+
+sudo sh -c '
+	apt update -y
+	mkdir -p /opt/bloodhound
+	cd /opt/bloodhound
+	wget https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz
+	tar -xvzf bloodhound-cli-linux-amd64.tar.gz
+	ln -s /opt/bloodhound/bloodhound-cli /usr/local/bin/bloodhound-cli
+	/opt/bloodhound/bloodhound-cli install
+'
+```
+
+- Go to [http://localhost:8080/ui/login](http://localhost:8080/ui/login), and log in with `admin` and the randomly generated password from the last installation step. Reset the password as prompted.
+- To get data into BloodHound, ingest sample data or run a data collector.
+
+```bash
+# Other commands
+sudo bloodhound-cli resetpwd
+sudo bloodhound-cli update
+sudo bloodhound-cli config get default_password
+```
+
+### [BloodHound.py CE](https://github.com/dirkjanm/BloodHound.py)
+
+- Install by cloning this repository `git clone https://github.com/dirkjanm/BloodHound.py`, checking out the CE branch `git checkout bloodhound-ce` and running `pip install .` from the project directory.
+
+- The **BloodHound.py CE ingestor** will add a command line tool `bloodhound-ce-python` to your PATH.
+
+```bash
+mkdir -p $HOME/tools
+cd $HOME/tools
+git clone https://github.com/dirkjanm/BloodHound.py
+
+cd BloodHound.py
+git checkout bloodhound-ce
+pipx install . --force
+```
+
+```bash
+bloodhound-ce-python
+```
+
+### [BloodyAD](https://github.com/CravateRouge/bloodyAD)
+
+```bash
+pipx install bloodyAD
+```
+
+```bash
+bloodyAD --host <IP> -d bloody.local -k set password john.doe 'Password123!'
 ```
 
 ### [kali-linux-labs](https://www.kali.org/tools/kali-meta/#kali-linux-labs)
