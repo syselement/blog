@@ -252,7 +252,7 @@ mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel
 
 
 
-### CTF Ovpn directories
+### CTF Configs
 
 - Download and add hacking platforms `.ovpn` files
 - To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
@@ -267,6 +267,12 @@ mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
 # pwnx.ovpn
 ```
 
+```bash
+sudo sh -c 'gunzip -c /usr/share/wordlists/rockyou.txt.gz > /usr/share/wordlists/rockyou.txt'
+```
+
+
+
 ---
 
 ## Tools
@@ -276,7 +282,7 @@ mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
+sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget xclip
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
@@ -485,6 +491,12 @@ sudo sh -c '
 	ln -s /opt/bloodhound/bloodhound-cli /usr/local/bin/bloodhound-cli
 	/opt/bloodhound/bloodhound-cli install
 '
+
+# Start
+sudo bloodhound-cli containers start
+
+# Stop
+sudo bloodhound-cli containers stop
 ```
 
 - Go to [http://localhost:8080/ui/login](http://localhost:8080/ui/login), and log in with `admin` and the randomly generated password from the last installation step. Reset the password as prompted.
