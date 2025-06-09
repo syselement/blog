@@ -44,7 +44,7 @@ nmap -p <PORTS> -sC -sV -vv -oA nmap/boxname BOX_IP
 ```
 
 ```bash
-grep -i boxname nmap/certificate.nmap
+grep -i boxname nmap/boxname.nmap
 
 # Subdomains discovery
 # ffuf ...
