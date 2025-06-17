@@ -1198,6 +1198,10 @@ ssh root@segfault.net
 
 ## Troubleshooting
 
+### Exit a locked SSH session
+
+- Press `Enter` followed by `~.` to terminate the locked SSH session
+
 ### Disable a specific bluetooth adapter
 
 ```bash
