@@ -555,3 +555,108 @@ rmdir /s ubuntu
 
 ---
 
+### Resize Windows EFI partition
+
+> ⚙️ **Goal**
+>
+> Make the **EFI System Partition** larger to support **Lenovo BIOS update**, which requires more than the original 100 MB created by the Windows 11 standard installer.
+>
+> 📌 **Expected result**
+>
+> - EFI resized
+> - MSR restored
+> - Boot repaired
+> - Windows stable and functioning
+
+#### 1. **Check disk layout**
+
+- Found that the 100 MB **EFI System Partition** was too small.
+- Discovered a 16 MB **MSR partition** (Microsoft Reserved) between `EFI` and `C:` preventing resizing.
+
+#### 2. **Deleted the MSR Partition**
+
+- Booted into [GParted Live USB](https://gparted.org/livecd.php)
+- **Deleted** the 16 MB `MSR` partition (normally safe but can be risky).
+- ***Shrink** the left part of the `C:` partition to free up the necessary space.
+- This freed space to the right of the `EFI` partition.
+
+#### 3. **Resized the EFI Partition**
+
+- Expanded the `EFI` partition from 100 MB to a larger size (~300 MB).
+- Applied the changes.
+
+#### 4. **BSOD After Reboot**
+
+- Upon reboot, Windows crashed with BSOD - `NTFS_FILE_SYSTEM stop code.`
+- Cause: likely NTFS structure misalignment or partition table confusion after `MSR` deletion and `EFI` + `C:` resizing.
+
+#### 5. **Recreated the MSR Partition**
+
+- Booted into **Windows recovery**
+
+  - **Advanced Startup -> Command Prompt**
+
+- Used `diskpart` to recreate a 16 MB `MSR` partition in the correct spot:
+
+  ```
+  diskpart
+  select disk 0
+  create partition msr size=16
+  ```
+
+#### 6. **Repaired Windows via Advanced Recovery**
+
+- Rebooted into **Windows Recovery Mode**.
+- Used the built-in startup repair tool
+  - **Advanced Options → Startup Repair**
+- Windows automatically fixed the bootloader/NTFS issues.
+
+#### 7. **System Booted Successfully**
+
+- No more BSOD.
+- `EFI` partition now has enough space.
+- Ready to proceed with BIOS update or other tasks.
+
+#### Check disk info - diskpart
+
+```cmd
+DISKPART> sel disk 0
+
+Disk 0 is now the selected disk.
+
+DISKPART> detail disk
+
+CT2000P5PSSD8
+Disk ID: {9E********}
+Type   : NVMe
+Status : Online
+Path   : 0
+Target : 0
+LUN ID : 0
+Location Path : PCIROOT(0)#PCI(0204)#PCI(0000)#NVME(P00T00L00)
+Current Read-only State : No
+Read-only  : No
+Boot Disk  : Yes
+Pagefile Disk  : Yes
+Hibernation File Disk  : No
+Crashdump Disk  : Yes
+Clustered Disk  : No
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition   1857 GB  Healthy    Boot
+  Volume 1                      FAT32  Partition   2048 MB  Healthy    System
+  Volume 2                      NTFS   Partition    642 MB  Healthy    Hidden
+
+DISKPART> list part
+
+  Partition ###  Type              Size     Offset
+  -------------  ----------------  -------  -------
+  Partition 1    System            2048 MB  1024 KB
+  Partition 2    Reserved            16 MB  2049 MB
+  Partition 3    Primary           1857 GB  5237 MB
+  Partition 4    Recovery           642 MB  1862 GB
+```
+
+---
+
