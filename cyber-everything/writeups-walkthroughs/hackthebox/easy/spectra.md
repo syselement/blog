@@ -498,6 +498,7 @@ uid=20156(katie) gid=20157(katie) euid=0(root) egid=0(root) groups=0(root),20157
 ```
 
 ```bash
+# Root Flag
 cat /root/root.txt
 d4451***************************
 ```

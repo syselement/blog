@@ -99,6 +99,18 @@ find / -type f -iname user.txt 2>/dev/null
 find / -type f -iname root.txt 2>/dev/null
 ```
 
+```bash
+# User Flag
+
+```
+
+```bash
+# Root Flag
+
+```
+
+
+
 
 
 ---
