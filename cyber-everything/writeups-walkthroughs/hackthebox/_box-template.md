@@ -62,6 +62,8 @@ sudo sed -i '$ d' /etc/hosts
 
 
 
+
+
 ---
 
 ## Exploitation
@@ -71,6 +73,48 @@ sudo sed -i '$ d' /etc/hosts
 ```bash
 
 ```
+
+
+
+
+
+---
+
+## Foothold
+
+### Shell as user NAME
+
+- 
+
+```bash
+# User Flag
+find / -type f -iname user.txt 2>/dev/null
+```
+
+
+
+
+
+---
+
+## Lateral Movement
+
+- 
+
+```bash
+
+```
+
+### Shell as user NAME
+
+- 
+
+```bash
+# User Flag
+find / -type f -iname user.txt 2>/dev/null
+```
+
+
 
 
 
@@ -86,26 +130,14 @@ sudo sed -i '$ d' /etc/hosts
 
 
 
-### Get Flags
+### Shell as root
 
 - 
 
 ```bash
-find / -type f -name 'flag.txt' 2>/dev/null 
-
-find / -type f -iname user.txt 2>/dev/null
-
-find / -type f -iname root.txt 2>/dev/null
-```
-
-```bash
-# User Flag
-
-```
-
-```bash
 # Root Flag
-
+find / -type f -name 'flag.txt' 2>/dev/null
+find / -type f -iname root.txt 2>/dev/null
 ```
 
 
@@ -126,7 +158,19 @@ find / -type f -iname root.txt 2>/dev/null
 
 ---
 
+## Summary
+
+- 
+
+
+
+---
+
 ## Extra
+
+- 
+
+
 
 ------
 

