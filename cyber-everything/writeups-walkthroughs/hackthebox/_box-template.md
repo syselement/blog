@@ -11,7 +11,6 @@
 | 🔗 Name             | Boxname + Link              |
 | 🎯 Target IP        | `BOX_IP`                    |
 | 📈 Difficulty level | 🟩Easy 🟨Medium 🟥Hard ⬛Insane |
-| ⌛ Retire Date      | DD Mmm YYYY                 |
 | 🪟 🐧OS              | Linux/Windows               |
 
 ---

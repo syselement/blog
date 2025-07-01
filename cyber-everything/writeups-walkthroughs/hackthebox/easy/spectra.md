@@ -11,7 +11,6 @@
 | 🔗 Name             | [Spectra](https://app.hackthebox.com/machines/spectra) |
 | 🎯 Target IP        | `10.129.240.86`                                        |
 | 📈 Difficulty level | 🟩Easy                                                  |
-| ⌛ Retire Date      | 26 Jun 2021                                            |
 | 🐧OS                | Linux                                                  |
 
 ---
