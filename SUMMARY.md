@@ -84,6 +84,10 @@
     - [Advanced topics](cyber-everything/web/portswigger/advanced-topics/README.md)
     - [🔬 Vulnerability Labs](cyber-everything/web/portswigger/all-labs/README.md)
 - [✍️ Writeups & Walkthroughs](cyber-everything/writeups-walkthroughs/README.md)
+  - [📦 HackTheBox](cyber-everything/writeups-walkthroughs/hackthebox/README.md)
+    - [Easy](cyber-everything/writeups-walkthroughs/hackthebox/easy/README.md)
+      - [Sau](cyber-everything/writeups-walkthroughs/hackthebox/easy/Sau.md)
+      - [Spectra](cyber-everything/writeups-walkthroughs/hackthebox/easy/spectra.md)
   - [🌩️ TryHackMe](cyber-everything/writeups-walkthroughs/tryhackme/README.md)
     - [📖 Learn](cyber-everything/writeups-walkthroughs/tryhackme/learn/README.md)
       - [Cyber Threat Intelligence](cyber-everything/writeups-walkthroughs/tryhackme/learn/cyber-threat-intelligence.md)
@@ -102,9 +106,6 @@
         - [Startup](cyber-everything/writeups-walkthroughs/tryhackme/practice/easy/startup.md)
       - [Medium](cyber-everything/writeups-walkthroughs/tryhackme/practice/medium/README.md)
         - [Blog](cyber-everything/writeups-walkthroughs/tryhackme/practice/medium/blog.md)
-  - [📦 HackTheBox](cyber-everything/writeups-walkthroughs/hackthebox/README.md)
-    - [Easy](cyber-everything/writeups-walkthroughs/hackthebox/easy/README.md)
-      - [Spectra](cyber-everything/writeups-walkthroughs/hackthebox/easy/spectra.md)
   - [🚩 Capture The Flag](cyber-everything/writeups-walkthroughs/ctfs/README.md)
 
 ## ♾️ DevOps Everything
