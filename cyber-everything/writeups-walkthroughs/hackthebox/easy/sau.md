@@ -287,7 +287,7 @@ cat /root/root.txt
 ## Extra
 
 - [HTB: Sau | 0xdf hacks stuff](https://0xdf.gitlab.io/2024/01/06/htb-sau.html)
-- [Sau - Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ&t=780s)
+- [Sau - Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ)
 
 ------
 
