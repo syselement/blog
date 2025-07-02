@@ -2,6 +2,8 @@
 
 ## 🌐 Resources 🔗
 
+> - [morrownr/USB-WiFi: USB WiFi Adapter Information for Linux](https://github.com/morrownr/USB-WiFi)
+>   - [USB WiFi chipset information for Linux · morrownr/USB-WiFi](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Chipsets.md)
 > - [Configuring the Alpha AWUS036ACH Wi-Fi Adapter on Kali Linux | HackerNoon](https://hackernoon.com/configuring-the-alpha-awus036ach-wi-fi-adapter-on-kali-linux)
 > - [lwfinger/rtw88: A backport of the Realtek Wifi 5 drivers from the wireless-next repo.](https://github.com/lwfinger/rtw88)
 > - [WiFi adapter (driver) tests · ZerBea/hcxdumptool · Discussion #361](https://github.com/ZerBea/hcxdumptool/discussions/361#discussioncomment-7550759)
