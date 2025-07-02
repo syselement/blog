@@ -22,7 +22,7 @@
 ## Zsh Installation
 
 ```bash
-sudo apt update -y && sudo apt install -y curl eza git-all zsh
+sudo apt update -y && sudo apt install -y curl eza git-all unzip zsh
 sudo chsh -s $(which zsh) $(whoami)
 
 zsh
@@ -69,7 +69,7 @@ sed -i '/\[\[default\]\]/,/^\[/s/^ *font = .*/    font = JetBrainsMono Nerd Font
 ```bash
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Confirm with y to chage the default shell to zsh
+# Confirm with y to change the default shell to zsh
 ```
 
 Install the desired plugins and themes
@@ -113,7 +113,9 @@ zstyle '\'' :omz:lib:* '\'' aliases no\n' "$ZSHRC"
 
 ```bash
 zsh
+```
 
+```bash
 # Add "user" to be shown in the prompt
 grep -q '^[[:space:]]*user[[:space:]]*$' "$HOME/.p10k.zsh" || sed -i '/os_icon.*# os identifier/ a\    user' "$HOME/.p10k.zsh"
 ```

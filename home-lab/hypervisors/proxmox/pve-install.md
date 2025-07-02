@@ -195,8 +195,6 @@ The script supports [healthchecks.io](https://healthchecks.io/) notifications, e
 
 > [Proxmox Backup Server - https://192.168.5.3:8007](https://192.168.5.3:8007)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/proxmox-backup-server.sh)"
 
@@ -206,6 +204,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 # Login to WebGUI and open PBS shell
 sudo passwd root
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 ### PBS post install
 
@@ -272,8 +272,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 > [AdGuard - http://192.168.5.5:3080](http://192.168.5.5:3080)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/adguard.sh)"
 
@@ -281,6 +279,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 # To Manually Update AdGuard Home, run the command above (or type update) in the AdGuard LXC Console.
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 
 
@@ -316,13 +316,13 @@ Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain 
 
 > [Zoraxy - http://192.168.5.6:8000/](http://192.168.5.6:8000/)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/zoraxy.sh)"
 
 # To Manually Update Zoraxy, run the command above (or type update) in the Zoaxy LXC Console.
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 - `Set Proxy Root` to `localhost:8080`
 - `Status` - set `Use TLS to serve proxy request` and `Start Service`
@@ -350,8 +350,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 >
 > [https://wiki.lab.syselement.com/login](https://wiki.lab.syselement.com/login)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/wikijs.sh)"
 
@@ -360,11 +358,11 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 # To Manually Update Wiki.js, run the command above (or type update) in the Wiki.js LXC Console.
 ```
 
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
 
 
 ### [Technitium DNS](https://technitium.com/dns/)
-
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 > [Technitium - http://192.168.5.11:5380/](http://192.168.5.11:5380/)
 
@@ -375,6 +373,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 # To Manually Update Technitium DNS, run the command above (or type update) in the Technitium DNS LXC Console.
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 Open the webpage and navigate to **Zones**
 
@@ -432,8 +432,6 @@ pihole -a -p
 
 > [Homepage - http://192.168.5.13:3000/](http://192.168.5.13:3000/)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homepage.sh)"
 
@@ -441,6 +439,8 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 # To Manually Update Homepage, run the command above (or type update) in the Homepage LXC Console.
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 - Configuration (bookmarks.yaml, services.yaml, widgets.yaml) path
 
@@ -454,11 +454,11 @@ cd /opt/homepage/config/
 
 > [Runtipi - http://192.168.5.14/dashboard](http://192.168.5.14/dashboard)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/runtipi.sh)"
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 
 
@@ -466,24 +466,45 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 > [Prometheus - http://192.168.5.15:9090/](http://192.168.5.15:9090/)
 
-**PROXMOX** - Network > edit `eth0` and set the Static IP.
-
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/prometheus.sh)"
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
 
 
 
 ### [Jellyfin Media Server](https://jellyfin.org/)
 
-> - [ ] TO DO
+> [Jellyfin - http://192.168.5.9:8096/](http://192.168.5.9:8096/)
+
+> 🌐 Resources
 >
 >
-> - https://github.com/awesome-jellyfin/awesome-jellyfin
+> - [Jellyfin - Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts?id=jellyfin)
+> - [awesome-jellyfin/awesome-jellyfin: A Collection of Awesome Jellyfin Plugins, Themes, Guides and More!](https://github.com/awesome-jellyfin/awesome-jellyfin)
+> - [Split A GPU Between Multiple Computers - Proxmox LXC (Unprivileged)](https://www.youtube.com/watch?v=0ZDr5h52OOE)
+
+**Proxmox**
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/jellyfin.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/jellyfin.sh)"
 ```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+- Comes already with Privileged/Unprivileged **Hardware Acceleration Support**
+  - FFmpeg path: `/usr/lib/jellyfin-ffmpeg/ffmpeg`
+  - For NVIDIA graphics cards, you'll need to install the same drivers in the container that you did on the host. In the container, run the driver installation script and add the CLI arg `--no-kernel-module`
+- Location of config file
+
+```bash
+cd /etc/jellyfin/
+```
+
+- Configure [Transcoding](https://jellyfin.org/docs/general/post-install/transcoding/) (and Hardware Acceleration) in the Jellyfin WebUI
+
+
 
 **Windows**
 
@@ -497,6 +518,10 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
      - open `Jellyfin Server` service properties
      - set Log On to `Local System account`
      - save and start the service
+
+
+
+
 
 
 
