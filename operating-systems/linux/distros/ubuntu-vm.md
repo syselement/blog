@@ -323,6 +323,8 @@ EOF
 
 ```bash
 # Tools
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+
 packages=(
     apt-transport-https
     aptitude

@@ -971,17 +971,45 @@ nmap 192.168.254.1-100
 nmap -p80,21,23 192.168.254.129
 ```
 
+### x2goserver on Kali Linux
+
+```bash
+sudo apt install x2goserver -y
+
+sudo systemctl enable x2goserver.service --now
+
+sudo systemctl status x2goserver.service
+```
+
 ### RDP with Xfce (Kali Linux)
 
 > 🔗 [Setting up RDP with Xfce - Kali Linux](https://www.kali.org/docs/general-use/xfce-with-rdp/)
+>
+> - [Enable Remote Desktop with XRDP on Kali Linux | by Abhi | Medium](https://stealthm0de.medium.com/enable-xrdp-on-kali-linux-506980a29d1d)
 
 ```bash
+sudo -i
 wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/raw/main/xfce4.sh
 chmod +x xfce4.sh
 sudo ./xfce4.sh
 
+sudo apt install -y tigervnc-common  tigervnc-scraping-server tigervnc-standalone-server tigervnc-viewer tigervnc-xorg-extension
+
 sudo adduser xrdp ssl-cert
+sudo sh -c 'echo xfce4-session > /etc/.xsession'
+sudo nano /etc/xrdp/startwm.sh
+# comment the (last 2) lines
+    # test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+    # exec /bin/sh /etc/X11/Xsession
+# and add the following line
+	startxfce4
+
 sudo systemctl enable xrdp --now
+
+# Xrdp is available at port 3390
+# The user MUST NOT be logged in on the machine GUI
+
+# Use Xvnc during Xorg login
 ```
 
 > - The **`xfce4.sh`** does the following
@@ -990,11 +1018,11 @@ sudo systemctl enable xrdp --now
 > #!/bin/bash
 > echo "[i] Updating and upgrading Kali (this will take a while)"
 > apt-get update
-> apt-get --yes --force-yes dist-upgrade
->
+> apt-get --yes --force-yes full-upgrade
+> 
 > echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
 > apt-get --yes --force-yes install kali-desktop-xfce xorg xrdp
->
+> 
 > echo "[i] Configuring xrdp to listen to port 3390 (but not starting the service)"
 > sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 > ```
@@ -1015,17 +1043,6 @@ sudo systemctl restart xrdp
 ```
 
 - Port to connect to is `3390`
-
-```bash
-### TESTS - DO NOT CONSIDER ###
-
-# sudo nano /etc/xrdp/startwm.sh
-
-# # Add lines before test and execute
-# unset DBUS_SESSION_BUS_ADDRESS
-# unset XDG_RUNTIME_DIR
-# . $HOME/.profile
-```
 
 ### Xfce Power manager and Screensaver
 

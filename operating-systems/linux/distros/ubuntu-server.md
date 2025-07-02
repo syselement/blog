@@ -186,11 +186,18 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 
 ```bash
 # Tools
-sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tree ugrep vim wget zsh
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
+sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tree ugrep vim wget zsh
+```
+
+```bash
+# Asciinema
 sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
 ```
+
+
 
 ---
 
