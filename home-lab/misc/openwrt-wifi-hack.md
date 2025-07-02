@@ -20,7 +20,7 @@
 
 ---
 
-## 🔬 Hardware Used
+## 🔬 Hardware
 
 > * `TP-Link EAP225 v2`
 >

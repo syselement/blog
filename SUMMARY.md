@@ -130,6 +130,7 @@
   - [VMware](home-lab/hypervisors/vmware/README.md)
     - [VMware Workstation Pro](home-lab/hypervisors/vmware/vmware-workstation.md)
 - [🔴 Offensive Labs](home-lab/redteam/README.md)
+  - [Alfa AWUS036ACH Wi-Fi Adapter](home-lab/redteam/alfa-wifi-usb-adapter.md)
   - [Hashcat Password Cracking](home-lab/redteam/lab-hashcat.md)
   - [Metasploitable3](home-lab/redteam/metasploitable3.md)
 - [🔵 Defensive Labs](home-lab/blueteam/README.md)
