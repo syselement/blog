@@ -491,9 +491,18 @@ sudo sh -c '
 	ln -s /opt/bloodhound/bloodhound-cli /usr/local/bin/bloodhound-cli
 	/opt/bloodhound/bloodhound-cli install
 '
+```
+
+```bash
+# Some commands
+# (First) Install, e.g. after cleaning docker containers
+sudo bloodhound-cli install
 
 # Start
 sudo bloodhound-cli containers start
+
+# Update
+sudo bloodhound-cli update
 
 # Stop
 sudo bloodhound-cli containers stop
@@ -505,9 +514,22 @@ sudo bloodhound-cli containers stop
 ```bash
 # Other commands
 sudo bloodhound-cli resetpwd
-sudo bloodhound-cli update
 sudo bloodhound-cli config get default_password
 ```
+
+- `e.g.` `ohmyzsh` aliases
+
+```bash
+nano $ZSH_CUSTOM/aliases.zsh
+```
+
+```bash
+alias bloodhound-up='sudo bloodhound-cli containers start'
+alias bloodhound-update='sudo bloodhound-cli update'
+alias bloodhound-down='sudo bloodhound-cli containers stop'
+```
+
+
 
 ### [BloodHound.py CE](https://github.com/dirkjanm/BloodHound.py)
 
