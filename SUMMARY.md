@@ -86,6 +86,7 @@
 - [✍️ Writeups & Walkthroughs](cyber-everything/writeups-walkthroughs/README.md)
   - [📦 HackTheBox](cyber-everything/writeups-walkthroughs/hackthebox/README.md)
     - [Easy](cyber-everything/writeups-walkthroughs/hackthebox/easy/README.md)
+      - [GoodGames](cyber-everything/writeups-walkthroughs/hackthebox/easy/goodgames.md)
       - [Sau](cyber-everything/writeups-walkthroughs/hackthebox/easy/sau.md)
       - [Spectra](cyber-everything/writeups-walkthroughs/hackthebox/easy/spectra.md)
   - [🌩️ TryHackMe](cyber-everything/writeups-walkthroughs/tryhackme/README.md)
