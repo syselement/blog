@@ -262,7 +262,9 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 > [Unifi Network Server - https://192.168.5.10:8443/](https://192.168.5.10:8443/) on Ubuntu LXC
 
-First, install the Ubuntu LXC with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - use `Advanced Settings` during Helper Script launch:
+1. **Ubuntu LXC**
+
+First, install the Ubuntu LXC with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - using `Advanced Settings` during Helper Script launch:
 
 - 2 vCPU
 - 2GB RAM
@@ -270,8 +272,6 @@ First, install the Ubuntu LXC with the following specs (defaults are 1 vCPU, 512
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/ubuntu.sh)"
-
-# To Manually Update Ubuntu, run the command above (or type update) in the LXC Console.
 ```
 
 ```bash
@@ -303,19 +303,30 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP - if not already done by the Advanced installer.
 
-Open the LXC console or SSH into it and proceed with installing the **UniFi Network Controller** manually via the [UniFi Installation/Update Scripts - Ubiquiti Community](https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776)
+2. **UniFi Network Server**
+
+Open the LXC console or SSH into it and proceed with installing the **UniFi Network Server** manually via the [UniFi Installation/Update Scripts - Ubiquiti Community](https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776)
 
 - For more commands, check my guide here -> [UniFi Network Server](https://blog.syselement.com/home/operating-systems/linux/tools/unifi)
 
 ```bash
 # Quick install commands
-sudo su
+sudo sh -c '
+	rm unifi-latest.sh &> /dev/null; wget https://get.glennr.nl/unifi/install/install_latest/unifi-latest.sh && bash unifi-latest.sh
+'
 
-rm unifi-latest.sh &> /dev/null; wget https://get.glennr.nl/unifi/install/install_latest/unifi-latest.sh && bash unifi-latest.sh
+sudo systemctl status unifi
 ```
 
 - Browse the web page - [https://192.168.5.10:8443/](https://192.168.5.10:8443/) and configure the **UniFi Network Server**
   - Adopt your devices
+
+```bash
+# Update both OS and UniFi
+sudo sh -c '
+	rm unifi-update.sh &> /dev/null; wget https://get.glennr.nl/unifi/update/unifi-update.sh && bash unifi-update.sh
+'
+```
 
 
 
