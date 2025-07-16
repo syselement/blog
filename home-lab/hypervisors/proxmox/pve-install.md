@@ -258,6 +258,67 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 
 
+### Ubuntu LXC + UniFi Network Server
+
+> [Unifi Network Server - https://192.168.5.10:8443/](https://192.168.5.10:8443/) on Ubuntu LXC
+
+First, install the Ubuntu LXC with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - use `Advanced Settings` during Helper Script launch:
+
+- 2 vCPU
+- 2GB RAM
+- 8 GB Disk
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/ubuntu.sh)"
+
+# To Manually Update Ubuntu, run the command above (or type update) in the LXC Console.
+```
+
+```bash
+# Manual Advanced Settings 
+🧩  Using Advanced Settings on node pve
+🖥️  Operating System: ubuntu
+🌟  Version: 24.04
+📦  Container Type: Unprivileged
+🔐  Root Password: ********
+🆔  Container ID: 110
+🏠  Hostname: unifi
+💾  Disk Size: 8 GB
+🧠  CPU Cores: 2
+🛠️  RAM Size: 2048 MiB
+🌉  Bridge: vmbr0
+📡  IPv4 Address: 192.168.5.10/24
+🌐  Gateway IP Address: 192.168.5.254
+📡  IPv6: Disabled
+📡  APT-Cacher IP Address: Default
+⚙️  Interface MTU Size: Default
+🔍  DNS Search Domain: Host
+📡  DNS Server IP Address: Host
+🏷️  Vlan: Default
+📡  Tags: community-script;os;unifi
+🔑  Root SSH Access: yes
+🗂️  Enable FUSE Support: no
+🔍  Verbose Mode: yes
+```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP - if not already done by the Advanced installer.
+
+Open the LXC console or SSH into it and proceed with installing the **UniFi Network Controller** manually via the [UniFi Installation/Update Scripts - Ubiquiti Community](https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776)
+
+- For more commands, check my guide here -> [UniFi Network Server](https://blog.syselement.com/home/operating-systems/linux/tools/unifi)
+
+```bash
+# Quick install commands
+sudo su
+
+rm unifi-latest.sh &> /dev/null; wget https://get.glennr.nl/unifi/install/install_latest/unifi-latest.sh && bash unifi-latest.sh
+```
+
+- Browse the web page - [https://192.168.5.10:8443/](https://192.168.5.10:8443/) and configure the **UniFi Network Server**
+  - Adopt your devices
+
+
+
 ### [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 
 > *DELETED*
@@ -346,7 +407,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 ### [Wiki.js](https://js.wiki/)
 
-> [Wiki.js - http://192.168.5.10:3000/](http://192.168.5.10:3000/)
+> [Wiki.js - http://192.168.5.16:3000/](http://192.168.5.16:3000/)
 >
 > [https://wiki.lab.syselement.com/login](https://wiki.lab.syselement.com/login)
 
@@ -430,7 +491,7 @@ pihole -a -p
 
 ### [Homepage](https://gethomepage.dev/latest/)
 
-> [Homepage - http://192.168.5.13:3000/](http://192.168.5.13:3000/)
+> *DELETED*
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homepage.sh)"

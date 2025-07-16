@@ -16,7 +16,7 @@
     - [Nessus Essentials](operating-systems/linux/tools/Nessus.md)
     - [SysReptor](operating-systems/linux/tools/sysreptor.md)
     - [Terminator](operating-systems/linux/tools/Terminator-Shortcuts.md)
-    - [UniFi](operating-systems/linux/tools/unifi.md)
+    - [UniFi Network Server](operating-systems/linux/tools/unifi.md)
     - [Zsh & Oh-My-Zsh](operating-systems/linux/tools/zsh.md)
 - [🪟 Windows](operating-systems/windows/README.md)
   - [📃 Everything Windows](operating-systems/windows/winstuff.md)

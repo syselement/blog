@@ -24,6 +24,8 @@
 >
 > 🔗 [How to Disable or Remove Hyper-V in Windows 11](https://www.makeuseof.com/windows-11-disable-hyper-v/)
 >
+> 🔗 [GitHub - XxMrNobodyxX/Fix-Slow-Vmware-Windows-11: Fix Slow Vmware Windows 11](https://github.com/XxMrNobodyxX/Fix-Slow-Vmware-Windows-11)
+>
 > 🔗 [Download Device Guard and Credential Guard hardware readiness tool](https://www.microsoft.com/en-us/download/details.aspx?id=53337)
 >
 > 🔗 [Disabling Hyper-V hypervisor on Windows 11 Pro host (to get VMWare 17's CPL0 vs. ULM monitor mode)](https://community.broadcom.com/vmware-cloud-foundation/discussion/disabling-hyper-v-hypervisor-on-windows-11-pro-host-to-get-vmware-17s-cpl0-vs-ulm-monitor-mode) - 📌 The following steps include some key points from this highly informative article, which provides an excellent explanation of the issue.
