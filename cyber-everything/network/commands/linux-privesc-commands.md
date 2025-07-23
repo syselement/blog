@@ -13,8 +13,12 @@
 > - [Linux Privilege Escalation – Resources – Siren Security](https://sirensecurity.io/blog/linux-privilege-escalation-resources/)
 > - [unix-privesc-check | pentestmonkey](https://pentestmonkey.net/tools/audit/unix-privesc-check)
 > - [TryHackMe | Linux Privilege Escalation](https://tryhackme.com/room/linprivesc)
-> - [Linux Privilege Escalation for OSCP & Beyond! | Tib3rius (One-Time Purchase)](https://courses.tib3rius.com/p/linux-privilege-escalation-for-oscp-beyond)
 > - [Privilege Escalation on Linux (With Examples)](https://delinea.com/blog/linux-privilege-escalation)
+>
+> **Courses**
+>
+> - [Linux Privilege Escalation for OSCP & Beyond! | Tib3rius (One-Time Purchase)](https://courses.tib3rius.com/p/linux-privilege-escalation-for-oscp-beyond)
+> - [Linux Privilege Escalation | TCM Security, Inc.](https://academy.tcm-sec.com/p/linux-privilege-escalation)
 
 ---
 
