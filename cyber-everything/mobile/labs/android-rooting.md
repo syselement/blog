@@ -1,5 +1,7 @@
 # Android Rooting Guide
 
+![](.gitbook/assets/android-logo.png)
+
 ---
 
 ## 🌐 Resources 🔗

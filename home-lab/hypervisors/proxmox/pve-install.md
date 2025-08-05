@@ -119,6 +119,8 @@ ff02::3 ip6-allhosts
 apt install -y btop duf exa nano net-tools tree
 ```
 
+
+
 ### bash Config
 
 - Set custom aliases
@@ -139,13 +141,17 @@ alias ports='ss -lpntu'
 alias updatepve='apt update && apt -y dist-upgrade'
 ```
 
-### Netdata
+
+
+### [Netdata](https://learn.netdata.cloud/docs/netdata-agent/installation/linux/) observability
 
 > [Netdata - http://192.168.5.2:19999/](http://192.168.5.2:19999/)
 
 ```bash
-
+wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --stable-channel --disable-telemetry
 ```
+
+- or use the [Proxmox VE Netdata script](https://community-scripts.github.io/ProxmoxVE/scripts?id=netdata)
 
 
 
@@ -188,6 +194,8 @@ The script supports [healthchecks.io](https://healthchecks.io/) notifications, e
 
 - Set the `$HEALTHCHECK` variable to 1
 - Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
+
+
 
 ------
 
