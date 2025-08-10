@@ -16,12 +16,12 @@
 - Create a new Virtual Machine in VMWare with preferred specs:
   - Processors: `1 CPU - 2 Cores`
   - RAM Memory: `8 GB`
-  - Hard Disk: `60 GB`
+  - Hard Disk: `60 GB` (basic install and updates take around `15 to 20 GB`)
   - CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check *Connect at power on*
   - Network: set it as *NAT*
 - Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
 
-![](.gitbook/assets/image-20230307160636827.png)
+![](.gitbook/assets/2025-08-10_22-44-27_1042.png)
 
 ---
 
@@ -53,6 +53,8 @@ kali-tweaks
 ```
 
 ![kali-tweaks](.gitbook/assets/image-20230307161431755.png)
+
+- Stop the VM and take a VM Snapshot
 
 ---
 
