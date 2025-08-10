@@ -1,5 +1,7 @@
 # PiKVM
 
+![pikvm.org](.gitbook/assets/logo-pikvm.svg)
+
 ---
 
 ## 🌐 Resources 🔗
