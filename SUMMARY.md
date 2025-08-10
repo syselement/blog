@@ -140,3 +140,4 @@
   - [Bitwarden On-Premise](home-lab/misc/bitwarden-onpremise.md)
   - [OpenWrt & WiFi Exploitation](home-lab/misc/openwrt-wifi-hack.md)
   - [Passbolt CE - Ubuntu Server](home-lab/misc/passbolt-ce.md)
+  - [PiKVM](home-lab/misc/pikvm.md)

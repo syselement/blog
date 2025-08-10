@@ -1,5 +1,7 @@
 # Alfa AWUS036ACH Wi-Fi Adapter
 
+---
+
 ## 🌐 Resources 🔗
 
 > - [morrownr/USB-WiFi: USB WiFi Adapter Information for Linux](https://github.com/morrownr/USB-WiFi)
@@ -13,10 +15,11 @@
 ## 🔬 Hardware
 
 > - `Alfa AWUS036ACH v.2` Wi-Fi USB C Adapter
+> - [Alfa AWUS036ACH v.2 - USB-C 802.11ac AC1200 Dual Band WiFi USB Adapter](https://alfa-network.eu/awus036ach-c)
+>   
+> - [AWUS036ACH Drivers](https://docs.alfa.com.tw/Product/AWUS036ACH/)
 >
->   - [Alfa AWUS036ACH v.2 - USB-C 802.11ac AC1200 Dual Band WiFi USB Adapter](https://alfa-network.eu/awus036ach-c)
->
->   - [AWUS036ACH Drivers](https://docs.alfa.com.tw/Product/AWUS036ACH/)
+> ![Alfa AWUS036ACH v.2](.gitbook/assets/alfa.png)
 
 | Manufacturer      | Alfa Network                                 |
 | :---------------- | -------------------------------------------- |
@@ -39,9 +42,13 @@
 
 Connect the adapter to a USB port with the included cable.
 
+**Windows**
+
 If running Windows, download the driver at this link, unzip it and install it via the `Setup.exe`
 
 - [https://files.alfa.com.tw/?dir=%5B1%5D%20WiFi%20USB%20adapter/AWUS036ACH/Windows/Windows%2010%20WPA3%20driver](https://files.alfa.com.tw/?dir=%5B1%5D%20WiFi%20USB%20adapter/AWUS036ACH/Windows/Windows%2010%20WPA3%20driver)
+
+**Kali Linux**
 
 Open Kali Linux (virtual-machine) and check if it recognizes the plugged in device.
 
@@ -86,6 +93,8 @@ wlan0     IEEE 802.11  ESSID:off/any
           Retry short limit:7   RTS thr:off   Fragment thr:off
           Power Management:on
 ```
+
+---
 
 ## Test Monitor mode
 
