@@ -1,5 +1,7 @@
 # 🏠 Home
 
+---
+
 ## 🤝 Introduction
 
 Hi, **syselement** here 🧑‍💻, sharing some interesting Information Technology and Cybersecurity notes and stuff.
