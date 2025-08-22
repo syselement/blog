@@ -41,10 +41,12 @@
 >
 > ### Debloat Windows 11
 >
+> - [winutil - Chris Titus Tech's Windows Utility](https://github.com/christitustech/winutil)
 > - [BloatyNosy - Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 > - [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
 > - [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
 > - [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
+> - [UniGetUI](https://www.marticliment.com/unigetui/)
 
 ---
 
@@ -92,7 +94,7 @@ Proceed with the final [Configuration](#configuration).
 
 ### Privacy Settings
 
--TBA-
+- Check [Debloat Win](#debloat-win)
 
 ### Disable Online Start Search
 
@@ -130,6 +132,8 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
    - Install-NerdFont
    - ...
    - and Software install tool
+
+3. Use Chris Titus Tech's [winutil](https://github.com/christitustech/winutil) for more tweaks and fixes.
 
 **Removing Telemetry and other unnecessary services**
 
@@ -228,6 +232,14 @@ schtasks /Change /TN "\Microsoft\Windows\Subscription\EnableLicenseAcquisition" 
 schtasks /Change /TN "\Microsoft\Windows\Subscription\LicenseAcquisition" /disable
 schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /disable
 ```
+
+### UniGetUI
+
+> 🔗 [UniGetUI](https://www.marticliment.com/unigetui/)
+
+- Use UniGetUI for an intuitive package managers GUI to download, install and update the necessary software
+- Create you own package bundle to bulk install software
+- Export packages list and more
 
 ### Italian Dev Keyboard - Tilde and Backtick
 
