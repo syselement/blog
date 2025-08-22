@@ -268,11 +268,11 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 ### Ubuntu LXC + UniFi Network Server
 
-> [Unifi Network Server - https://192.168.5.10:8443/](https://192.168.5.10:8443/) on Ubuntu LXC
+> [Unifi Network Server - https://192.168.5.10:8443](https://192.168.5.10:8443/) on Ubuntu LXC
 
 1. **Ubuntu LXC**
 
-First, install the Ubuntu LXC with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - using `Advanced Settings` during Helper Script launch:
+First, install the [Ubuntu LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=ubuntu) with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - using `Advanced Settings` during Helper Script launch:
 
 - 2 vCPU
 - 2GB RAM
@@ -335,6 +335,71 @@ sudo sh -c '
 	rm unifi-update.sh &> /dev/null; wget https://get.glennr.nl/unifi/update/unifi-update.sh && bash unifi-update.sh
 '
 ```
+
+
+
+### [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker)
+
+> [Arcane - http://192.168.5.15:3000](http://192.168.5.15:3000/)
+>
+> [Portainer - https://192.168.5.15:9443](https://192.168.5.15:9443/)
+
+- Install the [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) with the desired specs - TESTING Default
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/docker.sh)"
+
+# Options to Install Portainer and/or Docker Compose V2
+
+# If the LXC is created Privileged, the script will automatically set up USB passthrough.
+
+# Run Compose V2 by replacing the hyphen (-) with a space, using docker compose, instead of docker-compose.
+```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+Installed containers list:
+
+#### [Arcane](https://arcane.ofkm.dev/)
+
+- [ ] to fix docker-compose file directory
+- [ ] 
+
+```bash
+nano docker-compose.yaml
+```
+
+```bash
+services:
+  arcane:
+    image: ghcr.io/ofkm/arcane:latest
+    container_name: arcane
+    ports:
+      - '3000:3000'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - arcane-data:/app/data
+    environment:
+      - APP_ENV=production # Required
+      - PUBLIC_SESSION_SECRET=xxxxxxxxxxxxxxxxxxxx # Generate: openssl rand -base64 32
+      # Optional: Match your host user for permissions
+      - PUID=1000
+      - PGID=1000
+      # Optional: Set if Docker access fails
+      - DOCKER_GID=996
+      # Optional: For local HTTP testing only
+      - PUBLIC_ALLOW_INSECURE_COOKIES=true
+    restart: unless-stopped
+
+volumes:
+  arcane-data:
+    driver: local
+```
+
+#### [Portainer](https://www.portainer.io/)
+
+- [x] Portainer - already installed by the LXC install script
+- [ ] try it or Arcane - delete portainer from main Ubuntu VM
 
 
 
@@ -834,6 +899,8 @@ sudo apt update && sudo apt install asciinema
 
 
 ### Docker
+
+> Evaluate Docker LXC
 
 ```bash
 sudo su
