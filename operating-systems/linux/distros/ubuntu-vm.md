@@ -438,16 +438,20 @@ sudo sh -c '
 
 ```bash
 sudo sh -c '
-    wget -qO - https://typora.io/linux/public-key.asc | gpg --dearmor -o /usr/share/keyrings/typora.gpg > /dev/null
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/typora.gpg] https://typora.io/linux ./" | sudo tee /etc/apt/sources.list.d/typora.list
-    sudo apt update && sudo apt install -y typora
+	rm -f /etc/apt/trusted.gpg.d/typora.asc
+	rm -f /usr/share/keyrings/typora.gpg
+    curl -fsSLo /usr/share/keyrings/typora.gpg https://downloads.typora.io/typora.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/typora.gpg] https://typora.io/linux ./" | tee /etc/apt/sources.list.d/typora.list &&
+    apt update &&
+    apt install -y typora unzip
 '
 
 ## Install Typora-Themeable theme
-cd $HOME/.config/Typora/themes/ \
-  && curl -L https://github.com/jhildenbiddle/typora-themeable/releases/latest/download/typora-themeable.zip -o typora-themeable.zip \
-  && unzip typora-themeable.zip \
-  && rm typora-themeable.zip
+mkdir -p "$HOME/.config/Typora/themes"
+cd "$HOME/.config/Typora/themes" &&
+curl -L https://github.com/jhildenbiddle/typora-themeable/releases/latest/download/typora-themeable.zip -o typora-themeable.zip &&
+unzip typora-themeable.zip &&
+rm -f typora-themeable.zip
 ```
 
 ---
