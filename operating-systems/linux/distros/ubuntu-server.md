@@ -214,7 +214,7 @@ sh <(curl -sSL https://get.docker.com)
 LATEST=$(curl -sL https://api.github.com/repos/docker/compose/releases/latest | grep '"tag_name":' | cut -d'"' -f4)
 DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
 mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-compose-linux-x86_64 -o $HOME/.docker/cli-plugins/docker-compose
 chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 
@@ -272,55 +272,60 @@ Ubuntu Server with OpenSSH pre-installed comes with `PasswordAuthentication yes`
 ```bash
 # Local HOST
 cd
-mkdir -p ~/.ssh
-cd ~/.ssh
+mkdir -p $HOME/.ssh
+cd $HOME/.ssh
 ssh-keygen -t ed25519
 # Type a secure passphrase when asked
 
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
+chmod 700 $HOME/.ssh
+chmod 600 $HOME/.ssh/*
 
 # Add the SSH private key to the ssh-agent
-eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
 
 - Add the Public Key to a system/sudo user on the Ubuntu Server VM
 
-> If you want to use the same key saved on Github profile, having already the private key in the Ubuntu Local HOST (commands above), ssh into the Ubuntu Server VM and use the following `curl` command
+> If you want to use the same key saved on Github profile, having already the private key in the Ubuntu Local HOST (commands above), **ssh** into the Ubuntu Server VM and use the following commands:
 >
 > ```bash
 > # Ubuntu Server VM
+> mkdir -p $HOME/.ssh
+> 
 > curl -s https://github.com/<github-username>.keys >> $HOME/.ssh/authorized_keys
 > 
 > # e.g.
 > curl -s https://github.com/syselement.keys >> $HOME/.ssh/authorized_keys
+> 
+> chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 > ```
 
 ```bash
 # Automatic (if password SSH is allowed)
-ssh-copy-id <sudo_user>@<remote_Server_IP>
+ssh-copy-id <SUDO_USER>@<REMOTE_SERVER_IP>
 ```
 
 ```bash
 # Manually
 
 # Local HOST
-cat ~/.ssh/id_ed25519.pub
+cat $HOME/.ssh/id_ed25519.pub
 # copy the string
 # Should start with ssh-ed25519 AAAA... or ssh-rsa AAAA... (if rsa)
 
 # Ubuntu Server VM
-echo "pubkey_string" >> ~/.ssh/authorized_keys
+mkdir -p $HOME/.ssh
+echo "pubkey_string" >> $HOME/.ssh/authorized_keys
 # Set permissions
-chmod -R go= ~/.ssh
+chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
 ```
 
 - Log out and log in using the Private Key
 
 ```bash
-ssh <sudo_user>@<remote_Server_IP>
+ssh <SUDO_USER>@<REMOTE_SERVER_IP>
 
-# ssh -i ~/.ssh/id_ed25519 <sudo_user>@<remote_host_IP>
+# ssh -i $HOME/.ssh/id_ed25519 <SUDO_USER>@<REMOTE_SERVER_IP>
 
 # Enter the key Passphrase if necessary
 ```
@@ -335,10 +340,74 @@ sudo rm /etc/ssh/sshd_config.d/50-cloud-init.conf
 sudo sed -i '/^[#]*[[:space:]]*PasswordAuthentication[[:space:]]*yes/c\PasswordAuthentication no' /etc/ssh/sshd_config
 
 # Restart SSH service
- sudo systemctl restart sshd
+sudo systemctl restart sshd
 ```
 
-- Try again to logout and login. Only SSH-key-base authentication is permitted.
+- Test SSH access on the new port before closing the current session
+  - Only SSH-key-base authentication is permitted.
+
+
+### SSH-Hardened configuration
+
+```bash
+sudo nano /etc/ssh/sshd_config.d/10-hardening.conf
+```
+
+`10-hardening.conf` file:
+
+```bash
+# ----- Network hardening -----
+Port 2222                   # uncomment & pick a high port if you want less noise
+#AddressFamily inet         # stick to IPv4 unless you need IPv6
+#ListenAddress 0.0.0.0      # set explicitly only if you need to bind a specific IP
+
+# ----- Host keys (modern default) -----
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# ----- Logging -----
+SyslogFacility AUTHPRIV
+LogLevel INFO
+
+# ----- Authentication (keys only) -----
+PubkeyAuthentication yes
+AuthenticationMethods publickey
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PermitEmptyPasswords no
+UsePAM yes
+
+# ----- No direct root logins -----
+PermitRootLogin no
+
+# Restrict who can SSH
+AllowUsers syselement
+
+# ----- Session limits & timeouts -----
+LoginGraceTime 30s
+MaxAuthTries 3  # Limit authentication attempts to reduce brute-force risk
+MaxSessions 5  # Limit concurrent sessions per user
+ClientAliveInterval 300  # Send keep-alive every 5 minutes
+ClientAliveCountMax 3  # Disconnect after 3 missed keep-alives
+
+# ----- Features -----
+AllowAgentForwarding no
+AllowTcpForwarding no
+X11Forwarding no
+PermitTunnel no
+PermitTTY yes
+UseDNS no
+```
+
+```bash
+sudo sshd -t
+sudo ufw allow 2222/tcp
+sudo systemctl restart sshd
+
+# Test SSH access on the new port before closing the current session
+ssh -p 2222 <SUDO_USER>@<REMOTE_SERVER_IP>
+```
+
+
 
 
 ---
