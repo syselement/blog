@@ -353,7 +353,7 @@ sudo systemctl restart sshd
 sudo nano /etc/ssh/sshd_config.d/10-hardening.conf
 ```
 
-`10-hardening.conf` file:
+e.g. `10-hardening.conf` file:
 
 ```bash
 # ----- Network hardening -----
