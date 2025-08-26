@@ -113,6 +113,19 @@ ff02::3 ip6-allhosts
 
 ---
 
+## Quick Benchmark
+
+```bash
+wget https://cdn.geekbench.com/Geekbench-6.4.0-Linux.tar.gz
+tar -xzvf Geekbench-6.4.0-Linux.tar.gz
+cd Geekbench-6.4.0-Linux
+./geekbench6
+```
+
+
+
+---
+
 ## Software on PVE
 
 ```bash
@@ -343,6 +356,8 @@ sudo sh -c '
 > [Arcane - http://192.168.5.15:3000](http://192.168.5.15:3000/)
 >
 > [Portainer - https://192.168.5.15:9443](https://192.168.5.15:9443/)
+>
+> [UpSnap - http://192.168.5.15:8090](http://192.168.5.15:8090/)
 
 - Install the [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) with the desired specs - TESTING Default
 
@@ -358,6 +373,12 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
+```bash
+# SSH into the LXC
+mkdir yamls
+cd yamls
+```
+
 Installed containers list:
 
 #### [Arcane](https://arcane.ofkm.dev/)
@@ -366,7 +387,7 @@ Installed containers list:
 - [ ] 
 
 ```bash
-nano docker-compose.yaml
+nano arcane-compose.yaml
 ```
 
 ```bash
@@ -393,13 +414,73 @@ services:
 
 volumes:
   arcane-data:
+  	name: arcane-data
     driver: local
 ```
+
+```bash
+docker compose -f arcane-compose.yaml up
+```
+
+
 
 #### [Portainer](https://www.portainer.io/)
 
 - [x] Portainer - already installed by the LXC install script
 - [ ] try it or Arcane - delete portainer from main Ubuntu VM
+
+
+
+#### [UpSnap](https://github.com/seriousm4x/UpSnap)
+
+```bash
+nano upsnap-compose.yaml
+```
+
+```bash
+services:
+  upsnap:
+    container_name: upsnap
+    image: ghcr.io/seriousm4x/upsnap:5 # images are also available on docker hub: seriousm4x/upsnap:5
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - upsnap-data:/app/pb_data
+    # # To use a non-root user, create the mountpoint first (mkdir data) so that it has the right permission.
+    # user: 1000:1000
+    # environment:
+    #   - TZ=Europe/Berlin # Set container timezone for cron schedules
+    #   - UPSNAP_INTERVAL=*/10 * * * * * # Sets the interval in which the devices are pinged
+    #   - UPSNAP_SCAN_RANGE=192.168.1.0/24 # Scan range is used for device discovery on local network
+    #   - UPSNAP_SCAN_TIMEOUT=500ms # Scan timeout is nmap's --host-timeout value to wait for devices (https://nmap.org/book/man-performance.html)
+    #   - UPSNAP_PING_PRIVILEGED=true # Set to false if you don't have root user permissions
+    #   - UPSNAP_WEBSITE_TITLE=Custom name # Custom website title
+    # # dns is used for name resolution during network scan
+    # dns:
+    #   - 192.18.0.1
+    #   - 192.18.0.2
+    # # you can change the listen ip:port inside the container like this:
+    # entrypoint: /bin/sh -c "./upsnap serve --http 0.0.0.0:5000"
+    # healthcheck:
+    #   test: curl -fs "http://localhost:5000/api/health" || exit 1
+    #   interval: 10s
+    # # or install custom packages for shutdown
+    # entrypoint: /bin/sh -c "apk update && apk add --no-cache <YOUR_PACKAGE> && rm -rf /var/cache/apk/* && ./upsnap serve --http 0.0.0.0:8090"
+
+volumes:
+  upsnap-data:
+    name: upsnap-data
+    driver: local
+```
+
+```bash
+docker compose -f upsnap-compose.yaml up
+```
+
+- Login to via Web at `http://<IP>:8090/`
+- Create account
+- Create Devices
+  - Network scan works if devices are already on - Scan the `/24` network
 
 
 
