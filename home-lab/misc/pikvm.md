@@ -86,20 +86,16 @@ rw
 vim /etc/kvmd/override.yaml
 ```
 
+- Configuration for **single device WoL**
+
 ```bash
 ###############
 # Wake-ON-LAN #
 ###############
 
-# NAS DXP4800+ - TrueNAS
-#kvmd:
-#    wol:
-#        mac: 6C:1F:F7:56:42:93
-
-# Asus MINI PC
 kvmd:
     wol:
-        mac: 9C:5C:8E:02:0D:3F
+        mac: FF:FF:FF:FF:FF:FF # change this to desired MAC Address
 
 ```
 
@@ -107,6 +103,47 @@ kvmd:
 kvmd -m # syntax check
 systemctl restart kvmd
 ```
+
+- Configuration for [**multiple hosts WoL**](https://docs.pikvm.org/gpio/#wake-on-lan)
+
+```bash
+###############
+# Wake-ON-LAN #
+###############
+
+kvmd:
+    gpio:
+        drivers:
+            truenas:
+                type: wol
+                mac: FF:FF:FF:FF:FF:FF
+            proxmox:
+                type: wol
+                mac: FF:FF:FF:FF:FF:FF
+        scheme:
+            truenas:
+                driver: truenas
+                pin: 0
+                mode: output
+                switch: false
+            proxmox:
+                driver: proxmox
+                pin: 0
+                mode: output
+                switch: false
+        view:
+            table:
+                - ["#Truenas", "truenas|Send Wake-on-LAN"]
+                - ["#Proxmox", "proxmox|Send Wake-on-LAN"]
+```
+
+```bash
+kvmd -m # syntax check
+systemctl restart kvmd
+reboot
+```
+
+
 
 ---
 
