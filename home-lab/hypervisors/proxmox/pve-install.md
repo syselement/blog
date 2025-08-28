@@ -129,7 +129,7 @@ cd Geekbench-6.4.0-Linux
 ## Software on PVE
 
 ```bash
-apt install -y btop duf exa nano net-tools tree
+apt install -y btop duf exa gdu htop nano net-tools tmux tree tmux ugrep
 ```
 
 
@@ -150,7 +150,7 @@ alias l='exa -lah'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
-alias ports='ss -lpntu'
+alias ports='ss -tunlp'
 alias updatepve='apt update && apt -y dist-upgrade'
 ```
 

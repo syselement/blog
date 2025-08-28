@@ -92,6 +92,40 @@ sudo sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
 sudo passwd root
 ```
 
+### Bash aliases or ZSH
+
+```bash
+nano $HOME/.bash_aliases
+```
+
+```bash
+alias updateos='sudo sh -c "apt update && apt -y upgrade && apt -y autoremove"'
+
+# Additional Aliases
+alias df='df -h'
+alias diff='diff --color=auto'
+alias dir='dir --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias h='history'
+alias hl='history | less'
+alias hs='history | grep'
+alias hsi='history | grep -i'
+alias ipa='ip -br -c a'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alFh'
+alias ls='ls -lh --color=auto'
+alias mask='awk '\''{ printf substr($0, 1, 5); for (i=6; i<=length($0); i++) printf "*"; print "" }'\'''
+alias p3='python3'
+alias ports='ss -tunlp'
+alias python='python3'
+alias sudo='sudo -v; sudo '
+alias ugq='ugrep --pretty --hidden -Qria'
+alias vdir='vdir --color=auto'
+```
+
 > - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
 > - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
@@ -188,7 +222,7 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 # Tools
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
-sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tree ugrep vim wget zsh
+sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
 ```
 
 ```bash
@@ -297,7 +331,7 @@ eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 > # e.g.
 > curl -s https://github.com/syselement.keys >> $HOME/.ssh/authorized_keys
 > 
-> chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+> chmod 700 $HOME/.ssh && chmod 600 $HOME/.ssh/*
 > ```
 
 ```bash
@@ -317,7 +351,7 @@ cat $HOME/.ssh/id_ed25519.pub
 mkdir -p $HOME/.ssh
 echo "pubkey_string" >> $HOME/.ssh/authorized_keys
 # Set permissions
-chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+chmod 700 $HOME/.ssh && chmod 600 $HOME/.ssh/*
 ```
 
 - Log out and log in using the Private Key

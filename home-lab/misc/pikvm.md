@@ -112,12 +112,17 @@ systemctl restart kvmd
 ###############
 
 kvmd:
+    wol:
+        mac: FF:FF:FF:FF:FF:FF
     gpio:
         drivers:
             truenas:
                 type: wol
                 mac: FF:FF:FF:FF:FF:FF
             proxmox:
+                type: wol
+                mac: FF:FF:FF:FF:FF:FF
+            pc:
                 type: wol
                 mac: FF:FF:FF:FF:FF:FF
         scheme:
@@ -131,10 +136,16 @@ kvmd:
                 pin: 0
                 mode: output
                 switch: false
+            pc:
+                driver: pc
+                pin: 0
+                mode: output
+                switch: false
         view:
             table:
-                - ["#Truenas", "truenas|Send Wake-on-LAN"]
                 - ["#Proxmox", "proxmox|Send Wake-on-LAN"]
+                - ["#PC", "pc|Send Wake-on-LAN"]
+                - ["#Truenas", "truenas|Send Wake-on-LAN"]
 ```
 
 ```bash
