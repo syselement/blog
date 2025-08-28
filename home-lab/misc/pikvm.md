@@ -9,6 +9,7 @@
 > - [DIY PiKVM V2 quickstart guide](https://docs.pikvm.org/v2/)
 > - [pikvm/pikvm: Open and inexpensive DIY IP-KVM based on Raspberry Pi - Github](https://github.com/pikvm/pikvm)
 > - [How to Build a KVM Over IP with Raspberry Pi | Tom's Hardware](https://www.tomshardware.com/how-to/kvm-over-ip-raspberry-pi)
+> - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
 
 ---
 
@@ -211,9 +212,13 @@ df -hT
 ## Tailscale on PiKVM
 
 - https://docs.pikvm.org/tailscale/
+  - read above docs for Tailscale Certificates
+
+- [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
 
 ```bash
 # Tailscale
+pikvm-update
 rw
 
 pacman -S tailscale-pikvm
