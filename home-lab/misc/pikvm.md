@@ -211,7 +211,7 @@ df -hT
 
 ## Tailscale on PiKVM
 
-- https://docs.pikvm.org/tailscale/
+- [Tailscale VPN - PiKVM Handbook](https://docs.pikvm.org/tailscale/)
   - read above docs for Tailscale Certificates
 
 - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
