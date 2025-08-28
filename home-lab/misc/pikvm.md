@@ -144,9 +144,9 @@ kvmd:
                 switch: false
         view:
             table:
-                - ["#Proxmox", "proxmox|Send Wake-on-LAN"]
-                - ["#PC", "pc|Send Wake-on-LAN"]
-                - ["#Truenas", "truenas|Send Wake-on-LAN"]
+                - ["#AsusMiniPC-Proxmox", "proxmox|Send Wake-on-LAN"]
+                - ["#PC-Win", "pc|Send Wake-on-LAN"]
+                - ["#NAS-Truenas", "truenas|Send Wake-on-LAN"]
 ```
 
 ```bash
