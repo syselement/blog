@@ -42,7 +42,7 @@ end
 ## VirtualBox
 
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) & VirtualBox Extension Pack (default Vagrant provider)
-- Create a new directory for the **vargrant project**
+- Create a new directory for the **vagrant project**
 - Open `PowerShell` and move into the project directory
 - Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
 
@@ -160,7 +160,7 @@ vagrant plugin update
 
 ![](.gitbook/assets/image-20230201211135873.png)
 
-- Create a new directory for the **vargrant project**
+- Create a new directory for the **vagrant project**
 - Open `PowerShell` and move into the project directory
 - Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
 
