@@ -55,6 +55,7 @@
 ## 🖥️ Cyber Everything
 
 - [📌 Generic Resources](cyber-everything/generic/README.md)
+  - [Bandit Wargame](cyber-everything/generic/bandit-wargame.md)
   - [Cryptography](cyber-everything/generic/cryptography.md)
   - [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
   - [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
