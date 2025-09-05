@@ -64,6 +64,11 @@ WIFI_PASSWD='p@s$$w0rd'
 ## PiKVM Shell commands
 
 ```bash
+[root@pikvm ~]# cat /etc/os-release
+NAME="Arch Linux ARM"
+```
+
+```bash
 su - 
 # use "root" as password
 
