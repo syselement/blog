@@ -284,7 +284,7 @@ sudo sh -c 'gunzip -c /usr/share/wordlists/rockyou.txt.gz > /usr/share/wordlists
 - Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget xclip
+sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop ipcalc locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget xclip
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)

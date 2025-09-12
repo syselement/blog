@@ -222,7 +222,7 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 # Tools
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
-sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
+sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop ipcalc locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
 ```
 
 ```bash

@@ -351,6 +351,7 @@ packages=(
     htop
     iftop
     imagemagick
+    ipcalc
     iperf3
     locate
     nano
