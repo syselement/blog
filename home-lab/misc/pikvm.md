@@ -10,6 +10,8 @@
 > - [pikvm/pikvm: Open and inexpensive DIY IP-KVM based on Raspberry Pi - Github](https://github.com/pikvm/pikvm)
 > - [How to Build a KVM Over IP with Raspberry Pi | Tom's Hardware](https://www.tomshardware.com/how-to/kvm-over-ip-raspberry-pi)
 > - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
+> - [PiKVM Build • Chris Dzombak](https://www.dzombak.com/blog/2021/11/pikvm-build/)
+> - [My Pi-KVM Build by Eric Lathrop](https://ericlathrop.com/2020/12/my-pi-kvm-build/)
 
 ---
 
@@ -50,7 +52,7 @@ Anyway, a **HDMI-CSI bridge board** is better for video encoding, resolution and
 
 ### On-boot configuration
 
-- [On-boot configuration](https://docs.pikvm.org/on_boot_config/)
+- [On-boot configuration & production deployment - PiKVM Handbook](https://docs.pikvm.org/on_boot_config/)
 
 Setup WiFi SSID & Password if necessary in the `pikvm.txt` file from the SD Card (on another PC), by adding the following variables:
 
@@ -62,6 +64,10 @@ WIFI_PASSWD='p@s$$w0rd'
 ---
 
 ## PiKVM Shell commands
+
+### Authentication
+
+- Check [Authentication - PiKVM Handbook](https://docs.pikvm.org/auth/) for SSH root access, default credentials and changing them
 
 ```bash
 [root@pikvm ~]# cat /etc/os-release
@@ -83,13 +89,23 @@ pacman -S pikvm-os-updater
 pikvm-update
 ```
 
+
+
 ### Wake-on-LAN
 
-- [Wake-on-LAN](https://docs.pikvm.org/wol/)
+- [Wake-on-LAN - PiKVM Handbook](https://docs.pikvm.org/wol/)
 
 ```bash
 rw
 vim /etc/kvmd/override.yaml
+```
+
+- (Extra) Disable "ATX" menu
+
+```bash
+kvmd:
+    atx:
+        type: disabled
 ```
 
 - Configuration for **single device WoL**
@@ -102,7 +118,6 @@ vim /etc/kvmd/override.yaml
 kvmd:
     wol:
         mac: FF:FF:FF:FF:FF:FF # change this to desired MAC Address
-
 ```
 
 ```bash

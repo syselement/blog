@@ -12,7 +12,7 @@
 
 ## Install UniFi Network Server
 
-- Install a Ubuntu Server VM/[Proxmox LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=ubuntu) (or a supported Ubuntu/Debian-based distro) and SSH into it.
+- Install an **Ubuntu Server** VM/[Proxmox LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=ubuntu) (or a supported Ubuntu/Debian-based distro) and SSH into it.
 - Run the UniFi Installation Script that will **install the latest UniFi Network Server application**.
 
 ```bash
@@ -40,6 +40,19 @@ sudo systemctl restart unifi
 sudo sh -c '
 	rm unifi-update.sh &> /dev/null; wget https://get.glennr.nl/unifi/update/unifi-update.sh && bash unifi-update.sh
 '
+```
+
+- Or add a `bash` alias and use it
+
+```bash
+nano $HOME/.bash_aliases
+```
+
+```bash
+alias update='rm unifi-latest.sh &> /dev/null; wget https://get.glennr.nl/unifi/install/install_latest/unifi-latest.sh && bash unifi-latest.sh'
+
+# Run the update
+update
 ```
 
 ---
