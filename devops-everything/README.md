@@ -6,13 +6,17 @@
 
 - [CNCF - Cloud Native Computing Foundation](https://www.cncf.io/)
 
-- [ProDevOpsGuy - Cloud & DevOps Blogs](https://prodevopsguy.xyz/)
+- [NotHarshhaa aka ProDevOpsGuy Github](https://github.com/NotHarshhaa#-devops-learning-hub)
+  - [ProDevOpsGuy - Cloud & DevOps Blogs](https://blog.prodevopsguytech.com/)
+  - [ProDevOpsGuy - DevOps & Cloud Projects Showcase](https://projects.prodevopsguytech.com/about)
+  - [ProDevOpsGuy - DevOps & Cloud Resources Portal](https://docs.prodevopsguytech.com/)
+  - [ProDevOpsGuy - DevOps GitHub Repositories](https://repos.prodevopsguytech.com/)
   - [Intro The DevOps - Github](https://github.com/NotHarshhaa/into-the-devops)
   - [DevOps Tools - Github](https://github.com/NotHarshhaa/devops-tools)
   - [prodevopsguy - Telegram channel](https://t.me/prodevopsguy)
   
 - [DevOpsCube - Resources & Roadmaps](https://devopscube.com/)
-  
+
 - [DevOps - Telegram](https://t.me/thedevs_devops)
 
 - [DevOps Roadmap.sh](https://roadmap.sh/devops)
