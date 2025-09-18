@@ -87,7 +87,7 @@ The DevOps engineer needs to assist developers in building the application. This
 
 > I'm using [Ubuntu Desktop LTS](https://ubuntu.com/download/desktop) as Linux distro and `zsh` as default SHELL
 >
-> The install commands of the following tools can be found on my notes here - [Ubuntu VM - DevOps Tools](../operating-systems/linux/distros/ubuntu-vm.md#devops-tools)
+> The install commands of the following tools can be found on my notes here - [Ubuntu VM - DevOps Tools](../../operating-systems/linux/distros/ubuntu-vm.md#devops-tools)
 
 - Package Manager - `apt` for Debian/Ubuntu-based Linux distros
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) (for Github, GitLab, etc)

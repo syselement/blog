@@ -112,14 +112,14 @@
 
 ## ♾️ DevOps Everything
 
-- [🔗 DevOps Resources](devops-everything/README.md)
-  - [Introduction to DevOps](devops-everything/intro-devops.md)
-  - [Ansible](devops-everything/ansible.md)
-  - [Docker](devops-everything/docker.md)
-  - [Git](devops-everything/git.md)
-  - [Kubernetes](devops-everything/kubernetes.md)
-  - [Terraform](devops-everything/terraform.md)
-  - [Vim](devops-everything/vim.md)
+- [🔗 DevOps Resources](devops-everything/devops-resources/README.md)
+  - [Introduction to DevOps](devops-everything/devops-resources/intro-devops.md)
+  - [Ansible](devops-everything/devops-resources/ansible.md)
+  - [Docker](devops-everything/devops-resources/docker.md)
+  - [Git](devops-everything/devops-resources/git.md)
+  - [Kubernetes](devops-everything/devops-resources/kubernetes.md)
+  - [Terraform](devops-everything/devops-resources/terraform.md)
+  - [Vim](devops-everything/devops-resources/vim.md)
 
 ## 🔬 Home Lab
 
