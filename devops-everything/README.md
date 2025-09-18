@@ -33,7 +33,6 @@
 ## 📚 Courses
 
 - [TechWorld - DevOps Bootcamp](https://www.techworld-with-nana.com/devops-bootcamp) - 68h
-  - [DevOps Bootcamp - Exercises](https://gitlab.com/devops-bootcamp3)
 - [TechWorld - DevSecOps Bootcamp](https://www.techworld-with-nana.com/devsecops-bootcamp)
 - [TechWorld - Certified Kubernetes Administrator (CKA Course)](https://www.techworld-with-nana.com/kubernetes-administrator-cka)
 - [KodeKloud Training Courses](https://kodekloud.com/)

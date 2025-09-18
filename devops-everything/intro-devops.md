@@ -89,7 +89,6 @@ The DevOps engineer needs to assist developers in building the application. This
 >
 > The install commands of the following tools can be found on my notes here - [Ubuntu VM - DevOps Tools](../operating-systems/linux/distros/ubuntu-vm.md#devops-tools)
 
-- [Linux Basics](https://gitlab.com/devops-bootcamp3/linux) from the DevOps Bootcamp by Nana
 - Package Manager - `apt` for Debian/Ubuntu-based Linux distros
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) (for Github, GitLab, etc)
 - [java - OpenJDK](https://itsfoss.com/install-java-ubuntu/)
