@@ -436,7 +436,6 @@ EOF
 -  Set this as a custom **Keyboard/Application shortcut** for `flameshot`
    -  I use `Shift+Alt+S` (configured in the **Personal Kali Config** above)
 
-
 ---
 
 ## Security Tools
@@ -685,4 +684,48 @@ sudo apt install -y sherlock
 ```bash
 sherlock <USER>
 ```
+
+---
+
+## Sysprep for clone/export
+
+```bash
+sudo bash -eux <<'EOF'
+# 1) Update & clean
+apt-get update
+apt-get -y dist-upgrade
+apt-get -y autoremove --purge
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+
+# 2) Make machine-id regenerate on first boot
+# systemd will repopulate this if it's empty
+truncate -s 0 /etc/machine-id
+rm -f /var/lib/dbus/machine-id || true
+
+# 3) (Optional, recommended if you will clone/share widely) new SSH host keys per clone
+rm -f /etc/ssh/ssh_host_*   # uncomment to remove
+systemctl enable ssh        # ensure SSH starts; keys will regenerate at next boot
+
+# 4) Clear logs & histories
+journalctl --rotate
+journalctl --vacuum-time=1s || true
+find /var/log -type f -exec truncate -s 0 {} \; || true
+for u in /root /home/*; do
+  rm -f "$u/.bash_history" "$u/.zsh_history" 2>/dev/null || true
+done
+history -c || true
+
+# 5) Trim to reclaim space on thin-provisioned disks
+fstrim -av || true
+
+sync
+EOF
+```
+
+- **VMware Workstation:** Power off VM → take a **snapshot** named `Base`
+  - use **Clone** (full) from that snapshot
+  - or optionally **Export OVA** for portable distribution
+
+---
 
