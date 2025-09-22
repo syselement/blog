@@ -14,14 +14,20 @@
 ## [First Install - Virtual Machine](https://www.kali.org/docs/installation/hard-disk-install/)
 
 - Create a new Virtual Machine in VMWare with preferred specs:
-  - Processors: `1 CPU - 2 Cores`
+  - Processors: `1 CPU - 4 Cores`
   - RAM Memory: `8 GB`
   - Hard Disk: `60 GB` (basic install and updates take around `15 to 20 GB`)
   - CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check *Connect at power on*
-  - Network: set it as *NAT*
+  - Network: set it as `NAT`
+- Edit the Virtual Machine Settings and go to **Options** menu
+  - **Advanced**
+    - Set Firmware type to `UEFI`
+
 - Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
 
 ![](.gitbook/assets/2025-08-10_22-44-27_1042.png)
+
+![](.gitbook/assets/2025-09-22_16-04-07_592.png)
 
 ---
 
@@ -118,6 +124,7 @@ unzip JetBrainsMono.zip
 rm JetBrainsMono.zip
 
 fc-cache -fv
+cd
 ```
 
 ### [Terminator](https://github.com/gnome-terminator/terminator)
@@ -182,6 +189,7 @@ sudo update-alternatives --config x-terminal-emulator
 
 ```bash
 # KALI Linux XFCE Theme mod
+cd
 echo -ne "\n--------Kali Theme Mod--------\n"
 
 ## Login: Kali-Dark + Wallpaper + User
@@ -239,6 +247,11 @@ mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel
 ```bash
 ## Panel configuration
 # to git pull from Github repo and import into $HOME/.config/xfce4/panel/
+cd "$HOME/.config/xfce4"
+wget http://<URL>/panel.zip
+mv panel panel.bak.$(date +%Y%m%d-%H%M%S)
+unzip panel.zip -d .
+rm panel.zip
 ```
 
 ```bash
@@ -260,6 +273,7 @@ mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel
 - To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
 
 ```bash
+cd
 mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
 # Copy every .ovpn file in the respective dir
 # e.g. File names
