@@ -585,8 +585,8 @@ sudo sh -c '
 
 ```bash
 sudo sh -c '
-	wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null &&
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list &&
+	wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor -o /usr/share/keyrings/mwt-desktop.gpg &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list &&
     apt update &&
     apt install -y github-desktop
 '

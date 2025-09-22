@@ -62,6 +62,8 @@ fc-cache -fv
 sed -i '/\[\[default\]\]/,/^\[/s/^ *font = .*/    font = JetBrainsMono Nerd Font Mono 16/' "$HOME/.config/terminator/config"
 ```
 
+- Open `Terminator` and continue the configuration
+
 ---
 
 ## [OhMyZsh](https://github.com/ohmyzsh/ohmyzsh)
@@ -169,6 +171,9 @@ alias pwnxvpn='sudo openvpn --config $HOME/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 
 # Additional Aliases
+alias bloodhound-up='sudo bloodhound-cli containers start'
+alias bloodhound-update='sudo bloodhound-cli update'
+alias bloodhound-down='sudo bloodhound-cli containers stop'
 alias clipcopy='xclip -selection clipboard'
 alias df='df -h'
 alias diff='diff --color=auto'

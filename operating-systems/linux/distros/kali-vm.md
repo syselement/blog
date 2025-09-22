@@ -145,6 +145,7 @@ mkdir -p "$HOME/.config/terminator" && touch "$HOME/.config/terminator/config"
 cat > "$HOME/.config/terminator/config" << 'EOF'
 [global_config]
   window_state = maximise
+  putty_paste_style = True
 [keybindings]
 [profiles]
   [[default]]
@@ -247,11 +248,12 @@ mv /tmp/xfce4-keyboard-shortcuts.xml "$HOME/.config/xfce4/xfconf/xfce-perchannel
 ```bash
 ## Panel configuration
 # to git pull from Github repo and import into $HOME/.config/xfce4/panel/
-cd "$HOME/.config/xfce4"
-wget http://<URL>/panel.zip
-mv panel panel.bak.$(date +%Y%m%d-%H%M%S)
-unzip panel.zip -d .
-rm panel.zip
+
+# Download the profile
+cd
+wget http://<GITHUB>/syselement_kali_panel_config.tar.bz2
+
+# open Panel, import and apply the syselement_kali_panel_config
 ```
 
 ```bash
@@ -348,8 +350,8 @@ sudo sh -c '
 
 ```bash
 sudo sh -c '
-	wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null &&
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list &&
+	wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor -o /usr/share/keyrings/mwt-desktop.gpg &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list &&
     apt update &&
     apt install -y github-desktop
 '
@@ -677,7 +679,7 @@ seclists
 
 ```bash
 # On Kali
-sudo apt install sherlock
+sudo apt install -y sherlock
 ```
 
 ```bash

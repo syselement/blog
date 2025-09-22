@@ -259,11 +259,12 @@ sudo sh -c '
 ### [Github Desktop](https://github.com/shiftkey/desktop)
 
 ```bash
-wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
-
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
-
-sudo apt update && sudo apt install -y github-desktop
+sudo sh -c '
+	wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor -o /usr/share/keyrings/mwt-desktop.gpg &&
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list &&
+    apt update &&
+    apt install -y github-desktop
+'
 ```
 
 ### [VS Codium](https://github.com/VSCodium/vscodium)
