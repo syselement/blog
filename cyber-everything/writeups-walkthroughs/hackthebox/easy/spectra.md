@@ -585,7 +585,7 @@ done
 
 ## Extra
 
-- [https://0xdf.gitlab.io/2021/06/26/htb-spectra.html](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
+- [HTB: Spectra | 0xdf hacks stuff](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
 - [Spectra - Ippsec](https://www.youtube.com/watch?v=mC7G3i2gV54)
 
 ------
