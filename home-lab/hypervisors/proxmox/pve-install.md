@@ -396,25 +396,21 @@ services:
     image: ghcr.io/ofkm/arcane:latest
     container_name: arcane
     ports:
-      - '3000:3000'
+      - '3552:3552'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - arcane-data:/app/data
+      - /root/yamls:/app/data/projects
     environment:
-      - APP_ENV=production # Required
-      - PUBLIC_SESSION_SECRET=xxxxxxxxxxxxxxxxxxxx # Generate: openssl rand -base64 32
-      # Optional: Match your host user for permissions
+      - APP_URL=http://localhost:3552
       - PUID=1000
       - PGID=1000
-      # Optional: Set if Docker access fails
-      - DOCKER_GID=996
-      # Optional: For local HTTP testing only
-      - PUBLIC_ALLOW_INSECURE_COOKIES=true
+      - ENCRYPTION_KEY=xxxxxxxxxxxxxxx= # Generate: openssl rand -base64 32
+      - JWT_SECRET=xxxxxxxxxxxxxxx
     restart: unless-stopped
 
 volumes:
   arcane-data:
-  	name: arcane-data
     driver: local
 ```
 
@@ -422,12 +418,16 @@ volumes:
 docker compose -f arcane-compose.yaml up
 ```
 
+- Delete `arcane:arcane-admin` user and create your own
+
+
+
 
 
 #### [Portainer](https://www.portainer.io/)
 
 - [x] Portainer - already installed by the LXC install script
-- [ ] try it or Arcane - delete portainer from main Ubuntu VM
+- [ ] try it VS Arcane - delete portainer from main Ubuntu VM
 
 
 
