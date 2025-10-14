@@ -30,20 +30,20 @@ reboot
 # apt update && apt -y dist-upgrade
 ```
 
-## Post Install
+## [Post Install](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install&category=Proxmox+%26+Virtualization)
 
 - Use this Proxmox VE Helper-script to
   - Correct Proxmox VE Sources
   - Disable `pve-enterprise` repository
   - Enable `pve-no-subscription` repository
   - Enable `ceph package repositories`
-  - Add `pvetest` repository
+  - Add (disabled) `pvetest` repository
   - Disable subscription nag (Delete browser cache)
   - Disable high availability
   - Update Proxmox VE
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
 
 # It is recommended to answer “yes” (y) to all options presented during the process.
 ```
@@ -51,13 +51,13 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 ## Kernel Clean
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/kernel-clean.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/kernel-clean.sh)"
 ```
 
 ## Processor Microcode
 
 ```bash
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/microcode.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/microcode.sh)"
 ```
 
 ## Network configuration
@@ -129,7 +129,7 @@ cd Geekbench-6.4.0-Linux
 ## Software on PVE
 
 ```bash
-apt install -y btop duf exa gdu htop nano net-tools tmux tree tmux ugrep
+apt install -y btop duf exa gdu htop ipcalc lm-sensors nano net-tools tmux tree ugrep
 ```
 
 
