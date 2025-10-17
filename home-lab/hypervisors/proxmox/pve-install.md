@@ -14,7 +14,7 @@
 
 ---
 
-> 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts)
+> 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts) - make sure they are updated
 >
 > ❗ Use the Proxmox **shell** on the main node via the pve web GUI
 
@@ -116,10 +116,14 @@ ff02::3 ip6-allhosts
 ## Quick Benchmark
 
 ```bash
-wget https://cdn.geekbench.com/Geekbench-6.4.0-Linux.tar.gz
-tar -xzvf Geekbench-6.4.0-Linux.tar.gz
-cd Geekbench-6.4.0-Linux
+wget https://cdn.geekbench.com/Geekbench-6.5.0-Linux.tar.gz
+tar -xzvf Geekbench-6.5.0-Linux.tar.gz
+cd Geekbench-6.5.0-Linux
 ./geekbench6
+```
+
+```bash
+curl -sL https://yabs.sh | bash
 ```
 
 
@@ -146,12 +150,18 @@ nano ~/.bashrc
 # Custom aliases
 
 alias ipa='ip -br -c a'
-alias l='exa -lah'
+#alias l='exa -lah'
+alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
-alias ports='ss -tunlp'
+alias ports='ss -lpntu'
 alias updatepve='apt update && apt -y dist-upgrade'
+```
+
+```bash
+# Load changes:
+source ~/.bashrc
 ```
 
 

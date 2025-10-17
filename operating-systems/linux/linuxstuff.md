@@ -455,12 +455,17 @@ sudo dhclient -r
 sudo dhclient
 ```
 
-### [Benchmark](https://bench.sh/)
+### Benchmark
+
+> - [Linux benchmark scripts and tools](https://linuxblog.io/linux-benchmark-scripts-tools/)
 
 ```bash
 # bench.sh
 wget -qO- bench.sh | bash
 curl -Lso- bench.sh | bash
+
+# YABS - Yet-Another-Bench-Script
+curl -sL https://yabs.sh | bash
 ```
 
 ```bash

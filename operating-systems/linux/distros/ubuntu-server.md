@@ -377,8 +377,8 @@ sudo sed -i '/^[#]*[[:space:]]*PasswordAuthentication[[:space:]]*yes/c\PasswordA
 sudo systemctl restart sshd
 ```
 
-- Test SSH access on the new port before closing the current session
-  - Only SSH-key-base authentication is permitted.
+- Test SSH access (on the new port if changed) before closing the current session
+  - **Only SSH-key-base authentication is permitted**
 
 
 ### SSH-Hardened configuration
