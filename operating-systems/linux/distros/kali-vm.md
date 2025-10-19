@@ -685,6 +685,24 @@ sudo apt install -y sherlock
 sherlock <USER>
 ```
 
+### [Volatility](https://github.com/volatilityfoundation/volatility3)
+
+```bash
+# Volatility install - on KALI
+cd /opt
+sudo wget https://github.com/volatilityfoundation/volatility3/releases/download/v2.26.0/volatility3-2.26.0.tar.gz
+sudo tar -xvzf volatility3-2.26.0.tar.gz
+cd /opt/volatility3-2.26.0
+sudo pip install --user -e ".[full]" --break-system-packages
+
+# Create bash/zsh alias
+nano $ZSH_CUSTOM/aliases.zsh
+# Add the following line
+alias vol='/opt/volatility3-2.26.0/vol.py'
+```
+
+
+
 ---
 
 ## Sysprep for clone/export
