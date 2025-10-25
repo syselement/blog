@@ -131,42 +131,42 @@ systemctl restart kvmd
 ###############
 # Wake-ON-LAN #
 ###############
-
 kvmd:
+	[...]
     wol:
         mac: FF:FF:FF:FF:FF:FF
     gpio:
         drivers:
+            proxmox-asus:
+                type: wol
+                mac: FF:FF:FF:FF:FF:FF
+            proxmox-k8:
+                type: wol
+                mac: FF:FF:FF:FF:FF:FF
             truenas:
                 type: wol
                 mac: FF:FF:FF:FF:FF:FF
-            proxmox:
-                type: wol
-                mac: FF:FF:FF:FF:FF:FF
-            pc:
-                type: wol
-                mac: FF:FF:FF:FF:FF:FF
         scheme:
+            proxmox-asus:
+                driver: proxmox-asus
+                pin: 0
+                mode: output
+                switch: false
+            proxmox-k8:
+                driver: proxmox-k8
+                pin: 0
+                mode: output
+                switch: false
             truenas:
                 driver: truenas
                 pin: 0
                 mode: output
                 switch: false
-            proxmox:
-                driver: proxmox
-                pin: 0
-                mode: output
-                switch: false
-            pc:
-                driver: pc
-                pin: 0
-                mode: output
-                switch: false
         view:
             table:
-                - ["#AsusMiniPC-Proxmox", "proxmox|Send Wake-on-LAN"]
-                - ["#PC-Win", "pc|Send Wake-on-LAN"]
-                - ["#NAS-Truenas", "truenas|Send Wake-on-LAN"]
+                - ["#1. Proxmox-K8", "proxmox-k8|Wake-on-LAN"]
+                - ["#2. Proxmox-Asus", "proxmox-asus|Wake-on-LAN"]
+                - ["#3. TrueNAS", "truenas|Wake-on-LAN"]
 ```
 
 ```bash

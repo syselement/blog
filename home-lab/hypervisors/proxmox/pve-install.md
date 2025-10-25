@@ -133,7 +133,7 @@ curl -sL https://yabs.sh | bash
 ## Software on PVE
 
 ```bash
-apt install -y btop duf exa gdu htop ipcalc lm-sensors nano net-tools tmux tree ugrep
+apt install -y btop duf eza fio gdu htop ipcalc jq lm-sensors nano net-tools nvme-cli tmux tree ugrep
 ```
 
 
@@ -261,13 +261,26 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 ## LXC
 
-### LXCs - [Undo Autologin](https://github.com/tteck/Proxmox/discussions/324)
+### LXCs - [Undo Autologin](https://github.com/tteck/Proxmox/discussions/324) + Temporary SSH root login
 
 > *If you don't set a root password first, you will not be able to login to the container again, ever.*
 >
 > 1. set the root password `sudo passwd root`
 > 2. remove `--autologin root` from `/etc/systemd/system/container-getty@1.service.d/override.conf`
 > 3. reboot
+
+```bash
+# Login via Console and set password for root user
+passwd
+# Temp set root login
+nano /etc/ssh/sshd_config
+# Add line
+PermitRootLogin yes
+
+systemctl restart ssh
+```
+
+- ❗ Remember to disable root login with `PermitRootLogin no` when no more necessary
 
 ### LXCs - Cleaner
 
@@ -382,6 +395,18 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 ```
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+```bash
+# Login via Console
+# Temp set root login
+nano /etc/ssh/sshd_config
+# Add line
+PermitRootLogin yes
+
+systemctl restart ssh
+```
+
+
 
 ```bash
 # SSH into the LXC

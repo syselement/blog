@@ -102,6 +102,7 @@ nano $HOME/.bash_aliases
 alias updateos='sudo sh -c "apt update && apt -y upgrade && apt -y autoremove"'
 
 # Additional Aliases
+#alias clipcopy='xclip -selection clipboard'
 alias df='df -h'
 alias diff='diff --color=auto'
 alias dir='dir --color=auto'
@@ -109,13 +110,18 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias h='history'
+#alias h='history -100 -1'
+#alias history='omz_history'
 alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
+#alias hz='omz_history -E'
 alias ipa='ip -br -c a'
-alias l='ls -CF'
+alias l='exa -lah --group-directories-first'
+#alias l='ls -CF'
 alias la='ls -A'
-alias ll='ls -alFh'
+alias ll='l -T'
+#alias ll='ls -alFh'
 alias ls='ls -lh --color=auto'
 alias mask='awk '\''{ printf substr($0, 1, 5); for (i=6; i<=length($0); i++) printf "*"; print "" }'\'''
 alias p3='python3'
@@ -176,14 +182,14 @@ sudo nano /etc/netplan/00-installer-config.yaml
 sudo nano /etc/netplan/50-cloud-init.yaml
 
     # This is the network config written by 'subiquity'
-    network:
-      version: 2
-      ethernets:
-        ens32:
-          addresses: [<IP>/24]
-          gateway4: <GATEWAY_IP>
-          nameservers:
-            addresses: [1.1.1.1, 9.9.9.9]
+network:
+  version: 2
+  ethernets:
+    ens32:
+      addresses: [<IP>/24]
+      gateway4: <GATEWAY_IP>
+      nameservers:
+        addresses: [1.1.1.1, 9.9.9.9]
             
 # Exit and save
 

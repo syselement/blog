@@ -1407,6 +1407,15 @@ bash nm-wait-toggle.sh disable    # Disable and mask it for faster boot
 bash nm-wait-toggle.sh restore    # Restore original state if needed
 ```
 
+---
+
+### Debug bash script
+
+```bash
+export PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]} '
+bash -euxo pipefail -x <bashscript.sh>
+```
+
 
 
 ---
