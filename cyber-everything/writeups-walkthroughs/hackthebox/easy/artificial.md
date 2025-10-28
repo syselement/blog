@@ -860,7 +860,7 @@ uid=0(root) gid=0(root) groups=0(root)
 ```bash
 # Root Flag
 root@artificial:~# cat root.txt 
-bd9b5e7fb1cfede314d266b0bb0c17ca
+bd9b5***************************
 ```
 
 ---
