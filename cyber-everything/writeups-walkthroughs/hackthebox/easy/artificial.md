@@ -972,7 +972,7 @@ What to watch out for if re-exploiting:
 
 ## Extra
 
-- [https://0xdf.gitlab.io/2025/10/25/htb-artificial.html](https://0xdf.gitlab.io)
+- [HTB: Artificial | 0xdf hacks stuff](https://0xdf.gitlab.io/2025/10/25/htb-artificial.html)
 - [Artificial - Ippsec](https://www.youtube.com/watch?v=uGgnWQaG-bA)
 
 ---
