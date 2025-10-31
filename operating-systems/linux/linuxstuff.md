@@ -39,12 +39,29 @@ stat / | grep "Birth" | sed 's/Birth: //g' | cut -b 2-11
 stat / | awk '/Birth: /{print $2}'
 ```
 
+### Bash history
+
+```bash
+nano ~/.bashrc
+```
+
+```bash
+# Append every command to the history file immediately
+export PROMPT_COMMAND='history -a'
+
+# Optionally: reload history from the file in case other sessions wrote to it
+shopt -s histappend
+export HISTFILESIZE=10000
+export HISTSIZE=100000
+```
+
 ### Cpu - Ram usage
 
 ```bash
 top
-iostat
 vmstat 1 5
+
+iostat
 mpstat -P ALL 2 4
 sar -P ALL 2 3
 
@@ -125,24 +142,6 @@ lsblk
 df -h
 free -h
 ```
-
-### Bash history
-
-```bash
-nano ~/.bashrc
-```
-
-```bash
-# Append every command to the history file immediately
-export PROMPT_COMMAND='history -a'
-
-# Optionally: reload history from the file in case other sessions wrote to it
-shopt -s histappend
-export HISTFILESIZE=10000
-export HISTSIZE=100000
-```
-
-
 
 ### Disk - Expand LVM Partition
 
