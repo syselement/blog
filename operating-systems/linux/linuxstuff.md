@@ -43,7 +43,7 @@ stat / | awk '/Birth: /{print $2}'
 
 ```bash
 top
-iostatmpstat
+iostat
 vmstat 1 5
 mpstat -P ALL 2 4
 sar -P ALL 2 3
