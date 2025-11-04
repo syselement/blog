@@ -73,6 +73,9 @@ nmon
 ```
 
 ```bash
+# Check CPU model
+grep -i -m 1 "model name" /proc/cpuinfo
+
 # Check installed hw RAM memory
 sudo dmidecode --type memory
 ```

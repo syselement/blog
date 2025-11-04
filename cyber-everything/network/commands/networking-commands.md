@@ -129,6 +129,8 @@ tcpdump "tcp[tcpflags] & (tcp-syn|tcp-ack) != 0"
 ip a
 ip -br -c a
 
+# Get public IP address
+dig +short myip.opendns.com @resolver1.opendns.com
 ```
 
 ---
