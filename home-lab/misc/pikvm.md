@@ -45,6 +45,9 @@ For the **video capture device** I've used an HDMI-USB dongle for my testing lab
 
 Anyway, a **HDMI-CSI bridge board** is better for video encoding, resolution and latency.
 
+Check Geekworm models [here](https://wiki.geekworm.com/C790), and Amazon links:
+
+- [Geekworm Raspberry Pi HDMI to CSI CSI-2 C790 Adapter](https://amzn.eu/d/49dp7i7) (Newer)
 - [Geekworm Raspberry Pi Hdmi to CSI-2 Module X630 with TC358743 Chip](https://amzn.eu/d/8gXXheS)
 
 
