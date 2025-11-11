@@ -347,6 +347,12 @@ taskkill /PID targetpid
 
 ## Powershell commands
 
+### Show Wi-Fi profiles
+
+```bash
+netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $_.ToString().Split(':')[1].Trim() } | ForEach-Object { $p = $_; $out = netsh wlan show profile name="$p" key=clear; $pw = ($out | Select-String 'Key Content' | ForEach-Object { ($_ -split ':')[1].Trim() }) -join ''; [PSCustomObject]@{Profile=$p;Password=($pw -ne '' ? $pw : '(none)')} } | Format-Table -AutoSize
+```
+
 ### PS1 Scripts
 
 ```powershell

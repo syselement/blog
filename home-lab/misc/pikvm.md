@@ -21,7 +21,7 @@
 
 **Raspberry Pi 4** board with 16GB MicroSD card.
 
-- PiKVM SD card image used is the one **For HDMI-USB dongle** - [download here](https://docs.pikvm.org/flashing_os/)
+- PiKVM SD card image used is the one **For HDMI-USB dongle** (or **For HDMI-CSI bridge**) - [download here](https://docs.pikvm.org/flashing_os/) and flash the MicroSD card with [RPi Imager](https://www.raspberrypi.com/software/) tool
 - RPi4 Power consumption ranging from 2.7W to 6.4W depending on the workload
 
 For **power supply** and **USB** connectivity, I have chosen the "**Variant #2: Power supply + Y-splitter based on power blocker**" from the [PiKVM v2](https://docs.pikvm.org/v2/) guide with:
@@ -41,7 +41,7 @@ The "USB C to Double **USB C Splitter**" used:
 
 ![](.gitbook/assets/2025-08-03_16-32-33_313.png)
 
-For the **video capture device** I've used an HDMI-USB dongle for my testing lab.
+For the **video capture device** I've used an HDMI-USB dongle for my testing lab (change with a HDMI-CSI bridge board later).
 
 Anyway, a **HDMI-CSI bridge board** is better for video encoding, resolution and latency.
 
@@ -63,6 +63,13 @@ WIFI_ESSID='mynet'
 WIFI_PASSWD='p@s$$w0rd'
 ```
 
+```bash
+# On Windows PS - get WiFi config with
+netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $_.ToString().Split(':')[1].Trim() } | ForEach-Object { $p = $_; $out = netsh wlan show profile name="$p" key=clear; $pw = ($out | Select-String 'Key Content' | ForEach-Object { ($_ -split ':')[1].Trim() }) -join ''; [PSCustomObject]@{Profile=$p;Password=($pw -ne '' ? $pw : '(none)')} } | Format-Table -AutoSize
+```
+
+
+
 ---
 
 ## PiKVM Shell commands
@@ -72,8 +79,7 @@ WIFI_PASSWD='p@s$$w0rd'
 - Check [Authentication - PiKVM Handbook](https://docs.pikvm.org/auth/) for SSH root access, default credentials and changing them
 
 ```bash
-[root@pikvm ~]# cat /etc/os-release
-NAME="Arch Linux ARM"
+
 ```
 
 ```bash
@@ -82,6 +88,18 @@ su -
 
 # Commands [root@pikvm ~]#
 
+# Change Linux "root" password
+rw
+passwd root
+
+# Change web access "admin" password
+kvmd-htpasswd set admin
+ro
+
+
+```
+
+```bash
 # Update system
 pikvm-update
 # or
@@ -89,6 +107,11 @@ rw
 pacman -Syy
 pacman -S pikvm-os-updater
 pikvm-update
+```
+
+```bash
+[root@pikvm ~]# cat /etc/os-release
+NAME="Arch Linux ARM"
 ```
 
 
@@ -99,7 +122,7 @@ pikvm-update
 
 ```bash
 rw
-vim /etc/kvmd/override.yaml
+nano /etc/kvmd/override.yaml
 ```
 
 - (Extra) Disable "ATX" menu
