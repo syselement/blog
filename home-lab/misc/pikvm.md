@@ -41,9 +41,9 @@ The "USB C to Double **USB C Splitter**" used:
 
 ![](.gitbook/assets/2025-08-03_16-32-33_313.png)
 
-For the **video capture device** I've used an HDMI-USB dongle for my testing lab (change with a HDMI-CSI bridge board later).
+For the **video capture device** I've used an HDMI-USB dongle for my testing lab (**changed with a HDMI-CSI bridge board later**).
 
-Anyway, a **HDMI-CSI bridge board** is better for video encoding, resolution and latency.
+📌 Anyway, a **HDMI-CSI bridge board** is better for video encoding, resolution and latency.
 
 Check Geekworm models [here](https://wiki.geekworm.com/C790), and Amazon links:
 
