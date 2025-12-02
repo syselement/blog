@@ -79,10 +79,6 @@ netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $
 - Check [Authentication - PiKVM Handbook](https://docs.pikvm.org/auth/) for SSH root access, default credentials and changing them
 
 ```bash
-
-```
-
-```bash
 su - 
 # use "root" as password
 
@@ -91,12 +87,12 @@ su -
 # Change Linux "root" password
 rw
 passwd root
-
-# Change web access "admin" password
-kvmd-htpasswd set admin
 ro
 
-
+# Change web access "admin" password
+rw
+kvmd-htpasswd set admin
+ro
 ```
 
 ```bash
@@ -200,7 +196,11 @@ systemctl restart kvmd
 reboot
 ```
 
+---
 
+## KVM Dashboard
+
+![](.gitbook/assets/2025-12-02_17-52-44_939.png)
 
 ---
 
