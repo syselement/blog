@@ -29,7 +29,7 @@ For **power supply** and **USB** connectivity, I have chosen the "**Variant #2: 
 - x1 Raspberry Pi Official USB-C Power Supply
 - x1 USB C splitter (male->double females)
 - x1 USB-A to USB-C cable (male-male)
-  - 📌 as power blocker for the VCC of the USB-A male connector that goes into the PC/NAS, I've used a small piece of tape over the right-most pin on the connector **to block the 5V pin**
+  - 📌 as power blocker for the VCC of the USB-A male connector that goes into the PC/NAS, I've used a small piece of tape over the right-most pin on the connector **to block the 5V pin** (cut the single specific VCC wire inside the cable later)
 
 Similar diagram as my setup:
 
