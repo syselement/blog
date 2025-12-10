@@ -259,6 +259,43 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 ---
 
+## [Proxmox Datacenter Management LXC](https://www.proxmox.com/en/products/proxmox-datacenter-manager/overview)
+
+> [Proxmox Datacenter Management - https://192.168.5.4:8443](https://192.168.5.4:8443/)
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/proxmox-datacenter-manager.sh)"
+
+# PDM Interface <IP>:8443
+
+# Set a root password if using autologin. This will be the PDM password.
+# Login to WebGUI and open PDM shell
+sudo passwd root
+```
+
+**PROXMOX** - Network > edit `eth0` and set the Static IP.
+
+### PDM post install
+
+- [ ] Disable the Enterprise Repo
+- [ ] Add/Correct PBS Sources
+- [ ] Enable the No-Subscription Repo
+- [ ] Add Test Repo
+- [ ] Disable Subscription Nag
+- [ ] Update and reboot Proxmox Backup Server
+
+
+
+Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to all options presented
+
+```bash
+# VE Community script not available
+```
+
+
+
+---
+
 ## LXC
 
 ### LXCs - [Undo Autologin](https://github.com/tteck/Proxmox/discussions/324) + Temporary SSH root login
