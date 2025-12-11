@@ -245,6 +245,93 @@ schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
 
 - Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
 
+### Windows Terminal Mod
+
+Install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) via Microsoft Store
+
+- Open Windows Terminal and go to the **Settings** UI window.
+- Select **Startup** and choose "Windows Terminal" as the **Default terminal application** setting.
+
+Install [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
+
+```powershell
+winget install --id Microsoft.PowerShell --source winget
+```
+
+Install [OhMyPosh](https://ohmyposh.dev/docs/installation/windows)
+
+```powershell
+winget install JanDeDobbeleer.OhMyPosh --source winget
+
+# Automated upgrade
+oh-my-posh enable upgrade
+```
+
+Configure OhMyPosh
+
+- [Font](https://ohmyposh.dev/docs/installation/fonts)
+
+```powershell
+oh-my-posh font install JetBrainsMono
+```
+
+Configure **Windows Terminal** to use the installed font
+
+- shortcut `CTRL + SHIFT + ,` to open the `settings.json` file
+- add the following attribute
+
+```json
+  "profiles": {
+    "defaults": {
+      "font": {
+        "face": "JetBrainsMono NF"
+      }
+    }
+```
+
+- [Prompt](https://ohmyposh.dev/docs/installation/prompt)
+
+```powershell
+oh-my-posh get shell
+pwsh
+
+New-Item -Path $PROFILE -Type File -Force
+
+notepad $PROFILE
+# Add the following snippet as the last line
+
+oh-my-posh init pwsh | Invoke-Expression
+
+. $PROFILE
+```
+
+- [Customize](https://ohmyposh.dev/docs/installation/customize) and [configuration](https://ohmyposh.dev/docs/configuration/general)
+  - To set a new configuration or theme you need to change the `--config` option of the `oh-my-posh init <shell>` line in your `profile` script
+
+```powershell
+notepad $PROFILE
+
+# e.g. Theme
+oh-my-posh init pwsh --config 'pure' | Invoke-Expression
+
+. $PROFILE
+```
+
+Install [fastfetch](https://github.com/fastfetch-cli/fastfetch)
+
+```powershell
+winget install fastfetch
+
+# Add to PS profile
+notepad $PROFILE
+# Add the command and the end of the file and save
+fastfetch
+
+. $PROFILE
+```
+
+
+
 ------
 
 ## CMD commands
