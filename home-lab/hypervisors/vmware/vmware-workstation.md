@@ -99,7 +99,7 @@ In case this is still not working, use the [Device Guard and Credential Guard ha
 3. ❗ **Reboot PC**
 
 4. Install **VMware Workstation Pro**
-   - use the downloaded `exe` file - [https://support.broadcom.com/group/ecx/downloads](https://support.broadcom.com/group/ecx/downloads) (login necessary)
+   - use the downloaded `exe` file - [https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true) (login necessary)
      - **Stop and avoid** installing `Windows Hypervisor Platform (WHP)` (feature) when asked by the VMware Workstation installer - this means Hyper-V has not been fully disabled, try again the entire disabling process.
    - or install [latest VMware Workstation Pro package](https://community.chocolatey.org/packages/vmwareworkstation) via Chocolatey
 
