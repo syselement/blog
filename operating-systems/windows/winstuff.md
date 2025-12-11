@@ -275,9 +275,9 @@ Configure OhMyPosh
 oh-my-posh font install JetBrainsMono
 ```
 
-Configure **Windows Terminal** to use the installed font
+Open and configure **Windows Terminal** to use the installed font
 
-- shortcut `CTRL + SHIFT + ,` to open the `settings.json` file
+- shortcut `CTRL + SHIFT + ,` to open the Windows Terminal `settings.json` file
 - add the following attribute
 
 ```json
@@ -293,7 +293,6 @@ Configure **Windows Terminal** to use the installed font
 
 ```powershell
 oh-my-posh get shell
-pwsh
 
 New-Item -Path $PROFILE -Type File -Force
 
