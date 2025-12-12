@@ -245,6 +245,18 @@ schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
 
 - Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
 
+### PowerToys
+
+Install [Microsoft PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/) via winget
+
+- Enable FancyZones and create a window layout
+
+```bash
+winget install --id Microsoft.PowerToys --source winget
+```
+
+
+
 ### Windows Terminal Mod
 
 Install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) via Microsoft Store
