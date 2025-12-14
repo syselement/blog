@@ -348,6 +348,7 @@ packages=(
     gnome-shell-extension-manager
     gnupg
     gpg
+    gping
     htop
     iftop
     imagemagick

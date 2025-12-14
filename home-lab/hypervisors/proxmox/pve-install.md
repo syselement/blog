@@ -133,35 +133,85 @@ curl -sL https://yabs.sh | bash
 ## Software on PVE
 
 ```bash
-apt install -y btop duf eza fio gdu htop ipcalc jq lm-sensors nano net-tools nvme-cli tmux tree ugrep
+packages=(
+  bat
+  btop
+  duf
+  eza
+  fastfetch
+  fio
+  gdu
+  gping
+  htop
+  iftop
+  ipcalc
+  jq
+  lm-sensors
+  nano
+  net-tools
+  nvme-cli
+  s-tui
+  stress
+  tmux
+  tree
+  ugrep
+)
+apt update
+apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
+
+mkdir -p $HOME/.local/bin
+ln -s /usr/bin/batcat $HOME/.local/bin/bat
+
+apt purge -y proxmox-first-boot
 ```
 
 
 
 ### bash Config
 
-- Set custom aliases
+- Set custom **aliases/exports** and `fastfetch` tool
 
 ```bash
-nano ~/.bashrc
-```
+cp $HOME/.bashrc $HOME/.bashrc.bak-$(date +%F-%H%M)
 
-```bash
+cat <<'EOF' > $HOME/.bashrc
+# $HOME/.bashrc - Custom configuration for PVE
+
 # Custom aliases
-
+alias bat="batcat"
 alias ipa='ip -br -c a'
-#alias l='exa -lah'
 alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
 alias ls='ls -lh --color=auto'
 alias ports='ss -lpntu'
 alias updatepve='apt update && apt -y dist-upgrade'
+
+# Exports
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Fastfetch - login shells only
+if shopt -q login_shell && command -v fastfetch >/dev/null 2>&1; then
+    clear
+    fastfetch
+fi
+
+EOF
 ```
 
 ```bash
 # Load changes:
-source ~/.bashrc
+source $HOME/.bashrc
+```
+
+### Timezone
+
+- Set timezone (e.g. `Europe/Rome`)
+
+```bash
+unlink /etc/localtime
+ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
+timedatectl set-timezone "Europe/Rome"
 ```
 
 
@@ -1035,7 +1085,7 @@ sudo passwd root
 ```bash
 sudo apt update -y && sudo apt -y upgrade
 
-sudo apt install -y btop curl duf eza iftop locate nano ncdu fastfetch net-tools nload npm pipx qemu-guest-agent sysstat ugrep wget zsh
+sudo apt install -y bat btop curl duf eza iftop locate nano ncdu fastfetch net-tools nload npm pipx qemu-guest-agent sysstat ugrep wget zsh
 ```
 
 ```bash

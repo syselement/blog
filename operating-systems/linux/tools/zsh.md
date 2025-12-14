@@ -109,6 +109,16 @@ ZSH_DISABLE_COMPFIX="true"\n\
 \
 # Skip all aliases in lib files\
 zstyle '\'' :omz:lib:* '\'' aliases no\n' "$ZSHRC"
+
+# Add fastfetch right after sourcing oh-my-zsh
+sed -i '/^# Enable Powerlevel10k instant prompt/ i\
+# Fastfetch - interactive shells only (placed above p10k instant prompt)\
+if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>\&1; then\
+  clear\
+  fastfetch\
+fi\
+\
+' "$ZSHRC"
 ```
 
 - Check the file and restart `zsh` to apply the changes and configure Powerlevel10k Theme.
@@ -171,6 +181,7 @@ alias pwnxvpn='sudo openvpn --config $HOME/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 
 # Additional Aliases
+alias bat="batcat"
 alias bloodhound-up='sudo bloodhound-cli containers start'
 alias bloodhound-update='sudo bloodhound-cli update'
 alias bloodhound-down='sudo bloodhound-cli containers stop'

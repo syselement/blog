@@ -99,10 +99,14 @@ nano $HOME/.bash_aliases
 ```
 
 ```bash
+touch $HOME/.bash_aliases
+cat <<'EOF' > $HOME/.bash_aliases
+# Custom aliases
+# Alias to update the system
 alias updateos='sudo sh -c "apt update && apt -y upgrade && apt -y autoremove"'
 
 # Additional Aliases
-#alias clipcopy='xclip -selection clipboard'
+alias bat="batcat"
 alias df='df -h'
 alias diff='diff --color=auto'
 alias dir='dir --color=auto'
@@ -110,18 +114,13 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 alias h='history'
-#alias h='history -100 -1'
-#alias history='omz_history'
 alias hl='history | less'
 alias hs='history | grep'
 alias hsi='history | grep -i'
-#alias hz='omz_history -E'
 alias ipa='ip -br -c a'
-alias l='exa -lah --group-directories-first'
-#alias l='ls -CF'
+alias l='eza -lah --group-directories-first'
 alias la='ls -A'
 alias ll='l -T'
-#alias ll='ls -alFh'
 alias ls='ls -lh --color=auto'
 alias mask='awk '\''{ printf substr($0, 1, 5); for (i=6; i<=length($0); i++) printf "*"; print "" }'\'''
 alias p3='python3'
@@ -130,6 +129,8 @@ alias python='python3'
 alias sudo='sudo -v; sudo '
 alias ugq='ugrep --pretty --hidden -Qria'
 alias vdir='vdir --color=auto'
+
+EOF
 ```
 
 > - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
@@ -228,7 +229,10 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 # Tools
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
-sudo apt install -y apt-transport-https aptitude btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg iftop ipcalc locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
+sudo apt install -y apt-transport-https aptitude bat btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg gping iftop ipcalc locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
+
+mkdir -p $HOME/.local/bin
+ln -s /usr/bin/batcat $HOME/.local/bin/bat
 ```
 
 ```bash
