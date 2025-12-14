@@ -229,7 +229,51 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 # Tools
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
-sudo apt install -y apt-transport-https aptitude bat btop ca-certificates coreutils curl duf eza fastfetch gdu git-all gnupg gping iftop ipcalc locate nano net-tools nload npm pipx software-properties-common speedtest-cli sshpass sysstat tmux tree ugrep vim wget zsh
+
+
+packages=(
+  apt-transport-https
+  aptitude
+  bat
+  btop
+  ca-certificates
+  coreutils
+  curl
+  duf
+  eza
+  fastfetch
+  gdu
+  git-all
+  gnupg
+  gping
+  htop
+  iftop
+  ipcalc
+  iperf3
+  jq
+  lm-sensors
+  locate
+  nano
+  net-tools
+  nload
+  nmap
+  npm
+  pipx
+  s-tui
+  software-properties-common
+  speedtest-cli
+  sshpass
+  stress
+  sysstat
+  tmux
+  tree
+  ugrep
+  vim
+  wget
+  zsh
+)
+apt update
+apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
 
 mkdir -p $HOME/.local/bin
 ln -s /usr/bin/batcat $HOME/.local/bin/bat

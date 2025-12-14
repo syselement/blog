@@ -339,7 +339,6 @@ packages=(
     filezilla
     flameshot
     flatpak
-    fonts-firacode
     fonts-noto-color-emoji
     fzf
     gdu
@@ -354,6 +353,7 @@ packages=(
     imagemagick
     ipcalc
     iperf3
+    jq
     locate
     nano
     net-tools
