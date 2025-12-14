@@ -110,7 +110,7 @@ ZSH_DISABLE_COMPFIX="true"\n\
 # Skip all aliases in lib files\
 zstyle '\'' :omz:lib:* '\'' aliases no\n' "$ZSHRC"
 
-# Add fastfetch right after sourcing oh-my-zsh
+# Add fastfetch above the Powerlevel10k instant prompt block
 sed -i '/^# Enable Powerlevel10k instant prompt/ i\
 # Fastfetch - interactive shells only (placed above p10k instant prompt)\
 if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>\&1; then\
