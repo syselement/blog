@@ -1065,12 +1065,9 @@ sudo sshd -T
 sudo timedatectl set-timezone Europe/Rome
 
 # DISABLE AUTOMATIC UPDATES
-sudo nano /etc/apt/apt.conf.d/20auto-upgrades
-# make sure all the directives are set to “0”
-sudo systemctl disable apt-daily-upgrade.timer
-sudo systemctl mask apt-daily-upgrade.service
-sudo systemctl disable apt-daily.timer
-sudo systemctl mask apt-daily.service
+sudo sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
+sudo systemctl disable apt-daily{,-upgrade}.timer
+sudo systemctl mask apt-daily{,-upgrade}.service
 
 # Change "root" user password
 sudo passwd root

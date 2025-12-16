@@ -364,13 +364,9 @@ sudo dpkg-reconfigure console-setup
 ### Disable Ubuntu automatic updates
 
 ```bash
-sudo nano /etc/apt/apt.conf.d/20auto-upgrades
-# make sure all the directives are set to “0”
-
-sudo systemctl disable apt-daily-upgrade.timer
-sudo systemctl mask apt-daily-upgrade.service
-sudo systemctl disable apt-daily.timer
-sudo systemctl mask apt-daily.service
+sudo sed -i 's/1";/0";/' /etc/apt/apt.conf.d/20auto-upgrades
+sudo systemctl disable apt-daily{,-upgrade}.timer
+sudo systemctl mask apt-daily{,-upgrade}.service
 
 # For complete package uninstall
 sudo apt purge --auto-remove unattended-upgrades
@@ -760,6 +756,18 @@ sudo systemctl disable docker.service containerd.service
 # Reboot and Test
 reboot
 docker run hello-world
+```
+
+### [Install ctop](https://github.com/bcicen/ctop)
+
+```bash
+sudo apt-get install -y ca-certificates curl gnupg lsb-release
+curl -fsSL https://azlux.fr/repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/azlux-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian \
+  $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/azlux.list >/dev/null
+sudo apt-get update
+sudo apt-get install -y docker-ctop
 ```
 
 ### [Install Gophish](https://github.com/gophish/gophish/releases/)
