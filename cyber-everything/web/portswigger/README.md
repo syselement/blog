@@ -1,13 +1,12 @@
 # PortSwigger Academy
 
-![Web Security Academy - © PortSwigger](.gitbook/assets/web-security-academy-logo.svg)
+![Web Security Academy - © PortSwigger](../../../.gitbook/assets/web-security-academy-logo.svg)
 
 ## Portswigger Academy Course - Notes
 
-- [Server-Side topics](server-side-topics/README.md)
-- [Client-Side topics](client-side-topics/README.md)
-- [Advanced topics](advanced-topics/README.md)
-- [🔬 Vulnerability Labs](all-labs/README.md)
+* [Server-Side topics](server-side-topics/)
+* [Client-Side topics](client-side-topics/)
+* [Advanced topics](advanced-topics/)
+* [🔬 Vulnerability Labs](all-labs/)
 
----
-
+***

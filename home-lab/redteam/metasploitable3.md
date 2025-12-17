@@ -1,6 +1,6 @@
 # Metasploitable3
 
-![](.gitbook/assets/metasploitable3.png)
+![](../../.gitbook/assets/metasploitable3.png)
 
 ## Description
 
@@ -33,7 +33,7 @@
 
 ## Installation - Vagrant
 
-* Install 🔗 [Vagrant](../../windows-notes/tools/vagrant\_win.md)
+* Install 🔗 [Vagrant](../../windows-notes/tools/vagrant_win.md)
 * Open folder with Powershell.
 
 ```bash
@@ -71,7 +71,7 @@ win2k8.vm.provider "vmware_desktop" do |v|
 end
 ```
 
-![Vagrantfile for VMware](.gitbook/assets/image-20230324173759137.png)
+![Vagrantfile for VMware](../../.gitbook/assets/image-20230324173759137.png)
 
 ## Run the VMs
 
@@ -106,9 +106,9 @@ When both the VMs are ready, they can be opened.
 
 Login default credentials are `vagrant`:`vagrant`
 
-![ub1404 VM](.gitbook/assets/image-20230324170515030.png)
+![ub1404 VM](../../.gitbook/assets/image-20230324170515030.png)
 
-![vagrant-2008r2 VM](.gitbook/assets/image-20230324170554853.png)
+![vagrant-2008r2 VM](../../.gitbook/assets/image-20230324170554853.png)
 
 ## Stop the VMs
 

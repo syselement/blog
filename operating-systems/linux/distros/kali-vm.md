@@ -1,68 +1,67 @@
 # Kali Linux - VM
 
-![](.gitbook/assets/kali.svg) [Kali Linux](https://www.kali.org/)
+![](../../../.gitbook/assets/kali.svg) [Kali Linux](https://www.kali.org/)
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Kali docs](https://www.kali.org/docs/)
-> - [kali-meta | Kali Linux Tools](https://www.kali.org/tools/kali-meta/)
+> * [Kali docs](https://www.kali.org/docs/)
+> * [kali-meta | Kali Linux Tools](https://www.kali.org/tools/kali-meta/)
 
----
+***
 
 ## [First Install - Virtual Machine](https://www.kali.org/docs/installation/hard-disk-install/)
 
-- Create a new Virtual Machine in VMWare with preferred specs:
-  - Processors: `1 CPU - 4 Cores`
-  - RAM Memory: `8 GB`
-  - Hard Disk: `60 GB` (basic install and updates take around `15 to 20 GB`)
-  - CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check *Connect at power on*
-  - Network: set it as `NAT`
-- Edit the Virtual Machine Settings and go to **Options** menu
-  - **Advanced**
-    - Set Firmware type to `UEFI`
+* Create a new Virtual Machine in VMWare with preferred specs:
+  * Processors: `1 CPU - 4 Cores`
+  * RAM Memory: `8 GB`
+  * Hard Disk: `60 GB` (basic install and updates take around `15 to 20 GB`)
+  * CD: use the Kali Installer .iso image file - [Download here](https://www.kali.org/get-kali/) - and check _Connect at power on_
+  * Network: set it as `NAT`
+* Edit the Virtual Machine Settings and go to **Options** menu
+  * **Advanced**
+    * Set Firmware type to `UEFI`
+* Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
 
-- Boot the virtual machine and proceed with the [Kali Installation](https://www.kali.org/docs/installation/hard-disk-install/)
+![](../../../.gitbook/assets/2025-08-10_22-44-27_1042.png)
 
-![](.gitbook/assets/2025-08-10_22-44-27_1042.png)
+![](../../../.gitbook/assets/2025-09-22_16-04-07_592.png)
 
-![](.gitbook/assets/2025-09-22_16-04-07_592.png)
-
----
+***
 
 ## First Boot & [Update](https://www.kali.org/docs/general-use/updating-kali/)
 
-- Boot Kali Linux
-- Open the Terminal and run the command
+* Boot Kali Linux
+* Open the Terminal and run the command
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y && sudo apt -y autoremove
 ```
 
-> - **`full-upgrade`** performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
-> - This command will upgrade the system to the latest Kali version.
-> - Tips from the [Updating Kali](https://www.kali.org/docs/general-use/updating-kali/) post:
->   - ❗ *You should be checking for updates every few weeks*
->   - 📌 *A good practice is that you ensure **all tools work before an engagement** and during that engagement you should not update*
+> * **`full-upgrade`** performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
+> * This command will upgrade the system to the latest Kali version.
+> * Tips from the [Updating Kali](https://www.kali.org/docs/general-use/updating-kali/) post:
+>   * ❗ _You should be checking for updates every few weeks_
+>   * 📌 _A good practice is that you ensure **all tools work before an engagement** and during that engagement you should not update_
 
-- Reboot the system
+* Reboot the system
 
 ```bash
 reboot
 ```
 
-- Customize Kali and finish off the setup using `kali-tweaks` if necessary
+* Customize Kali and finish off the setup using `kali-tweaks` if necessary
 
 ```bash
 kali-tweaks
 ```
 
-![kali-tweaks](.gitbook/assets/image-20230307161431755.png)
+![kali-tweaks](../../../.gitbook/assets/image-20230307161431755.png)
 
-- Stop the VM and take a VM Snapshot
+* Stop the VM and take a VM Snapshot
 
----
+***
 
 ## Configurations
 
@@ -87,9 +86,9 @@ sudo update-grub
 
 ### SSH keys
 
-- **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
-- **User SSH key pair** - creates a new personal SSH login key
-- **Add to ssh-agent** - loads the key for automatic use
+* **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
+* **User SSH key pair** - creates a new personal SSH login key
+* **Add to ssh-agent** - loads the key for automatic use
 
 ```bash
 # Host ssh keys
@@ -110,7 +109,7 @@ chmod 600 $HOME/.ssh/*
 eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
 
----
+***
 
 ### Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
@@ -133,8 +132,8 @@ cd
 sudo apt install -y terminator
 ```
 
-- Config file -> `$HOME/.config/terminator/config`
-  - Make sure to have already installed the necessary font
+* Config file -> `$HOME/.config/terminator/config`
+  * Make sure to have already installed the necessary font
 
 ```bash
 rm -f "$HOME/.config/terminator/config"
@@ -167,24 +166,24 @@ cat > "$HOME/.config/terminator/config" << 'EOF'
 EOF
 ```
 
-- From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
+* From the `Default Applications / Utilities` menu, set `terminator` as the default terminal to use
 
-![](.gitbook/assets/image-20230307153127021.png)
+![](../../../.gitbook/assets/image-20230307153127021.png)
 
 ```bash
 sudo update-alternatives --config x-terminal-emulator
 ```
 
-![](.gitbook/assets/image-20230307152343811.png)
+![](../../../.gitbook/assets/image-20230307152343811.png)
 
-- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
-- ⌨️ `CTRL+ALT+T` is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
+* [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
+* ⌨️ `CTRL+ALT+T` is a keyboard shortcut already configured in Kali. It should open the `terminator` with your configured layout.
 
 ### Zsh & Oh-My-Zsh
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md) and some useful aliases
 
----
+***
 
 ## Personal Kali Config
 
@@ -267,12 +266,10 @@ wget http://<GITHUB>/syselement_kali_panel_config.tar.bz2
 # xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
 ```
 
-
-
 ### CTF Configs
 
-- Download and add hacking platforms `.ovpn` files
-- To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
+* Download and add hacking platforms `.ovpn` files
+* To setup OpenVpn aliases check the **Zsh & Oh-My-Zsh** section
 
 ```bash
 cd
@@ -289,15 +286,13 @@ mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
 sudo sh -c 'gunzip -c /usr/share/wordlists/rockyou.txt.gz > /usr/share/wordlists/rockyou.txt'
 ```
 
-
-
----
+***
 
 ## Tools
 
 ### Basic Tools
 
-- Install basic tools
+* Install basic tools
 
 ```bash
 sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop ipcalc locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget xclip
@@ -329,7 +324,7 @@ EOF &&
 '
 ```
 
-- Run it with **`subl`** command.
+* Run it with **`subl`** command.
 
 ### [Brave](https://brave.com/linux/)
 
@@ -410,8 +405,8 @@ docker run hello-world
 sudo apt install flameshot
 ```
 
-- Config file -> `$HOME/.config/flameshot/flameshot.ini`
-  - Make sure to have already installed the necessary font
+* Config file -> `$HOME/.config/flameshot/flameshot.ini`
+  * Make sure to have already installed the necessary font
 
 ```bash
 mkdir -p "$HOME/.config/flameshot/" && touch "$HOME/.config/flameshot/flameshot.ini"
@@ -433,33 +428,31 @@ startupLaunch=true
 EOF
 ```
 
--  Set this as a custom **Keyboard/Application shortcut** for `flameshot`
-   -  I use `Shift+Alt+S` (configured in the **Personal Kali Config** above)
+* Set this as a custom **Keyboard/Application shortcut** for `flameshot`
+  * I use `Shift+Alt+S` (configured in the **Personal Kali Config** above)
 
----
+***
 
 ## Security Tools
 
-> - [Active directory pentesting: cheatsheet and beginner guide - HTB](https://www.hackthebox.com/blog/active-directory-penetration-testing-cheatsheet-and-guide)
+> * [Active directory pentesting: cheatsheet and beginner guide - HTB](https://www.hackthebox.com/blog/active-directory-penetration-testing-cheatsheet-and-guide)
 
 ### [AutoRecon](https://github.com/Tib3rius/AutoRecon)
 
-> *AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements.*
->
-> 
+> _AutoRecon is a multi-threaded network reconnaissance tool which performs automated enumeration of services. It is intended as a time-saving tool for use in CTFs and other penetration testing environments (e.g. OSCP). It may also be useful in real-world engagements._
 >
 > 📌 Installs dependencies:
 >
-> - dirsearch
-> - enum4linux-ng
-> - feroxbuster
-> - oscanner
-> - python3-ntlm-auth
-> - python3-requests-ntlm
-> - python3-toml
-> - seclists
-> - sipvicious
-> - tnscmd10g
+> * dirsearch
+> * enum4linux-ng
+> * feroxbuster
+> * oscanner
+> * python3-ntlm-auth
+> * python3-requests-ntlm
+> * python3-toml
+> * seclists
+> * sipvicious
+> * tnscmd10g
 
 ```bash
 sudo apt update -y && sudo apt install -y autorecon
@@ -494,7 +487,7 @@ sudo autorecon <TARGET-IP>
 
 > BloodHound - uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment
 >
-> - [BloodHound Community Edition Quickstart - SpecterOps](https://bloodhound.specterops.io/get-started/quickstart/community-edition-quickstart)
+> * [BloodHound Community Edition Quickstart - SpecterOps](https://bloodhound.specterops.io/get-started/quickstart/community-edition-quickstart)
 
 ```bash
 # Requirement: Install Docker (see above)
@@ -525,8 +518,8 @@ sudo bloodhound-cli update
 sudo bloodhound-cli containers stop
 ```
 
-- Go to [http://localhost:8080/ui/login](http://localhost:8080/ui/login), and log in with `admin` and the randomly generated password from the last installation step. Reset the password as prompted.
-- To get data into BloodHound, ingest sample data or run a data collector.
+* Go to [http://localhost:8080/ui/login](http://localhost:8080/ui/login), and log in with `admin` and the randomly generated password from the last installation step. Reset the password as prompted.
+* To get data into BloodHound, ingest sample data or run a data collector.
 
 ```bash
 # Other commands
@@ -534,7 +527,7 @@ sudo bloodhound-cli resetpwd
 sudo bloodhound-cli config get default_password
 ```
 
-- `e.g.` `ohmyzsh` aliases
+* `e.g.` `ohmyzsh` aliases
 
 ```bash
 nano $ZSH_CUSTOM/aliases.zsh
@@ -546,13 +539,10 @@ alias bloodhound-update='sudo bloodhound-cli update'
 alias bloodhound-down='sudo bloodhound-cli containers stop'
 ```
 
-
-
 ### [BloodHound.py CE](https://github.com/dirkjanm/BloodHound.py)
 
-- Install by cloning this repository `git clone https://github.com/dirkjanm/BloodHound.py`, checking out the CE branch `git checkout bloodhound-ce` and running `pip install .` from the project directory.
-
-- The **BloodHound.py CE ingestor** will add a command line tool `bloodhound-ce-python` to your PATH.
+* Install by cloning this repository `git clone https://github.com/dirkjanm/BloodHound.py`, checking out the CE branch `git checkout bloodhound-ce` and running `pip install .` from the project directory.
+* The **BloodHound.py CE ingestor** will add a command line tool `bloodhound-ce-python` to your PATH.
 
 ```bash
 mkdir -p $HOME/tools
@@ -580,10 +570,10 @@ bloodyAD --host <IP> -d bloody.local -k set password john.doe 'Password123!'
 
 ### [kali-linux-labs](https://www.kali.org/tools/kali-meta/#kali-linux-labs)
 
-> *These applications are meant to be insecure & vulnerable to help users experiment in a controlled manner. This metapackage depends on all the packages containing vulnerable environments for safe testing.*
+> _These applications are meant to be insecure & vulnerable to help users experiment in a controlled manner. This metapackage depends on all the packages containing vulnerable environments for safe testing._
 
-- `dvwa`
-- `juice-shop`
+* `dvwa`
+* `juice-shop`
 
 ```bash
 sudo apt install -y kali-linux-labs
@@ -591,7 +581,7 @@ sudo apt install -y kali-linux-labs
 
 ### [Katana](https://github.com/projectdiscovery/katana)
 
-> *A next-generation crawling and spidering framework*
+> _A next-generation crawling and spidering framework_
 
 ```bash
 sudo apt install -y golang
@@ -607,7 +597,7 @@ katana -u <URL>
 
 ### [maigret](https://github.com/soxoj/maigret)
 
-> *Collect a dossier on a person by username from thousands of sites*
+> _Collect a dossier on a person by username from thousands of sites_
 
 ```bash
 pipx install git+https://github.com/soxoj/maigret
@@ -620,9 +610,9 @@ maigret <USER>
 
 ### [pimpmykali](https://github.com/Dewalt-arch/pimpmykali)
 
-> *Kali Linux Fixes for Newly Imported VM's*
+> _Kali Linux Fixes for Newly Imported VM's_
 >
-> ❗ **Read [docs](https://github.com/Dewalt-arch/pimpmykali) before running it! It may contains mods that you do not want.**
+> ❗ **Read** [**docs**](https://github.com/Dewalt-arch/pimpmykali) **before running it! It may contains mods that you do not want.**
 
 ```bash
 cd /opt
@@ -636,7 +626,7 @@ sudo /opt/pimpmykali/pimpmykali.sh
 
 ### [pwntools](https://github.com/Gallopsled/pwntools)
 
-> *Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.*
+> _Pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible._
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
@@ -674,7 +664,7 @@ seclists
 
 ### [Sherlock](https://sherlockproject.xyz/)
 
-> *Hunt down social media accounts by username across social networks*
+> _Hunt down social media accounts by username across social networks_
 
 ```bash
 # On Kali
@@ -701,9 +691,7 @@ nano $ZSH_CUSTOM/aliases.zsh
 alias vol='/opt/volatility3-2.26.0/vol.py'
 ```
 
-
-
----
+***
 
 ## Sysprep for clone/export
 
@@ -741,9 +729,8 @@ sync
 EOF
 ```
 
-- **VMware Workstation:** Power off VM → take a **snapshot** named `Base`
-  - use **Clone** (full) from that snapshot
-  - or optionally **Export OVA** for portable distribution
+* **VMware Workstation:** Power off VM → take a **snapshot** named `Base`
+  * use **Clone** (full) from that snapshot
+  * or optionally **Export OVA** for portable distribution
 
----
-
+***

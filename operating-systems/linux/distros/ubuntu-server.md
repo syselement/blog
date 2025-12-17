@@ -1,31 +1,31 @@
 # Ubuntu Server - VM
 
-![](.gitbook/assets/ubuntu.svg) [Ubuntu Server](https://ubuntu.com/server/docs)
+![](../../../.gitbook/assets/ubuntu.svg) [Ubuntu Server](https://ubuntu.com/server/docs)
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Ubuntu Server docs](https://documentation.ubuntu.com/server/)
+> * [Ubuntu Server docs](https://documentation.ubuntu.com/server/)
 
----
+***
 
 ## [First Install - Virtual Machine](https://documentation.ubuntu.com/server/tutorial/basic-installation/)
 
-- Create a new Virtual Machine in VMWare with preferred specs:
-  - **Processors**: `1 CPU - 2 Cores`
-    - enable `Virtualize Intel VT-x/EPT or AMD-V/RVI`
-  - **RAM** Memory: `2 GB`
-  - **Hard Disk**: `15 GB`
-  - **CD**: use the **Ubuntu Server LTS** .iso image file - [Download here](https://ubuntu.com/download/server) - and check *Connect at power on*
-  - **Network**: set it as `NAT`
-  - **Display**: Deactivate `Accelerate 3D graphics`
-  - Edit virtual machine and ***Remove***: `Printer`
-- Boot the virtual machine and proceed with the [Ubuntu Server Installation](https://ubuntu.com/server/docs/installation)
+* Create a new Virtual Machine in VMWare with preferred specs:
+  * **Processors**: `1 CPU - 2 Cores`
+    * enable `Virtualize Intel VT-x/EPT or AMD-V/RVI`
+  * **RAM** Memory: `2 GB`
+  * **Hard Disk**: `15 GB`
+  * **CD**: use the **Ubuntu Server LTS** .iso image file - [Download here](https://ubuntu.com/download/server) - and check _Connect at power on_
+  * **Network**: set it as `NAT`
+  * **Display**: Deactivate `Accelerate 3D graphics`
+  * Edit virtual machine and _**Remove**_: `Printer`
+* Boot the virtual machine and proceed with the [Ubuntu Server Installation](https://ubuntu.com/server/docs/installation)
 
-![](.gitbook/assets/2024-01-28_00-44-11_395.png)
+![](../../../.gitbook/assets/2024-01-28_00-44-11_395.png)
 
-![](.gitbook/assets/2024-01-28_01-16-28_398.png)
+![](../../../.gitbook/assets/2024-01-28_01-16-28_398.png)
 
 **Installation Process**
 
@@ -35,39 +35,39 @@
 4. Select keyboard layout
 5. Select `Ubuntu Server` as base for the install
 6. Wait for Network connection to establish via DHCP (continue without networking if this fails)
-   - Do not configure a proxy
+   * Do not configure a proxy
 7. Leave Ubuntu archive mirror as it is (or change based on necessity)
 8. For storage, leave `Use an entire disk` checked, and choose a disk to install to
-   - `Edit` the `ubuntu-lv` logical volume by assigning it the max size
+   * `Edit` the `ubuntu-lv` logical volume by assigning it the max size
 9. Select `Done` on the configuration screen and confirm the install
 10. Enter a username, hostname and password
 11. `Skip for now` the Ubuntu Pro upgrade
 12. On the SSH Setup, check the `Install OpenSSH server`, select `Done` for the next 2-3 slides
 13. Select `Reboot`
 
----
+***
 
 ## First Boot & Update
 
-- Disable **CD** *Connect at power on*
-- Boot Ubuntu Server
-- Connect through SSH and/or Run the following commands
+* Disable **CD** _Connect at power on_
+* Boot Ubuntu Server
+* Connect through SSH and/or Run the following commands
 
 ```bash
 sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove
 ```
 
-- Reboot the system
+* Reboot the system
 
 ```bash
 reboot
 ```
 
----
+***
 
 ## Configurations
 
-- `SSH` into the VM
+* `SSH` into the VM
 
 ```bash
 # TIMEZONE
@@ -133,13 +133,13 @@ alias vdir='vdir --color=auto'
 EOF
 ```
 
-> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
-> - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
+> * Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
+> * Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
 ### Expand Partition and Filesystem
 
-- Turn off the VM, increase disk space on the hypervisor, turn on the VM
-- Proceed with expanding the necessary partition on the server
+* Turn off the VM, increase disk space on the hypervisor, turn on the VM
+* Proceed with expanding the necessary partition on the server
 
 ```bash
 sudo -i
@@ -157,13 +157,13 @@ lvextend -r -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
 df -h
 ```
 
----
+***
 
 ## Network
 
 ### Static IP
 
-- Set a static IP in the **netplan** `.yaml` if not configured during OS installation.
+* Set a static IP in the **netplan** `.yaml` if not configured during OS installation.
 
 ```bash
 # Show listening sockets and running services
@@ -200,7 +200,7 @@ sudo netplan apply
 # Reboot the system
 ```
 
-- If necessary and the VM has 2 NICs, add the seccond one in the **netplan** `.yaml`
+* If necessary and the VM has 2 NICs, add the seccond one in the **netplan** `.yaml`
 
 ```bash
 # List available network interfaces and check the second interface name
@@ -218,8 +218,7 @@ sudo nano /etc/netplan/50-cloud-init.yaml
         version: 2
 ```
 
-
----
+***
 
 ## Tuning
 
@@ -285,9 +284,7 @@ sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
 ```
 
-
-
----
+***
 
 ### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -311,7 +308,7 @@ sudo groupadd docker
 sudo gpasswd -a "${USER}" docker
 ```
 
-- Alternative to install Docker Engine (via APT)
+* Alternative to install Docker Engine (via APT)
 
 ```bash
 # Install Docker Engine via APT repository
@@ -349,7 +346,7 @@ docker run hello-world
 
 #### [ctop](https://github.com/bcicen/ctop)
 
-- ctop - concise commandline monitoring for containers
+* ctop - concise commandline monitoring for containers
 
 ```bash
 sudo apt-get install -y ca-certificates curl gnupg lsb-release
@@ -361,17 +358,15 @@ sudo apt-get update
 sudo apt-get install -y docker-ctop
 ```
 
-
-
----
+***
 
 ## Hardening
 
 ### SSH-key-based authentication
 
-Ubuntu Server with OpenSSH pre-installed comes with `PasswordAuthentication yes` parameter already set inside `/etc/ssh/sshd_config.d/50-cloud-init.conf` (or `/etc/ssh/sshd_config`). If the parameter is commented, the default is `yes` (password auth permitted) for the [sshd_config](https://man7.org/linux/man-pages/man5/sshd_config.5.html).
+Ubuntu Server with OpenSSH pre-installed comes with `PasswordAuthentication yes` parameter already set inside `/etc/ssh/sshd_config.d/50-cloud-init.conf` (or `/etc/ssh/sshd_config`). If the parameter is commented, the default is `yes` (password auth permitted) for the [sshd\_config](https://man7.org/linux/man-pages/man5/sshd_config.5.html).
 
-- Generate an SSH Key Pair on the **local HOST** from which the connection is established
+* Generate an SSH Key Pair on the **local HOST** from which the connection is established
 
 ```bash
 # Local HOST
@@ -388,19 +383,19 @@ chmod 600 $HOME/.ssh/*
 eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
 
-- Add the Public Key to a system/sudo user on the Ubuntu Server VM
+* Add the Public Key to a system/sudo user on the Ubuntu Server VM
 
 > If you want to use the same key saved on Github profile, having already the private key in the Ubuntu Local HOST (commands above), **ssh** into the Ubuntu Server VM and use the following commands:
 >
 > ```bash
 > # Ubuntu Server VM
 > mkdir -p $HOME/.ssh
-> 
+>
 > curl -s https://github.com/<github-username>.keys >> $HOME/.ssh/authorized_keys
-> 
+>
 > # e.g.
 > curl -s https://github.com/syselement.keys >> $HOME/.ssh/authorized_keys
-> 
+>
 > chmod 700 $HOME/.ssh && chmod 600 $HOME/.ssh/*
 > ```
 
@@ -424,7 +419,7 @@ echo "pubkey_string" >> $HOME/.ssh/authorized_keys
 chmod 700 $HOME/.ssh && chmod 600 $HOME/.ssh/*
 ```
 
-- Log out and log in using the Private Key
+* Log out and log in using the Private Key
 
 ```bash
 ssh <SUDO_USER>@<REMOTE_SERVER_IP>
@@ -434,7 +429,7 @@ ssh <SUDO_USER>@<REMOTE_SERVER_IP>
 # Enter the key Passphrase if necessary
 ```
 
-- Disable SSH password authentication
+* Disable SSH password authentication
 
 ```bash
 # Delete sshd_config.d/50-cloud-init.conf
@@ -447,9 +442,8 @@ sudo sed -i '/^[#]*[[:space:]]*PasswordAuthentication[[:space:]]*yes/c\PasswordA
 sudo systemctl restart sshd
 ```
 
-- Test SSH access (on the new port if changed) before closing the current session
-  - **Only SSH-key-base authentication is permitted**
-
+* Test SSH access (on the new port if changed) before closing the current session
+  * **Only SSH-key-base authentication is permitted**
 
 ### SSH-Hardened configuration
 
@@ -511,12 +505,8 @@ sudo systemctl restart sshd
 ssh -p 2222 <SUDO_USER>@<REMOTE_SERVER_IP>
 ```
 
-
-
-
----
+***
 
 ... more to come ...
 
----
-
+***

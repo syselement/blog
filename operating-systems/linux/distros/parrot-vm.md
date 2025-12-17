@@ -1,35 +1,35 @@
 # ParrotOS - VM
 
-![](.gitbook/assets/parrot.svg) [ParrotOS](https://www.parrotsec.org/)
+![](../../../.gitbook/assets/parrot.svg) [ParrotOS](https://www.parrotsec.org/)
 
----
+***
 
 ## 🌐 Resources 🔗
 
 > 🔗 [Parrot Security Blog - Release Notes](https://parrotsec.org/blog/)
 
----
+***
 
 ## [First Install - Virtual Machine](https://parrotsec.org/docs/virtualization/parrot-on-vmware)
 
-- Create a new Virtual Machine in VMWare with preferred specs:
-  - **Processors**: `1 CPU - 2 Cores`
-  - **RAM** Memory: `4 GB`
-  - **Hard Disk**: `40 GB`
-  - **CD**: use the Parrot Installer .iso image file - [Download here](https://parrotsec.org/download/) - and check *Connect at power on*
-  - **Network**: set it as `NAT`
-  - Edit virtual machine and ***Remove***: `Printer`
-- Boot the virtual machine and proceed with the [ParrotOS Installation](https://parrotsec.org/docs/installation/)
+* Create a new Virtual Machine in VMWare with preferred specs:
+  * **Processors**: `1 CPU - 2 Cores`
+  * **RAM** Memory: `4 GB`
+  * **Hard Disk**: `40 GB`
+  * **CD**: use the Parrot Installer .iso image file - [Download here](https://parrotsec.org/download/) - and check _Connect at power on_
+  * **Network**: set it as `NAT`
+  * Edit virtual machine and _**Remove**_: `Printer`
+* Boot the virtual machine and proceed with the [ParrotOS Installation](https://parrotsec.org/docs/installation/)
 
-![](.gitbook/assets/image-20230611192331531.png)
+![](../../../.gitbook/assets/image-20230611192331531.png)
 
----
+***
 
 ## First Boot & Update
 
-- Disable **CD** *Connect at power on*
-- Boot ParrotOS
-- Open the Terminal and run the command
+* Disable **CD** _Connect at power on_
+* Boot ParrotOS
+* Open the Terminal and run the command
 
 ```bash
 sudo parrot-upgrade
@@ -37,7 +37,7 @@ sudo parrot-upgrade
 sudo apt update && sudo apt full-upgrade
 ```
 
-- Reboot the system
+* Reboot the system
 
 ```bash
 reboot
@@ -50,7 +50,7 @@ cp /root/.bashrc ~
 nano ~/.bashrc
 ```
 
-- Append the following text with the necessary commands to update all packages:
+* Append the following text with the necessary commands to update all packages:
 
 ```bash
 # Upgrade all packages and remove unused packages
@@ -58,7 +58,7 @@ nano ~/.bashrc
 alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove"'
 ```
 
-- Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
+* Download and add hacking platforms `.ovpn` files and set up OpenVpn aliases
 
 ```bash
 cd
@@ -74,21 +74,20 @@ alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 ```
 
-- Save and exit
-
-- Reload the bash configuration:
+* Save and exit
+* Reload the bash configuration:
 
 ```bash
 source ~/.bashrc
 ```
 
-- Test the command
+* Test the command
 
 ```bash
 updateos
 ```
 
-------
+***
 
 ## Configurations
 
@@ -149,13 +148,13 @@ fc-cache -fv
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md)
 
-------
+***
 
 ## Tools
 
 ### Basic Tools
 
-- Install basic tools
+* Install basic tools
 
 ```bash
 sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu htop locate nano net-tools pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget
@@ -185,7 +184,7 @@ EOF
 '
 ```
 
-- Run it with **`subl`** command.
+* Run it with **`subl`** command.
 
 ### [Terminator](https://gnome-terminator.org/)
 
@@ -193,22 +192,22 @@ EOF
 sudo apt install -y terminator
 ```
 
-- From the `System / Preferences / Personal / Preferred Applications` menu, set `terminator` as the default terminal to use
+* From the `System / Preferences / Personal / Preferred Applications` menu, set `terminator` as the default terminal to use
 
-![](.gitbook/assets/2023-07-04_19-18-18_155.png)
+![](../../../.gitbook/assets/2023-07-04_19-18-18_155.png)
 
 ```bash
 sudo update-alternatives --config x-terminal-emulator
 ```
 
-![](.gitbook/assets/2023-07-04_19-19-36_156.png)
+![](../../../.gitbook/assets/2023-07-04_19-19-36_156.png)
 
-- [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
-- Go to `Preferences - Global` and set **Window state** to `Maximized`
-- Go to `Preferences - Profiles - General` and set the **Font** to `Monotspace Regular 16`.
-- Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
-- Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
-- The same above preferences can be configure within the following config file
+* [Terminator Shortcuts here](../tools/Terminator-Shortcuts.md)
+* Go to `Preferences - Global` and set **Window state** to `Maximized`
+* Go to `Preferences - Profiles - General` and set the **Font** to `Monotspace Regular 16`.
+* Go to `Preferences - Profiles - Background` and set the **Background** transparency as you like.
+* Go to `Preferences - Profiles - Scrolling` and set the checkmark on **Infinite Scrollback**.
+* The same above preferences can be configure within the following config file
 
 ```bash
 rm -f "$HOME/.config/terminator/config"
@@ -240,7 +239,7 @@ cat > "$HOME/.config/terminator/config" << 'EOF'
 EOF
 ```
 
-- `ALT+T` is a keyboard shortcut already configured in ParrotOS. It should open the `terminator` with your configured layout.
+* `ALT+T` is a keyboard shortcut already configured in ParrotOS. It should open the `terminator` with your configured layout.
 
 ### [Brave](https://brave.com/linux/)
 
@@ -269,7 +268,7 @@ sudo sh -c '
 
 ### [VS Codium](https://github.com/VSCodium/vscodium)
 
-- ❗ Already present in ParrotOS, if not, follow the commands below
+* ❗ Already present in ParrotOS, if not, follow the commands below
 
 ```bash
 sudo wget -q https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg && sudo mv pub.gpg /usr/share/keyrings/vscodium-archive-keyring.asc
@@ -308,5 +307,4 @@ sudo systemctl disable docker.service containerd.service
 docker run hello-world
 ```
 
-------
-
+***

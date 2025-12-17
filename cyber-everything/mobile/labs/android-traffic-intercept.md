@@ -1,15 +1,15 @@
 # Intercepting Android App Traffic
 
----
+***
 
 ## 🌐 Resources 🔗
 
 > * [Genymotion](https://www.genymotion.com/download/)
 > * [Frida](https://frida.re/)
-> * [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate\_and\_Public\_Key\_Pinning)
-> * Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=\_HRpLPrlg1U)
+> * [OWASP SSL Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning)
+> * Extra video - [Getting Started with Android App Testing with Genymotion - InsiderPhD](https://www.youtube.com/watch?v=_HRpLPrlg1U)
 
----
+***
 
 ## Bypass certificate pinning with Frida
 
@@ -17,7 +17,7 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 
 > 🔗 [Intercepting Android App Traffic with BurpSuite](https://www.youtube.com/watch?v=xp8ufidc514) - by [IppSec](https://ippsec.rocks/)
 >
-> #### Video Timeline
+> **Video Timeline**
 >
 > ```
 > 00:00 - Introduction, talking about RouterSpace and why we can't just do what we did in that video
@@ -52,6 +52,7 @@ sudo ./genymotion.bin
 cd /opt/genymobile/genymotion
 ./genymotion
 ```
+
 * Open Genymotion Settings and setup Hypervisor to **Virtualbox**
 * Install a new Google Pixel 3 XL device
 * Run Burpsuite and copy its certificate
@@ -79,11 +80,11 @@ exit
 adb push 9a5ba575.0 /system/etc/security/cacerts/
 ```
 
-![](.gitbook/assets/2023-07-02\_17-21-49\_134.png)
+![](../../../.gitbook/assets/2023-07-02_17-21-49_134.png)
 
 * To start capturing traffic with BurpSuite, set the proxy listener to `All interfaces`
 
-![](.gitbook/assets/2023-07-02\_17-25-13\_135.png)
+![](../../../.gitbook/assets/2023-07-02_17-25-13_135.png)
 
 * Set the proxy usage on the device, with the KaliVM IP
 
@@ -111,16 +112,16 @@ adb_unset_proxy
 adb_set_proxy
 ```
 
-![](.gitbook/assets/2023-07-02\_17-46-30\_136.png)
+![](../../../.gitbook/assets/2023-07-02_17-46-30_136.png)
 
 * Open Instagram and try to login. `Unable to log in` with proxy set.
 
-![](.gitbook/assets/2023-07-02\_17-49-59\_137.png)
+![](../../../.gitbook/assets/2023-07-02_17-49-59_137.png)
 
 * Unsetting the proxy, Instagram error changes.
   * Instagram prevents from intercepting the traffic
 
-![](.gitbook/assets/2023-07-02\_17-50-46\_138.png)
+![](../../../.gitbook/assets/2023-07-02_17-50-46_138.png)
 
 * Install Frida
   * 🔗 Follow [Frida Android](https://frida.re/docs/android/)
@@ -178,10 +179,10 @@ adb_set_proxy
 frida -U -l ./instagram-ssl-pinning-bypass.js -f com.instagram.android
 ```
 
-![](.gitbook/assets/2023-07-02\_18-07-35\_139.png)
+![](../../../.gitbook/assets/2023-07-02_18-07-35_139.png)
 
 * Show Instagram intercepted traffic in BurpSuite
 
-![](.gitbook/assets/2023-07-02\_18-09-42\_140.png)
+![](../../../.gitbook/assets/2023-07-02_18-09-42_140.png)
 
 ***

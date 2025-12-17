@@ -1,18 +1,18 @@
 # Windows WSL
 
-![microsoft.com](.gitbook/assets/wsl.png)
+![microsoft.com](../../../.gitbook/assets/wsl.png)
 
 > **WSL** (Windows Subsystem for Linux) is a compatibility layer that lets you run Linux distributions directly on Windows, providing a seamless command-line experience without the need for a separate virtual machine. WSL 2 takes this further by employing a lightweight virtual machine managed by the Hyper-V hypervisor, offering a full Linux kernel with improved performance and system call compatibility.
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [What is Windows Subsystem for Linux | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/about)
-> - [Develop with Ubuntu on WSL - Ubuntu on WSL documentation](https://documentation.ubuntu.com/wsl/en/latest/tutorials/develop-with-ubuntu-wsl/)
-> - [Work in Windows Subsystem for Linux with Visual Studio Code](https://code.visualstudio.com/docs/remote/wsl-tutorial)
+> * [What is Windows Subsystem for Linux | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/about)
+> * [Develop with Ubuntu on WSL - Ubuntu on WSL documentation](https://documentation.ubuntu.com/wsl/en/latest/tutorials/develop-with-ubuntu-wsl/)
+> * [Work in Windows Subsystem for Linux with Visual Studio Code](https://code.visualstudio.com/docs/remote/wsl-tutorial)
 
----
+***
 
 ## Install WSL
 
@@ -37,21 +37,20 @@ wsl --list --online
 wsl --update
 ```
 
-- Restart the Windows host
-- After the restart, open `Terminal` app and select **Ubuntu**
-  - WSL will automatically download and install the latest stable LTS release of Ubuntu by default. When new LTS versions are released, Ubuntu can be upgraded once the first point release is available ([docs](https://documentation.ubuntu.com/wsl/en/latest/reference/distributions/))
-  - Configure username and password when prompted
+* Restart the Windows host
+* After the restart, open `Terminal` app and select **Ubuntu**
+  * WSL will automatically download and install the latest stable LTS release of Ubuntu by default. When new LTS versions are released, Ubuntu can be upgraded once the first point release is available ([docs](https://documentation.ubuntu.com/wsl/en/latest/reference/distributions/))
+  * Configure username and password when prompted
 
+![Ubuntu on WSL](../../../.gitbook/assets/2025-01-31_16-53-36_80.png)
 
-![Ubuntu on WSL](.gitbook/assets/2025-01-31_16-53-36_80.png)
-
----
+***
 
 ## Ubuntu WSL - Ansible control node
 
 Update OS, install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu), pip (Python package manager) and ansible-lint in the Ubuntu WSL distro.
 
-- Open the Ubuntu WSL terminal and proceed with the necessary packages installation
+* Open the Ubuntu WSL terminal and proceed with the necessary packages installation
 
 ```bash
 sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -72,5 +71,4 @@ ansible-lint --version
 
 Install [VS Code](https://code.visualstudio.com/) with Ansible and [WSL extensions](https://code.visualstudio.com/docs/remote/wsl-tutorial).
 
----
-
+***
