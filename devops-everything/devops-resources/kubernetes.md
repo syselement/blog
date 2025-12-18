@@ -1,48 +1,63 @@
-# Kubernetes
+# [Kubernetes](https://kubernetes.io/)
 
-![kubernetes.io](../../.gitbook/assets/kubernetes-logo.png)
+![kubernetes.io](.gitbook/assets/kubernetes-logo.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [Kubernetes Docs](https://kubernetes.io/docs/home/)
->   * [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
-> * [Kubernetes Learning Path - NotHarshhaa](https://github.com/NotHarshhaa/kubernetes-learning-path)
+> - [Kubernetes Docs](https://kubernetes.io/docs/home/)
+>   - [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+>
+> - [Kubernetes Learning Path - NotHarshhaa](https://github.com/NotHarshhaa/kubernetes-learning-path)
 >
 > Backups
 >
-> * Velero: [https://github.com/vmware-tanzu/velero](https://github.com/vmware-tanzu/velero)
+> - Velero: [https://github.com/vmware-tanzu/velero](https://github.com/vmware-tanzu/velero)
 >
 > Serverless
 >
-> * Knative: [https://github.com/knative](https://github.com/knative)
+> - Knative: [https://github.com/knative](https://github.com/knative)
 >
 > Labs
 >
-> * [Kubernetes Goat](https://madhuakula.com/kubernetes-goat/)
+> - [Kubernetes Goat](https://madhuakula.com/kubernetes-goat/)
 
-***
+---
 
 ## [Kubernetes Intro](https://kubernetes.io/docs/concepts/overview/)
 
-***
+
+
+
+
+
+
+---
 
 ## [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
 
-![Kubernetes Components - kubernetes.io](../../.gitbook/assets/components-of-kubernetes.png)
+![Kubernetes Components - kubernetes.io](.gitbook/assets/components-of-kubernetes.png)
 
-***
+
+
+
+
+---
 
 ## Kubernetes Cluster Architecture
 
-![Kubernetes Cluster Architecture - kubernetes.io](../../.gitbook/assets/kubernetes-cluster-architecture.png)
+![Kubernetes Cluster Architecture - kubernetes.io](.gitbook/assets/kubernetes-cluster-architecture.png)
 
-***
+
+
+
+
+---
 
 ## [minikube](https://minikube.sigs.k8s.io/docs/) and kubectl
 
-* [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fdebian+package)
+- [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fdebian+package)
 
 ```bash
 # Install minikube
@@ -50,7 +65,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 sudo dpkg -i minikube_latest_amd64.deb
 ```
 
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management)
 
 ```bash
 # Install kubectl
@@ -69,6 +84,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube && chmod 700 $HOME/.kube
 sudo chown $(id -u):$(id -g) $HOME/.kube/config && chmod 600 $HOME/.kube/config
 ```
 
+
+
 Commands for the **minikube cluster**
 
 ```bash
@@ -82,15 +99,17 @@ minikube stop
 minikube delete
 ```
 
-***
+
+
+---
 
 ## Labs
 
 ### TechWorld with Nana
 
-* [bootcamp-kubernetes - TechWorld with Nana](https://gitlab.com/nanuchi/bootcamp-kubernetes)
-* [online-shop-microservices-deployment - TechWorld with Nana](https://gitlab.com/nanuchi/online-shop-microservices-deployment)
-* [GoogleCloudPlatform - microservices-demo: Sample cloud-first application with 10 microservices showcasing Kubernetes, Istio, and gRPC.](https://github.com/GoogleCloudPlatform/microservices-demo)
+- [bootcamp-kubernetes - TechWorld with Nana](https://gitlab.com/nanuchi/bootcamp-kubernetes)
+- [online-shop-microservices-deployment - TechWorld with Nana](https://gitlab.com/nanuchi/online-shop-microservices-deployment)
+- [GoogleCloudPlatform - microservices-demo: Sample cloud-first application with 10 microservices showcasing Kubernetes, Istio, and gRPC.](https://github.com/GoogleCloudPlatform/microservices-demo)
 
 ```bash
 mkdir -p $HOME/repo/techworld
@@ -119,3 +138,4 @@ cd kubernetes-goat
 chmod +x setup-kubernetes-goat.sh
 bash setup-kubernetes-goat.sh
 ```
+

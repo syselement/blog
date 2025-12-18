@@ -1,6 +1,6 @@
 # Detection Lab
 
-***
+---
 
 ## DetectionLab Intro
 
@@ -25,13 +25,13 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >   * Proxmox (Not officially supported)
 > * [DetectionLabELK - by cyberdefenders](https://github.com/cyberdefenders/DetectionLabELK)
 
-![DetectionLab](../../.gitbook/assets/lab.png)
+![DetectionLab](.gitbook/assets/lab.png)
 
-![Packer](../../.gitbook/assets/packer_wiki.png)
+![Packer](.gitbook/assets/packer-wiki.png)
 
-![Vagrant](../../.gitbook/assets/vagrant_wiki.png)
+![Vagrant](.gitbook/assets/vagrant-wiki.png)
 
-***
+---
 
 ### Primary Lab Features
 
@@ -88,7 +88,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > * **Velociraptor login:** [https://192.168.56.105:9999](https://192.168.56.105:9999)
 >   * `admin`:`changeme`
 >
-> **Lab Hosts**
+> #### Lab Hosts
 >
 > * DC - Windows 2016 Domain Controller
 >   * WEF Server Configuration GPO
@@ -125,21 +125,20 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >   * Guacamole
 >   * Velociraptor server
 >
-> **Splunk Indexes**
-
-| Index Name                     | Description                                                     |
-| ------------------------------ | --------------------------------------------------------------- |
-| evtx\_attack\_samples          | Samples from https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES |
-| osquery                        | osquery/Fleet result logs                                       |
-| osquery-status                 | osquery/fleet INFO/WARN/ERROR logs                              |
-| powershell                     | Powershell transcription logs                                   |
-| suricata                       | Suricata IDS logs                                               |
-| sysmon                         | Logs from the Sysmon service                                    |
-| threathunting                  | Used for the ThreatHunting app                                  |
-| wineventlog                    | Windows Event Logs                                              |
-| zeek                           | Zeek network traffic logs                                       |
-| ### Installed Tools on Windows |                                                                 |
-
+> #### Splunk Indexes
+>
+> | Index Name                     | Description                                                  |
+> | ------------------------------ | ------------------------------------------------------------ |
+> | evtx_attack_samples            | Samples from https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES |
+> | osquery                        | osquery/Fleet result logs                                    |
+> | osquery-status                 | osquery/fleet INFO/WARN/ERROR logs                           |
+> | powershell                     | Powershell transcription logs                                |
+> | suricata                       | Suricata IDS logs                                            |
+> | sysmon                         | Logs from the Sysmon service                                 |
+> | threathunting                  | Used for the ThreatHunting app                               |
+> | wineventlog                    | Windows Event Logs                                           |
+> | zeek                           | Zeek network traffic logs                                    |
+> | ### Installed Tools on Windows |                                                              |
 > * Sysmon
 > * Velociraptor Agent
 > * osquery
@@ -157,7 +156,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > * Atomic Red Team
 > * BadBlood
 >
-> **Applied GPOs**
+> #### Applied GPOs
 >
 > * [Custom Event Channel Permissions](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Custom%20Event%20Channel%20Permissions.htm)
 > * [Default Domain Controllers Policy](https://rawgit.com/clong/DetectionLab/master/Vagrant/resources/GPO/reports/Default%20Domain%20Controllers%20Policy.htm)
@@ -252,7 +251,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 > **Workarounds:**
 >
 > 1. Make some modifications to ingest less data
-> 2. Sign up for a free Splunk dev license which gives you 10GB/day ingest: [https://dev.splunk.com/enterprise/dev\_license/](https://dev.splunk.com/enterprise/dev_license/) and apply that license
+> 2. Sign up for a free Splunk dev license which gives you 10GB/day ingest: [https://dev.splunk.com/enterprise/dev\_license/](https://dev.splunk.com/enterprise/dev\_license/) and apply that license
 > 3. Simply re-provision the logger host (no need to re-provision the windows hosts - they’ll automatically reconnect):
 >    1. `vagrant destroy -f logger; vagrant up logger`
 >
@@ -278,7 +277,7 @@ Read more about DetectionLab on Medium [here](https://medium.com/@clong/introduc
 >
 > **Issue:** Your primary hard drive doesn’t have enough space for DetectionLab.
 >
-> **Workaround:** Documented in [#48](https://github.com/clong/detectionlab/issues/48). You can change the default location for Vagrant by using the [VAGRANT\_HOME](https://www.vagrantup.com/docs/other/environmental-variables.html#vagrant_home) environment variable.
+> **Workaround:** Documented in [#48](https://github.com/clong/detectionlab/issues/48). You can change the default location for Vagrant by using the [VAGRANT\_HOME](https://www.vagrantup.com/docs/other/environmental-variables.html#vagrant\_home) environment variable.
 >
 > ***
 >
@@ -321,9 +320,9 @@ Updating files: 100% (412/412), done.
 * Open `PowerShell` as Administrator and navigate to the **`DetectionLab\Vagrant`** folder
 * Run **`.\prepare.ps1`** script to verify the system prerequisites
 
-![prepare.ps1](../../.gitbook/assets/image-20230202011921051.png)
+![prepare.ps1](.gitbook/assets/image-20230202011921051.png)
 
-* Host can be brought up one at a time using this command (or proceed with the [Parallel Provisioning](lab_DetectionLab.md#parallel-provisioning-hosts)):
+* Host can be brought up one at a time using this command (or proceed with the [Parallel Provisioning](lab\_DetectionLab.md#parallel-provisioning-hosts)):
 
 ```powershell
 vagrant up --provider=virtualbox
@@ -355,11 +354,11 @@ vagrant up logger --provider=virtualbox
 vagrant up dc --provider=virtualbox
 ```
 
-![logger + dc up](../../.gitbook/assets/image-20230202013357287.png)
+![logger + dc up](.gitbook/assets/image-20230202013357287.png)
 
 * 🚩 Wait for the `dc` to finish provisiong
 
-![DC Provisioning Complete!](../../.gitbook/assets/image-20230202030704194.png)
+![DC Provisioning Complete!](.gitbook/assets/image-20230202030704194.png)
 
 * Bring up **`wef`** and **`win10`**
 
@@ -371,10 +370,10 @@ vagrant up wef --provider=virtualbox
 vagrant up win10 --provider=virtualbox
 ```
 
-![DetectionLab Deploy](../../.gitbook/assets/2025-04-07_22-22-37_974.png)
+![DetectionLab Deploy](.gitbook/assets/2025-04-07_22-22-37_974.png)
 
 > * Once provisioning is finished, you can access the VMs through the GUI or SSH/RDP to them directly.
-> * If you encounter an error or any issues, checkout the [troubleshooting section](lab_DetectionLab.md#troubleshooting-and-known-issues).
+> * If you encounter an error or any issues, checkout the [troubleshooting section](lab\_DetectionLab.md#troubleshooting-and-known-issues).
 
 * You can also **verify services** are accessible by running
 
@@ -402,19 +401,19 @@ vagrant halt
 vagrant up --provider=virtualbox
 ```
 
-![DetectionLab Start](../../.gitbook/assets/DetectionLab_Deploy2.gif)
+![DetectionLab Start](.gitbook/assets/DetectionLab-Deploy2.gif)
 
 ### Errors
 
 * WEF + WIN10 failed to join domain
 
-![WEF - Error = 0x3ae8](../../.gitbook/assets/image-20230202022739434.png)
+![WEF - Error = 0x3ae8](.gitbook/assets/image-20230202022739434.png)
 
-![Domain join fail](../../.gitbook/assets/image-20230202022957555.png)
+![Domain join fail](.gitbook/assets/image-20230202022957555.png)
 
 * I think this is because DC provisioning freezed on `Running Autohotkey installer`.
 
-![](../../.gitbook/assets/image-20230202031354923.png)
+![](.gitbook/assets/image-20230202031354923.png)
 
 > * **Solution**:
 >
@@ -447,13 +446,13 @@ vagrant up --provider=virtualbox
 * **`post_build_checks.ps1`** Error:
   * `Error occured on webrequest: Exception calling "DownloadString" with "1" argument(s): "The SSL connection could not be established, see inner exception."`
 
-![post\_build\_checks.ps1 error](../../.gitbook/assets/image-20230202134518758.png)
+![post\_build\_checks.ps1 error](.gitbook/assets/image-20230202134518758.png)
 
 > [Issue](https://github.com/clong/DetectionLab/issues/770). I've checked all the services and they are up (`post_build_checks.ps1` script must be checked).
 
 ### Destroy lab
 
-* Open `PowerShell` as Administrator and navigate to the **`DetectionLab\Vagrant`** folder
+- Open `PowerShell` as Administrator and navigate to the **`DetectionLab\Vagrant`** folder
 
 ```bash
 vagrant destroy
@@ -467,7 +466,7 @@ vagrant destroy
 
 * 🔗 Check the [Usage official repo](https://detectionlab.network/usage/)
 
-***
+---
 
 ## DetectionLab Customization
 

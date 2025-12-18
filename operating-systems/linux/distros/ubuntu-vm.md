@@ -1,8 +1,8 @@
 # Ubuntu Desktop - VM
 
-![](../../../.gitbook/assets/ubuntu.svg) [Ubuntu](https://ubuntu.com/)
+![](.gitbook/assets/ubuntu.svg) [Ubuntu](https://ubuntu.com/)
 
-***
+---
 
 ## VirtualBox VM
 
@@ -12,157 +12,160 @@
 
 VirtualBox is a virtualization open source software that runs on Linux, Windows and Mac OS.
 
-* Download latest **VirtualBox** and **VirtualBox Extension Pack** [here](https://www.virtualbox.org/wiki/Downloads) based on your platform (Windows in this tutorial).
+- Download latest **VirtualBox** and **VirtualBox Extension Pack** [here](https://www.virtualbox.org/wiki/Downloads) based on your platform (Windows in this tutorial).
 
-![](../../../.gitbook/assets/image-20220814155217998.png)
+![](.gitbook/assets/image-20220814155217998.png)
 
-![](../../../.gitbook/assets/image-20220814155334144.png)
+![](.gitbook/assets/image-20220814155334144.png)
 
-* Install VirtualBox with default settings.
-* Install VirtualBox Extension Pack.
+- Install VirtualBox with default settings.
+- Install VirtualBox Extension Pack.
 
-***
+---
 
 ### Download Linux Image
 
 For this tutorial **Ubuntu Desktop** Linux will be used.
 
-If you want to use another distro check the [Popular Linux Distributions](./) list.
+If you want to use another distro check the [Popular Linux Distributions](README.md) list.
 
-* Download the latest **Ubuntu Desktop LTS** `.iso` file [here](https://ubuntu.com/download/desktop).
+- Download the latest **Ubuntu Desktop LTS** `.iso` file [here](https://ubuntu.com/download/desktop).
 
-***
+---
 
 ### Create Virtual Machine
 
-* Run VirtualBox.
-* Click on the _**New**_ button to create a new virtual machine (_**VM**_)
+- Run VirtualBox.
+- Click on the ***New*** button to create a new virtual machine (***VM***)
 
-![](../../../.gitbook/assets/image-20220814160023790.png)
+![](.gitbook/assets/image-20220814160023790.png)
 
-* Click on **Expert Mode**
+- Click on **Expert Mode**
 
-![](../../../.gitbook/assets/image-20220814163415069.png)
+![](.gitbook/assets/image-20220814163415069.png)
 
-* Set the VM _Name_, the _machine folder_ to store the VM, _type_ (**`Linux`**) and _version_ (**`Ubuntu 64bit`**).
-* Set the Memory size (RAM) at **`4096 MB`** (4GB) or use the default settings **`1024 MB`**
-* Select `Create a virtual hard disk now`
-* Proceed with the _**Create**_ button
+- Set the VM *Name*, the *machine folder* to store the VM, *type* (**`Linux`**) and *version* (**`Ubuntu 64bit`**).
+- Set the Memory size (RAM) at **`4096 MB`** (4GB) or use the default settings **`1024 MB`**
+- Select `Create a virtual hard disk now`
+- Proceed with the ***Create*** button
 
-![](../../../.gitbook/assets/image-20220814162743473.png)
+![](.gitbook/assets/image-20220814162743473.png)
 
-* Set the File size (disk size) at **`20 GB`**
-* Set the Hard disk file type as **`VDI - Dynamically allocated`**
-* Proceed with the _**Create**_ button to initialize the machine.
+- Set the File size (disk size) at **`20 GB`**
+- Set the Hard disk file type as **`VDI - Dynamically allocated`**
+- Proceed with the ***Create*** button to initialize the machine.
 
-![](../../../.gitbook/assets/image-20220814164656943.png)
+![](.gitbook/assets/image-20220814164656943.png)
 
-* Select the new VM in the manager windows and click on the _**Settings**_ button.
+- Select the new VM in the manager windows and click on the ***Settings*** button.
 
-![](../../../.gitbook/assets/image-20220814174252593.png)
+![](.gitbook/assets/image-20220814174252593.png)
 
-* Navigate to the _**Sistem**_ tab and:
-  * remove Floppy from boot order
-  * set Chipset to **`PIIX3`** (default)
-  * **`Enable PAE/NX`** in the Processor menu
-  * check Acceleration menu to have **`Default Paravirtualization`** and **`Enable Nested Paging`** checked
+- Navigate to the ***Sistem*** tab and:
 
-![](../../../.gitbook/assets/image-20220814174901665.png)
+  - remove Floppy from boot order
+  - set Chipset to **`PIIX3`** (default)
+  - **`Enable PAE/NX`** in the Processor menu
+  - check Acceleration menu to have **`Default Paravirtualization`** and **`Enable Nested Paging`** checked
 
-![](../../../.gitbook/assets/image-20220814174955219.png)
+![](.gitbook/assets/image-20220814174901665.png)
 
-![](../../../.gitbook/assets/image-20220814175137011.png)
+![](.gitbook/assets/image-20220814174955219.png)
 
-* Navigate to the _**Display**_ tab and increase the **`Video Memory`** to **`128 MB`**
-* **`Graphics Controller`** must be **`VMSVGA`** to be able to use VirtualBox Guest Additions
+![](.gitbook/assets/image-20220814175137011.png)
 
-![](../../../.gitbook/assets/image-20220814175228447.png)
+- Navigate to the ***Display*** tab and increase the **`Video Memory`** to **`128 MB`**
 
-***
+- **`Graphics Controller`** must be **`VMSVGA`** to be able to use VirtualBox Guest Additions
+
+![](.gitbook/assets/image-20220814175228447.png)
+
+---
 
 ### Install Linux Image
 
-* Select the new VM and click on the _**Start**_ button to start it
+- Select the new VM and click on the ***Start*** button to start it
 
-![](../../../.gitbook/assets/image-20220814165535424.png)
+![](.gitbook/assets/image-20220814165535424.png)
 
-* Click on the file icon to open the Optical disk selector
+- Click on the file icon to open the Optical disk selector
 
-![](../../../.gitbook/assets/image-20220814165746274.png)
+![](.gitbook/assets/image-20220814165746274.png)
 
-* Use the _**Add**_ button to select the `.iso` file previously downloaded, select it from the list and _**Choose**_ it
-* Click on the _**Start**_ button to start he machine with the mounted `ubuntu-22.04-desktop-amd64.iso` (in this case)
+- Use the ***Add*** button to select the `.iso` file previously downloaded, select it from the list and ***Choose*** it
+- Click on the ***Start*** button to start he machine with the mounted `ubuntu-22.04-desktop-amd64.iso` (in this case)
 
-![](../../../.gitbook/assets/image-20220814170229539.png)
+![](.gitbook/assets/image-20220814170229539.png)
 
-* Wait for the Ubuntu boot and installation menu
-* Select your language and click _**Install Ubuntu**_
+- Wait for the Ubuntu boot and installation menu
+- Select your language and click ***Install Ubuntu***
 
-![](../../../.gitbook/assets/image-20220814171602035.png)
+![](.gitbook/assets/image-20220814171602035.png)
 
-* Select your **Keyboard layout** and continue
-* Choose **`Normal installation`** and check both _**Other options**_ boxes (you must be connected to the Internet)
+- Select your **Keyboard layout** and continue
+- Choose **`Normal installation`** and check both ***Other options*** boxes (you must be connected to the Internet)
 
-![](../../../.gitbook/assets/2024-03-15_18-32-45_459.png)
+![](.gitbook/assets/2024-03-15_18-32-45_459.png)
 
-* Choose **`Erase disk and install Ubuntu`** and continue the installation without enabling encryption
-  * I suggest using LVM for better dynamic disk management
+- Choose **`Erase disk and install Ubuntu`** and continue the installation without enabling encryption
+  - I suggest using LVM for better dynamic disk management
 
-![](../../../.gitbook/assets/2024-03-15_18-28-25_458.png)
 
-![](../../../.gitbook/assets/2024-03-15_18-33-52_460.png)
+![](.gitbook/assets/2024-03-15_18-28-25_458.png)
 
-* Select your **Location** and time zone from the map screen
-* Create your login details as `hostname`, `username` and `password`
-* Proceed with the _**Continue**_ button that will start Ubuntu installation
+![](.gitbook/assets/2024-03-15_18-33-52_460.png)
 
-![](../../../.gitbook/assets/image-20220814173136821.png)
+- Select your **Location** and time zone from the map screen
+- Create your login details as `hostname`, `username` and `password`
+- Proceed with the ***Continue*** button that will start Ubuntu installation
 
-* **Restart** your VM once the installation has completed.
+![](.gitbook/assets/image-20220814173136821.png)
 
-![](../../../.gitbook/assets/image-20220814174135011.png)
+- **Restart** your VM once the installation has completed.
 
-***
+![](.gitbook/assets/image-20220814174135011.png)
+
+---
 
 ### Install VirtualBox Guest Additions
 
 Guest Additions software unlocks some advanced features of VirtualBox to better integrate the VM and the host machine, as well as improved video support using VMSVGA graphics controller.
 
-* Complete the VM first boot and login to Ubuntu desktop
-* On the VirtualBox menu select _**Devices - Insert Guest Additions CD image...**_
+- Complete the VM first boot and login to Ubuntu desktop
+- On the VirtualBox menu select ***Devices - Insert Guest Additions CD image...***
 
-![](../../../.gitbook/assets/image-20220814180203046.png)
+![](.gitbook/assets/image-20220814180203046.png)
 
-* Run the VBox\_GAs disk inside the virtual machine desktop
-* **Run** the installation when prompted
-  * If the prompt do not auto-start, open the disk, right-click on the **`autorun.sh`** file and _**Run as a Program**_
-  * Enter your password to install it
+- Run the VBox_GAs disk inside the virtual machine desktop
+- **Run** the installation when prompted
+  - If the prompt do not auto-start, open the disk, right-click on the **`autorun.sh`** file and ***Run as a Program***
+  - Enter your password to install it
 
-![](../../../.gitbook/assets/image-20220814180915886.png)
+![](.gitbook/assets/image-20220814180915886.png)
 
-![](../../../.gitbook/assets/image-20220814181134051.png)
+![](.gitbook/assets/image-20220814181134051.png)
 
-* Restart the VM
-* Right-click on the disk and **Eject** it
+- Restart the VM
+- Right-click on the disk and **Eject** it
 
-![](../../../.gitbook/assets/image-20220814181848186.png)
+![](.gitbook/assets/image-20220814181848186.png)
 
-* Activate the _shared clipboard_ from the **`Devices - Shared Clipboard - Bidirectional`** menu
+- Activate the *shared clipboard* from the **`Devices - Shared Clipboard - Bidirectional`** menu
 
-![](../../../.gitbook/assets/image-20220814181633168.png)
+![](.gitbook/assets/image-20220814181633168.png)
 
-***
+---
 
 ## Update Linux
 
 Keep the Ubuntu O.S. updated using one of the next methods.
 
-* Update it via the **Software Updater** app
+- Update it via the **Software Updater** app
 
-![](../../../.gitbook/assets/image-20220814182124471.png)
+![](.gitbook/assets/image-20220814182124471.png)
 
-* Open a **Terminal** window (**`Ctrl+Alt+T`**) and update the system with the next command.
-  * This can be used when connected via SSH too.
+- Open a **Terminal** window (**`Ctrl+Alt+T`**) and update the system with the next command.
+  - This can be used when connected via SSH too.
 
 ```bash
 sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo snap refresh
@@ -170,7 +173,7 @@ sudo apt -y update && sudo apt -y dist-upgrade && sudo apt -y autoremove && sudo
 
 > 📌 Refer to the official documentation of the distribution for instructions on installing alternative Linux distributions.
 
-***
+---
 
 ## Configurations
 
@@ -212,9 +215,9 @@ sudo /usr/lib/update-notifier/update-motd-updates-available --force
 
 ### SSH keys
 
-* **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
-* **User SSH key pair** - creates a new personal SSH login key
-* **Add to ssh-agent** - loads the key for automatic use
+- **Host SSH keys** - resets the host's SSH identity and **enables SSH** (disable if not necessary)
+- **User SSH key pair** - creates a new personal SSH login key
+- **Add to ssh-agent** - loads the key for automatic use
 
 ```bash
 # Host ssh keys
@@ -235,7 +238,7 @@ chmod 600 $HOME/.ssh/*
 eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
 ```
 
-* Add the Public Key to a system/sudo user on a potential Ubuntu Server VM
+- Add the Public Key to a system/sudo user on a potential Ubuntu Server VM
 
 ```bash
 # Local HOST (Ubuntu Desktop VM)
@@ -253,7 +256,7 @@ chmod -R go= $HOME/.ssh
 ssh <sudo_user>@<remote_Server_IP>
 ```
 
-***
+---
 
 ### Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
@@ -274,8 +277,8 @@ fc-cache -fv
 sudo apt install -y terminator
 ```
 
-* Config file -> `$HOME/.config/terminator/config`
-  * Make sure to have already installed the necessary font
+- Config file -> `$HOME/.config/terminator/config`
+  - Make sure to have already installed the necessary font
 
 ```bash
 rm -f "$HOME/.config/terminator/config"
@@ -309,10 +312,10 @@ EOF
 
 ### Zsh & Oh-My-Zsh
 
-> * Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md) and some useful aliases
-> * Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
+> - Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../tools/zsh.md) and some useful aliases
+> - Remove unwanted spam with [UnspamifyUbuntu - Github Skyedra](https://github.com/Skyedra/UnspamifyUbuntu)
 
-***
+---
 
 ## Tools
 
@@ -382,7 +385,7 @@ mkdir -p $HOME/.local/bin
 ln -s /usr/bin/batcat $HOME/.local/bin/bat
 ```
 
-***
+---
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
 
@@ -410,9 +413,11 @@ EOF &&
 '
 ```
 
-* Run it with **`subl`** command.
 
-***
+
+- Run it with **`subl`** command.
+
+---
 
 ### [Brave](https://brave.com/linux/)
 
@@ -429,7 +434,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [Typora](https://typora.io/#linux)
 
@@ -451,7 +456,7 @@ unzip typora-themeable.zip &&
 rm -f typora-themeable.zip
 ```
 
-***
+---
 
 ### [Emote](https://github.com/tom-james-watson/Emote?tab=readme-ov-file)
 
@@ -459,7 +464,7 @@ rm -f typora-themeable.zip
 sudo snap install emote
 ```
 
-***
+---
 
 ### [VirtualBox](https://www.virtualbox.org/wiki/Linux_Downloads)
 
@@ -470,7 +475,7 @@ sudo usermod -a -G vboxusers $USER
 # Download VirtualBox Extension Pack and open it with VirtualBox to install
 ```
 
-***
+---
 
 ### [DBeaver](https://dbeaver.io/download/)
 
@@ -482,7 +487,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [Postman](https://www.postman.com/downloads/)
 
@@ -490,7 +495,7 @@ sudo sh -c '
 sudo snap install postman
 ```
 
-***
+---
 
 ### [Flameshot](https://flameshot.org/docs/guide/wayland-help/#gnome-shortcut-does-not-trigger-flameshot)
 
@@ -498,8 +503,8 @@ sudo snap install postman
 sudo apt install flameshot
 ```
 
-* Config file -> `$HOME/.config/flameshot/flameshot.ini`
-  * Make sure to have already installed the necessary font
+- Config file -> `$HOME/.config/flameshot/flameshot.ini`
+  - Make sure to have already installed the necessary font
 
 ```bash
 mkdir -p "$HOME/.config/flameshot/" && touch "$HOME/.config/flameshot/flameshot.ini"
@@ -521,14 +526,16 @@ startupLaunch=true
 EOF
 ```
 
-* Set this as a custom **Keyboard shortcut** for `flameshot`
-  * I use `Shift+Alt+S`
+-  Set this as a custom **Keyboard shortcut** for `flameshot`
+   -  I use `Shift+Alt+S`
 
 ```bash
 script --command "flameshot gui" /dev/null
 ```
 
-***
+
+
+---
 
 ### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -579,7 +586,7 @@ docker run hello-world
 
 #### [ctop](https://github.com/bcicen/ctop)
 
-* ctop - concise commandline monitoring for containers
+- ctop - concise commandline monitoring for containers
 
 ```bash
 sudo apt-get install -y ca-certificates curl gnupg lsb-release
@@ -591,7 +598,9 @@ sudo apt-get update
 sudo apt-get install -y docker-ctop
 ```
 
-***
+
+
+---
 
 ## DevOps Tools
 
@@ -622,8 +631,8 @@ for EXT in "${EXTENSIONS[@]}"; do
 done
 ```
 
-* Open `VSCode`. From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`.
-* Set `Git` user name and email address
+- Open `VSCode`. From **File** > **Preferences** > **Settings**, search for `telemetry`, and set the **Telemetry: Telemetry Level** setting to `off`.
+- Set `Git` user name and email address
 
 ```bash
 # e.g.
@@ -642,7 +651,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [PyCharm](https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone)
 
@@ -650,7 +659,7 @@ sudo sh -c '
 sudo snap install pycharm-community --classic
 ```
 
-***
+---
 
 ### [Homebrew](https://brew.sh/)
 
@@ -662,7 +671,7 @@ sudo snap install pycharm-community --classic
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
 
-***
+---
 
 ### [k9s](https://k9scli.io/topics/install/) / [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management) / [kubectx](https://github.com/ahmetb/kubectx)
 
@@ -693,11 +702,11 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config && chmod 600 $HOME/.kube/config
 sudo apt install -y kubectx
 ```
 
-***
+---
 
 ### [minikube](https://minikube.sigs.k8s.io/docs/start/)
 
-* Enable `VT-X/AMD-v` for the VM.
+- Enable `VT-X/AMD-v` for the VM.
 
 ```bash
 # Install minikube
@@ -705,7 +714,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 sudo dpkg -i minikube_latest_amd64.deb
 ```
 
-***
+---
 
 ### [Helm](https://helm.sh/docs/intro/install/)
 
@@ -718,7 +727,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
@@ -735,7 +744,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems)
 
@@ -744,7 +753,7 @@ pipx install --include-deps ansible
 pipx ensurepath
 ```
 
-***
+---
 
 ### [Azure Cli](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 
@@ -761,11 +770,11 @@ sudo sh -c '
 sudo az aks install-cli
 ```
 
-***
+---
 
 ### [gcloud CLI](https://cloud.google.com/sdk/docs/install#deb)
 
-* [GCP gke-gcloud-auth-plugin](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
+- [GCP gke-gcloud-auth-plugin](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
 
 ```bash
 # ATTENTION ! it installs its own kubectl and symlinks /usr/bin/kubectl to it 
@@ -779,7 +788,7 @@ sudo sh -c '
 '
 ```
 
-***
+---
 
 ### [iximiuz Labctl](https://labs.iximiuz.com/dashboard)
 
@@ -787,4 +796,5 @@ sudo sh -c '
 curl -sf https://labs.iximiuz.com/cli/install.sh | sh
 ```
 
-***
+---
+

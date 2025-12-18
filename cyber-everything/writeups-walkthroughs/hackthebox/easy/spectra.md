@@ -1,19 +1,19 @@
 # Spectra
 
-![hackthebox.com - © HACKTHEBOX](<../../../../.gitbook/assets/logo-htb2 (1).png>)
+![hackthebox.com - © HACKTHEBOX](.gitbook/assets/logo-htb2.png)
 
-***
+---
 
 ## Intro
 
-| Box Info            | ![](../../../../.gitbook/assets/spectra.png)           |
-| ------------------- | ------------------------------------------------------ |
+| Box Info           | ![](.gitbook/assets/spectra.png)                       |
+| :----------------- | ------------------------------------------------------ |
 | 🔗 Name             | [Spectra](https://app.hackthebox.com/machines/spectra) |
 | 🎯 Target IP        | `10.129.240.86`                                        |
-| 📈 Difficulty level | 🟩Easy                                                 |
+| 📈 Difficulty level | 🟩Easy                                                  |
 | 🐧OS                | Linux                                                  |
 
-***
+---
 
 ## Recon
 
@@ -86,7 +86,7 @@ Visiting the `http://10.129.240.86/` webpage
 
 `http://spectra.htb/testing/index.php` has an error:
 
-* **Error establishing a database connection**
+- **Error establishing a database connection**
 
 Add the found values to the `/etc/hosts` file
 
@@ -98,6 +98,8 @@ sudo sh -c 'echo "10.129.240.86 spectra.htb" >> /etc/hosts' && ping -c 3 spectra
 # To clean up the last line from the /etc/hosts file
 sudo sed -i '$ d' /etc/hosts
 ```
+
+
 
 Run `ffuf` to find the directories of the web server.
 
@@ -114,7 +116,7 @@ testing                 [Status: 301, Size: 169, Words: 5, Lines: 8, Duration: 3
 
 Let's browse `http://spectra.htb/testing/` - file listing is enabled
 
-![](../../../../.gitbook/assets/2025-06-07_14-48-54_142.png)
+![](.gitbook/assets/2025-06-07_14-48-54_142.png)
 
 ```bash
 Index of /testing/
@@ -172,7 +174,7 @@ Try the same password for the `administrator` user at the login page:
 
 `http://spectra.htb/main/wp-login.php`
 
-* it works with `administrator:devteam01`
+- it works with `administrator:devteam01`
 
 Run a `WpScan` (just for fun)
 
@@ -285,11 +287,11 @@ Shellcodes: No Results
 Papers: No Results
 ```
 
-***
+---
 
 ## Exploitation
 
-> * https://www.hackingarticles.in/wordpress-reverse-shell/
+> - https://www.hackingarticles.in/wordpress-reverse-shell/
 
 ### Insert reverse shell into the WP theme
 
@@ -309,7 +311,7 @@ $port = 1234;
 # Copy all the content and paste in the 404.php
 ```
 
-Once the `404.php` file is updated with the reverse shell code, start a netcat listener on the attacker machine to receive the incoming connection. Access the modified `404.php` page by navigating to the appropriate URL, such as
+Once the `404.php` file is updated with the reverse shell code, start a netcat listener on the attacker machine to receive the incoming connection. Access the modified `404.php` page by navigating to the appropriate URL, such as 
 
 `http://spectra.htb/main/wp-content/themes/twentynineteen/404.php`
 
@@ -405,7 +407,7 @@ script
 end script
 ```
 
-***
+---
 
 ## Foothold
 
@@ -433,7 +435,7 @@ katie:x:20156:20157::/home/katie:/bin/bash
 
 ### Shell as user katie
 
-* Get a shell as `katie`. SSH with `katie:SummerHereWeCome!!`
+- Get a shell as `katie`. SSH with `katie:SummerHereWeCome!!`
 
 ```bash
 # From Kali
@@ -446,7 +448,7 @@ cat /home/katie/user.txt
 e89d2***************************
 ```
 
-***
+---
 
 ## Privilege Escalation
 
@@ -477,7 +479,7 @@ ls -lah /etc/init/*.conf | grep rw-rw
 
 ### Shell as root
 
-* Since `katie` is in the `developers` groups, `katie` can modify the `test.conf` service
+- Since `katie` is in the `developers` groups, `katie` can modify the `test.conf` service
 
 ```bash
 sudo /sbin/initctl stop test
@@ -491,7 +493,7 @@ vim /etc/init/test.conf
 sudo /sbin/initctl start test
 ```
 
-* Get a shell as `root`:
+- Get a shell as `root`:
 
 ```bash
 /bin/bash -p
@@ -508,7 +510,7 @@ cat /root/root.txt
 d4451***************************
 ```
 
-***
+---
 
 ## Post Exploitation
 
@@ -577,11 +579,14 @@ done
 
 ```
 
-***
+
+
+---
 
 ## Extra
 
-* [HTB: Spectra | 0xdf hacks stuff](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
-* [Spectra - Ippsec](https://www.youtube.com/watch?v=mC7G3i2gV54)
+- [HTB: Spectra | 0xdf hacks stuff](https://0xdf.gitlab.io/2021/06/26/htb-spectra.html)
+- [Spectra - Ippsec](https://www.youtube.com/watch?v=mC7G3i2gV54)
 
-***
+------
+
