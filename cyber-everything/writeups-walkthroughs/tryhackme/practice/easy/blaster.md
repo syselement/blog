@@ -1,20 +1,20 @@
 # Blaster
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/blaster.png)              |
-| :------------------ | --------------------------------------------- |
-| 🔗 Name              | [Blaster](https://tryhackme.com/room/blaster) |
-| 🎯 Target IP         | `10.10.27.22`                                 |
-| 📈 Difficulty level  | 🟢Easy                                         |
-| 💲 Subscription type | Free                                          |
-| 🪟 OS                | Windows                                       |
+| Room Info            | ![](../../../../../.gitbook/assets/blaster.png) |
+| -------------------- | ----------------------------------------------- |
+| 🔗 Name              | [Blaster](https://tryhackme.com/room/blaster)   |
+| 🎯 Target IP         | `10.10.27.22`                                   |
+| 📈 Difficulty level  | 🟢Easy                                          |
+| 💲 Subscription type | Free                                            |
+| 🪟 OS                | Windows                                         |
 
----
+***
 
 ## Recon
 
@@ -93,14 +93,14 @@ Check Internet Explorer history.
 * `CVE-2019-1388` - Windows Privilege Escalation Through UAC
 * `hhupd.exe` on desktop
 
----
+***
 
 ## Privilege Escalation
 
 * Run `hhupd.exe` to exploit the privilege escalation vulnerability present in the Windows Certificate Dialog box, a bug in the UAC mechanism
   * `cmd` user: `nt authority\system`
 
-![](.gitbook/assets/certuacbypass.gif)
+![](../../../../../.gitbook/assets/certuacbypass.gif)
 
 🚩 Read **`root.txt`** file.
 
@@ -111,9 +111,9 @@ type root.txt
 THM{C**************************
 ```
 
-![](.gitbook/assets/image-20230510180611161.png)
+![](../../../../../.gitbook/assets/image-20230510180611161.png)
 
----
+***
 
 ## Exploitation
 
@@ -149,7 +149,7 @@ python -m http.server
 * Copy the code and paste it in the opened `CMD`
 * Check the spawned reverse shell in Metasploit
 
-![](.gitbook/assets/image-20230510181844027.png)
+![](../../../../../.gitbook/assets/image-20230510181844027.png)
 
 ```bash
 getuid
@@ -168,7 +168,7 @@ Logged On Users : 1
 Meterpreter     : x86/windows
 ```
 
----
+***
 
 ## Persistence
 
@@ -197,7 +197,7 @@ run
 
 * _Windows Defender blocked the persistence service payload in this case_
 
-![](.gitbook/assets/image-20230510190355420.png)
+![](../../../../../.gitbook/assets/image-20230510190355420.png)
 
 * Add a new user instead and give it administrative privileges
 

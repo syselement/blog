@@ -1,18 +1,18 @@
 # Proxmox VE
 
-![proxmox.com](.gitbook/assets/proxmox-full-lockup-inverted.png)
+![proxmox.com](../../../.gitbook/assets/proxmox-full-lockup-inverted.png)
 
 > **Proxmox Virtual Environment** (Proxmox VE) is an open-source server virtualization platform that lets you manage both virtual machines and containers in a unified environment. It utilizes the Type 1 (bare-metal) KVM hypervisor for full hardware virtualization, providing robust and efficient management of diverse workloads while also offering lightweight container-based virtualization through LXC.
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - 🔗 [Proxmox Virtual Environment (PVE) Administration Guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_install_proxmox_ve_on_debian)
->   - [Proxmox Virtual Environment - Open-Source Server Virtualization Platform](https://proxmox.com/en/products/proxmox-virtual-environment/overview)
-> - ➡️ [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts)
+> * 🔗 [Proxmox Virtual Environment (PVE) Administration Guide](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_install_proxmox_ve_on_debian)
+>   * [Proxmox Virtual Environment - Open-Source Server Virtualization Platform](https://proxmox.com/en/products/proxmox-virtual-environment/overview)
+> * ➡️ [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts)
 
----
+***
 
 > 📌 Some of the following commands are based on the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts) - make sure they are updated
 >
@@ -20,7 +20,7 @@
 
 ## Updating PVE - Manually
 
-- Open the Proxmox shell on the main node (or SSH into PVE -> risky)
+* Open the Proxmox shell on the main node (or SSH into PVE -> risky)
 
 ```bash
 pveupgrade
@@ -30,17 +30,17 @@ reboot
 # apt update && apt -y dist-upgrade
 ```
 
-## [Post Install](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install&category=Proxmox+%26+Virtualization)
+## [Post Install](https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install\&category=Proxmox+%26+Virtualization)
 
-- Use this Proxmox VE Helper-script to
-  - Correct Proxmox VE Sources
-  - Disable `pve-enterprise` repository
-  - Enable `pve-no-subscription` repository
-  - Enable `ceph package repositories`
-  - Add (disabled) `pvetest` repository
-  - Disable subscription nag (Delete browser cache)
-  - Disable high availability
-  - Update Proxmox VE
+* Use this Proxmox VE Helper-script to
+  * Correct Proxmox VE Sources
+  * Disable `pve-enterprise` repository
+  * Enable `pve-no-subscription` repository
+  * Enable `ceph package repositories`
+  * Add (disabled) `pvetest` repository
+  * Disable subscription nag (Delete browser cache)
+  * Disable high availability
+  * Update Proxmox VE
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
@@ -111,7 +111,7 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 ```
 
----
+***
 
 ## Quick Benchmark
 
@@ -126,9 +126,7 @@ cd Geekbench-6.5.0-Linux
 curl -sL https://yabs.sh | bash
 ```
 
-
-
----
+***
 
 ## Software on PVE
 
@@ -165,11 +163,9 @@ ln -s /usr/bin/batcat $HOME/.local/bin/bat
 apt purge -y proxmox-first-boot
 ```
 
-
-
 ### bash Config
 
-- Set custom **aliases/exports** and `fastfetch` tool
+* Set custom **aliases/exports** and `fastfetch` tool
 
 ```bash
 cp $HOME/.bashrc $HOME/.bashrc.bak-$(date +%F-%H%M)
@@ -206,15 +202,13 @@ source $HOME/.bashrc
 
 ### Timezone
 
-- Set timezone (e.g. `Europe/Rome`)
+* Set timezone (e.g. `Europe/Rome`)
 
 ```bash
 unlink /etc/localtime
 ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 timedatectl set-timezone "Europe/Rome"
 ```
-
-
 
 ### [Netdata](https://learn.netdata.cloud/docs/netdata-agent/installation/linux/) observability
 
@@ -224,38 +218,36 @@ timedatectl set-timezone "Europe/Rome"
 wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --stable-channel --disable-telemetry
 ```
 
-- or use the [Proxmox VE Netdata script](https://community-scripts.github.io/ProxmoxVE/scripts?id=netdata)
-
-
+* or use the [Proxmox VE Netdata script](https://community-scripts.github.io/ProxmoxVE/scripts?id=netdata)
 
 ### Backup Proxmox Config
 
-> - [ ] TO TRY
+> * [ ] TO TRY
 
-- [https://github.com/DerDanilo/proxmox-stuff](https://github.com/DerDanilo/proxmox-stuff)
+* [https://github.com/DerDanilo/proxmox-stuff](https://github.com/DerDanilo/proxmox-stuff)
 
 **Backup**
 
-- Download the [script](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
+* Download the [script](https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh)
 
 ```bash
 cd /root/; wget -qO- https://raw.githubusercontent.com/DerDanilo/proxmox-stuff/master/prox_config_backup.sh
 ```
 
-- Set the permanent backups directory environment variable or edit the script to set the `$DEFAULT_BACK_DIR` variable to your preferred backup directory
+* Set the permanent backups directory environment variable or edit the script to set the `$DEFAULT_BACK_DIR` variable to your preferred backup directory
 
 ```bash
 export BACK_DIR="/path/to/backup/directory"
 ```
 
-- Make the script executable
+* Make the script executable
 
 ```bash
  chmod +x ./prox_config_backup.sh
 ```
 
-- Shut down ALL VMs + LXC Containers if you want to go the safe way. (Not required)
-- Run the script
+* Shut down ALL VMs + LXC Containers if you want to go the safe way. (Not required)
+* Run the script
 
 ```bash
 ./prox_config_backup.sh
@@ -265,12 +257,10 @@ export BACK_DIR="/path/to/backup/directory"
 
 The script supports [healthchecks.io](https://healthchecks.io/) notifications, either to the hosted service, or a self-hosted instance. The notification sends during the final cleanup stage, and either returns 0 to tell Healthchecks that the command was successful, or the exit error code (1-255) to tell Healthchecks that the command failed. To enable:
 
-- Set the `$HEALTHCHECK` variable to 1
-- Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
+* Set the `$HEALTHCHECK` variable to 1
+* Set the `$HEALTHCHECK_URL` variable to the full ping URL for your check. Do not include anything after the UUID, the status flag will be added by the script.
 
-
-
-------
+***
 
 ## [Proxmox Backup Server LXC](https://www.proxmox.com/en/proxmox-backup-server/overview)
 
@@ -290,14 +280,12 @@ sudo passwd root
 
 ### PBS post install
 
-- Disable the Enterprise Repo
-- Add/Correct PBS Sources
-- Enable the No-Subscription Repo
-- Add Test Repo
-- Disable Subscription Nag
-- Update and reboot Proxmox Backup Server
-
-
+* Disable the Enterprise Repo
+* Add/Correct PBS Sources
+* Enable the No-Subscription Repo
+* Add Test Repo
+* Disable Subscription Nag
+* Update and reboot Proxmox Backup Server
 
 Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to all options presented
 
@@ -305,9 +293,7 @@ Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)"
 ```
 
-
-
----
+***
 
 ## [Proxmox Datacenter Management LXC](https://www.proxmox.com/en/products/proxmox-datacenter-manager/overview)
 
@@ -327,14 +313,12 @@ sudo passwd root
 
 ### PDM post install
 
-- [ ] Disable the Enterprise Repo
-- [ ] Add/Correct PBS Sources
-- [ ] Enable the No-Subscription Repo
-- [ ] Add Test Repo
-- [ ] Disable Subscription Nag
-- [ ] Update and reboot Proxmox Backup Server
-
-
+* [ ] Disable the Enterprise Repo
+* [ ] Add/Correct PBS Sources
+* [ ] Enable the No-Subscription Repo
+* [ ] Add Test Repo
+* [ ] Disable Subscription Nag
+* [ ] Update and reboot Proxmox Backup Server
 
 Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to all options presented
 
@@ -342,15 +326,13 @@ Run the command below in the **Proxmox Backup Server Shell** and answer "yes" to
 # VE Community script not available
 ```
 
-
-
----
+***
 
 ## LXC
 
 ### LXCs - [Undo Autologin](https://github.com/tteck/Proxmox/discussions/324) + Temporary SSH root login
 
-> *If you don't set a root password first, you will not be able to login to the container again, ever.*
+> _If you don't set a root password first, you will not be able to login to the container again, ever._
 >
 > 1. set the root password `sudo passwd root`
 > 2. remove `--autologin root` from `/etc/systemd/system/container-getty@1.service.d/override.conf`
@@ -367,7 +349,7 @@ PermitRootLogin yes
 systemctl restart ssh
 ```
 
-- ❗ Remember to disable root login with `PermitRootLogin no` when no more necessary
+* ❗ Remember to disable root login with `PermitRootLogin no` when no more necessary
 
 ### LXCs - Cleaner
 
@@ -387,8 +369,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/fstrim.sh)"
 ```
 
-
-
 ### Ubuntu LXC + UniFi Network Server
 
 > [Unifi Network Server - https://192.168.5.10:8443](https://192.168.5.10:8443/) on Ubuntu LXC
@@ -397,9 +377,9 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/m
 
 First, install the [Ubuntu LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=ubuntu) with the following specs (defaults are 1 vCPU, 512MB, 2 GB) necessary to the UniFi Network Server - using `Advanced Settings` during Helper Script launch:
 
-- 2 vCPU
-- 2GB RAM
-- 8 GB Disk
+* 2 vCPU
+* 2GB RAM
+* 8 GB Disk
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/ubuntu.sh)"
@@ -438,7 +418,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 Open the LXC console or SSH into it and proceed with installing the **UniFi Network Server** manually via the [UniFi Installation/Update Scripts - Ubiquiti Community](https://community.ui.com/questions/UniFi-Installation-Scripts-or-UniFi-Easy-Update-Script-or-UniFi-Lets-Encrypt-or-UniFi-Easy-Encrypt-/ccbc7530-dd61-40a7-82ec-22b17f027776)
 
-- For more commands, check my guide here -> [UniFi Network Server](https://blog.syselement.com/home/operating-systems/linux/tools/unifi)
+* For more commands, check my guide here -> [UniFi Network Server](https://blog.syselement.com/home/operating-systems/linux/tools/unifi)
 
 ```bash
 # Quick install commands
@@ -449,8 +429,8 @@ sudo sh -c '
 sudo systemctl status unifi
 ```
 
-- Browse the web page - [https://192.168.5.10:8443/](https://192.168.5.10:8443/) and configure the **UniFi Network Server**
-  - Adopt your devices
+* Browse the web page - [https://192.168.5.10:8443/](https://192.168.5.10:8443/) and configure the **UniFi Network Server**
+  * Adopt your devices
 
 ```bash
 # Update both OS and UniFi
@@ -458,8 +438,6 @@ sudo sh -c '
 	rm unifi-update.sh &> /dev/null; wget https://get.glennr.nl/unifi/update/unifi-update.sh && bash unifi-update.sh
 '
 ```
-
-
 
 ### [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker)
 
@@ -469,7 +447,7 @@ sudo sh -c '
 >
 > [UpSnap - http://192.168.5.15:8090](http://192.168.5.15:8090/)
 
-- Install the [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) with the desired specs - TESTING Default
+* Install the [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) with the desired specs - TESTING Default
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/docker.sh)"
@@ -493,8 +471,6 @@ PermitRootLogin yes
 systemctl restart ssh
 ```
 
-
-
 ```bash
 # SSH into the LXC
 mkdir yamls
@@ -505,8 +481,8 @@ Installed containers list:
 
 #### [Arcane](https://arcane.ofkm.dev/)
 
-- [ ] to fix docker-compose file directory
-- [ ] 
+* [ ] to fix docker-compose file directory
+* [ ] \[ ]
 
 ```bash
 nano arcane-compose.yaml
@@ -540,18 +516,12 @@ volumes:
 docker compose -f arcane-compose.yaml up
 ```
 
-- Delete `arcane:arcane-admin` user and create your own
-
-
-
-
+* Delete `arcane:arcane-admin` user and create your own
 
 #### [Portainer](https://www.portainer.io/)
 
-- [x] Portainer - already installed by the LXC install script
-- [ ] try it VS Arcane - delete portainer from main Ubuntu VM
-
-
+* [x] Portainer - already installed by the LXC install script
+* [ ] try it VS Arcane - delete portainer from main Ubuntu VM
 
 #### [UpSnap](https://github.com/seriousm4x/UpSnap)
 
@@ -599,22 +569,18 @@ volumes:
 docker compose -f upsnap-compose.yaml up
 ```
 
-- Login to via Web at `http://<IP>:8090/`
-- Create account
-- Create Devices
-  - Network scan works if devices are already on - Scan the `/24` network
-
-
+* Login to via Web at `http://<IP>:8090/`
+* Create account
+* Create Devices
+  * Network scan works if devices are already on - Scan the `/24` network
 
 ### [Uptime Kuma](https://github.com/louislam/uptime-kuma)
 
-> *DELETED*
+> _DELETED_
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/uptimekuma.sh)"
 ```
-
-
 
 ### [AdGuard Home](https://adguard.com/en/adguard-home/overview.html)
 
@@ -630,8 +596,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-
-
 ### [Vaultwarden](https://www.vaultwarden.net/)
 
 > [Vaultwarden - http://192.168.5.7:8000](http://192.168.5.7:8000)
@@ -642,7 +606,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 >
 > [https://vaultwarden.lab.syselement.com/admin](https://vaultwarden.lab.syselement.com/admin)
 
-- Based on Alpine Linux
+* Based on Alpine Linux
 
 ```bash
 bash -c "$(wget -qO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/alpine-vaultwarden.sh)"
@@ -656,9 +620,7 @@ apk update && apk upgrade
 
 Set `https://vaultwarden.lab.syselement.com` in the **General settings - Domain URL** admin menu [http://192.168.5.7:8000/admin](http://192.168.5.7:8000/admin).
 
-- Vaultwarden needs to be behind a proxy (e.g. [Zoraxy](#zoraxy-lxc)) to obtain HTTPS and to allow clients to connect.
-
-
+* Vaultwarden needs to be behind a proxy (e.g. [Zoraxy](pve-install.md#zoraxy-lxc)) to obtain HTTPS and to allow clients to connect.
 
 ### [Zoraxy](https://zoraxy.arozos.com/)
 
@@ -672,15 +634,15 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-- `Set Proxy Root` to `localhost:8080`
-- `Status` - set `Use TLS to serve proxy request` and `Start Service`
-- `Create Proxy Rules` - new proxy rule for **Vaultwarden**
-  - **Proxy Type** - `Sub-domain`
-  - **Subdomain Matching Keyword** - `vaultwarden.lab.syselement.com`
-  - **Target IP** - `192.168.5.7:8000` (*Vaultwarden LXC IP*)
-  - *Create Endpoint*
+* `Set Proxy Root` to `localhost:8080`
+* `Status` - set `Use TLS to serve proxy request` and `Start Service`
+* `Create Proxy Rules` - new proxy rule for **Vaultwarden**
+  * **Proxy Type** - `Sub-domain`
+  * **Subdomain Matching Keyword** - `vaultwarden.lab.syselement.com`
+  * **Target IP** - `192.168.5.7:8000` (_Vaultwarden LXC IP_)
+  * _Create Endpoint_
 
-**Local HOST/DNS** - set `vaultwarden.lab.syselement.com` to *Zoraxy LXC IP* (or forward port `80` and `443` from your router to your Zoraxy LXC IP).
+**Local HOST/DNS** - set `vaultwarden.lab.syselement.com` to _Zoraxy LXC IP_ (or forward port `80` and `443` from your router to your Zoraxy LXC IP).
 
 ```bash
 # e.g. C:\Windows\System32\drivers\etc\hosts
@@ -688,9 +650,7 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 192.168.5.6 wiki.lab.syselement.com
 ```
 
-- Check [Technitium DNS](#technitium-dns-lxc) configuration too and use the Technitium server IP as DNS Server.
-
-
+* Check [Technitium DNS](pve-install.md#technitium-dns-lxc) configuration too and use the Technitium server IP as DNS Server.
 
 ### [Wiki.js](https://js.wiki/)
 
@@ -708,8 +668,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-
-
 ### [Technitium DNS](https://technitium.com/dns/)
 
 > [Technitium - http://192.168.5.11:5380/](http://192.168.5.11:5380/)
@@ -726,39 +684,36 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 Open the webpage and navigate to **Zones**
 
-- `Add Zone` - Primary Zone: `lab.syselement.com`
-
-- Enter the `lab.syselement.com` zone
-  - `Add Record`
-    - **Name**: `vaultwarden`
-    - **IPv4 Address**: `192.168.5.6`
-    - Save it
-  - Add another record for `wiki` with the same IP
+* `Add Zone` - Primary Zone: `lab.syselement.com`
+* Enter the `lab.syselement.com` zone
+  * `Add Record`
+    * **Name**: `vaultwarden`
+    * **IPv4 Address**: `192.168.5.6`
+    * Save it
+  * Add another record for `wiki` with the same IP
 
 **Settings - Blocking**
 
-- `Enable Blocking`
-- Allow/Block List URLs - `Quick Add` - e.g. `Steven Black...`
-- Save Settings
+* `Enable Blocking`
+* Allow/Block List URLs - `Quick Add` - e.g. `Steven Black...`
+* Save Settings
 
 **Settings - Proxy & Forwarders**
 
-- Forwarders - `Quick Select` - e.g. `Quad9 Secure (DNS-over-HTTPS)`
-- Save Settings
+* Forwarders - `Quick Select` - e.g. `Quad9 Secure (DNS-over-HTTPS)`
+* Save Settings
 
 > 📌 To use Techitium as a DNS server, set its IP `192.168.5.11` as DNS server in the client PC network configuration
 >
 > ```bash
 > # e.g. Windows
 > ipconfig /all
-> 
+>
 > DNS Servers . . . : 
 > 	192.168.5.11
 > 	9.9.9.9
 > 		DoH: https://dns.quad9.net/dns-query
 > ```
-
-
 
 ### [PiHole](https://pi-hole.net/)
 
@@ -774,11 +729,9 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 pihole -a -p
 ```
 
-
-
 ### [Homepage](https://gethomepage.dev/latest/)
 
-> *DELETED*
+> _DELETED_
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/homepage.sh)"
@@ -790,13 +743,11 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-- Configuration (bookmarks.yaml, services.yaml, widgets.yaml) path
+* Configuration (bookmarks.yaml, services.yaml, widgets.yaml) path
 
 ```bash
 cd /opt/homepage/config/
 ```
-
-
 
 ### [Runtipi](https://runtipi.io/)
 
@@ -808,8 +759,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-
-
 ### [Prometheus](https://prometheus.io/)
 
 > [Prometheus - http://192.168.5.15:9090/](http://192.168.5.15:9090/)
@@ -820,18 +769,15 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-
-
 ### [Jellyfin Media Server](https://jellyfin.org/)
 
 > [Jellyfin - http://192.168.5.9:8096/](http://192.168.5.9:8096/)
 
 > 🌐 Resources
 >
->
-> - [Jellyfin - Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts?id=jellyfin)
-> - [awesome-jellyfin/awesome-jellyfin: A Collection of Awesome Jellyfin Plugins, Themes, Guides and More!](https://github.com/awesome-jellyfin/awesome-jellyfin)
-> - [Split A GPU Between Multiple Computers - Proxmox LXC (Unprivileged)](https://www.youtube.com/watch?v=0ZDr5h52OOE)
+> * [Jellyfin - Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/scripts?id=jellyfin)
+> * [awesome-jellyfin/awesome-jellyfin: A Collection of Awesome Jellyfin Plugins, Themes, Guides and More!](https://github.com/awesome-jellyfin/awesome-jellyfin)
+> * [Split A GPU Between Multiple Computers - Proxmox LXC (Unprivileged)](https://www.youtube.com/watch?v=0ZDr5h52OOE)
 
 **Proxmox**
 
@@ -841,37 +787,29 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/Proxmo
 
 **PROXMOX** - Network > edit `eth0` and set the Static IP.
 
-- Comes already with Privileged/Unprivileged **Hardware Acceleration Support**
-  - FFmpeg path: `/usr/lib/jellyfin-ffmpeg/ffmpeg`
-  - For NVIDIA graphics cards, you'll need to install the same drivers in the container that you did on the host. In the container, run the driver installation script and add the CLI arg `--no-kernel-module`
-- Location of config file
+* Comes already with Privileged/Unprivileged **Hardware Acceleration Support**
+  * FFmpeg path: `/usr/lib/jellyfin-ffmpeg/ffmpeg`
+  * For NVIDIA graphics cards, you'll need to install the same drivers in the container that you did on the host. In the container, run the driver installation script and add the CLI arg `--no-kernel-module`
+* Location of config file
 
 ```bash
 cd /etc/jellyfin/
 ```
 
-- Configure [Transcoding](https://jellyfin.org/docs/general/post-install/transcoding/) (and Hardware Acceleration) in the Jellyfin WebUI
-
-
+* Configure [Transcoding](https://jellyfin.org/docs/general/post-install/transcoding/) (and Hardware Acceleration) in the Jellyfin WebUI
 
 **Windows**
 
-- Installed on Windows via `exe` at [https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64](https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64)
-- **Update**
+* Installed on Windows via `exe` at [https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64](https://repo.jellyfin.org/?path=/server/windows/latest-stable/amd64)
+* **Update**
   1. Download the latest version.
   2. Close or Stop Jellyfin (service) if it is running.
   3. Run the installer.
   4. If everything was completed successfully, the new version is installed.
   5. Run `services.msc`
-     - open `Jellyfin Server` service properties
-     - set Log On to `Local System account`
-     - save and start the service
-
-
-
-
-
-
+     * open `Jellyfin Server` service properties
+     * set Log On to `Local System account`
+     * save and start the service
 
 ### [BookStack](https://www.bookstackapp.com/)
 
@@ -895,8 +833,6 @@ admin@admin.com
 password
 ```
 
-
-
 ### [phpIPAM](https://phpipam.net/)
 
 > [phpIPAM - http://192.168.5.8](http://192.168.5.8)
@@ -918,8 +854,6 @@ Admin
 ipamadmin
 ```
 
-
-
 ### [Cosmos Cloud](https://cosmos-cloud.io/)
 
 > [Cosmos Cloud - http://192.168.5.159/](http://192.168.5.159/)
@@ -931,8 +865,6 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 
 # To Manually Update Cosmos, run the command above (or type update) in the Cosmos LXC Console.
 ```
-
-
 
 ### [Kavita](https://www.kavitareader.com/)
 
@@ -948,41 +880,32 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 # To Manually Update Kavita, run the command above (or type update) in the Kavita LXC Console.
 ```
 
-
-
 ### [NetBox](https://netboxlabs.com/oss/netbox/)
 
-> - [ ] TO TRY
+> * [ ] TO TRY
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/netbox.sh)"
 ```
 
-
-
 ### Checkmk
 
-> - [ ] TO TRY
->
-> - https://www.youtube.com/watch?v=Rb1_7gbgS7k
+> * [ ] TO TRY
+> * [ ] https://www.youtube.com/watch?v=Rb1\_7gbgS7k
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
 ```
-
-
 
 ### Kasm
 
-> - [ ] TO TRY
+> * [ ] TO TRY
 
 ```bash
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/ct/checkmk.sh)"
 ```
 
-
-
-------
+***
 
 ## Ubuntu Server VM
 
@@ -996,18 +919,16 @@ Turn OFF the VM (if ON).
 
 Follow the instruction at [Useful Ubuntu 22.04 VM Commands](https://github.com/community-scripts/ProxmoxVE/discussions/272) to set up Cloud-Init on the VM:
 
-- User
-- Password
-- SSH public key for SSH Key login
-- Upgrade packages - `No`
-- Static IP (may need DHCP)
-- Click `Regenerate Image`
+* User
+* Password
+* SSH public key for SSH Key login
+* Upgrade packages - `No`
+* Static IP (may need DHCP)
+* Click `Regenerate Image`
 
 Start the VM.
 
-- Open the VM Console using `xterm.js`
-
-
+* Open the VM Console using `xterm.js`
 
 ### Resize disk
 
@@ -1027,11 +948,9 @@ quit
 sudo reboot
 ```
 
-
-
 ### First Config
 
-- **SSH**
+* **SSH**
 
 ```bash
 ### Settings for SSH with Password
@@ -1058,7 +977,7 @@ sudo systemctl restart sshd
 sudo sshd -T
 ```
 
-- Timezone and Updates
+* Timezone and Updates
 
 ```bash
 # TIMEZONE
@@ -1073,11 +992,9 @@ sudo systemctl mask apt-daily{,-upgrade}.service
 sudo passwd root
 ```
 
-
-
 ### Software
 
-- `SSH` into the VM
+* `SSH` into the VM
 
 ```bash
 sudo apt update -y && sudo apt -y upgrade
@@ -1090,13 +1007,9 @@ sudo apt-add-repository ppa:zanchey/asciinema
 sudo apt update && sudo apt install asciinema
 ```
 
-
-
 ### Zsh & Oh-My-Zsh
 
 > Follow the guide here to setup `ZSH` with `Oh-My-Zsh` - [Zsh & Oh-My-Zsh - syselement](../../../operating-systems/linux/tools/zsh.md)
-
-
 
 ### Docker
 
@@ -1149,9 +1062,9 @@ docker run -d \
   portainer/portainer-ce:latest
 ```
 
-- [Updating Docker Standalone Portainer](https://docs.portainer.io/start/upgrade/docker)
-  - Go to Settings > Back up Portainer - Download backup file
-  - Proceed with updating
+* [Updating Docker Standalone Portainer](https://docs.portainer.io/start/upgrade/docker)
+  * Go to Settings > Back up Portainer - Download backup file
+  * Proceed with updating
 
 ```bash
 # Update Portainer
@@ -1184,12 +1097,10 @@ docker run -d --name wyl \
     aceberg/watchyourlan
 ```
 
-
-
 ### [Tailscale](https://tailscale.com/)
 
-- Login to [Tailscale](https://login.tailscale.com/)
-- Open the VM shell and run:
+* Login to [Tailscale](https://login.tailscale.com/)
+* Open the VM shell and run:
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
@@ -1201,7 +1112,7 @@ sudo tailscale up
 
 [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh)
 
-- On the host being connected to, you need to advertise that Tailscale is managing SSH connections which originate from the Tailscale network to this host
+* On the host being connected to, you need to advertise that Tailscale is managing SSH connections which originate from the Tailscale network to this host
 
 ```bash
 sudo tailscale up --ssh
@@ -1209,11 +1120,9 @@ sudo tailscale up --ssh
 # This generates a host keypair, shares its public half with the Tailscale control plane for distribution to clients, and configures tailscaled to intercept all traffic from your tailnet that is routed to port 22 on the Tailscale IP address. This SSH initialization only needs to be done once per host.
 ```
 
-
-
 ### [microk8s](https://microk8s.io/docs/getting-started)
 
-- Install microk8s
+* Install microk8s
 
 ```bash
 sudo snap install microk8s --classic
@@ -1229,7 +1138,7 @@ sudo chown -f -R $USER ~/.kube
 microk8s status --wait-ready
 ```
 
-- Some commands
+* Some commands
 
 ```bash
 microk8s stop
@@ -1250,7 +1159,7 @@ microk8s enable portainer
 # microk8s disable portainer
 ```
 
-- Set `.kube/config` file for [k9s](https://k9scli.io/topics/install/)
+* Set `.kube/config` file for [k9s](https://k9scli.io/topics/install/)
 
 ```bash
 microk8s.kubectl config view --raw > $HOME/.kube/config
@@ -1261,19 +1170,16 @@ microk8s.kubectl config view --raw > $HOME/.kube/config
  k9s
 ```
 
-
-
 ### BookStack (only on fresh Ubuntu)
 
 > 🔗 [BookStack Admin Documentation - Installation](https://www.bookstackapp.com/docs/admin/installation/)
 >
-> ​	🔗 [docker-bookstack](https://github.com/linuxserver/docker-bookstack)
+> ​ 🔗 [docker-bookstack](https://github.com/linuxserver/docker-bookstack)
 >
-> ​	🔗 [Ubuntu 24.04 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2404)
+> ​ 🔗 [Ubuntu 24.04 Installation Script](https://www.bookstackapp.com/docs/admin/installation/#ubuntu-2404)
 
-- Install a fresh [Ubuntu Server VM](#ubuntu-server-vm)
-
-- SSH into the Ubuntu VM and run the `BookStack` Ubuntu Installation script
+* Install a fresh [Ubuntu Server VM](pve-install.md#ubuntu-server-vm)
+* SSH into the Ubuntu VM and run the `BookStack` Ubuntu Installation script
 
 > ❗ A script to install BookStack on a fresh instance of **Ubuntu 24.04** is available. This script is ONLY FOR A FRESH OS, it will install **Apache, MySQL 8.0 & PHP 8.3** and could OVERWRITE any existing web setup on the machine. It also does not set up mail settings or configure system security so you will have to do those separately. You can use the script as a reference if you’re installing on a non-fresh machine.
 
@@ -1292,13 +1198,11 @@ sudo ./installation-ubuntu-22.04.sh
 
 > 📌 Default login: `admin@admin.com`:`password`
 
-
-
----
+***
 
 ## [Alpine VM](https://community-scripts.github.io/ProxmoxVE/scripts?id=alpine)
 
-> - [ ] TO TRY
+> * [ ] TO TRY
 
 > [10 Alpine Linux apk Command Examples - nixCraft](https://www.cyberciti.biz/faq/10-alpine-linux-apk-command-examples/)
 
@@ -1311,5 +1215,4 @@ bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/c
 apk update && apk upgrade
 ```
 
-------
-
+***

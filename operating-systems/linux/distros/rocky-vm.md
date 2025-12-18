@@ -1,27 +1,27 @@
 # Rocky Linux
 
-![](.gitbook/assets/rocky.png)
+![](../../../.gitbook/assets/rocky.png)
 
-> 📌 *These are Linux commands notes taken from the Rocky Linux docs, maybe I'll move them to a more Linux general section later.*
+> 📌 _These are Linux commands notes taken from the Rocky Linux docs, maybe I'll move them to a more Linux general section later._
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Rocky Linux](https://rockylinux.org/)
-> - [Rocky Linux Instructional Books - Documentation](https://docs.rockylinux.org/books/)
-> - [VI Text editor - Documentation](https://docs.rockylinux.org/books/admin_guide/05-vi/)
+> * [Rocky Linux](https://rockylinux.org/)
+> * [Rocky Linux Instructional Books - Documentation](https://docs.rockylinux.org/books/)
+> * [VI Text editor - Documentation](https://docs.rockylinux.org/books/admin_guide/05-vi/)
 
 ### 📚 [The UNIX/Linux Philosophy](https://docs.rockylinux.org/books/admin_guide/01-presentation/#the-unixlinux-philosophy)
 
-- Treat everything as a file.
-- Value portability.
-- Do one thing and do it well.
-- **KISS**: Keep It Simple Stupid.
-- "UNIX is a simple operating system, but you have to be a genius to understand the simplicity." (Dennis Ritchie)
-- "Unix is user-friendly. It just isn't promiscuous about which users it's friendly with." (Steven King)
+* Treat everything as a file.
+* Value portability.
+* Do one thing and do it well.
+* **KISS**: Keep It Simple Stupid.
+* "UNIX is a simple operating system, but you have to be a genius to understand the simplicity." (Dennis Ritchie)
+* "Unix is user-friendly. It just isn't promiscuous about which users it's friendly with." (Steven King)
 
----
+***
 
 ## Commands
 
@@ -314,29 +314,29 @@ su - root -c "cat /etc/shadow"
 
 ### File system
 
-| Directory  | Functionality                                                | Complete word                 |
-| :--------- | :----------------------------------------------------------- | :---------------------------- |
-| `/`        | Contains special directories                                 |                               |
-| `/boot`    | Files related to system startup                              |                               |
-| `/sbin`    | Commands necessary for system startup and repair             | *system binaries*             |
-| `/bin`     | Executables of basic system commands                         | *binaries*                    |
-| `/usr/bin` | System administration commands                               |                               |
-| `/lib`     | Shared libraries and kernel modules                          | *libraries*                   |
-| `/usr`     | Saves data resources related to UNIX                         | *UNIX System Resources*       |
-| `/mnt`     | Temporary mount point directory                              | *mount*                       |
-| `/media`   | For mounting removable media                                 |                               |
-| `/misc`    | To mount the shared directory of the NFS service.            |                               |
-| `/root`    | Administrator's login directory                              |                               |
-| `/home`    | The upper-level directory of a common user's home directory  |                               |
-| `/tmp`     | The directory containing temporary files                     | *temporary*                   |
-| `/dev`     | Special device files                                         | *device*                      |
-| `/etc`     | Configuration and script files                               | *editable text configuration* |
-| `/opt`     | Specific to installed applications                           | *optional*                    |
-| `/proc`    | This is a mount point for the proc filesystem, which provides information about running processes and the kernel | *processes*                   |
-| `/var`     | This directory contains files which may change in size, such as spool and log files | *variables*                   |
-| `/sys`     | Virtual file system, similar to /proc                        |                               |
-| `/run`     | That is /var/run                                             |                               |
-| `/srv`     | Service Data Directory                                       | *service*                     |
+| Directory  | Functionality                                                                                                    | Complete word                 |
+| ---------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `/`        | Contains special directories                                                                                     |                               |
+| `/boot`    | Files related to system startup                                                                                  |                               |
+| `/sbin`    | Commands necessary for system startup and repair                                                                 | _system binaries_             |
+| `/bin`     | Executables of basic system commands                                                                             | _binaries_                    |
+| `/usr/bin` | System administration commands                                                                                   |                               |
+| `/lib`     | Shared libraries and kernel modules                                                                              | _libraries_                   |
+| `/usr`     | Saves data resources related to UNIX                                                                             | _UNIX System Resources_       |
+| `/mnt`     | Temporary mount point directory                                                                                  | _mount_                       |
+| `/media`   | For mounting removable media                                                                                     |                               |
+| `/misc`    | To mount the shared directory of the NFS service.                                                                |                               |
+| `/root`    | Administrator's login directory                                                                                  |                               |
+| `/home`    | The upper-level directory of a common user's home directory                                                      |                               |
+| `/tmp`     | The directory containing temporary files                                                                         | _temporary_                   |
+| `/dev`     | Special device files                                                                                             | _device_                      |
+| `/etc`     | Configuration and script files                                                                                   | _editable text configuration_ |
+| `/opt`     | Specific to installed applications                                                                               | _optional_                    |
+| `/proc`    | This is a mount point for the proc filesystem, which provides information about running processes and the kernel | _processes_                   |
+| `/var`     | This directory contains files which may change in size, such as spool and log files                              | _variables_                   |
+| `/sys`     | Virtual file system, similar to /proc                                                                            |                               |
+| `/run`     | That is /var/run                                                                                                 |                               |
+| `/srv`     | Service Data Directory                                                                                           | _service_                     |
 
 ```bash
 ls -lah /dev/
@@ -361,11 +361,11 @@ dmsetup ls
 # 5. User access management
 ```
 
-| LVM STORAGE<br />MECHANISMS | Performance | Redundancy | Space Efficiency | Use Case                  |
-| --------------------------- | ----------- | ---------- | ---------------- | ------------------------- |
-| Linear                      | Normal      | ❌ No       | ✅ High           | Basic storage growth      |
-| Striped                     | ✅ High      | ❌ No       | ✅ High           | Fast I/O, performance     |
-| Mirrored                    | Moderate    | ✅ Yes      | ❌ Low            | Data safety, critical use |
+| <p>LVM STORAGE<br>MECHANISMS</p> | Performance | Redundancy | Space Efficiency | Use Case                  |
+| -------------------------------- | ----------- | ---------- | ---------------- | ------------------------- |
+| Linear                           | Normal      | ❌ No       | ✅ High           | Basic storage growth      |
+| Striped                          | ✅ High      | ❌ No       | ✅ High           | Fast I/O, performance     |
+| Mirrored                         | Moderate    | ✅ Yes      | ❌ Low            | Data safety, critical use |
 
 ```bash
 # LVM - Logical Volume Manager
@@ -928,19 +928,14 @@ ps -lef | awk '{print $2}' | grep Z
 ### Backup and restore
 
 ```bash
-
 ```
 
-
-
-
-
----
+***
 
 ## Terminal Keyboard shortcuts
 
-> - [bash - readline interaction](https://www.gnu.org/software/bash/manual/html_node/Readline-Interaction.html)
-> - [21 Useful Linux Terminal Shortcuts Pro Users Love](https://itsfoss.com/linux-terminal-shortcuts/)
+> * [bash - readline interaction](https://www.gnu.org/software/bash/manual/html_node/Readline-Interaction.html)
+> * [21 Useful Linux Terminal Shortcuts Pro Users Love](https://itsfoss.com/linux-terminal-shortcuts/)
 
 ```bash
 Ctrl + A	# Move to the start of the line.
@@ -971,11 +966,7 @@ Ctrl + Shift + T	# Open a new tab in the terminal.
 Ctrl + Tab or Ctrl + PageDown	# Switch between terminal tabs.
 ```
 
-
-
-
-
----
+***
 
 ## Tools
 
@@ -985,4 +976,3 @@ Ctrl + Tab or Ctrl + PageDown	# Switch between terminal tabs.
 vi
 
 ```
-

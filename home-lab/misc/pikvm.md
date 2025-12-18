@@ -1,19 +1,19 @@
 # PiKVM
 
-![pikvm.org](.gitbook/assets/logo-pikvm.svg)
+![pikvm.org](../../.gitbook/assets/logo-pikvm.svg)
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [DIY PiKVM V2 quickstart guide](https://docs.pikvm.org/v2/)
-> - [pikvm/pikvm: Open and inexpensive DIY IP-KVM based on Raspberry Pi - Github](https://github.com/pikvm/pikvm)
-> - [How to Build a KVM Over IP with Raspberry Pi | Tom's Hardware](https://www.tomshardware.com/how-to/kvm-over-ip-raspberry-pi)
-> - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
-> - [PiKVM Build • Chris Dzombak](https://www.dzombak.com/blog/2021/11/pikvm-build/)
-> - [My Pi-KVM Build by Eric Lathrop](https://ericlathrop.com/2020/12/my-pi-kvm-build/)
+> * [DIY PiKVM V2 quickstart guide](https://docs.pikvm.org/v2/)
+> * [pikvm/pikvm: Open and inexpensive DIY IP-KVM based on Raspberry Pi - Github](https://github.com/pikvm/pikvm)
+> * [How to Build a KVM Over IP with Raspberry Pi | Tom's Hardware](https://www.tomshardware.com/how-to/kvm-over-ip-raspberry-pi)
+> * [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
+> * [PiKVM Build • Chris Dzombak](https://www.dzombak.com/blog/2021/11/pikvm-build/)
+> * [My Pi-KVM Build by Eric Lathrop](https://ericlathrop.com/2020/12/my-pi-kvm-build/)
 
----
+***
 
 ## RPi 4 PiKVM V2 DIY
 
@@ -21,25 +21,25 @@
 
 **Raspberry Pi 4** board with 16GB MicroSD card.
 
-- PiKVM SD card image used is the one **For HDMI-USB dongle** (or **For HDMI-CSI bridge**) - [download here](https://docs.pikvm.org/flashing_os/) and flash the MicroSD card with [RPi Imager](https://www.raspberrypi.com/software/) tool
-- RPi4 Power consumption ranging from 2.7W to 6.4W depending on the workload
+* PiKVM SD card image used is the one **For HDMI-USB dongle** (or **For HDMI-CSI bridge**) - [download here](https://docs.pikvm.org/flashing_os/) and flash the MicroSD card with [RPi Imager](https://www.raspberrypi.com/software/) tool
+* RPi4 Power consumption ranging from 2.7W to 6.4W depending on the workload
 
 For **power supply** and **USB** connectivity, I have chosen the "**Variant #2: Power supply + Y-splitter based on power blocker**" from the [PiKVM v2](https://docs.pikvm.org/v2/) guide with:
 
-- x1 Raspberry Pi Official USB-C Power Supply
-- x1 USB C splitter (male->double females)
-- x1 USB-A to USB-C cable (male-male)
-  - 📌 as power blocker for the VCC of the USB-A male connector that goes into the PC/NAS, I've used a small piece of tape over the right-most pin on the connector **to block the 5V pin** (cut the single specific VCC wire inside the cable later)
+* x1 Raspberry Pi Official USB-C Power Supply
+* x1 USB C splitter (male->double females)
+* x1 USB-A to USB-C cable (male-male)
+  * 📌 as power blocker for the VCC of the USB-A male connector that goes into the PC/NAS, I've used a small piece of tape over the right-most pin on the connector **to block the 5V pin** (cut the single specific VCC wire inside the cable later)
 
 Similar diagram as my setup:
 
-![USB Connections - Credit: Tom's Hardware](.gitbook/assets/2025-08-03_16-30-48_312.png)
+![USB Connections - Credit: Tom's Hardware](../../.gitbook/assets/2025-08-03_16-30-48_312.png)
 
 The "USB C to Double **USB C Splitter**" used:
 
-- [MOGOOD USB C Male to Dual USB C Female Splitter Adapter Female Y Cable](https://amzn.eu/d/913qeyL)
+* [MOGOOD USB C Male to Dual USB C Female Splitter Adapter Female Y Cable](https://amzn.eu/d/913qeyL)
 
-![](.gitbook/assets/2025-08-03_16-32-33_313.png)
+![](../../.gitbook/assets/2025-08-03_16-32-33_313.png)
 
 For the **video capture device** I've used an HDMI-USB dongle for my testing lab (**changed with a HDMI-CSI bridge board later**).
 
@@ -47,14 +47,12 @@ For the **video capture device** I've used an HDMI-USB dongle for my testing lab
 
 Check Geekworm models [here](https://wiki.geekworm.com/C790), and Amazon links:
 
-- [Geekworm Raspberry Pi HDMI to CSI CSI-2 C790 Adapter](https://amzn.eu/d/49dp7i7) (Newer)
-- [Geekworm Raspberry Pi Hdmi to CSI-2 Module X630 with TC358743 Chip](https://amzn.eu/d/8gXXheS)
-
-
+* [Geekworm Raspberry Pi HDMI to CSI CSI-2 C790 Adapter](https://amzn.eu/d/49dp7i7) (Newer)
+* [Geekworm Raspberry Pi Hdmi to CSI-2 Module X630 with TC358743 Chip](https://amzn.eu/d/8gXXheS)
 
 ### On-boot configuration
 
-- [On-boot configuration & production deployment - PiKVM Handbook](https://docs.pikvm.org/on_boot_config/)
+* [On-boot configuration & production deployment - PiKVM Handbook](https://docs.pikvm.org/on_boot_config/)
 
 Setup WiFi SSID & Password if necessary in the `pikvm.txt` file from the SD Card (on another PC), by adding the following variables:
 
@@ -68,15 +66,13 @@ WIFI_PASSWD='p@s$$w0rd'
 netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $_.ToString().Split(':')[1].Trim() } | ForEach-Object { $p = $_; $out = netsh wlan show profile name="$p" key=clear; $pw = ($out | Select-String 'Key Content' | ForEach-Object { ($_ -split ':')[1].Trim() }) -join ''; [PSCustomObject]@{Profile=$p;Password=($pw -ne '' ? $pw : '(none)')} } | Format-Table -AutoSize
 ```
 
-
-
----
+***
 
 ## PiKVM Shell commands
 
 ### Authentication
 
-- Check [Authentication - PiKVM Handbook](https://docs.pikvm.org/auth/) for SSH root access, default credentials and changing them
+* Check [Authentication - PiKVM Handbook](https://docs.pikvm.org/auth/) for SSH root access, default credentials and changing them
 
 ```bash
 su - 
@@ -110,18 +106,16 @@ pikvm-update
 NAME="Arch Linux ARM"
 ```
 
-
-
 ### Wake-on-LAN
 
-- [Wake-on-LAN - PiKVM Handbook](https://docs.pikvm.org/wol/)
+* [Wake-on-LAN - PiKVM Handbook](https://docs.pikvm.org/wol/)
 
 ```bash
 rw
 nano /etc/kvmd/override.yaml
 ```
 
-- (Extra) Disable "ATX" menu
+* (Extra) Disable "ATX" menu
 
 ```bash
 kvmd:
@@ -129,7 +123,7 @@ kvmd:
         type: disabled
 ```
 
-- Configuration for **single device WoL**
+* Configuration for **single device WoL**
 
 ```bash
 ###############
@@ -146,7 +140,7 @@ kvmd -m # syntax check
 systemctl restart kvmd
 ```
 
-- Configuration for [**multiple hosts WoL**](https://docs.pikvm.org/gpio/#wake-on-lan)
+* Configuration for [**multiple hosts WoL**](https://docs.pikvm.org/gpio/#wake-on-lan)
 
 ```bash
 ###############
@@ -196,26 +190,26 @@ systemctl restart kvmd
 reboot
 ```
 
----
+***
 
 ## KVM Dashboard
 
-![](.gitbook/assets/2025-12-02_17-52-44_939.png)
+![](../../.gitbook/assets/2025-12-02_17-52-44_939.png)
 
----
+***
 
 ## Mass Storage Drive
 
-- [Mass Storage Drive - exFAT USB thumb drive](https://docs.pikvm.org/msd/#exfat-filesystem-warning)
+* [Mass Storage Drive - exFAT USB thumb drive](https://docs.pikvm.org/msd/#exfat-filesystem-warning)
 
 Insert the USB into an RPi USB3 port.
 
 Open the PiKVM Terminal/Shell. Use the following procedure.
 
-- Identify the USB drive and its filesystem type using, ensuring it's recognized (e.g., `exfat` for Ventoy)
-- Add a mount entry in `/etc/fstab` to automatically mount the USB drive at boot, with read/write access and permissive permissions
-- Ensure the mount point exists and is writable, using `mkdir`, `kvmd-helper-otgmsd-remount`, or `mount -o remount,rw` as needed
-- Manually mount or reboot the system to apply changes, allowing access to the USB contents under `/var/lib/kvmd/msd/usb`
+* Identify the USB drive and its filesystem type using, ensuring it's recognized (e.g., `exfat` for Ventoy)
+* Add a mount entry in `/etc/fstab` to automatically mount the USB drive at boot, with read/write access and permissive permissions
+* Ensure the mount point exists and is writable, using `mkdir`, `kvmd-helper-otgmsd-remount`, or `mount -o remount,rw` as needed
+* Manually mount or reboot the system to apply changes, allowing access to the USB contents under `/var/lib/kvmd/msd/usb`
 
 ```bash
 su -
@@ -252,14 +246,13 @@ df -hT
 	/dev/sda1      exfat      58G   52G  5.5G  91% /var/lib/kvmd/msd/usb
 ```
 
----
+***
 
 ## Tailscale on PiKVM
 
-- [Tailscale VPN - PiKVM Handbook](https://docs.pikvm.org/tailscale/)
-  - read above docs for Tailscale Certificates
-
-- [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
+* [Tailscale VPN - PiKVM Handbook](https://docs.pikvm.org/tailscale/)
+  * read above docs for Tailscale Certificates
+* [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
 
 ```bash
 # Tailscale
@@ -275,5 +268,4 @@ reboot
 ip addr show tailscale0
 ```
 
----
-
+***

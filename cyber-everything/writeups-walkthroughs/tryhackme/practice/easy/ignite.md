@@ -1,20 +1,20 @@
 # Ignite
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (2).png>)
 
----
+***
 
 ## Intro
 
-| Room Info           | ![](.gitbook/assets/ignite.png)             |
-| :------------------ | ------------------------------------------- |
-| 🔗 Name              | [Ignite](https://tryhackme.com/room/ignite) |
-| 🎯 Target IP         | `10.10.174.21`                              |
-| 📈 Difficulty level  | 🟢Easy                                       |
-| 💲 Subscription type | Free                                        |
-| 🐧 OS                | Linux                                       |
+| Room Info            | ![](../../../../../.gitbook/assets/ignite.png) |
+| -------------------- | ---------------------------------------------- |
+| 🔗 Name              | [Ignite](https://tryhackme.com/room/ignite)    |
+| 🎯 Target IP         | `10.10.174.21`                                 |
+| 📈 Difficulty level  | 🟢Easy                                         |
+| 💲 Subscription type | Free                                           |
+| 🐧 OS                | Linux                                          |
 
----
+***
 
 ## Recon
 
@@ -61,7 +61,7 @@ python 50477.py -u http://10.10.174.21
 whoami
 ```
 
-![](.gitbook/assets/image-20230511172416842.png)
+![](../../../../../.gitbook/assets/image-20230511172416842.png)
 
 ### Reverse Shell
 
@@ -100,7 +100,7 @@ cat flag.txt
 6470e***************************
 ```
 
----
+***
 
 ## Privilege Escalation
 
@@ -148,7 +148,6 @@ cat root.txt
 b9bbc**************************
 ```
 
-
-![](.gitbook/assets/2024-10-20_22-24-49_763.png)
+![](../../../../../.gitbook/assets/2024-10-20_22-24-49_763.png)
 
 ***

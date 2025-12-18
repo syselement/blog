@@ -1,18 +1,16 @@
 # Bandit Wargame
 
+![](../../.gitbook/assets/overthewire-logo.png)
 
-
-![](.gitbook/assets/overthewire-logo.png)
-
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Wargames - Bandit](https://overthewire.org/wargames/bandit/)
->   - [Wargames rules](https://overthewire.org/rules/)
-> - [[OTW] Write-up for the Bandit Wargame - BreakInSecurity](https://axcheron.github.io/writeups/otw/bandit/)
+> * [Wargames - Bandit](https://overthewire.org/wargames/bandit/)
+>   * [Wargames rules](https://overthewire.org/rules/)
+> * [\[OTW\] Write-up for the Bandit Wargame - BreakInSecurity](https://axcheron.github.io/writeups/otw/bandit/)
 
----
+***
 
 ## [Wargames](https://overthewire.org/wargames/)
 
@@ -34,7 +32,7 @@ If you have a problem, a question or a suggestion, you can [join us via chat](ht
 
 Information about how to connect to each game using SSH, is provided in the top left corner of the page. Keep in mind that every game uses a different SSH port.
 
----
+***
 
 ## 📝 Bandit
 
@@ -42,26 +40,26 @@ The Bandit wargame is aimed at absolute beginners. It will teach the basics need
 
 ### Note for beginners
 
-This game, like most other games, is organized in levels. You start at Level 0 and try to “beat” or “finish” it. Finishing a level results in information on how to start the next level. The pages on this website for “Level <X>” contain information on how to start level X from the previous level. E.g. The page for [Level 1](https://overthewire.org/wargames/bandit/bandit1.html) has information on how to gain access from [Level 0](https://overthewire.org/wargames/bandit/bandit0.html) to [Level 1](https://overthewire.org/wargames/bandit/bandit1.html). All levels in this game have a page on this website, and they are all linked to from the sidemenu on the left of this page.
+This game, like most other games, is organized in levels. You start at Level 0 and try to “beat” or “finish” it. Finishing a level results in information on how to start the next level. The pages on this website for “Level ” contain information on how to start level X from the previous level. E.g. The page for [Level 1](https://overthewire.org/wargames/bandit/bandit1.html) has information on how to gain access from [Level 0](https://overthewire.org/wargames/bandit/bandit0.html) to [Level 1](https://overthewire.org/wargames/bandit/bandit1.html). All levels in this game have a page on this website, and they are all linked to from the sidemenu on the left of this page.
 
 You will encounter many situations in which you have no idea what you are supposed to do. **Don’t panic! Don’t give up!** The purpose of this game is for you to learn the basics. Part of learning the basics, is reading a lot of new information.
 
 There are several things you can try when you are unsure how to continue:
 
-- First, if you know a command, but don’t know how to use it, try the **manual** ([man page](https://en.wikipedia.org/wiki/Man_page)) by entering “**man <command>**” (without the quotes). e.g. if you know about the “ls” command, type: man ls. The “man” command also has a manual, try it. Press q to quit the man command.
-- Second, if there is no man page, the command might be a **shell built-in**. In that case use the “**help <X>**” command. E.g. help cd
-- Also, your favorite **search-engine** is your friend. Learn how to use it! I recommend [Google](https://www.google.com/).
-- Lastly, if you are still stuck, you can [join us via chat](https://overthewire.org/information/chat.html)
+* First, if you know a command, but don’t know how to use it, try the **manual** ([man page](https://en.wikipedia.org/wiki/Man_page)) by entering “**man** ” (without the quotes). e.g. if you know about the “ls” command, type: man ls. The “man” command also has a manual, try it. Press q to quit the man command.
+* Second, if there is no man page, the command might be a **shell built-in**. In that case use the “**help** ” command. E.g. help cd
+* Also, your favorite **search-engine** is your friend. Learn how to use it! I recommend [Google](https://www.google.com/).
+* Lastly, if you are still stuck, you can [join us via chat](https://overthewire.org/information/chat.html)
 
 You’re ready to start! Begin with [Level 0](https://overthewire.org/wargames/bandit/bandit0.html), linked at the left of this page. Good luck!
 
-**Note for VMs:** You may fail to connect to [overthewire.org](http://overthewire.org/) via SSH with a “*broken pipe error*” when the network adapter for the VM is configured to use NAT mode. Adding the setting **IPQoS throughput** to /etc/ssh/ssh_config should resolve the issue. If this does not solve your issue, the only option then is to change the adapter to Bridged mode.
+**Note for VMs:** You may fail to connect to [overthewire.org](http://overthewire.org/) via SSH with a “_broken pipe error_” when the network adapter for the VM is configured to use NAT mode. Adding the setting **IPQoS throughput** to /etc/ssh/ssh\_config should resolve the issue. If this does not solve your issue, the only option then is to change the adapter to Bridged mode.
 
-- **SSH Information**
-    - Host: [bandit.labs.overthewire.org](http://bandit.labs.overthewire.org/)
-    - Port: 2220
+* **SSH Information**
+  * Host: [bandit.labs.overthewire.org](http://bandit.labs.overthewire.org/)
+  * Port: 2220
 
----
+***
 
 ## Bandit Level 0
 
@@ -75,18 +73,18 @@ ssh
 
 **Helpful Reading Material**
 
-- [Secure Shell (SSH) on Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell)
-- [How to use SSH on wikiHow](https://www.wikihow.com/Use-SSH)
+* [Secure Shell (SSH) on Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell)
+* [How to use SSH on wikiHow](https://www.wikihow.com/Use-SSH)
 
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
-![](.gitbook/assets/2025-09-02_00-14-44_497.png)
+![](../../.gitbook/assets/2025-09-02_00-14-44_497.png)
 
-![](.gitbook/assets/2025-09-02_00-16-23_499.png)
+![](../../.gitbook/assets/2025-09-02_00-16-23_499.png)
 
----
+***
 
 ## Bandit Level 0 → Level 1
 
@@ -104,7 +102,7 @@ cat readme
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 ```
 
----
+***
 
 ## Bandit Level 1 → Level 2
 
@@ -118,8 +116,8 @@ ls, cd, cat, file, du, find
 
 **Helpful Reading Material**
 
-- [Google Search for “dashed filename”](https://www.google.com/search?q=dashed+filename)
-- [Advanced Bash-scripting Guide - Chapter 3 - Special Characters](http://tldp.org/LDP/abs/html/special-chars.html)
+* [Google Search for “dashed filename”](https://www.google.com/search?q=dashed+filename)
+* [Advanced Bash-scripting Guide - Chapter 3 - Special Characters](http://tldp.org/LDP/abs/html/special-chars.html)
 
 ```bash
 cat ./-
@@ -129,9 +127,9 @@ cat < -
 CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 ```
 
-Explanation:    [https://linux-tips.com/t/dashed-filename-in-linux/188](https://linux-tips.com/t/dashed-filename-in-linux/188)
+Explanation:    [https://linux-tips.com/t/dashed-filename-in-linux/188](https://linux-tips.com/t/dashed-filename-in-linux/188)
 
----
+***
 
 ## Bandit Level 2 → Level 3
 
@@ -145,7 +143,7 @@ ls, cd, cat, file, du, find
 
 **Helpful Reading Material**
 
-- [Google Search for “spaces in filename”](https://www.google.com/search?q=spaces+in+filename)
+* [Google Search for “spaces in filename”](https://www.google.com/search?q=spaces+in+filename)
 
 ```bash
 cat "spaces in this filename"
@@ -155,7 +153,7 @@ cat spaces\ in\ this\ filename
 UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
 ```
 
----
+***
 
 ## Bandit Level 3 → Level 4
 
@@ -174,7 +172,7 @@ cat .hidden
 pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 ```
 
----
+***
 
 ## Bandit Level 4 → Level 5
 
@@ -203,7 +201,7 @@ bandit4@bandit:~/inhere$ cat ./-file07
 koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 ```
 
----
+***
 
 ## Bandit Level 5 → Level 6
 
@@ -211,9 +209,9 @@ koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 
 The password for the next level is stored in a file somewhere under the **inhere** directory and has all of the following properties:
 
-- human-readable
-- 1033 bytes in size
-- not executable
+* human-readable
+* 1033 bytes in size
+* not executable
 
 **Helpful commands**
 
@@ -227,7 +225,7 @@ bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
 DXjZPULLxYr17uwoI01bNLQbtFemEgo
 ```
 
----
+***
 
 ## Bandit Level 6 → Level 7
 
@@ -235,9 +233,9 @@ DXjZPULLxYr17uwoI01bNLQbtFemEgo
 
 The password for the next level is stored **somewhere on the server** and has all of the following properties:
 
-- owned by user bandit7
-- owned by group bandit6
-- 33 bytes in size
+* owned by user bandit7
+* owned by group bandit6
+* 33 bytes in size
 
 **Helpful commands**
 
@@ -251,7 +249,7 @@ bandit6@bandit:/$ cat /var/lib/dpkg/info/bandit7.password
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 ```
 
----
+***
 
 ## Bandit Level 7 → Level 8
 
@@ -269,7 +267,7 @@ cat data.txt | grep millionth
 cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 ```
 
----
+***
 
 ## Bandit Level 8 → Level 9
 
@@ -283,7 +281,7 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
 **Helpful Reading Material**
 
-- [Piping and Redirection](https://ryanstutorials.net/linuxtutorial/piping.php)
+* [Piping and Redirection](https://ryanstutorials.net/linuxtutorial/piping.php)
 
 ```bash
 sort data.txt | uniq -u
@@ -291,7 +289,7 @@ sort data.txt | uniq -u
 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 ```
 
----
+***
 
 ## Bandit Level 9 → Level 10
 
@@ -309,7 +307,7 @@ strings data.txt
 truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
 ```
 
----
+***
 
 ## Bandit Level 10 → Level 11
 
@@ -323,14 +321,14 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
 **Helpful Reading Material**
 
-- [Base64 on Wikipedia](https://en.wikipedia.org/wiki/Base64)
+* [Base64 on Wikipedia](https://en.wikipedia.org/wiki/Base64)
 
 ```bash
 bandit10@bandit:~$ cat data.txt | base64 -d
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 ```
 
----
+***
 
 ## Bandit Level 11 → Level 12
 
@@ -344,14 +342,14 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
 **Helpful Reading Material**
 
-- [Rot13 on Wikipedia](https://en.wikipedia.org/wiki/Rot13)
+* [Rot13 on Wikipedia](https://en.wikipedia.org/wiki/Rot13)
 
 ```bash
 bandit11@bandit:~$ cat data.txt | tr 'n-za-mN-ZA-M' 'a-zA-Z'
 The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 ```
 
----
+***
 
 ## Bandit Level 12 → Level 13
 
@@ -365,7 +363,7 @@ grep, sort, uniq, strings, base64, tr, **tar**, **gzip**, **bzip2**, **xxd**, mk
 
 **Helpful Reading Material**
 
-- [Hex dump on Wikipedia](https://en.wikipedia.org/wiki/Hex_dump)
+* [Hex dump on Wikipedia](https://en.wikipedia.org/wiki/Hex_dump)
 
 ```bash
 mktemp -d
@@ -417,21 +415,21 @@ cat data9
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
 
----
+***
 
 ## Bandit Level 13 → Level 14
 
 **Level Goal**
 
-The password for the next level is stored in **/etc/bandit_pass/bandit14 and can only be read by user bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. **Note:** **localhost** is a hostname that refers to the machine you are working on
+The password for the next level is stored in **/etc/bandit\_pass/bandit14 and can only be read by user bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. **Note:** **localhost** is a hostname that refers to the machine you are working on
 
 **Helpful commands**
 
-ssh, telnet, nc, openssl, s_client, nmap
+ssh, telnet, nc, openssl, s\_client, nmap
 
 **Helpful Reading Material**
 
-- [SSH/OpenSSH/Keys](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
+* [SSH/OpenSSH/Keys](https://help.ubuntu.com/community/SSH/OpenSSH/Keys)
 
 ```bash
 ls -la
@@ -449,7 +447,7 @@ $ ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
 
 ```
 
----
+***
 
 ## Bandit Level 14 → Level 15
 
@@ -459,19 +457,18 @@ The password for the next level can be retrieved by submitting the password of t
 
 **Helpful commands**
 
-ssh, telnet, nc, openssl, s_client, nmap
+ssh, telnet, nc, openssl, s\_client, nmap
 
 **Helpful Reading Material**
 
-- [https://www.youtube.com/watch?v=7_LPdttKXPc](https://www.youtube.com/watch?v=7_LPdttKXPc)
-  
+*   [https://www.youtube.com/watch?v=7\_LPdttKXPc](https://www.youtube.com/watch?v=7_LPdttKXPc)
+
     (Not completely accurate, but good enough for beginners)
-    
-- [IP Addresses](http://computer.howstuffworks.com/web-server5.htm)
-- [IP Address on Wikipedia](https://en.wikipedia.org/wiki/IP_address)
-- [Localhost on Wikipedia](https://en.wikipedia.org/wiki/Localhost)
-- [Ports](http://computer.howstuffworks.com/web-server8.htm)
-- [Port (computer networking) on Wikipedia](https://en.wikipedia.org/wiki/Port_(computer_networking))
+* [IP Addresses](http://computer.howstuffworks.com/web-server5.htm)
+* [IP Address on Wikipedia](https://en.wikipedia.org/wiki/IP_address)
+* [Localhost on Wikipedia](https://en.wikipedia.org/wiki/Localhost)
+* [Ports](http://computer.howstuffworks.com/web-server8.htm)
+* [Port (computer networking) on Wikipedia](https://en.wikipedia.org/wiki/Port_\(computer_networking\))
 
 ```bash
 echo "4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e" | nc localhost 30000
@@ -480,7 +477,7 @@ Correct!
 BfMYroe26WYalil77FoDi9qh59eK5xNr
 ```
 
----
+***
 
 ## Bandit Level 15 → Level 16
 
@@ -488,16 +485,16 @@ BfMYroe26WYalil77FoDi9qh59eK5xNr
 
 The password for the next level can be retrieved by submitting the password of the current level to **port 30001 on localhost** using SSL encryption.
 
-**Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…**
+**Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign\_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…**
 
 **Helpful commands**
 
-ssh, telnet, nc, openssl, s_client, nmap
+ssh, telnet, nc, openssl, s\_client, nmap
 
 **Helpful Reading Material**
 
-- [Secure Socket Layer/Transport Layer Security on Wikipedia](https://en.wikipedia.org/wiki/Secure_Socket_Layer)
-- [OpenSSL Cookbook - Testing with OpenSSL](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)
+* [Secure Socket Layer/Transport Layer Security on Wikipedia](https://en.wikipedia.org/wiki/Secure_Socket_Layer)
+* [OpenSSL Cookbook - Testing with OpenSSL](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)
 
 ```bash
 openssl s_client -connect localhost:30001
@@ -511,7 +508,7 @@ or
 cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -quiet
 ```
 
----
+***
 
 ## Bandit Level 16 → Level 17
 
@@ -521,11 +518,11 @@ The credentials for the next level can be retrieved by submitting the password o
 
 **Helpful commands**
 
-ssh, telnet, nc, openssl, s_client, nmap
+ssh, telnet, nc, openssl, s\_client, nmap
 
 **Helpful Reading Material**
 
-- [Port scanner on Wikipedia](https://en.wikipedia.org/wiki/Port_scanner)
+* [Port scanner on Wikipedia](https://en.wikipedia.org/wiki/Port_scanner)
 
 ```bash
 nmap -v -Pn localhost -p31000-32000
@@ -548,13 +545,13 @@ cat /etc/bandit_pass/bandit17
 xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 ```
 
----
+***
 
 ## Bandit Level 17 → Level 18
 
 **Level Goal**
 
-There are 2 files in the homedirectory: **passwords.old and [passwords.ne](http://passwords.ne/)w**. The password for the next level is in [**passwords.ne](http://passwords.ne/)w** and is the only line that has been changed between **passwords.old and [passwords.ne](http://passwords.ne/)w**
+There are 2 files in the homedirectory: **passwords.old and** [**passwords.ne**](http://passwords.ne/)**w**. The password for the next level is in [\*\*passwords.ne](http://passwords.ne/)w\*\* and is the only line that has been changed between **passwords.old and** [**passwords.ne**](http://passwords.ne/)**w**
 
 **NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19**
 
@@ -575,7 +572,7 @@ Byebye !
 Connection to bandit.labs.overthewire.org closed.
 ```
 
----
+***
 
 ## Bandit Level 18 → Level 19
 
@@ -594,17 +591,17 @@ bandit18@bandit.labs.overthewire.org's password:
 IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 ```
 
----
+***
 
 ## Bandit Level 19 → Level 20
 
 **Level Goal**
 
-To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit\_pass), after you have used the setuid binary.
 
 **Helpful Reading Material**
 
-- [setuid on Wikipedia](https://en.wikipedia.org/wiki/Setuid)
+* [setuid on Wikipedia](https://en.wikipedia.org/wiki/Setuid)
 
 ```bash
 bandit19@bandit:~$ ./bandit20-do
@@ -615,7 +612,7 @@ Run a command as another user.
 GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 ```
 
----
+***
 
 ## Bandit Level 20 → Level 21
 
@@ -623,9 +620,9 @@ GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 
 There is a setuid binary in the homedirectory that does the following:
 
-- it makes a connection to localhost on the port you specify as a commandline argument.
-- It then reads a line of text from the connection and compares it to the password in the previous level (bandit20).
-- If the password is correct, it will transmit the password for the next level (bandit21).
+* it makes a connection to localhost on the port you specify as a commandline argument.
+* It then reads a line of text from the connection and compares it to the password in the previous level (bandit20).
+* If the password is correct, it will transmit the password for the next level (bandit21).
 
 **NOTE:** Try connecting to your own network daemon to see if it works as you think
 
@@ -646,7 +643,7 @@ Password matches, sending next password
 gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 ```
 
----
+***
 
 ## Bandit Level 21 → Level 22
 
@@ -674,7 +671,7 @@ bandit21@bandit:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 ```
 
----
+***
 
 ## Bandit Level 22 → Level 23
 
@@ -707,7 +704,7 @@ bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
 ```
 
----
+***
 
 ## Bandit Level 23 → Level 24
 
@@ -767,7 +764,7 @@ UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
 ```
 
----
+***
 
 ## Bandit Level 24 → Level 25
 
@@ -796,7 +793,7 @@ Correct!
 The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 ```
 
----
+***
 
 ## Bandit Level 25 → Level 26
 
@@ -828,7 +825,7 @@ bandit25@bandit:~$ ssh -i bandit26.sshkey bandit26@localhost
 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
 ```
 
----
+***
 
 ## Bandit Level 26 → Level 27
 
@@ -853,9 +850,9 @@ drwxr-xr-x 41 root     root     4096 May  7  2020 ..
 3ba3118a22e93127a4ed485be72ef5ea
 ```
 
-***Explanation:** In the first part we figure that the fake shell read a file with more and exit. As the content of the file is not long enough, we need to reduce the size of the terminal to enable more to paging through text one screenful at a time. Once more is running we can type **v** to open vi and execute command through that tool. Same thing for the second part except the bandit27-do command will give us the password.*
+_**Explanation:** In the first part we figure that the fake shell read a file with more and exit. As the content of the file is not long enough, we need to reduce the size of the terminal to enable more to paging through text one screenful at a time. Once more is running we can type **v** to open vi and execute command through that tool. Same thing for the second part except the bandit27-do command will give us the password._
 
----
+***
 
 ## Bandit Level 27 → Level 28
 
@@ -902,7 +899,7 @@ cat repo/README
 The password to the next level is: 0ef186ac70e04ea33b4c1853d2526fa2
 ```
 
----
+***
 
 ## Bandit Level 28 → Level 29
 
@@ -962,7 +959,7 @@ index 3f7cee8..5c6457b 100644
 +- password: xxxxxxxxxx
 ```
 
----
+***
 
 ## Bandit Level 29 → Level 30
 
@@ -1037,7 +1034,7 @@ Some notes for bandit30 of bandit.
 - password: 5b90576bedb2cc04c86a9e924ce42faf
 ```
 
----
+***
 
 ## Bandit Level 30 → Level 31
 
@@ -1110,7 +1107,7 @@ git show secret
 
 ```
 
----
+***
 
 ## Bandit Level 31 → Level 32
 
@@ -1236,7 +1233,7 @@ error: failed to push some refs to 'ssh://bandit31-git@localhost/home/bandit31-g
 
 ```
 
----
+***
 
 ## Bandit Level 32 → Level 33
 
@@ -1285,4 +1282,4 @@ c9c3199ddf4121b10cf581a98d51caee
 
 ```
 
----
+***

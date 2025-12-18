@@ -1,97 +1,95 @@
-# [Docker](https://www.docker.com/)
+# Docker
 
+![docker.com](../../.gitbook/assets/docker-logo-blue.png)
 
-
-![docker.com](.gitbook/assets/docker-logo-blue.png)
-
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [Docker Docs](https://docs.docker.com/get-started/overview/)
->   - [Building best practices - Docker Docs](https://docs.docker.com/build/building/best-practices/)
->   - [Intro Guide to Dockerfile Best Practices | Docker](https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/)
->   - [Docker Hub - Container Image Library](https://hub.docker.com/)
->  - [Docker Engine](https://docs.docker.com/engine/)
-> - [Docker Network](https://docs.docker.com/network/)
->  - [Beginner's Guide to Docker Networking](https://k21academy.com/docker-kubernetes/docker-networking-different-types-of-networking-overview-for-beginners/)
->   - [The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
-> - [Docker Compose](https://docs.docker.com/compose/)
-> - [Dockerfile](https://docs.docker.com/reference/dockerfile/)
->   - [Top 8 container registries - Octopus Deploy](https://octopus.com/blog/top-8-container-registries)
-> - [Docker Volumes](https://docs.docker.com/storage/volumes/)
-> - [Docker security - Penetration Testing Tools, ML and Linux Tutorials](https://reconshell.com/docker-security/)
-> - [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
-> - [Docker The Hands-On Way ROADMAP - iximiuz Labs](https://labs.iximiuz.com/roadmaps/docker)
-> - [Intro The DevOps - Containers - NotHarshhaa Github](https://github.com/NotHarshhaa/into-the-devops/blob/master/topics/containers/README.md)
-> - [container.training - Github](https://github.com/jpetazzo/container.training)
-> - [TryHackMe - Intro to Docker](https://tryhackme.com/r/room/introtodockerk8pdqk)
-> - [containerd](https://containerd.io/)
-> - [cri-o](https://cri-o.io/)
+> * [Docker Docs](https://docs.docker.com/get-started/overview/)
+>   * [Building best practices - Docker Docs](https://docs.docker.com/build/building/best-practices/)
+>   * [Intro Guide to Dockerfile Best Practices | Docker](https://www.docker.com/blog/intro-guide-to-dockerfile-best-practices/)
+>   * [Docker Hub - Container Image Library](https://hub.docker.com/)
+> * [Docker Engine](https://docs.docker.com/engine/)
+> * [Docker Network](https://docs.docker.com/network/)
+> * [Beginner's Guide to Docker Networking](https://k21academy.com/docker-kubernetes/docker-networking-different-types-of-networking-overview-for-beginners/)
+> * [The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
+> * [Docker Compose](https://docs.docker.com/compose/)
+> * [Dockerfile](https://docs.docker.com/reference/dockerfile/)
+>   * [Top 8 container registries - Octopus Deploy](https://octopus.com/blog/top-8-container-registries)
+> * [Docker Volumes](https://docs.docker.com/storage/volumes/)
+> * [Docker security - Penetration Testing Tools, ML and Linux Tutorials](https://reconshell.com/docker-security/)
+> * [Docker Kubernetes Lab Handbook](https://docker-k8s-lab.readthedocs.io/en/latest/index.html)
+> * [Docker The Hands-On Way ROADMAP - iximiuz Labs](https://labs.iximiuz.com/roadmaps/docker)
+> * [Intro The DevOps - Containers - NotHarshhaa Github](https://github.com/NotHarshhaa/into-the-devops/blob/master/topics/containers/README.md)
+> * [container.training - Github](https://github.com/jpetazzo/container.training)
+> * [TryHackMe - Intro to Docker](https://tryhackme.com/r/room/introtodockerk8pdqk)
+> * [containerd](https://containerd.io/)
+> * [cri-o](https://cri-o.io/)
 
-![containerd.io/](.gitbook/assets/containerd-architecture.png)
+![containerd.io/](../../.gitbook/assets/containerd-architecture.png)
 
----
+***
 
 ## Docker Architecture
 
 **Container** - a way to package application will all the necessary **dependencies** and **configuration**
 
-- portable standardized artifact for efficient development and deployment
-  - Devs & Ops work together to package the app in a container
-  - No environment config needed on server (only Container Runtime)
-- layers of images
-  - Linux **base image**
-  - other layers
-  - **Application image**
+* portable standardized artifact for efficient development and deployment
+  * Devs & Ops work together to package the app in a container
+  * No environment config needed on server (only Container Runtime)
+* layers of images
+  * Linux **base image**
+  * other layers
+  * **Application image**
 
 **Container repositories**
 
-- private
-- public - [DockerHub](https://hub.docker.com/search?image_filter=official)
+* private
+* public - [DockerHub](https://hub.docker.com/search?image_filter=official)
 
 **Docker** - open source **containerization platform**
 
-- package applications into containers
-- there are other alternatives (but it made containers popular)
-  - [The differences between Docker, containerd, CRI-O and runc - Tutorial Works](https://www.tutorialworks.com/difference-docker-containerd-runc-crio-oci/)
+* package applications into containers
+* there are other alternatives (but it made containers popular)
+  * [The differences between Docker, containerd, CRI-O and runc - Tutorial Works](https://www.tutorialworks.com/difference-docker-containerd-runc-crio-oci/)
 
 **Docker image** - the actual package file, **artifact**, consisting of layers
 
 **Docker container** - started application, a running environment, virtual file system, port binding
 
-- [What is a Container? | Docker](https://www.docker.com/resources/what-container/)
+* [What is a Container? | Docker](https://www.docker.com/resources/what-container/)
 
 **Virtual machines** - virtualize the OS Kernel and the Application layer - full copy of the OS, abstraction of physical hardware
 
-![Containerized Applications - docker.com](.gitbook/assets/container-vm.png)
+![Containerized Applications - docker.com](../../.gitbook/assets/container-vm.png)
 
 **Containers** - multiple containers share the OS Kernel - abstraction of the app layer
 
-![Virtual Machines - docker.com](.gitbook/assets/docker-containerized-application.png)
+![Virtual Machines - docker.com](../../.gitbook/assets/docker-containerized-application.png)
 
 ### [Docker Engine](https://docs.docker.com/engine/)
 
 Docker Engine acts as a client-server application with:
 
-- Server - `dockerd`, managing images & containers
-  - Container Runtime
-  - Volumes
-  - Network
-  - build images
-- API - interact with Docker Server
-- CLI - `docker` client
+* Server - `dockerd`, managing images & containers
+  * Container Runtime
+  * Volumes
+  * Network
+  * build images
+* API - interact with Docker Server
+* CLI - `docker` client
 
-![Docker Architecture diagram - docs.docker.com](.gitbook/assets/docker-architecture.png)
+![Docker Architecture diagram - docs.docker.com](../../.gitbook/assets/docker-architecture.png)
 
 ### [Docker Network](https://docs.docker.com/network/)
 
--	[Docker Networking Drivers - Details and Use Cases | Docker Blog](https://www.docker.com/blog/understanding-docker-networking-drivers-use-cases/)
--	[The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
+* [Docker Networking Drivers - Details and Use Cases | Docker Blog](https://www.docker.com/blog/understanding-docker-networking-drivers-use-cases/)
+* [The Container Network Model](https://github.com/moby/libnetwork/blob/master/docs/design.md)
 
 **Libnetwork** implements **Container Network Model** (CNM) which formalizes the steps required to provide networking for containers while providing an abstraction that can be used to support multiple network drivers.
 
-![CNM Model - libnetwork](.gitbook/assets/cnm-model.png)
+![CNM Model - libnetwork](../../.gitbook/assets/cnm-model.png)
 
 ```bash
 docker network ls
@@ -105,16 +103,16 @@ docker network ls
 
 **Docker Compose** - define and run multiple docker containers applications
 
-- `yaml` file to configure application's services
-- easy maintenance and config
+* `yaml` file to configure application's services
+* easy maintenance and config
 
 ### [Dockerfile](https://docs.docker.com/reference/dockerfile/)
 
 **Dockerfile** - text file with instructions to build Docker images
 
-- each instruction results in an image layer
-- used in CI/CD to build the docker image artifact, pushed to Docker (remote or local) repositories
-- each image is based on another base image (`FROM <image>`)
+* each instruction results in an image layer
+* used in CI/CD to build the docker image artifact, pushed to Docker (remote or local) repositories
+* each image is based on another base image (`FROM <image>`)
 
 `Dockerfile`
 
@@ -143,17 +141,17 @@ CMD ["command","arguments"]
 
 Public repositories
 
-- [DockerHub](https://hub.docker.com/)
+* [DockerHub](https://hub.docker.com/)
 
 Public repositories (container registries)
 
-- [Amazon ECR](https://aws.amazon.com/ecr/)
-- [Harbor](https://goharbor.io/) (Open-source)
-- [Microsoft ACR](https://azure.microsoft.com/en-au/products/container-registry/)
-- [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
-- [Google GCR](https://cloud.google.com/artifact-registry)
-- [Red Hat Quay](https://www.redhat.com/en/technologies/cloud-computing/quay)
-- [JFrog](https://jfrog.com/container-registry/)
+* [Amazon ECR](https://aws.amazon.com/ecr/)
+* [Harbor](https://goharbor.io/) (Open-source)
+* [Microsoft ACR](https://azure.microsoft.com/en-au/products/container-registry/)
+* [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+* [Google GCR](https://cloud.google.com/artifact-registry)
+* [Red Hat Quay](https://www.redhat.com/en/technologies/cloud-computing/quay)
+* [JFrog](https://jfrog.com/container-registry/)
 
 Image naming in Docker - `registryDomain/imageName:tag`
 
@@ -171,18 +169,18 @@ docker push <my-repo/my-app:version>
 
 ### [Docker Volumes](https://docs.docker.com/storage/volumes/)
 
-**Volumes** - persist container generated and used data, by mounting a folder from the physical host file system into the Docker virtual file system  
+**Volumes** - persist container generated and used data, by mounting a folder from the physical host file system into the Docker virtual file system
 
-- databases
-- stateful applications
-- data automatically replicated
-- Host, Anonymous, Named volumes
+* databases
+* stateful applications
+* data automatically replicated
+* Host, Anonymous, Named volumes
 
 Host Path - `/var/lib/docker/volumes`
 
-![](.gitbook/assets/2024-08-04_10-57-24_670.png)
+![](../../.gitbook/assets/2024-08-04_10-57-24_670.png)
 
----
+***
 
 ## [Docker Engine Install - Ubuntu Linux](https://docs.docker.com/engine/install/ubuntu/)
 
@@ -325,11 +323,11 @@ docker run -v /home/mount/data:/var/lib/mysql/data
 docker run -v /var/lib/mysql/data
 ```
 
----
+***
 
 ## Labs
 
-- [Developing with Docker - TechWorld with Nana](https://gitlab.com/nanuchi/developing-with-docker)
+* [Developing with Docker - TechWorld with Nana](https://gitlab.com/nanuchi/developing-with-docker)
 
 ```bash
 mkdir -p $HOME/repo/techworld
@@ -337,7 +335,4 @@ cd $HOME/repo/techworld
 git clone https://gitlab.com/nanuchi/developing-with-docker.git
 ```
 
-
-
----
-
+***
