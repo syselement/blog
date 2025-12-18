@@ -724,23 +724,31 @@ msfconsole
 
 ### [Install Docker](https://docs.docker.com/engine/install/debian/)
 
+- **Ubuntu**
+
 ```bash
 # Install Docker Engine via APT repository
 
-sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
 
-packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
-for pkg in "${packages[@]}"; do
-    sudo apt remove "$pkg" -y
-done &&
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-sudo sh -c '
-    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
-    chmod a+r /usr/share/keyrings/docker.gpg &&
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
-    apt update && 
-    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-'
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add the current user to the "docker" group to let it run Docker
 sudo groupadd docker
@@ -748,7 +756,10 @@ sudo gpasswd -a "${USER}" docker
 
 # Enable the services at boot
 sudo systemctl enable --now docker.service containerd.service
+sudo systemctl status docker
+```
 
+```bash
 # OR Disable the services at boot
 sudo systemctl disable docker.service containerd.service
 # still has docker.socket active to start the Docker service only when necessary
@@ -757,6 +768,43 @@ sudo systemctl disable docker.service containerd.service
 reboot
 docker run hello-world
 ```
+
+
+
+- **Debian**
+
+```bash
+sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
+
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Add the current user to the "docker" group to let it run Docker
+sudo groupadd docker
+sudo gpasswd -a "${USER}" docker
+
+# Enable the services at boot
+sudo systemctl enable --now docker.service containerd.service
+sudo systemctl status docker
+```
+
+
 
 ### [Install ctop](https://github.com/bcicen/ctop)
 
