@@ -588,7 +588,11 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 \\live.sysinternals.com\tools
 ```
 
-- **`e.g.`** Copy `tools` folder to `C:\Program Files\` and rename it to **`sysinternals`**
+- or **Download** `\\live.sysinternals.com\tools` folder to `C:\Program Files\sysinternals` -> Open Powershell as Administrator and run:
+
+```powershell
+robocopy \\live.sysinternals.com\tools "C:\Program Files\sysinternals" /E /R:2 /W:2
+```
 
 ---
 
