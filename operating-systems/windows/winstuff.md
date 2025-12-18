@@ -274,9 +274,6 @@ Install [OhMyPosh](https://ohmyposh.dev/docs/installation/windows)
 
 ```powershell
 winget install JanDeDobbeleer.OhMyPosh --source winget
-
-# Automated upgrade
-oh-my-posh enable upgrade
 ```
 
 Configure OhMyPosh
