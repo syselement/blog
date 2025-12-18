@@ -592,6 +592,8 @@ Invoke-Command -ComputerName HOSTNAME -ScriptBlock {Get-Service}
 
 ```powershell
 robocopy \\live.sysinternals.com\tools "C:\Program Files\sysinternals" /E /R:2 /W:2
+
+explorer "C:\Program Files\sysinternals"
 ```
 
 ---
