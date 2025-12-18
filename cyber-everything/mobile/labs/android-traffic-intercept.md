@@ -17,7 +17,7 @@ I've used my KaliVM and this instructions to follow IppSec's video and get every
 
 > 🔗 [Intercepting Android App Traffic with BurpSuite](https://www.youtube.com/watch?v=xp8ufidc514) - by [IppSec](https://ippsec.rocks/)
 >
-> #### Video Timeline
+> **Video Timeline**
 >
 > ```
 > 00:00 - Introduction, talking about RouterSpace and why we can't just do what we did in that video

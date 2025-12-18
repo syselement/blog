@@ -226,7 +226,7 @@ ssh root@<DEVICE_IP> -i ~/.ssh/"YOUR_SSH_PRIVATE_KEY"
 
 ### [MagiskTrustUserCerts](https://github.com/NVISOsecurity/MagiskTrustUserCerts)
 
-> This module makes all installed user certificates part of the system  certificate store, so that they will automatically be used when building the trust chain. This module makes it unnecessary to add the  network_security_config property to an application's manifest.
+> This module makes all installed user certificates part of the system certificate store, so that they will automatically be used when building the trust chain. This module makes it unnecessary to add the  `network_security_config` property to an application's manifest.
 
 ```bash
 wget https://github.com/NVISOsecurity/MagiskTrustUserCerts/releases/download/v0.4.1/AlwaysTrustUserCerts.zip
