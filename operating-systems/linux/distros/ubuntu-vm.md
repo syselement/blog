@@ -8,7 +8,7 @@
 
 ### Download and Install VirtualBox
 
-> Use the latest VirtualBox version (Screenshots may not be updatedd)
+> Use the latest VirtualBox version (Screenshots may not be updated)
 
 VirtualBox is a virtualization open source software that runs on Linux, Windows and Mac OS.
 
