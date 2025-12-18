@@ -1,6 +1,6 @@
 # 🔗 DevOps Resources
 
-> Other useful tools links can be found here ➡️ [Introduction to DevOps](/broken/pages/BAB7Bzz8BeRc7Q21vy9V)
+> Other useful tools links can be found here ➡️ [Introduction to DevOps](intro-devops.md)
 
 ## 🌐 Generic Links
 
