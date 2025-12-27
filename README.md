@@ -64,12 +64,6 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 >
 > 🔗 [PentesterLab](https://pentesterlab.com/referral/KpBnjOZqb3wbTA) *(Get 10 points with a Pro Subscription)*
 >
-> ------
->
-> [![](.gitbook/assets/pwnx.svg)](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
->
-> 🔗 [PWNX](https://play.pwnx.io/#/register/referral/7d3777ec-ae01-4cb9-941e-9f8ae6aa7bca)
->
 > ---
 >
 > [![](.gitbook/assets/securitycert.svg)](https://upgrade.chat/securitycert?referralCode=778322883629023243)

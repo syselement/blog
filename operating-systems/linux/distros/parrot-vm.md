@@ -62,7 +62,7 @@ alias updateos='sudo -- sh -c "sudo apt update && sudo apt -y upgrade && sudo ap
 
 ```bash
 cd
-mkdir htb tcm pwnx
+mkdir htb tcm 
 # Copy every .ovpn file in the respective dir
 ```
 
@@ -70,7 +70,6 @@ mkdir htb tcm pwnx
 # OpenVpn Aliases
 alias htbvpn='sudo openvpn --config ~/htb/htb.ovpn --daemon'
 alias thmvpn='sudo openvpn --config ~/thm/thm.ovpn --daemon'
-alias pwnxvpn='sudo openvpn --config ~/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 ```
 

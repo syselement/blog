@@ -276,13 +276,12 @@ wget http://<GITHUB>/syselement_kali_panel_config.tar.bz2
 
 ```bash
 cd
-mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/pwnx "$HOME"/tools
+mkdir -p "$HOME"/htb "$HOME"/tcm "$HOME"/tools
 # Copy every .ovpn file in the respective dir
 # e.g. File names
 # htb.ovpn
 # htbvip.ovpn
 # thm.ovpn
-# pwnx.ovpn
 ```
 
 ```bash

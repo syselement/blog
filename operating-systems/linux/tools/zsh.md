@@ -177,7 +177,6 @@ alias htbvpn='sudo openvpn --config $HOME/htb/htb.ovpn --daemon'        # HTB FR
 alias htbvipvpn='sudo openvpn --config $HOME/htb/htbvip.ovpn --daemon'  # HTB VIP VPN
 alias htbvipplusvpn='sudo openvpn --config $HOME/htb/htbvipplus.ovpn --daemon'  # HTB VIP+ VPN
 alias thmvpn='sudo openvpn --config $HOME/thm/thm.ovpn --daemon'
-alias pwnxvpn='sudo openvpn --config $HOME/pwnx/pwnx.ovpn --daemon'
 alias killopenvpn='sudo pkill openvpn'
 
 # Additional Aliases
