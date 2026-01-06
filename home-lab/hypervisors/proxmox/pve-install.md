@@ -461,7 +461,7 @@ sudo sh -c '
 
 
 
-### [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker)
+### [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) (test)
 
 > [Arcane - http://192.168.5.15:3000](http://192.168.5.15:3000/)
 >
@@ -470,6 +470,8 @@ sudo sh -c '
 > [UpSnap - http://192.168.5.15:8090](http://192.168.5.15:8090/)
 
 - Install the [Docker LXC](https://community-scripts.github.io/ProxmoxVE/scripts?id=docker) with the desired specs - TESTING Default
+  - 📌 TEMP -> this is just for TESTING - final Docker will be on a VM
+
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/docker.sh)"
@@ -504,9 +506,6 @@ cd yamls
 Installed containers list:
 
 #### [Arcane](https://arcane.ofkm.dev/)
-
-- [ ] to fix docker-compose file directory
-- [ ] 
 
 ```bash
 nano arcane-compose.yaml
@@ -549,7 +548,7 @@ docker compose -f arcane-compose.yaml up
 #### [Portainer](https://www.portainer.io/)
 
 - [x] Portainer - already installed by the LXC install script
-- [ ] try it VS Arcane - delete portainer from main Ubuntu VM
+- [ ] try it VS Arcane
 
 
 
@@ -603,6 +602,13 @@ docker compose -f upsnap-compose.yaml up
 - Create account
 - Create Devices
   - Network scan works if devices are already on - Scan the `/24` network
+- To [backup and restore](https://pocketbase.io/docs/going-to-production/#backup-and-restore) config:
+  - open `http://<IP>:8090/_/#/settings/backups`
+  - **Initialize new backup** and download the backup zip file
+  - to restore (on a new instance), **Upload backup** zip file and click **Restore** button
+
+
+
 
 
 
