@@ -95,10 +95,6 @@ sudo passwd root
 ### Bash aliases or ZSH
 
 ```bash
-nano $HOME/.bash_aliases
-```
-
-```bash
 touch $HOME/.bash_aliases
 cat <<'EOF' > $HOME/.bash_aliases
 # Custom aliases
@@ -229,8 +225,6 @@ sudo nano /etc/netplan/50-cloud-init.yaml
 # Tools
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
-
-
 packages=(
   apt-transport-https
   aptitude
@@ -272,8 +266,8 @@ packages=(
   wget
   zsh
 )
-apt update
-apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
+sudo apt update
+sudo apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
 
 mkdir -p $HOME/.local/bin
 ln -s /usr/bin/batcat $HOME/.local/bin/bat
@@ -290,26 +284,6 @@ sudo apt update && sudo apt install asciinema
 ---
 
 ### [Docker - Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-
-```bash
-sudo su
-apt install curl
-
-# Docker Engine - Convenience Script
-sh <(curl -sSL https://get.docker.com)
-
-# Docker Compose
-LATEST=$(curl -sL https://api.github.com/repos/docker/compose/releases/latest | grep '"tag_name":' | cut -d'"' -f4)
-DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-compose-linux-x86_64 -o $HOME/.docker/cli-plugins/docker-compose
-chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
-docker compose version
-
-# Add the current user to the "docker" group to let it run Docker
-sudo groupadd docker
-sudo gpasswd -a "${USER}" docker
-```
 
 - Alternative to install Docker Engine (via APT)
 
@@ -356,6 +330,29 @@ reboot
 docker run hello-world
 ```
 
+- Install via convenience script
+
+```bash
+sudo su
+apt install curl
+
+# Docker Engine - Convenience Script
+sh <(curl -sSL https://get.docker.com)
+
+# Docker Compose
+LATEST=$(curl -sL https://api.github.com/repos/docker/compose/releases/latest | grep '"tag_name":' | cut -d'"' -f4)
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -sSL https://github.com/docker/compose/releases/download/$LATEST/docker-compose-linux-x86_64 -o $HOME/.docker/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+
+# Add the current user to the "docker" group to let it run Docker
+exit
+sudo groupadd docker
+sudo gpasswd -a "${USER}" docker
+```
+
 
 
 #### [ctop](https://github.com/bcicen/ctop)
@@ -363,13 +360,13 @@ docker run hello-world
 - ctop - concise commandline monitoring for containers
 
 ```bash
-sudo apt-get install -y ca-certificates curl gnupg lsb-release
-curl -fsSL https://azlux.fr/repo.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/azlux-archive-keyring.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian \
-  $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/azlux.list >/dev/null
-sudo apt-get update
-sudo apt-get install -y docker-ctop
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo sh -c '
+    curl -fsSL https://azlux.fr/repo.gpg.key | gpg --dearmor -o /usr/share/keyrings/azlux-archive-keyring.gpg &&
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian stable main" | tee /etc/apt/sources.list.d/azlux.list >/dev/null &&
+    apt update &&
+    apt install -y docker-ctop
+'
 ```
 
 

@@ -442,6 +442,28 @@ taskkill /PID targetpid
 
 ## Powershell commands
 
+### Get host hardware info
+
+```bash
+# Powershell
+$macs = Get-CimInstance Win32_NetworkAdapter |
+Where-Object {
+  $_.PhysicalAdapter -eq $true -and $_.MACAddress
+} |
+Select-Object Name, MACAddress
+
+[PSCustomObject]@{
+  Manufacturer = (Get-CimInstance Win32_ComputerSystem).Manufacturer
+  Model        = (Get-CimInstance Win32_ComputerSystem).Model
+  BIOSSerial   = (Get-CimInstance Win32_BIOS).SerialNumber
+  BoardSerial  = (Get-CimInstance Win32_BaseBoard).SerialNumber
+  UUID         = (Get-CimInstance Win32_ComputerSystemProduct).UUID
+  NetworkMACs  = ($macs | ForEach-Object { "$($_.Name): $($_.MACAddress)" }) -join " | "
+}
+```
+
+
+
 ### Show Wi-Fi profiles
 
 ```bash
@@ -479,8 +501,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File <SCRIPT.ps1>
 # 7. Reset execution policy back to restricted (optional, for security)
 Set-ExecutionPolicy Restricted -Scope CurrentUser -Force  # Blocks all scripts again
 ```
-
-
 
 ### [Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/upgrade)
 
