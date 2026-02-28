@@ -326,12 +326,12 @@ EOF
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 
 packages=(
-    apt-transport-https
     aptitude
+    bash-completion
     bat
     btop
+    build-essential
     ca-certificates
-    coreutils
     curl
     duf
     eza
@@ -342,11 +342,10 @@ packages=(
     fonts-noto-color-emoji
     fzf
     gdu
-    git-all
+    git
     gnome-shell-extensions
     gnome-shell-extension-manager
     gnupg
-    gpg
     gping
     htop
     iftop
@@ -354,13 +353,14 @@ packages=(
     ipcalc
     iperf3
     jq
-    locate
+    lsb-release
     nano
     net-tools
     nload
     nmap
     npm
     pipx
+    plocate
     software-properties-common
     speedtest-cli
     sshpass
@@ -370,10 +370,12 @@ packages=(
     tor
     tree
     ugrep
+    unzip
     vim
     vlc
     wget
     xclip
+    zip
     zsh
     # Add package here
 )
