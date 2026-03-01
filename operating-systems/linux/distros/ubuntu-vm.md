@@ -231,6 +231,10 @@ mkdir -p $HOME/.ssh
 cd $HOME/.ssh
 ssh-keygen -t ed25519
 # Type a secure passphrase when asked
+
+# or import with
+cat > $HOME/.ssh/id_ed25519   # paste private key, Ctrl-D
+
 chmod 700 $HOME/.ssh
 chmod 600 $HOME/.ssh/*
 
@@ -248,6 +252,10 @@ cat $HOME/.ssh/id_ed25519.pub
 
 # Ubuntu Server VM
 echo "pubkey_string" >> $HOME/.ssh/authorized_keys
+
+# or one command from Github - e.g.
+curl -s https://github.com/syselement.keys >> $HOME/.ssh/authorized_keys
+
 # Set permissions
 chmod -R go= $HOME/.ssh
 ```
@@ -370,12 +378,10 @@ packages=(
     tor
     tree
     ugrep
-    unzip
     vim
     vlc
     wget
     xclip
-    zip
     zsh
     # Add package here
 )
@@ -415,8 +421,6 @@ EOF &&
 '
 ```
 
-
-
 - Run it with **`subl`** command.
 
 ---
@@ -434,6 +438,14 @@ sudo sh -c '
     apt install -y brave-browser &&
     rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
+```
+
+---
+
+## [Obsidian](https://obsidian.md/)
+
+```bash
+snap install obsidian --classic
 ```
 
 ---
@@ -483,9 +495,9 @@ sudo usermod -a -G vboxusers $USER
 
 ```bash
 sudo sh -c '
-    sudo wget -O /usr/share/keyrings/dbeaver.gpg.key https://dbeaver.io/debs/dbeaver.gpg.key
+    wget -O /usr/share/keyrings/dbeaver.gpg.key https://dbeaver.io/debs/dbeaver.gpg.key
 	echo "deb [signed-by=/usr/share/keyrings/dbeaver.gpg.key] https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
-    sudo apt update && sudo apt install -y dbeaver-ce
+    apt update && apt install -y dbeaver-ce
 '
 ```
 
@@ -528,7 +540,7 @@ startupLaunch=true
 EOF
 ```
 
--  Set this as a custom **Keyboard shortcut** for `flameshot`
+-  Set this line as a custom **Keyboard shortcut** for `flameshot`
    -  I use `Shift+Alt+S`
 
 ```bash
