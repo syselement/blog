@@ -70,6 +70,25 @@ netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { $
 
 
 
+### Network
+
+- Edit file `/etc/systemd/network/eth0.network` for Ethernet or `wlan0.network` for Wi-Fi and edit the `[Network]` section:
+
+```bash
+ls /etc/systemd/network/
+    eth0.network
+    wlan0.network
+
+# e.g. config
+[Network]
+Address=192.168.x.x/24
+Gateway=192.168.x.x
+DNS=192.168.x.x
+DNS=192.168.x.x
+```
+
+
+
 ---
 
 ## PiKVM Shell commands
@@ -195,6 +214,10 @@ kvmd -m # syntax check
 systemctl restart kvmd
 reboot
 ```
+
+
+
+
 
 ---
 
