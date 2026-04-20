@@ -47,6 +47,44 @@ sudo apt install -y android-sdk-platform-tools
     - Enable `Wireless debugging`
     - Enable `Disable adb authorization timeout`
 
+### adb commands
+
+```bash
+# Check for the connected device
+adb devices
+```
+
+```bash
+# Powershell - get device info
+$props = adb shell getprop
+
+function Get-Prop($name) {
+    ($props | Select-String "^\[$name\]") -replace '.*\[(.*?)\]$','$1'
+}
+
+$brand   = Get-Prop "ro.product.brand"
+$model   = Get-Prop "ro.product.model"
+$device  = Get-Prop "ro.product.device"
+$android = Get-Prop "ro.build.version.release"
+$sdk     = Get-Prop "ro.build.version.sdk"
+$build   = Get-Prop "ro.build.display.id"
+
+$output = @"
+Android Device Info
+-------------------
+Brand   : $brand
+Model   : $model
+Device  : $device
+Android : $android
+SDK     : $sdk
+Build   : $build
+"@
+
+Write-Host $output
+```
+
+
+
 ---
 
 ## Unlock Bootloader (Google Devices)
