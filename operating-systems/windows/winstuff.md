@@ -338,6 +338,15 @@ fastfetch
 . $PROFILE
 ```
 
+Install [speedtest-cli](https://www.speedtest.net/apps/cli?ref=winstall)
+
+```powershell
+winget install speedtest-cli
+
+# Use with
+speedtest
+```
+
 
 
 ------
