@@ -112,6 +112,8 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 >
 > 🔗 [BloatyNosy - by Builtbybel](https://github.com/builtbybel/BloatyNosy/)
 >
+> 🔗 [Winhance](https://github.com/memstechtips/Winhance)
+>
 > 🔗 [Windows11-Debloat-Privacy-Guide](https://github.com/TheWorldOfPC/Windows11-Debloat-Privacy-Guide)
 >
 > 🔗 [Win11Debloat - Raphire](https://github.com/Raphire/Win11Debloat)
@@ -244,6 +246,7 @@ schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting"
 ### Italian Dev Keyboard - Tilde and Backtick
 
 - Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
+- ✅ (easier) or remap the keys via **PowerToys Keyboard Manager**
 
 ### PowerToys
 
