@@ -29,10 +29,6 @@
 
 ## 📝 Courses Notes
 
-- [eLearnSecurity / INE](courses-notes/elearnsecurity-ine/README.md)
-  - [eJPT - PTSv2](https://blog.syselement.com/ine/courses/ejpt)
-  - [eMAPT](https://blog.syselement.com/ine/courses/emapt)
-  - [ICCA](https://blog.syselement.com/ine/courses/icca)
 - [Practical Networking](courses-notes/practical-networking/README.md)
   - [Practical TLS](courses-notes/practical-networking/practical-tls/README.md)
     - [TLS/SSL Overview](courses-notes/practical-networking/practical-tls/1-tls-ssl/README.md)
@@ -59,6 +55,8 @@
   - [Cryptography](cyber-everything/generic/cryptography.md)
   - [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
   - [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
+  - [Junior Pentester Cheat Sheet](cyber-everything/generic/juniorpt-cheatsheet.md)
+  - [🌐 Junior Pentester References](cyber-everything/generic/juniorpt-references.md)
 - [📱 Mobile](cyber-everything/mobile/README.md)
   - [Apps Lab](cyber-everything/mobile/labs/README.md)
     - [Android Rooting Guide](cyber-everything/mobile/labs/android-rooting.md)
