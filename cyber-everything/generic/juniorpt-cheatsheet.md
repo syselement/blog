@@ -1,4 +1,4 @@
-# 📜 Junior Pentester Cheat Sheet
+# Junior Pentester Cheat Sheet
 
 > ⬇️ Feel free to download the cheat-sheet  and kindly mention my blog when utilizing it
 >

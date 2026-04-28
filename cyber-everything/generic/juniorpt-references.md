@@ -1,4 +1,4 @@
-# 🌐 Junior Pentester References
+# Junior Pentester References
 
 ## Introduction
 

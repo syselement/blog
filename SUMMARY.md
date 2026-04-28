@@ -56,7 +56,7 @@
   - [CVSS 3.1](cyber-everything/generic/cvss3.1.md)
   - [Cyber Threat Intelligence (CTI)](cyber-everything/generic/threat-intelligence.md)
   - [Junior Pentester Cheat Sheet](cyber-everything/generic/juniorpt-cheatsheet.md)
-  - [🌐 Junior Pentester References](cyber-everything/generic/juniorpt-references.md)
+  - [Junior Pentester References](cyber-everything/generic/juniorpt-references.md)
 - [📱 Mobile](cyber-everything/mobile/README.md)
   - [Apps Lab](cyber-everything/mobile/labs/README.md)
     - [Android Rooting Guide](cyber-everything/mobile/labs/android-rooting.md)
