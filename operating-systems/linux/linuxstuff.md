@@ -372,6 +372,20 @@ sudo systemctl mask apt-daily{,-upgrade}.service
 sudo apt purge --auto-remove unattended-upgrades
 ```
 
+### Public IP
+
+```bash
+curl icanhazip.com
+curl api.ipify.org
+curl ifconfig.me
+curl ifconfig.co
+curl ipinfo.io/ip
+curl checkip.amazonaws.com
+curl ident.me
+
+nslookup myip.opendns.com resolver1.opendns.com
+```
+
 ### Speedtest-cli
 
 ```bash

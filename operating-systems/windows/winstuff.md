@@ -350,6 +350,14 @@ winget install speedtest-cli
 speedtest
 ```
 
+Install [bind9 tools](https://winstall.app/apps/ISC.Bind) for DNS
+
+- dig, nslookup, host
+
+```bash
+winget install -e --id ISC.Bind
+```
+
 
 
 ------
