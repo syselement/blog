@@ -144,95 +144,139 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 - Open `cmd.exe` and type the following commands
 
 ```powershell
-sc delete DiagTrack
-sc delete dmwappushservice
-sc delete WerSvc
-sc delete OneSyncSvc
-sc delete MessagingService
-sc delete wercplsupport
-sc delete PcaSvc
-sc config wlidsvc start=demand
-sc delete wisvc
-sc delete RetailDemo
-sc delete diagsvc
-sc delete shpamsvc 
-sc delete TermService
-sc delete UmRdpService
-sc delete SessionEnv
-sc delete TroubleshootingSvc
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "wscsvc" ^| find /i "wscsvc"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "OneSyncSvc" ^| find /i "OneSyncSvc"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "MessagingService" ^| find /i "MessagingService"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "PimIndexMaintenanceSvc" ^| find /i "PimIndexMaintenanceSvc"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UserDataSvc" ^| find /i "UserDataSvc"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UnistoreSvc" ^| find /i "UnistoreSvc"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "BcastDVRUserService" ^| find /i "BcastDVRUserService"') do (reg delete %I /f)
-for /f "tokens=1" %I in ('reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "Sgrmbroker" ^| find /i "Sgrmbroker"') do (reg delete %I /f)
-sc delete diagnosticshub.standardcollector.service
-reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
-reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules" /v "PeriodInNanoSeconds" /f
-reg add "HKLM\SYSTEM\ControlSet001\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v Start /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableInventory /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisablePCA /t REG_DWORD /d 1 /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableUAR /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Internet Explorer\PhishingFilter" /v "EnabledV9" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger /t REG_SZ /d "%windir%\System32\taskkill.exe" /f
+reg export "HKLM\SYSTEM\CurrentControlSet\Services" "%SystemDrive%\PrivacyHardeningBackup\Services.reg" /y
+reg export "HKLM\SOFTWARE\Policies" "%SystemDrive%\PrivacyHardeningBackup\HKLM-Policies.reg" /y
+reg export "HKCU\SOFTWARE\Policies" "%SystemDrive%\PrivacyHardeningBackup\HKCU-Policies.reg" /y
+
+sc stop "DiagTrack"
+sc config "DiagTrack" start= disabled
+sc stop "dmwappushservice"
+sc config "dmwappushservice" start= disabled
+sc stop "WerSvc"
+sc config "WerSvc" start= disabled
+sc stop "wisvc"
+sc config "wisvc" start= disabled
+sc stop "RetailDemo"
+sc config "RetailDemo" start= disabled
+sc stop "diagnosticshub.standardcollector.service"
+sc config "diagnosticshub.standardcollector.service" start= disabled
+sc config "wlidsvc" start= demand
+sc stop "PcaSvc"
+sc config "PcaSvc" start= disabled
+sc stop "diagsvc"
+sc config "diagsvc" start= disabled
+sc stop "TroubleshootingSvc"
+sc config "TroubleshootingSvc" start= disabled
+sc stop "shpamsvc"
+sc config "shpamsvc" start= disabled
+sc stop "wercplsupport"
+sc config "wercplsupport" start= disabled
+
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "OneSyncSvc"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "MessagingService"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "PimIndexMaintenanceSvc"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UserDataSvc"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "UnistoreSvc"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "BcastDVRUserService"
+reg query "HKLM\SYSTEM\CurrentControlSet\Services" /k /f "SgrmBroker"
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v LimitDiagnosticLogCollection /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v LimitDumpCollection /t REG_DWORD /d 1 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v Start /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v DontSendAdditionalData /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent" /v DefaultConsent /t REG_DWORD /d 1 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v Disabled /t REG_DWORD /d 1 /f
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v AITEnable /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableInventory /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisableUAR /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v DisablePCA /t REG_DWORD /d 1 /f
+
+reg add "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v NumberOfSIUFInPeriod /t REG_DWORD /d 0 /f
+reg delete "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v PeriodInNanoSeconds /f
+
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy" /v TailoredExperiencesWithDiagnosticDataEnabled /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableWindowsConsumerFeatures /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableConsumerAccountStateContent /t REG_DWORD /d 1 /f
+reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 1 /f
+
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v ContentDeliveryAllowed /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v OemPreInstalledAppsEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v PreInstalledAppsEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v PreInstalledAppsEverEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SilentInstalledAppsEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SystemPaneSuggestionsEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338387Enabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338388Enabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-338389Enabled /t REG_DWORD /d 0 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SubscribedContent-353698Enabled /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v EnableActivityFeed /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v PublishUserActivities /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v UploadUserActivities /t REG_DWORD /d 0 /f
+
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoRecentDocsHistory /t REG_DWORD /d 1 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v ClearRecentDocsOnExit /t REG_DWORD /d 1 /f
+
+reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowCopilotButton /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /v AllowRecallEnablement /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowCopilotButton /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f
-pause
-```
 
-**Scheduled tasks**
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v EnableSmartScreen /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /v EnabledV9 /t REG_DWORD /d 1 /f
+reg add "HKCU\Software\Microsoft\Internet Explorer\PhishingFilter" /v EnabledV9 /t REG_DWORD /d 1 /f
 
-```powershell
-del /F /Q "C:\Windows\System32\Tasks\Microsoft\Windows\SettingSync\*" 
-schtasks /Change /TN "\Microsoft\Windows\AppID\SmartScreenSpecific" /disable
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\AitAgent" /disable
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /disable
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" /disable
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\StartupAppTask" /disable
-schtasks /Change /TN "\Microsoft\Windows\ApplicationData\DsSvcCleanup" /disable
-schtasks /Change /TN "\Microsoft\Windows\Autochk\Proxy" /disable
-schtasks /Change /TN "\Microsoft\Windows\Clip\License Validation" /disable
-schtasks /Change /TN "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /disable
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM" /disable
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /disable
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Uploader" /disable
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /disable
-schtasks /Change /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /disable
-schtasks /Change /TN "\Microsoft\Windows\Diagnosis\Scheduled" /disable
-schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /disable
-schtasks /Change /TN "\Microsoft\Windows\DiskFootprint\Diagnostics" /disable
-schtasks /Change /TN "\Microsoft\Windows\FileHistory\File History (maintenance mode)" /disable
-schtasks /Change /TN "\Microsoft\Windows\License Manager\TempSignedLicenseExchange" /disable
-schtasks /Change /TN "\Microsoft\Windows\Location\Notifications" /disable
-schtasks /Change /TN "\Microsoft\Windows\Location\WindowsActionDialog" /disable
-schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /disable
-schtasks /Change /TN "\Microsoft\Windows\Maps\MapsToastTask"  /disable
-schtasks /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /disable
-schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /disable
-schtasks /Change /TN "\Microsoft\Windows\PI\Sqm-Tasks" /disable
-schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /disable
-schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /disable
-schtasks /Change /TN "\Microsoft\Windows\PushToInstall\LoginCheck" /disable
-schtasks /Change /TN "\Microsoft\Windows\PushToInstall\Registration" /disable
-schtasks /Change /TN "\Microsoft\Windows\Retail Demo\CleanupOfflineContent" /disable
-schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyMonitor" /disable
-schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyRefreshTask" /disable
-schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyUpload" /disable
-schtasks /Change /TN "\Microsoft\Windows\Subscription\EnableLicenseAcquisition" /disable
-schtasks /Change /TN "\Microsoft\Windows\Subscription\LicenseAcquisition" /disable
-schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /disable
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe" /v Debugger /f
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DeviceCensus.exe" /v Debugger /f
+
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\StartupAppTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\AitAgent" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Uploader" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Diagnosis\Scheduled" /Disable
+schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /Disable
+schtasks /Change /TN "\Microsoft\Windows\DiskFootprint\Diagnostics" /Disable
+schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /Disable
+schtasks /Change /TN "\Microsoft\Windows\PI\Sqm-Tasks" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Retail Demo\CleanupOfflineContent" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsToastTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Location\Notifications" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Location\WindowsActionDialog" /Disable
+schtasks /Change /TN "\Microsoft\Windows\PushToInstall\LoginCheck" /Disable
+schtasks /Change /TN "\Microsoft\Windows\PushToInstall\Registration" /Disable
+schtasks /Change /TN "\Microsoft\Windows\ApplicationData\DsSvcCleanup" /Disable
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /v DisableSettingSync /t REG_DWORD /d 2 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /v DisableSettingSyncUserOverride /t REG_DWORD /d 1 /f
+
+schtasks /Change /TN "\Microsoft\Windows\SettingSync\BackgroundUploadTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\SettingSync\BackupTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\SettingSync\NetworkStateChangeTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\SettingSync\RefreshCache" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Autochk\Proxy" /Disable
+schtasks /Change /TN "\Microsoft\Windows\License Manager\TempSignedLicenseExchange" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyMonitor" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyRefreshTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Shell\FamilySafetyUpload" /Disable
+schtasks /Change /TN "\Microsoft\Windows\AppID\SmartScreenSpecific" /Disable
+schtasks /Change /TN "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /Disable
+schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /Disable
 ```
 
 ### UniGetUI
