@@ -27,6 +27,7 @@
 > - [r3dfish/Beepergotchi](https://github.com/r3dfish/Beepergotchi)
 >   - [Beepergotchi Build Video - Pwnagotchi + Wardriver](https://www.youtube.com/watch?v=_2HQt8xJ-rQ)
 > - [infinition/Bjorn](https://github.com/infinition/Bjorn)
+>   - [Meet Bjorn, the Easy to Build Hacking Tool - TCM](https://www.youtube.com/watch?v=1rKBnZx243o)
 > - [7h30th3r0n3/Raspyjack](https://github.com/7h30th3r0n3/Raspyjack)
 >   - [Raspyjack - Small Offensive Network Toolkit for Raspberry Pi](https://www.youtube.com/watch?v=tnyolkq7x8Y)
 
