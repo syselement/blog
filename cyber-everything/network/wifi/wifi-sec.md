@@ -9,6 +9,7 @@
 > - [Pwnagotchi official](https://pwnagotchi.ai/)
 >   - [jayofelony/pwnagotchi](https://github.com/jayofelony/pwnagotchi) (✅ maintained)
 >   - [https://pwnstore.org/pwnconfig.html](https://pwnstore.org/pwnconfig.html)
+>   - [https://pwnagotchi.org/](https://pwnagotchi.org/)
 > - [bettercap](https://www.bettercap.org/)
 > - [WifiForge - Black Hills Infosec](https://github.com/blackhillsinfosec/WifiForge)
 >   - [WifiForge Documentation & Labs](https://wififorge.github.io/)
