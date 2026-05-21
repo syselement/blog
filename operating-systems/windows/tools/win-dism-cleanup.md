@@ -52,27 +52,27 @@ The final `AnalyzeComponentStore` run lets you compare the component store size 
 
 ## What each command does
 
-### `DISM /Online /Cleanup-Image /CheckHealth`
+`DISM /Online /Cleanup-Image /CheckHealth`
 
 Performs a quick check to see whether Windows has already flagged the component store as corrupted. This command is fast because it does not perform a full scan.
 
-### `DISM /Online /Cleanup-Image /ScanHealth`
+`DISM /Online /Cleanup-Image /ScanHealth`
 
 Performs a deeper scan of the component store. This can take several minutes.
 
-### `DISM /Online /Cleanup-Image /RestoreHealth`
+`DISM /Online /Cleanup-Image /RestoreHealth`
 
 Scans the Windows image for component store corruption and automatically attempts repairs. By default, DISM can use Windows Update as a repair source when required.
 
-### `sfc /scannow`
+`sfc /scannow`
 
 Scans protected Windows system files and replaces corrupted files when possible. Run this **after** DISM so SFC can rely on a repaired component store.
 
-### `DISM /Online /Cleanup-Image /AnalyzeComponentStore`
+`DISM /Online /Cleanup-Image /AnalyzeComponentStore`
 
 Reports component store size, reclaimable packages, cache data, and whether cleanup is recommended.
 
-### `DISM /Online /Cleanup-Image /StartComponentCleanup`
+`DISM /Online /Cleanup-Image /StartComponentCleanup`
 
 Removes superseded components and reduces the size of the component store. This is useful after successful repairs or after installing many cumulative updates.
 
