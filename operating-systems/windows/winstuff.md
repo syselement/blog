@@ -137,11 +137,16 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 
 3. Use Chris Titus Tech's [winutil](https://github.com/christitustech/winutil) for more tweaks and fixes.
 
+```bash
+# Run Terminal/Powershell as Administrator
+irm "https://christitus.com/win" | iex
+```
+
 **Removing Telemetry and other unnecessary services**
 
 > 📌 *The following commands may have already been executed by the scripts above. The command list may be outdated and requires some cleaning and fixing.*
 
-- Open `cmd.exe` and type the following commands
+- Open `cmd.exe` and run the following commands
 
 ```powershell
 reg export "HKLM\SYSTEM\CurrentControlSet\Services" "%SystemDrive%\PrivacyHardeningBackup\Services.reg" /y

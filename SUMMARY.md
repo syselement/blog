@@ -23,6 +23,7 @@
   - [Windows Tools](operating-systems/windows/tools/README.md)
     - [Hashcat](operating-systems/windows/tools/hashcat-win.md)
     - [Vagrant](operating-systems/windows/tools/vagrant-win.md)
+    - [Windows DISM and SFC](operating-systems/windows/tools/win-dism-cleanup.md)
   - [Windows Virtual Machines](operating-systems/windows/vms/README.md)
     - [Windows 11 - VM](operating-systems/windows/vms/win11-vm.md)
     - [Windows Server 2025 - VM](operating-systems/windows/vms/win-srv-vm.md)
