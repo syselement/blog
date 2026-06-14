@@ -172,8 +172,8 @@ sudo sh -c '
 
 # APT DEB822 source format
 sudo sh -c '
-	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null
-	cat <<EOF > /etc/apt/sources.list.d/sublime-text.sources
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /usr/share/keyrings/sublimehq-pub.asc > /dev/null &&
+	cat > /etc/apt/sources.list.d/sublime-text.sources <<EOF
 Types: deb
 URIs: https://download.sublimetext.com/
 Suites: apt/stable/
@@ -245,13 +245,14 @@ EOF
 
 ```bash
 sudo sh -c '
-    apt install -y curl
-    curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
-    wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb
-    dpkg -i libu2f-udev_1.1.10-3.2_all.deb
-    apt update && apt install -y brave-browser
-    rm -rf libu2f-udev_1.1.10-3.2_all.deb
+    apt install -y curl &&
+		curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg &&
+		curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources
+    # wget http://archive.ubuntu.com/ubuntu/pool/main/libu/libu2f-host/libu2f-udev_1.1.10-3.2_all.deb &&
+    # dpkg -i libu2f-udev_1.1.10-3.2_all.deb &&
+    apt update &&
+    apt install -y brave-browser
+    # rm -rf libu2f-udev_1.1.10-3.2_all.deb
 '
 ```
 
