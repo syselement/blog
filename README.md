@@ -48,6 +48,8 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 
 ## 🍕 Referrals
 
+
+>
 > [![](.gitbook/assets/tryhackme.svg)](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) 
 >
 > 🔗 [TryHackMe](https://tryhackme.com/signup?referrer=5f960ba99fb18d5314f76d5f) *(Get 5$ on a Premium Subscription)*
@@ -65,7 +67,13 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > 🔗 [PentesterLab](https://pentesterlab.com/referral/KpBnjOZqb3wbTA) *(Get 10 points with a Pro Subscription)*
 >
 > ---
+> 
+> [![](.gitbook/assets/image-20260614221123817.png)](https://labs.iximiuz.com/signup?referral=6a1493aad465495b22f89af6)
 >
+> 🔗 [Iximiuz Labs](https://labs.iximiuz.com/signup?referral=6a1493aad465495b22f89af6)
+>
+> ---
+> 
 > [![](.gitbook/assets/securitycert.svg)](https://upgrade.chat/securitycert?referralCode=778322883629023243)
 >
 > 🔗 [SecurityCert](https://upgrade.chat/securitycert?referralCode=778322883629023243) *(Italian CyberSecurity Community)*
@@ -75,6 +83,7 @@ Welcome to my notes blog! This blog is intended to provide information and insig
 > [![](.gitbook/assets/kodekloud.svg)](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
 >
 > 🔗 [KodeKloud](https://engineer.kodekloud.com/signup?referral=6607378b4014655f23f038ae)
+> 
 
 ---
 
