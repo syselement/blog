@@ -12,6 +12,18 @@
 > - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
 > - [PiKVM Build • Chris Dzombak](https://www.dzombak.com/blog/2021/11/pikvm-build/)
 > - [My Pi-KVM Build by Eric Lathrop](https://ericlathrop.com/2020/12/my-pi-kvm-build/)
+> - [Tailscale VPN - PiKVM Handbook](https://docs.pikvm.org/tailscale/)
+> - [Making a Wake-on-LAN server using Tailscale, UpSnap, and Raspberry Pi](https://tailscale.com/blog/wake-on-lan-tailscale-upsnap)
+> - [Best Out of Band Management Solutions - Virtualization Howto](https://www.virtualizationhowto.com/2024/01/best-out-of-band-management-solutions/)
+>
+> 
+>
+> **Security**
+>
+> - [Out-of-Band, Part 1: the new gen of IP KVMs & how to find them](https://www.runzero.com/blog/oob-p1-ip-kvm/)
+> - [https://blog.grumpygoose.io/hold-me-closer-tinypilot-f94455431921](https://blog.grumpygoose.io/hold-me-closer-tinypilot-f94455431921)
+> - [https://blog.grumpygoose.io/unemployfuscation-1a1721485312](https://blog.grumpygoose.io/unemployfuscation-1a1721485312)
+> - [https://blog.grumpygoose.io/be-kvm-do-fraud-8ab523d26c9d](https://blog.grumpygoose.io/be-kvm-do-fraud-8ab523d26c9d)
 
 ---
 
