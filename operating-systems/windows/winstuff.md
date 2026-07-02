@@ -142,9 +142,11 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabl
 irm "https://christitus.com/win" | iex
 ```
 
+### Manual Debloat
+
 **Removing Telemetry and other unnecessary services**
 
-> 📌 *The following commands may have already been executed by the scripts above. The command list may be outdated and requires some cleaning and fixing.*
+> 📌 The following commands may have already been executed by the scripts above. The command list may be outdated.
 
 - Open `cmd.exe` and run the following commands
 
@@ -295,22 +297,21 @@ schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /Disable
 - Create you own package bundle to bulk install software
 - Export packages list and more
 
-### Italian Dev Keyboard - Tilde and Backtick
-
-- Install Italian Dev keyboard - [https://github.com/linuxiamo/devs-kb-layout-ita](https://github.com/linuxiamo/devs-kb-layout-ita) - and setup in **Time & language - Language & region - Options - Keyboards**
-- ✅ (easier) or remap the keys via **PowerToys Keyboard Manager**
-
 ### PowerToys
 
 Install [Microsoft PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/) via winget
-
-- Enable FancyZones and create a window layout
 
 ```bash
 winget install --id Microsoft.PowerToys --source winget
 ```
 
+**Recommended configuration**
 
+- Configure [FancyZones](https://learn.microsoft.com/it-it/windows/powertoys/fancyzones) and create a custom window layout for each monitor
+- Enable [Keyboard Manager](https://learn.microsoft.com/it-it/windows/powertoys/keyboard-manager)
+- Open **Keyboard Manager → Editor -> Add new remaping** and configure shortcuts for:
+    - Backtick: `
+    - Tilde: ~
 
 ### Windows Terminal Mod
 
@@ -716,7 +717,11 @@ explorer "C:\Program Files\sysinternals"
 > | Daily quota                  | 500 lookups / day      |
 > | Monthly quota                | 15.5 K lookups / month |
 
+---
 
+### [Glary Utilities](https://www.glarysoft.com/)
+
+- Download **Glary Utilities Free** to manage startup programs, reduce boot time, clean unnecessary files, and help your Windows PC run faster and more smoothly
 
 ------
 
