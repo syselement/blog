@@ -704,8 +704,6 @@ explorer "C:\Program Files\sysinternals"
 
 ![](../../.gitbook/assets/image-20230604010222697.png)
 
->
-
 | VirusTotal - Free public API | Limits                 |
 | ---------------------------- | ---------------------- |
 | Request rate                 | 4 lookups / min        |
