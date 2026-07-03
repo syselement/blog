@@ -1,15 +1,15 @@
-# Vim
+# [Vim](https://www.vim.org/)
 
-![vim.org](../../.gitbook/assets/vim.png)
+![vim.org](.gitbook/assets/vim.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [VIM Docs](https://www.vim.org/docs.php)
-> * [Vim Cheat Sheet](https://vim.rtorr.com/)
+> - [VIM Docs](https://www.vim.org/docs.php)
+> - [Vim Cheat Sheet](https://vim.rtorr.com/)
 
-***
+---
 
 ## Commands
 
@@ -44,4 +44,5 @@ $	# jump to end of the line
 :%s/old/new # replace 'old' with 'new' throughout the file
 ```
 
-***
+---
+

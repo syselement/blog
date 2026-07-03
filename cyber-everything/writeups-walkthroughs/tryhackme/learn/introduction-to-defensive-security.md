@@ -1,14 +1,14 @@
 # Intro to Defensive Security
 
-![tryhackme.com - © TryHackMe](<../../../../.gitbook/assets/tryhackme-logo-small (5).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-***
+---
 
 > **Name**
 >
 > 🌐 [Introduction to Defensive Security](https://tryhackme.com/module/introduction-to-defensive-security) - TryHackMe Module
 >
-> <img src="../../../../.gitbook/assets/intro-to-defensive.png" alt="" data-size="original">
+> <img src=".gitbook/assets/intro-to-defensive.png" alt="" data-size="original">
 >
 > **Description**
 >
@@ -18,7 +18,7 @@
 > * Security Operations in the cyber industry
 > * Learn how protection works in a web-base simulation
 
-***
+---
 
 ## [Intro to Digital Forensics](https://tryhackme.com/jr/introdigitalforensics)
 
@@ -421,7 +421,7 @@ Lens ID                         : Canon EF 50mm f/1.8 STM
 
 * Search for the GPS Position **`51° 30' 51.90" N, 0° 5' 38.73" W`** (deg = °) on [Google Maps](https://goo.gl/maps/61VzBGiNvmD3kTbB7).
 
-![](../../../../.gitbook/assets/image-20230208001146501.png)
+![](.gitbook/assets/image-20230208001146501.png)
 
 <details>
 

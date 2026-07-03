@@ -1,20 +1,20 @@
 # 📃 Everything Linux
 
-![](../../.gitbook/assets/Linux-logo-small.png)
+![](.gitbook/assets/Linux-logo-small.png)
 
 > 📜 In this 🐧 **Linux** notes repository, I store all of my notes related to the Linux operating system and Unix based apps.
 >
-> * �&#xDCCC;_&#x53;ome commands can be outdated._
-> * ❗_Most of the commands are for **Debian-based** distributions._
+> - 📌*Some commands can be outdated.*
+> - ❗*Most of the commands are for **Debian-based** distributions.*
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [DistroWatch.com](https://distrowatch.com/)
-> * [modern-unix: A collection of modern/faster/saner alternatives to common unix commands.](https://github.com/ibraheemdev/modern-unix)
+> - [DistroWatch.com](https://distrowatch.com/)
+> - [modern-unix: A collection of modern/faster/saner alternatives to common unix commands.](https://github.com/ibraheemdev/modern-unix)
 
-***
+---
 
 ## Terminal commands
 
@@ -93,7 +93,7 @@ htop
 
 ### Swap Enable
 
-* To enable swap with `btrfs` disk run
+- To enable swap with `btrfs` disk run
 
 ```bash
 sudo btrfs filesystem mkswapfile --size 4G /swapfile
@@ -220,14 +220,14 @@ sudo apt --purge autoremove
 
 > Info:
 >
-> * **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
-> * **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
-> * **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
-> * **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
+> - **apt clean** → cleans the packages and install script in /var/cache/apt/archives/ (_removes all stored archives in your cache_)
+> - **apt autoclean** → cleans obsolete deb-packages, _**less than clean**_ (_removes all stored archives in your cache for packages that can not be downloaded anymore_ (thus packages that are no longer in the repo or that have a newer version in the repo))
+> - **apt autoremove** → _removes orphaned packages which are not longer needed from the system_, but not purges them, use the --purge option together with the command for that.
+> - **apt --purge autoremove** → remove config files and (more important as it cleans dead subdirectories from the documentation tree) entries from /usr/share/doc.
 >
 > #### Create Aliases
 
-* Ubuntu:
+- Ubuntu:
 
 ```bash
 nano ~/.bashrc
@@ -242,7 +242,7 @@ source ~/.bashrc
 alias
 ```
 
-* Kali Linux:
+- Kali Linux:
 
 ```bash
 nano ~/.zshrc
@@ -392,7 +392,7 @@ nslookup myip.opendns.com resolver1.opendns.com
 wget -O /dev/null -q --show-progress https://ash-speed.hetzner.com/10GB.bin
 ```
 
-* Or install `speedtest-cli`
+- Or install `speedtest-cli`
 
 ```bash
 sudo apt install -y speedtest-cli
@@ -469,7 +469,7 @@ sudo dhclient
 
 ### Benchmark
 
-> * [Linux benchmark scripts and tools](https://linuxblog.io/linux-benchmark-scripts-tools/)
+> - [Linux benchmark scripts and tools](https://linuxblog.io/linux-benchmark-scripts-tools/)
 
 ```bash
 # bench.sh
@@ -485,7 +485,9 @@ curl -sL https://yabs.sh | bash
 hdparm -tT /dev/nvme0n2
 ```
 
-***
+
+
+---
 
 ## Software
 
@@ -631,6 +633,8 @@ wget -O ~/discord.deb "https://discord.com/api/download?platform=linux&format=de
 sudo gdebi ~/discord.deb
 ```
 
+
+
 ### Install Anydesk
 
 ```bash
@@ -707,13 +711,13 @@ anonsurf myip
 curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
 ```
 
-* Or use APT package manager on Debian-based distros
+- Or use APT package manager on Debian-based distros
 
 ```bash
 sudo apt update && sudo apt install -y metasploit-framework
 ```
 
-* Enable `postgresql` at boot, start the service and initialize MSF database
+- Enable `postgresql` at boot, start the service and initialize MSF database
 
 ```bash
 sudo systemctl enable postgresql
@@ -721,7 +725,7 @@ sudo systemctl restart postgresql
 sudo msfdb init
 ```
 
-* Run **`msfconsole`** to start the Metasploit Framework Console
+- Run **`msfconsole`** to start the Metasploit Framework Console
 
 ```bash
 msfconsole
@@ -731,7 +735,7 @@ msfconsole
 
 ### [Install Docker](https://docs.docker.com/engine/install/debian/)
 
-* **Ubuntu**
+- **Ubuntu**
 
 ```bash
 # Install Docker Engine via APT repository
@@ -776,7 +780,9 @@ reboot
 docker run hello-world
 ```
 
-* **Debian**
+
+
+- **Debian**
 
 ```bash
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
@@ -809,6 +815,8 @@ sudo systemctl enable --now docker.service containerd.service
 sudo systemctl status docker
 ```
 
+
+
 ### [Install ctop](https://github.com/bcicen/ctop)
 
 ```bash
@@ -836,7 +844,7 @@ sudo chmod +x gophish/gophish
 cd /opt/gophish && sudo ./gophish
 ```
 
-* Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
+- Setup a [Gophish Demo](https://getgophish.com/blog/post/2019-01-04-creating-the-gophish-demo-part-one/) with a fake campaign
 
 ```bash
 docker run -ti -p 3333:3333 --rm gophish/demo
@@ -854,8 +862,8 @@ sudo cp ~/go/bin/katana /bin/
 
 ### Install Asbru CM (Linux Desktop)
 
-* Link [Asbru](https://www.asbru-cm.net/)
-* _Ásbrú Connection Manager_ is a user interface that helps organizing remote terminal sessions and automating repetitive tasks.
+- Link [Asbru](https://www.asbru-cm.net/)
+- _Ásbrú Connection Manager_ is a user interface that helps organizing remote terminal sessions and automating repetitive tasks.
 
 ```bash
 curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.sh' | sudo -E bash
@@ -864,8 +872,8 @@ sudo apt install -y asbru-cm
 
 ### Install BurpSuite
 
-* Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
-  * Use this for updating too
+- Link [BurpSuite Community Download](https://portswigger.net/burp/communitydownload)
+  - Use this for updating too
 
 ```bash
 # Download Burp Suite community edition for Linux 64 bits 
@@ -929,7 +937,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ### Install Arch Linux
 
-* [Arch Linux in 12 Minutes - Chris Titus](https://www.youtube.com/watch?v=PqGnlEmfYjM)
+- [Arch Linux in 12 Minutes - Chris Titus](https://www.youtube.com/watch?v=PqGnlEmfYjM)
 
 ```bash
 # Create VM with Arch ISO - https://archlinux.org/download/
@@ -952,7 +960,9 @@ reboot # and login
 yay -S firefox
 ```
 
-***
+
+
+---
 
 ## Usage and Configuration
 
@@ -1013,7 +1023,7 @@ sudo pkill -f openvpn
 
 ### [Global Socket](https://www.gsocket.io/)
 
-> _Global Socket allows two workstations on different private networks to communicate with each other. Through firewalls and through NAT - like there is no firewall._
+> *Global Socket allows two workstations on different private networks to communicate with each other. Through firewalls and through NAT - like there is no firewall.*
 
 ```bash
 # Install
@@ -1049,7 +1059,7 @@ sudo systemctl status x2goserver.service
 
 > 🔗 [Setting up RDP with Xfce - Kali Linux](https://www.kali.org/docs/general-use/xfce-with-rdp/)
 >
-> * [Enable Remote Desktop with XRDP on Kali Linux | by Abhi | Medium](https://stealthm0de.medium.com/enable-xrdp-on-kali-linux-506980a29d1d)
+> - [Enable Remote Desktop with XRDP on Kali Linux | by Abhi | Medium](https://stealthm0de.medium.com/enable-xrdp-on-kali-linux-506980a29d1d)
 
 ```bash
 sudo -i
@@ -1076,22 +1086,22 @@ sudo systemctl enable xrdp --now
 # Use Xvnc during Xorg login
 ```
 
-> * The **`xfce4.sh`** does the following
+> - The **`xfce4.sh`** does the following
 >
 > ```bash
 > #!/bin/bash
 > echo "[i] Updating and upgrading Kali (this will take a while)"
 > apt-get update
 > apt-get --yes --force-yes full-upgrade
->
+> 
 > echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
 > apt-get --yes --force-yes install kali-desktop-xfce xorg xrdp
->
+> 
 > echo "[i] Configuring xrdp to listen to port 3390 (but not starting the service)"
 > sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 > ```
 
-* Fix for `Authentication Required to Create Managed Color Device`, run
+- Fix for `Authentication Required to Create Managed Color Device`, run
 
 ```bash
 cat <<EOF | sudo tee /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
@@ -1106,7 +1116,7 @@ EOF
 sudo systemctl restart xrdp
 ```
 
-* Port to connect to is `3390`
+- Port to connect to is `3390`
 
 ### Xfce Power manager and Screensaver
 
@@ -1140,6 +1150,8 @@ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/power-button-action 
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-panel-label -n -t int -s 0
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -n -t bool -s false
 ```
+
+
 
 ### Arm on x86 QEMU-USER
 
@@ -1182,7 +1194,9 @@ sudo apt update
 echo "[i] Install completed."
 ```
 
-***
+
+
+---
 
 ## Virtual Machines
 
@@ -1250,10 +1264,10 @@ mv example.qcow2 /var/lib/libvirt/images/
 
 > 📌 Check **Metasploitable3** VM [here](../../home-lab/redteam/metasploitable3.md)
 >
-> * [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
-> * Guides:
->   * [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
->   * [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
+> - [Metasploitable2 - Download link](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+> - Guides:
+>   - [Metasploitable 2](https://docs.rapid7.com/metasploit/metasploitable-2/)
+>   - [Metasploitable 2 Exploitability Guide](https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/)
 
 ```bash
 # Login: msfadmin:msfadmin
@@ -1261,21 +1275,23 @@ mv example.qcow2 /var/lib/libvirt/images/
 
 ### Root Servers Shells
 
-> * [Free Linux Cloud Root Shells](https://iq.thc.org/free-linux-cloud-root-shells)
-> * [Segfault | The Hacker’s Choice](https://www.thc.org/segfault/)
+> - [Free Linux Cloud Root Shells](https://iq.thc.org/free-linux-cloud-root-shells)
+> - [Segfault | The Hacker’s Choice](https://www.thc.org/segfault/)
 
 ```bash
 ssh root@segfault.net
 # The password is 'segfault'
 ```
 
-***
+
+
+---
 
 ## Troubleshooting
 
 ### Exit a locked SSH session
 
-* Press `Enter` followed by `~.` to terminate the locked SSH session
+- Press `Enter` followed by `~.` to terminate the locked SSH session
 
 ### Disable a specific bluetooth adapter
 
@@ -1333,7 +1349,7 @@ sudo systemctl enable bluetooth
 reboot
 ```
 
-***
+---
 
 ### Audio/Microphone Bluetooth Fix with HFP/HSP (Headset Head Unit)
 
@@ -1373,7 +1389,7 @@ bluetooth.service	enabled         enabled
 dbus-org.bluez.service alias           -
 ```
 
-***
+---
 
 ### Debug and optimize long boot
 
@@ -1396,7 +1412,7 @@ systemd-analyze critical-chain
 sudo dmesg --ctime --level=err,warn
 ```
 
-***
+---
 
 ### Disable NetworkManager-wait-online.service - script
 
@@ -1460,7 +1476,7 @@ bash nm-wait-toggle.sh disable    # Disable and mask it for faster boot
 bash nm-wait-toggle.sh restore    # Restore original state if needed
 ```
 
-***
+---
 
 ### Debug bash script
 
@@ -1469,7 +1485,9 @@ export PS4='+ ${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]} '
 bash -euxo pipefail -x <bashscript.sh>
 ```
 
-***
+
+
+---
 
 ## Logs
 
@@ -1490,4 +1508,5 @@ user.log
 /var/log/apache2/error.log
 ```
 
-***
+---
+

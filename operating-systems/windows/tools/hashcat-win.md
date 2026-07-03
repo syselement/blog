@@ -1,35 +1,35 @@
 # Hashcat
 
-> * Check my entire guide to Windows, Linux and VM Hashcat installation and test [here](../../../home-lab/redteam/lab-hashcat.md).
+> - Check my entire guide to Windows, Linux and VM Hashcat installation and test [here](../../../home-lab/redteam/lab-hashcat.md).
 
-***
+---
 
 ## Windows Installation
 
-* Full installation guide - [https://miloserdov.org/?p=7501](https://miloserdov.org/?p=7501)
-* Download link here - [https://hashcat.net/hashcat/](https://hashcat.net/hashcat/)
-* Download and unzip it into a folder `e.g.` **c:\temp**
-  * Download and install [latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx)
-  * Download, install [latest CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) and **reboot pc**
+- Full installation guide - [https://miloserdov.org/?p=7501](https://miloserdov.org/?p=7501)
+- Download link here - [https://hashcat.net/hashcat/](https://hashcat.net/hashcat/)
+- Download and unzip it into a folder `e.g.` **c:\temp**
+  - Download and install [latest NVIDIA Driver](https://www.nvidia.com/Download/index.aspx)
+  - Download, install [latest CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) and **reboot pc**
 
-![](../../../.gitbook/assets/image-20220810211936796.png)
+![](.gitbook/assets/image-20220810211936796.png)
 
-![](../../../.gitbook/assets/image-20220810212037493.png)
+![](.gitbook/assets/image-20220810212037493.png)
 
-***
+---
 
 ## Usage
 
-* Run Windows Powershell:
+- Run Windows Powershell:
 
 ```powershell
 cd C:\temp\hashcat-6.2.5
 .\hashcat.exe -I
 ```
 
-![hashcat.exe -I](../../../.gitbook/assets/image-20220810213519841.png)
+![hashcat.exe -I](.gitbook/assets/image-20220810213519841.png)
 
-* Run the benchmark to test the performance:
+- Run the benchmark to test the performance:
 
 ```powershell
 .\hashcat.exe -b
@@ -202,4 +202,5 @@ Started: Wed Aug 10 21:40:09 2022
 Stopped: Wed Aug 10 21:46:24 2022
 ```
 
-***
+------
+

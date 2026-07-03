@@ -1,26 +1,26 @@
 # Linux Privesc Commands
 
-![](../../../.gitbook/assets/root.png)
+![](.gitbook/assets/root.png)
 
-***
+---
 
 ## 🌐 Resources 🔗
 
-> * [Ignitetechnologies/Privilege-Escalation](https://github.com/Ignitetechnologies/Privilege-Escalation)
-> * [Linux - Privilege Escalation - Internal All The Things](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/)
-> * [PEASS-ng/linPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS)
-> * [Basic Linux Privilege Escalation - g0tmi1k](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
-> * [Linux Privilege Escalation – Resources – Siren Security](https://sirensecurity.io/blog/linux-privilege-escalation-resources/)
-> * [unix-privesc-check | pentestmonkey](https://pentestmonkey.net/tools/audit/unix-privesc-check)
-> * [TryHackMe | Linux Privilege Escalation](https://tryhackme.com/room/linprivesc)
-> * [Privilege Escalation on Linux (With Examples)](https://delinea.com/blog/linux-privilege-escalation)
+> - [Ignitetechnologies/Privilege-Escalation](https://github.com/Ignitetechnologies/Privilege-Escalation)
+> - [Linux - Privilege Escalation - Internal All The Things](https://swisskyrepo.github.io/InternalAllTheThings/redteam/escalation/linux-privilege-escalation/)
+> - [PEASS-ng/linPEAS](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS)
+> - [Basic Linux Privilege Escalation - g0tmi1k](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
+> - [Linux Privilege Escalation – Resources – Siren Security](https://sirensecurity.io/blog/linux-privilege-escalation-resources/)
+> - [unix-privesc-check | pentestmonkey](https://pentestmonkey.net/tools/audit/unix-privesc-check)
+> - [TryHackMe | Linux Privilege Escalation](https://tryhackme.com/room/linprivesc)
+> - [Privilege Escalation on Linux (With Examples)](https://delinea.com/blog/linux-privilege-escalation)
 >
 > **Courses**
 >
-> * [Linux Privilege Escalation for OSCP & Beyond! | Tib3rius (One-Time Purchase)](https://courses.tib3rius.com/p/linux-privilege-escalation-for-oscp-beyond)
-> * [Linux Privilege Escalation | TCM Security, Inc.](https://academy.tcm-sec.com/p/linux-privilege-escalation)
+> - [Linux Privilege Escalation for OSCP & Beyond! | Tib3rius (One-Time Purchase)](https://courses.tib3rius.com/p/linux-privilege-escalation-for-oscp-beyond)
+> - [Linux Privilege Escalation | TCM Security, Inc.](https://academy.tcm-sec.com/p/linux-privilege-escalation)
 
-***
+---
 
 ```bash
 # https://www.exploit-db.com/exploits/1518
@@ -57,4 +57,5 @@ find / -type f -perm -4000 2>/dev/null
 
 ...
 
-***
+---
+

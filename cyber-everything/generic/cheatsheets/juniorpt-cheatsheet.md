@@ -1,10 +1,10 @@
 # Junior Pentester Cheat Sheet
 
-> ⬇️ Feel free to download the cheat-sheet and kindly mention my blog when utilizing it
+> ⬇️ Feel free to download the cheat-sheet  and kindly mention my blog when utilizing it
 >
 > ❗ Disclaimer: This cheat sheet is intended strictly for educational purposes and authorized security testing only. All commands and techniques included here have been tested in lab environments. Do not use this material against systems, networks, or applications without explicit written permission. Unauthorized use may violate laws and regulations.
 
-## [Networking](https://github.com/syselement/blog/blob/main/cyber-everything/generic/penetration-testing-prerequisites/networking.md)
+## [Networking](penetration-testing-prerequisites/networking.md)
 
 ```bash
 # Routing
@@ -75,7 +75,7 @@ openssl s_client -connect <HOST>:<PORT> -quiet
 nc -zv <HOST> <PORT>
 ```
 
-## [Information Gathering](https://github.com/syselement/blog/blob/main/cyber-everything/generic/assessment-methodologies/1-info-gathering.md)
+## [Information Gathering](assessment-methodologies/1-info-gathering.md)
 
 ```bash
 # Passive
@@ -164,7 +164,7 @@ nmap -Pn -sV -sC -O -oA outputfile <TARGET_IP>
 nmap -A -oA outputfile <TARGET_IP>
 ```
 
-## [Footprinting & Scanning](https://github.com/syselement/blog/blob/main/cyber-everything/generic/assessment-methodologies/2-footprint-scan.md)
+## [Footprinting & Scanning](assessment-methodologies/2-footprint-scan.md)
 
 ```bash
 # NETWORK DISCOVERY
@@ -178,7 +178,7 @@ fping -I eth1 -g <TARGET_IP/NETWORK> -a
 fping -I eth1 -g <TARGET_IP/NETWORK> -a fping -I eth1 -g <TARGET_IP/NETWORK> -a 2>/dev/null
 ```
 
-## [Enumeration](https://github.com/syselement/blog/blob/main/cyber-everything/generic/assessment-methodologies/3-enumeration.md)
+## [Enumeration](assessment-methodologies/3-enumeration.md)
 
 ### SMB
 
@@ -531,7 +531,7 @@ setg RHOST <TARGET_IP>
 use auxiliary/scanner/smtp/smtp_enum
 ```
 
-## [Vulnerability Assessment](https://github.com/syselement/blog/blob/main/cyber-everything/generic/assessment-methodologies/4-va.md)
+## [Vulnerability Assessment](assessment-methodologies/4-va.md)
 
 ```bash
 # HEARTBLEED
@@ -553,7 +553,7 @@ nmap --script log4shell.nse --script-args log4shell.callback-server=<CALLBACK_SE
 searchsploit badblue 2.7
 ```
 
-## [Host Based Attacks](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/1-system-attack.md)
+## [Host Based Attacks](hostnetwork-penetration-testing/1-system-attack.md)
 
 ### Windows Exploitation
 
@@ -1020,7 +1020,7 @@ use auxiliary/analyze/crack_linux
 set SHA512 true
 ```
 
-## [Network Based Attacks](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/2-network-attack.md)
+## [Network Based Attacks](hostnetwork-penetration-testing/2-network-attack.md)
 
 ```bash
 wireshark -i eth1
@@ -1091,7 +1091,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 arpspoof -i eth1 -t <TARGET_IP> -r <HOST_IP>
 ```
 
-## [Metasploit](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/3-metasploit.md)
+## [Metasploit](hostnetwork-penetration-testing/3-metasploit.md)
 
 ```bash
 # MSF Install
@@ -1865,7 +1865,7 @@ sudo systemctl restart postgresql
 sudo armitage
 ```
 
-## [Exploitation](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/4-exploitation.md)
+## [Exploitation](hostnetwork-penetration-testing/4-exploitation.md)
 
 ### Vulnerability Scanning
 
@@ -2349,7 +2349,7 @@ cd ..
 Invoke-Obfuscation
 ```
 
-## [Post-Exploitation](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/5-post-exploit.md)
+## [Post-Exploitation](hostnetwork-penetration-testing/5-post-exploit.md)
 
 ### Win Local Enumeration
 
@@ -2724,7 +2724,7 @@ history -c
 cat /dev/null > ~/.bash_history
 ```
 
-## [Social Engineering](https://github.com/syselement/blog/blob/main/cyber-everything/generic/hostnetwork-penetration-testing/6-social-engineer.md)
+## [Social Engineering](hostnetwork-penetration-testing/6-social-engineer.md)
 
 ```bash
 # GOPHISH - Linux Install
@@ -2740,7 +2740,7 @@ cd /opt/gophish && sudo ./gophish
 docker run -ti -p 3333:3333 --rm gophish/demo
 ```
 
-## [Web Application Penetration Testing](https://github.com/syselement/blog/blob/main/cyber-everything/generic/webapp-penetration-testing/1-webapp-http.md)
+## [Web Application Penetration Testing](webapp-penetration-testing/1-webapp-http.md)
 
 ### Tools
 
@@ -2839,4 +2839,5 @@ xsser --url "http://<TARGET_IP>/htmli_get.php?firstname=XSS&lastname=hi&form=sub
 hydra -L <USERS_LIST> -P <PW_LIST> <TARGET_IP> http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid credentials or user not activated!"
 ```
 
-***
+------
+
