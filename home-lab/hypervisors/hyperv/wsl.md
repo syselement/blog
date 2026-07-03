@@ -274,11 +274,43 @@ cp -a $HOME/.bashrc $HOME/.bashrc.bak.$(date +%F-%H%M%S)
 cp -a $HOME/.bash_aliases $HOME/.bash_aliases.bak.$(date +%F-%H%M%S) 2>/dev/null || true
 ```
 
-Replace `$HOME/.bash_aliases` with clean centralized aliases
+Patch `.bashrc` and `.bash_aliases` using the following Python script:
 
-```bash
-cat > $HOME/.bash_aliases <<'EOF'
-# $HOME/.bash_aliases — centralized interactive aliases
+- Configure `$HOME/.bash_aliases` with the specified aliases list
+- Reads your existing `$HOME/.bashrc`.
+- Comments out any active `alias ...` lines, leaving already-commented aliases untouched.
+- Updates history settings:
+    - `HISTCONTROL=ignoreboth:erasedups`
+    - `HISTSIZE=50000`
+    - `HISTFILESIZE=100000`
+    - `HISTTIMEFORMAT=%F %T `
+- Enables persistent history sync after each command via `PROMPT_COMMAND='history -a; history -n'`.
+- Enables:
+    - `checkwinsize`
+    - `globstar`
+    - `vi` shell editing mode
+- Removes old managed `fastfetch` / `fzf` / `starship` blocks if they already exist, so reruns do not duplicate them.
+- Appends a clean managed `fzf` config block.
+- Appends a clean managed `fastfetch` config block.
+- Appends a clean managed `starship` init block with fallback `PS1`.
+- Writes the modified content back to `$HOME/.bashrc`.
+- It does **not** touch `$HOME/.profile`, or your PATH lines.
+
+```python
+python3 <<'PY'
+from datetime import datetime
+from pathlib import Path
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+bashrc = Path.home() / ".bashrc"
+aliases_path = Path.home() / ".bash_aliases"
+
+aliases = r'''# $HOME/.bash_aliases — centralized interactive aliases
 
 # System update
 alias updateos='sudo sh -c "apt update && apt -y upgrade && apt -y autoremove"'
@@ -324,128 +356,151 @@ alias sudo='sudo -v; sudo '
 
 # Ubuntu default long-running command notification
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-EOF
-```
+'''
 
-Patch `.bashrc` using the following Python script:
-
-- Reads your existing `$HOME/.bashrc`.
-- Comments out any active `alias ...` lines, leaving already-commented aliases untouched.
-- Updates history settings:
-    - `HISTCONTROL=ignoreboth:erasedups`
-    - `HISTSIZE=50000`
-    - `HISTFILESIZE=100000`
-    - `HISTTIMEFORMAT=%F %T `
-- Enables persistent history sync after each command via `PROMPT_COMMAND='history -a; history -n'`.
-- Enables:
-    - `checkwinsize`
-    - `globstar`
-    - `vi` shell editing mode
-- Removes old managed `fzf` / `starship` blocks if they already exist, so reruns do not duplicate them.
-- Appends a clean managed `fzf` config block.
-- Appends a clean managed `starship` init block with fallback `PS1`.
-- Writes the modified content back to `$HOME/.bashrc`.
-- It does **not** touch `$HOME/.bash_aliases`, `$HOME/.profile`, or your PATH lines.
-
-```python
-python3 <<'PY'
-from pathlib import Path
-import re
-
-p = Path.home() / ".bashrc"
-s = p.read_text()
-
-# Comment active alias lines in $HOME/.bashrc, preserving indentation.
-# Equivalent to:
-# sed -i -E '/^[[:space:]]*#/! s/^([[:space:]]*)(alias[[:space:]].*)$/\1# \2/' $HOME/.bashrc
-s = re.sub(
-    r'^(?![ \t]*#)([ \t]*)(alias[ \t].*)$',
-    r'\1# \2',
-    s,
-    flags=re.M,
-)
-
-# History hardening / better shell history
-s = re.sub(r'^HISTCONTROL=.*$', 'HISTCONTROL=ignoreboth:erasedups', s, flags=re.M)
-s = re.sub(r'^HISTSIZE=.*$', 'HISTSIZE=50000', s, flags=re.M)
-s = re.sub(r'^HISTFILESIZE=.*$', 'HISTFILESIZE=100000', s, flags=re.M)
-s = re.sub(r'^HISTTIMEFORMAT=.*$', "HISTTIMEFORMAT='%F %T '", s, flags=re.M)
-
-# Enable globstar exactly once
-s = re.sub(
-    r'^[ \t]*#?[ \t]*shopt -s globstar.*$',
-    'shopt -s globstar 2>/dev/null',
-    s,
-    flags=re.M,
-)
-
-# Add history sync after histappend if missing
-if not re.search(r"^PROMPT_COMMAND=.*history -a; history -n", s, flags=re.M):
-    s = re.sub(
-        r'^(shopt -s histappend\s*)$',
-        r"\1\nPROMPT_COMMAND='history -a; history -n'",
-        s,
-        flags=re.M,
-    )
-
-# Remove previous managed fzf/starship blocks if re-running
-s = re.sub(
-    r'\n# >>> fzf \(managed\) >>>.*?# <<< fzf \(managed\) <<<\n',
-    '\n',
-    s,
-    flags=re.S,
-)
-s = re.sub(  
-r'^[ \t]*\[ -[fr] ~/.fzf\.bash \] && source ~/.fzf\.bash[ \t]*\n?',  
-'',  
-s,  
-flags=re.M,  
-)
-s = re.sub(  
-r'^[ \t]*\[ -[fr] "\$HOME/\.fzf\.bash" \] && source "\$HOME/\.fzf\.bash"[ \t]*\n?',  
-'',  
-s,  
-flags=re.M,  
-)
-s = re.sub(
-    r'\n# >>> starship \(managed\) >>>.*?# <<< starship \(managed\) <<<\n',
-    '\n',
-    s,
-    flags=re.S,
-)
-
-# Append managed fzf block
-# Assumes upstream fzf was already installed and ~/.fzf.bash exists.
-# FZF_DEFAULT_OPTS must be exported before sourcing ~/.fzf.bash.
-fzf_block = r'''
-# >>> fzf (managed) >>>
+fzf_block = r'''# >>> fzf (managed) >>>
 export FZF_DEFAULT_OPTS='-m --height 50% --border'
 export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
 export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-# <<< fzf (managed) <<<
-'''
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+# <<< fzf (managed) <<<'''
 
-# Append managed Starship init block
-starship_block = r'''
-# >>> starship (managed) >>>
+fastfetch_block = r'''# >>> fastfetch (managed) >>>
+# Fastfetch - login shells only
+if shopt -q login_shell && command -v fastfetch >/dev/null 2>&1; then
+    clear
+    fastfetch
+fi
+# <<< fastfetch (managed) <<<'''
+
+starship_block = r'''# >>> starship (managed) >>>
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
 else
   PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
 fi
-# <<< starship (managed) <<<
+# <<< starship (managed) <<<'''
+
+dotfiles_hook = r'''# >>> future dotfiles hook (disabled) >>>
+# DOTFILES_REPO_URL="https://github.com/<owner>/<dotfiles-repository>.git"
+# DOTFILES_DIR="$HOME/.local/share/dotfiles"
+# if [ -d "$DOTFILES_DIR/.git" ]; then
+#   git -C "$DOTFILES_DIR" pull --ff-only
+# else
+#   git clone "$DOTFILES_REPO_URL" "$DOTFILES_DIR"
+# fi
+# "$DOTFILES_DIR/install.sh"
+# <<< future dotfiles hook (disabled) <<<'''
+
+def backup(path: Path) -> None:
+    stamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+    destination = path.with_name(f"{path.name}.bak.{stamp}")
+    counter = 1
+    while destination.exists():
+        destination = path.with_name(f"{path.name}.bak.{stamp}.{counter}")
+        counter += 1
+    shutil.copy2(path, destination)
+
+def install_if_changed(path: Path, content: str) -> bool:
+    content = content.rstrip() + "\n"
+    old = path.read_text(encoding="utf-8") if path.exists() else None
+    if old == content:
+        return False
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, candidate_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
+    candidate = Path(candidate_name)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(content)
+        subprocess.run(["bash", "-n", str(candidate)], check=True)
+        if path.exists():
+            backup(path)
+            candidate.chmod(path.stat().st_mode & 0o777)
+        else:
+            candidate.chmod(0o644)
+        os.replace(candidate, path)
+    finally:
+        candidate.unlink(missing_ok=True)
+    return True
+
+def set_line(content: str, pattern: str, replacement: str) -> str:
+    if re.search(pattern, content, flags=re.M):
+        replaced = False
+
+        def replace_once(match: re.Match[str]) -> str:
+            nonlocal replaced
+            if not replaced:
+                replaced = True
+                return replacement
+            return ""
+
+        return re.sub(pattern, replace_once, content, flags=re.M)
+    return content.rstrip() + "\n" + replacement + "\n"
+
+source = bashrc.read_text(encoding="utf-8") if bashrc.exists() else ""
+
+# Comment active aliases while preserving indentation and commented aliases.
+source = re.sub(
+    r'^(?![ \t]*#)([ \t]*)(alias[ \t].*)$',
+    r'\1# \2',
+    source,
+    flags=re.M,
+)
+
+source = set_line(source, r'^[ \t]*HISTCONTROL=.*$', 'HISTCONTROL=ignoreboth:erasedups')
+source = set_line(source, r'^[ \t]*HISTSIZE=.*$', 'HISTSIZE=50000')
+source = set_line(source, r'^[ \t]*HISTFILESIZE=.*$', 'HISTFILESIZE=100000')
+source = re.sub(r'^[ \t]*HISTTIMEFORMAT=.*\n?', '', source, flags=re.M)
+source = re.sub(
+    r'(^HISTFILESIZE=.*$)',
+    lambda match: match.group(1) + "\nHISTTIMEFORMAT='%F %T '",
+    source,
+    count=1,
+    flags=re.M,
+)
+source = set_line(source, r'^[ \t]*PROMPT_COMMAND=.*$', "PROMPT_COMMAND='history -a; history -n'")
+source = set_line(source, r'^[ \t]*#?[ \t]*shopt -s checkwinsize.*$', 'shopt -s checkwinsize')
+source = set_line(source, r'^[ \t]*#?[ \t]*shopt -s globstar.*$', 'shopt -s globstar 2>/dev/null')
+source = re.sub(r'^[ \t]*#?[ \t]*set -o vi[ \t]*\n?', '', source, flags=re.M)
+
+for name in ("fzf", "fastfetch", "starship", "future dotfiles hook"):
+    source = re.sub(
+        rf'\n?# >>> {re.escape(name)} \((?:managed|disabled)\) >>>.*?# <<< {re.escape(name)} \((?:managed|disabled)\) <<<\n?',
+        '\n',
+        source,
+        flags=re.S,
+    )
+
+source = re.sub(
+    r'^[ \t]*\[ -[fr] (?:~|"\$HOME)/\.fzf\.bash"? \] && source (?:~|"\$HOME)/\.fzf\.bash"?[ \t]*\n?',
+    '',
+    source,
+    flags=re.M,
+)
+
+if not re.search(r'^[^#\n]*\.bash_aliases', source, flags=re.M):
+    source = source.rstrip() + r'''
+
+# Load centralized aliases.
+if [ -f "$HOME/.bash_aliases" ]; then
+  . "$HOME/.bash_aliases"
+fi
 '''
 
-s = s.rstrip() + "\n" + fzf_block + starship_block + "\n"
-p.write_text(s)
+source = source.rstrip() + "\n\n" + fzf_block + "\n\n" + fastfetch_block + "\n\n" + starship_block + "\n\n" + dotfiles_hook + "\n"
+
+install_if_changed(aliases_path, aliases)
+install_if_changed(bashrc, source)
 PY
+
 bash -n $HOME/.bashrc && echo "OK: syntax valid"
+bash -n $HOME/.bash_aliases && echo "OK: syntax valid"
 
 grep -nE '^[[:space:]]*#?[[:space:]]*alias[[:space:]]' $HOME/.bashrc
-grep -nE 'HISTCONTROL|HISTSIZE|HISTFILESIZE|HISTTIMEFORMAT|histappend|PROMPT_COMMAND|checkwinsize|globstar|set -o vi|fzf|starship' $HOME/.bashrc
+grep -nE 'HISTCONTROL|HISTSIZE|HISTFILESIZE|HISTTIMEFORMAT|histappend|PROMPT_COMMAND|checkwinsize|globstar|set -o vi|fzf|fastfetch|starship' $HOME/.bashrc
 
 exec bash
 ```
