@@ -442,7 +442,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize /v Sys
 
 - Create a `UpgradePackages.bat` with the following content and run it to upgrade installed packages
 
-```powershell
+```cmd
 @echo off
 :: Check for admin rights
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -467,7 +467,7 @@ pause
 
 ### cmd Cheatsheet
 
-```powershell
+```cmd
 # System
 set
 set /?
@@ -508,6 +508,22 @@ tasklist /FI "imagename eq notepad.exe"
 tasklist /FI "pid eq 1516"
 taskkill /PID targetpid
 ```
+
+### Reset Win Update
+```cmd
+net stop wuauserv
+net stop bits
+net stop cryptsvc
+ren C:\Windows\SoftwareDistribution SoftwareDistribution.old
+ren C:\Windows\System32\catroot2 catroot2.old
+net start wuauserv
+net start bits
+net start cryptsvc
+shutdown /r /t 0
+
+DISM.exe /Online /Cleanup-image /Restorehealth
+```
+
 
 
 
