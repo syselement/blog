@@ -1,18 +1,18 @@
 # Windows WSL
 
-![microsoft.com](.gitbook/assets/wsl.png)
+![microsoft.com](../../../.gitbook/assets/wsl.png)
 
 > **WSL** (Windows Subsystem for Linux) is a compatibility layer that lets you run Linux distributions directly on Windows, providing a seamless command-line experience without the need for a separate virtual machine. WSL 2 takes this further by employing a lightweight virtual machine managed by the Hyper-V hypervisor, offering a full Linux kernel with improved performance and system call compatibility.
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [What is Windows Subsystem for Linux | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/about)
-> - [Develop with Ubuntu on WSL - Ubuntu on WSL documentation](https://documentation.ubuntu.com/wsl/en/latest/tutorials/develop-with-ubuntu-wsl/)
-> - [Work in Windows Subsystem for Linux with Visual Studio Code](https://code.visualstudio.com/docs/remote/wsl-tutorial)
+> * [What is Windows Subsystem for Linux | Microsoft Learn](https://learn.microsoft.com/en-us/windows/wsl/about)
+> * [Develop with Ubuntu on WSL - Ubuntu on WSL documentation](https://documentation.ubuntu.com/wsl/en/latest/tutorials/develop-with-ubuntu-wsl/)
+> * [Work in Windows Subsystem for Linux with Visual Studio Code](https://code.visualstudio.com/docs/remote/wsl-tutorial)
 
----
+***
 
 ## Install WSL
 
@@ -37,26 +37,26 @@ wsl --list --online
 wsl --update
 ```
 
-- Restart the Windows host
-- After the restart, open `Terminal` app and select **Ubuntu** (or search Ubuntu and install from Microsoft Store.)
-  - WSL will automatically download and install the latest stable LTS release of Ubuntu by default. When new LTS versions are released, Ubuntu can be upgraded once the first point release is available ([docs](https://documentation.ubuntu.com/wsl/en/latest/reference/distributions/))
+* Restart the Windows host
+* After the restart, open `Terminal` app and select **Ubuntu** (or search Ubuntu and install from Microsoft Store.)
+  * WSL will automatically download and install the latest stable LTS release of Ubuntu by default. When new LTS versions are released, Ubuntu can be upgraded once the first point release is available ([docs](https://documentation.ubuntu.com/wsl/en/latest/reference/distributions/))
 
 Open **Windows Terminal → Settings → Ubuntu/WSL profile → Appearance** and set **Tango Dark** theme
 
 Open Windows Terminal app and open a tab with the "Ubuntu" instance.
 
-- Configure the Ubuntu instance
-- Configure username and password when prompted
+* Configure the Ubuntu instance
+* Configure username and password when prompted
 
-![Ubuntu on WSL](.gitbook/assets/2025-01-31_16-53-36_80.png)
+![Ubuntu on WSL](../../../.gitbook/assets/2025-01-31_16-53-36_80.png)
 
----
+***
 
 ## Ubuntu WSL - Ansible control node
 
 Update OS, install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu), pip (Python package manager) and ansible-lint in the Ubuntu WSL distro.
 
-- Open the Ubuntu WSL terminal and proceed with the necessary packages installation
+* Open the Ubuntu WSL terminal and proceed with the necessary packages installation
 
 ```bash
 sudo sed -i.bak 's/%sudo\s\+ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -72,7 +72,7 @@ ansible --version
 ansible-lint --version
 ```
 
----
+***
 
 ## VSCode Configuration
 
@@ -80,31 +80,30 @@ Install [VS Code](https://code.visualstudio.com/) (Microsoft Store if user not a
 
 Open VScode
 
-- install extentions:
-    - Linter
-    - [WSL](https://code.visualstudio.com/docs/remote/wsl-tutorial)
-    - YAML
-- Configure nerd font
-    - Ctrl+Shift+P → **Preferences: Open User Settings (JSON)**
-    - add this line
-         `"editor.fontFamily": "'JetBrainsMonoNL Nerd Font',Consolas, 'Courier New', monospace"`
-- "Open a Remote Window" (left corner icon) and **Conect to WSL**
-- On the new page connected to the `WSL: Ubuntu`, install the following extentions:
-    - Gitlab Workflow
-    - Linter
-    - YAML
+* install extentions:
+  * Linter
+  * [WSL](https://code.visualstudio.com/docs/remote/wsl-tutorial)
+  * YAML
+* Configure nerd font
+  * Ctrl+Shift+P → **Preferences: Open User Settings (JSON)**
+  * add this line `"editor.fontFamily": "'JetBrainsMonoNL Nerd Font',Consolas, 'Courier New', monospace"`
+* "Open a Remote Window" (left corner icon) and **Conect to WSL**
+* On the new page connected to the `WSL: Ubuntu`, install the following extentions:
+  * Gitlab Workflow
+  * Linter
+  * YAML
 
 Configure Gitlab:
 
-[https://docs.gitlab.com/editor_extensions/visual_studio_code/setup/](https://docs.gitlab.com/editor_extensions/visual_studio_code/setup/)
+[https://docs.gitlab.com/editor\_extensions/visual\_studio\_code/setup/](https://docs.gitlab.com/editor_extensions/visual_studio_code/setup/)
 
-- Connect to [https://gitlab.com/-/user_settings/personal_access_tokens](https://gitlab.com/-/user_settings/personal_access_tokens), create a new Personal Access Token with "api" scope. Copy and safelly save the token.
-- With "GitLab Workflow" installed on VSCode, proceed with:
-- Authenticate with GitLab
-    - Open the Command Palette (Control+Shift+P), search and select "GitLab: Authenticate"
-    - (not default URL) select "Manually enter instance URL" and set your instance URL
-    - select "Enter an existing token" and set your Personal Access Token previously created
-- Go to VScode Settings/Extentions/GitLab Workflow and disable the "Gitlab Duo" chat and agent
+* Connect to [https://gitlab.com/-/user\_settings/personal\_access\_tokens](https://gitlab.com/-/user_settings/personal_access_tokens), create a new Personal Access Token with "api" scope. Copy and safelly save the token.
+* With "GitLab Workflow" installed on VSCode, proceed with:
+* Authenticate with GitLab
+  * Open the Command Palette (Control+Shift+P), search and select "GitLab: Authenticate"
+  * (not default URL) select "Manually enter instance URL" and set your instance URL
+  * select "Enter an existing token" and set your Personal Access Token previously created
+* Go to VScode Settings/Extentions/GitLab Workflow and disable the "Gitlab Duo" chat and agent
 
 Now, open the VSCode integrated Terminal that will automatically connect to the Ubuntu WSL shell, or open the Windows Terminal and select the Ubuntu WSL instance.
 
@@ -126,11 +125,11 @@ To open VScode in the WSL projects dir, open Ubuntu in Win Terminal and run:
 code ${HOME}/projects/
 ```
 
-------
+***
 
 ### Repo sync script
 
-- Create a script that git stash, pull and stash pop all the inventories in all subfolders where present
+* Create a script that git stash, pull and stash pop all the inventories in all subfolders where present
 
 ```bash
 mkdir -p ${HOME}/scripts
@@ -179,13 +178,13 @@ source $HOME/.bashrc
 git-update-projects
 ```
 
-- Open a Terminal into VSCODE and run the script with:
+* Open a Terminal into VSCODE and run the script with:
 
 ```bash
 git-update-projects
 ```
 
----
+***
 
 ## Ubuntu WSL - Custom config
 
@@ -263,7 +262,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
 cd ~/.fzf && git pull && ./install --bin
 ```
 
-------
+***
 
 ### Bash config
 
@@ -276,25 +275,25 @@ cp -a $HOME/.bash_aliases $HOME/.bash_aliases.bak.$(date +%F-%H%M%S) 2>/dev/null
 
 Patch `.bashrc` and `.bash_aliases` using the following Python script:
 
-- Configure `$HOME/.bash_aliases` with the specified aliases list
-- Reads your existing `$HOME/.bashrc`.
-- Comments out any active `alias ...` lines, leaving already-commented aliases untouched.
-- Updates history settings:
-    - `HISTCONTROL=ignoreboth:erasedups`
-    - `HISTSIZE=50000`
-    - `HISTFILESIZE=100000`
-    - `HISTTIMEFORMAT=%F %T `
-- Enables persistent history sync after each command via `PROMPT_COMMAND='history -a; history -n'`.
-- Enables:
-    - `checkwinsize`
-    - `globstar`
-    - `vi` shell editing mode
-- Removes old managed `fastfetch` / `fzf` / `starship` blocks if they already exist, so reruns do not duplicate them.
-- Appends a clean managed `fzf` config block.
-- Appends a clean managed `fastfetch` config block.
-- Appends a clean managed `starship` init block with fallback `PS1`.
-- Writes the modified content back to `$HOME/.bashrc`.
-- It does **not** touch `$HOME/.profile`, or your PATH lines.
+* Configure `$HOME/.bash_aliases` with the specified aliases list
+* Reads your existing `$HOME/.bashrc`.
+* Comments out any active `alias ...` lines, leaving already-commented aliases untouched.
+* Updates history settings:
+  * `HISTCONTROL=ignoreboth:erasedups`
+  * `HISTSIZE=50000`
+  * `HISTFILESIZE=100000`
+  * `HISTTIMEFORMAT=%F %T`
+* Enables persistent history sync after each command via `PROMPT_COMMAND='history -a; history -n'`.
+* Enables:
+  * `checkwinsize`
+  * `globstar`
+  * `vi` shell editing mode
+* Removes old managed `fastfetch` / `fzf` / `starship` blocks if they already exist, so reruns do not duplicate them.
+* Appends a clean managed `fzf` config block.
+* Appends a clean managed `fastfetch` config block.
+* Appends a clean managed `starship` init block with fallback `PS1`.
+* Writes the modified content back to `$HOME/.bashrc`.
+* It does **not** touch `$HOME/.profile`, or your PATH lines.
 
 ```python
 python3 <<'PY'
@@ -505,7 +504,7 @@ grep -nE 'HISTCONTROL|HISTSIZE|HISTFILESIZE|HISTTIMEFORMAT|histappend|PROMPT_COM
 exec bash
 ```
 
-------
+***
 
 ### Nerd font config
 
@@ -524,7 +523,7 @@ fc-cache -fv
 
 On the Windows PC, download **JetBrainsMono Nerd Font**, unzip and install `JetBrainsMonoNLNerdFont-Regular.ttf` from
 
-- https://www.nerdfonts.com/font-downloads
+* https://www.nerdfonts.com/font-downloads
 
 Open **Windows Terminal → Settings → Ubuntu/WSL profile → Appearance** and set **JetBrains Mono NL** as Font face.
 
@@ -540,11 +539,11 @@ printf '%s\n' '🧙‍♂️ Nerd Font Installation Test 🧙‍♂️' '=======
 # curl https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/bin/scripts/test-fonts.sh | bash
 ```
 
-------
+***
 
 ### [fzf](https://junegunn.github.io/fzf/shell-integration/) config
 
-- Already setup in `.bashrc`
+* Already setup in `.bashrc`
 
 ```bash
 export FZF_DEFAULT_OPTS='-m --height 50% --border'
@@ -555,7 +554,7 @@ export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 ```
 
-- Usage in bash
+* Usage in bash
 
 ```bash
 # CTRL-T - Paste the selected files and directories onto the command-line
@@ -563,13 +562,13 @@ export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS"
 # ALT-C - cd into the selected directory
 ```
 
-------
+***
 
 ### [Starship](https://starship.rs/) config
 
 **Prerequisites**
 
-- A [Nerd Font](https://www.nerdfonts.com/) installed and enabled in your terminal.
+* A [Nerd Font](https://www.nerdfonts.com/) installed and enabled in your terminal.
 
 Install Sharship
 
@@ -588,7 +587,7 @@ starship explain
 
 Starship configuration file:
 
-- **Basic minimal**
+* **Basic minimal**
 
 ```bash
 mkdir -p $HOME/.config && cat > $HOME/.config/starship.toml <<'EOF'
@@ -656,7 +655,7 @@ symbol = " "
 EOF
 ```
 
-- or **Advanced**
+* or **Advanced**
 
 ```bash
 mkdir -p "$HOME/.config" && cat > "$HOME/.config/starship.toml" <<'EOF'
@@ -772,53 +771,53 @@ Reopen the shell or `exec bash`.
 
 The config does the following:
 
-- **`format`**
-    - Defines the full prompt layout.
-    - Left side: directory + Git info.
-    - Right side: SSH host + background jobs + slow command duration + time.
-    - The second line contains only the prompt character.
-- **`$fill`**
-    - Pushes everything after it to the right side of the terminal.
-    - This keeps operational context visible without cluttering the main working area.
-- **`add_newline = true`**
-    - Adds spacing between command outputs and the next prompt.
-    - Improves readability during long terminal sessions.
-- **`[directory]`**
-    - Shows the current working directory.
-    - `truncation_length = 3` keeps paths short.
-    - `truncate_to_repo = false` means it does not hide parent directories just because you are inside a Git repo.
-    - `read_only = " "` shows a lock icon when the directory is read-only.
-- **`[git_branch]`**
-    - Shows the current Git branch only when inside a Git repository.
-    - Uses the `` branch symbol.
-    - Kept minimal: branch name only, no language/runtime noise.
-- **`[git_status]`**
-    - Shows repository state when there are changes.
-    - Displays modified, staged, untracked, ahead/behind, etc.
-    - Useful for sysadmin config tracking, dotfiles, `/etc` repos, and deployment directories.
-- **`[hostname]`**
-    - Shows hostname only over SSH because of `ssh_only = true`.
-    - Prevents local WSL prompts from being noisy.
-    - Helps avoid running commands on the wrong remote host.
-- **`[jobs]`**
-    - Shows when background jobs are running.
-    - Useful after commands like `long-task &`, `rsync &`, or backgrounded scripts.
-    - Hidden when there are no jobs.
-- **`[cmd_duration]`**
-    - Shows command duration only when a command takes longer than 2 seconds.
-    - Good for noticing slow SSH commands, package installs, scans, backups, or scripts.
-    - Fast commands stay clean.
-- **`[time]`**
-    - Shows current time on the right side in 24-hour format.
-    - Useful for logs, incident work, and command timing context.
-- **`[character]`**
-    - Shows the actual prompt symbol.
-    - Green `❯` means the last command succeeded.
-    - Red `❯` means the last command failed.
-    - `❮` is used in Vim command mode.
-- **What it intentionally excludes**
-    - No Python, Node, Go, Rust, Docker, Kubernetes, AWS, package, or runtime modules.
-    - That keeps it sysadmin/operator-oriented instead of developer-oriented.
+* **`format`**
+  * Defines the full prompt layout.
+  * Left side: directory + Git info.
+  * Right side: SSH host + background jobs + slow command duration + time.
+  * The second line contains only the prompt character.
+* **`$fill`**
+  * Pushes everything after it to the right side of the terminal.
+  * This keeps operational context visible without cluttering the main working area.
+* **`add_newline = true`**
+  * Adds spacing between command outputs and the next prompt.
+  * Improves readability during long terminal sessions.
+* **`[directory]`**
+  * Shows the current working directory.
+  * `truncation_length = 3` keeps paths short.
+  * `truncate_to_repo = false` means it does not hide parent directories just because you are inside a Git repo.
+  * `read_only = " "` shows a lock icon when the directory is read-only.
+* **`[git_branch]`**
+  * Shows the current Git branch only when inside a Git repository.
+  * Uses the `` branch symbol.
+  * Kept minimal: branch name only, no language/runtime noise.
+* **`[git_status]`**
+  * Shows repository state when there are changes.
+  * Displays modified, staged, untracked, ahead/behind, etc.
+  * Useful for sysadmin config tracking, dotfiles, `/etc` repos, and deployment directories.
+* **`[hostname]`**
+  * Shows hostname only over SSH because of `ssh_only = true`.
+  * Prevents local WSL prompts from being noisy.
+  * Helps avoid running commands on the wrong remote host.
+* **`[jobs]`**
+  * Shows when background jobs are running.
+  * Useful after commands like `long-task &`, `rsync &`, or backgrounded scripts.
+  * Hidden when there are no jobs.
+* **`[cmd_duration]`**
+  * Shows command duration only when a command takes longer than 2 seconds.
+  * Good for noticing slow SSH commands, package installs, scans, backups, or scripts.
+  * Fast commands stay clean.
+* **`[time]`**
+  * Shows current time on the right side in 24-hour format.
+  * Useful for logs, incident work, and command timing context.
+* **`[character]`**
+  * Shows the actual prompt symbol.
+  * Green `❯` means the last command succeeded.
+  * Red `❯` means the last command failed.
+  * `❮` is used in Vim command mode.
+* **What it intentionally excludes**
+  * No Python, Node, Go, Rust, Docker, Kubernetes, AWS, package, or runtime modules.
+  * That keeps it sysadmin/operator-oriented instead of developer-oriented.
 
 Check Starship documentation for [config](https://starship.rs/config/) and [presets](https://starship.rs/presets/).
 
@@ -832,11 +831,11 @@ bash -n "$HOME/.bashrc"
 time bash -i -c exit
 ```
 
-------
+***
 
 ### Docker
 
-- Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+* Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
 
 ```bash
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)
@@ -865,11 +864,11 @@ sudo systemctl enable --now docker.service containerd.service
 sudo systemctl status docker
 ```
 
-------
+***
 
 #### it-tools container
 
-- Install [it-tools](https://github.com/CorentinTh/it-tools)
+* Install [it-tools](https://github.com/CorentinTh/it-tools)
 
 ```bash
 sudo docker run -d --name it-tools --restart unless-stopped -p 8080:80 corentinth/it-tools:latest
@@ -877,7 +876,7 @@ sudo docker run -d --name it-tools --restart unless-stopped -p 8080:80 corentint
 
 Use it from http://localhost:8080/
 
----
+***
 
 ### WSL Ubuntu Path
 
@@ -887,5 +886,4 @@ Use it from http://localhost:8080/
 \\wsl$\Ubuntu-24.04\home\syselement
 ```
 
----
-
+***

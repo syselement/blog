@@ -1,22 +1,22 @@
-# [Git](https://git-scm.com/)
+# Git
 
-![git-scm.com](.gitbook/assets/git.png)
+![git-scm.com](../../.gitbook/assets/git.png)
 
----
+***
 
 ## 🌐 Resources 🔗
 
-> - [GIT Docs](https://git-scm.com/doc)
-> - [Visual Git Cheat Sheet](https://ndpsoftware.com/git-cheatsheet.html)
-> - [GitHub Training](https://githubtraining.github.io/training-manual/#/01_getting_ready_for_class)
-> - [Conventional Commits](https://www.conventionalcommits.org/)
-> - [GIT Archive - DEVGuide](https://www.devguide.at/en/kategorie/git/)
+> * [GIT Docs](https://git-scm.com/doc)
+> * [Visual Git Cheat Sheet](https://ndpsoftware.com/git-cheatsheet.html)
+> * [GitHub Training](https://githubtraining.github.io/training-manual/#/01_getting_ready_for_class)
+> * [Conventional Commits](https://www.conventionalcommits.org/)
+> * [GIT Archive - DEVGuide](https://www.devguide.at/en/kategorie/git/)
 
----
+***
 
 ## GitHub Git Cheat Sheet
 
-> - Notes taken from ➡️ [GitHub Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/)
+> * Notes taken from ➡️ [GitHub Git Cheat Sheet](https://training.github.com/downloads/github-git-cheat-sheet/)
 
 ### Install
 
@@ -192,17 +192,17 @@ Discards all history and changes back to the specified commit
 
 ### Glossary
 
-- **git**: an open source, distributed version-control system
-- **GitHub**: a platform for hosting and collaborating on Git repositories
-- **commit**: a Git object, a snapshot of your entire repository compressed into a SHA
-- **branch**: a lightweight movable pointer to a commit
-- **clone**: a local version of a repository, including all commits and branches
-- **remote**: a common repository on GitHub that all team members use to exchange their changes
-- **fork**: a copy of a repository on GitHub owned by a different user
-- **pull request**: a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
-- **HEAD**: representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using `git switch`
+* **git**: an open source, distributed version-control system
+* **GitHub**: a platform for hosting and collaborating on Git repositories
+* **commit**: a Git object, a snapshot of your entire repository compressed into a SHA
+* **branch**: a lightweight movable pointer to a commit
+* **clone**: a local version of a repository, including all commits and branches
+* **remote**: a common repository on GitHub that all team members use to exchange their changes
+* **fork**: a copy of a repository on GitHub owned by a different user
+* **pull request**: a place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more
+* **HEAD**: representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using `git switch`
 
----
+***
 
 ## Version Control
 
@@ -210,14 +210,14 @@ Discards all history and changes back to the specified commit
 
 **Version control** - practice of tracking and managing changes to software code, allowing multiple people to simultaneously work on a single project
 
-- keeps a history of changes, everything is tracked
-- commits, labeled with a message, can be reverted
+* keeps a history of changes, everything is tracked
+* commits, labeled with a message, can be reverted
 
 **Remote Git repository** - code is hosted centrally on the internet (Gitlab, Github, etc)
 
 **Local Git repository** - the user has an entire copy of the code locally
 
-- Code is **pulled** (fetched) from remote repo and **pushed** to it.
+* Code is **pulled** (fetched) from remote repo and **pushed** to it.
 
 **Git client** - command line or GUI tool to execute `git` commands
 
@@ -225,29 +225,27 @@ Discards all history and changes back to the specified commit
 
 **Staging** - where working changes are saved (to commit or not)
 
+![Essential Git Commands Cheat Sheet - Git Flow Chart](../../.gitbook/assets/git-workflow.png)
 
-
-![Essential Git Commands Cheat Sheet - Git Flow Chart](.gitbook/assets/git-workflow.png)
-
----
+***
 
 ## Remote Git repository
 
 > **Online**
 >
-> - [GitHub](https://github.com/)
-> - [GitLab](https://gitlab.com/)
+> * [GitHub](https://github.com/)
+> * [GitLab](https://gitlab.com/)
 >
 > **Self hosted**
 >
-> - Gitlab
-> - Gitea
-> - [Gogs](https://gogs.io/)
+> * Gitlab
+> * Gitea
+> * [Gogs](https://gogs.io/)
 
 There are **private** and **public** repositories.
 
-- Create a GitLab/GitHub user and a private project
-- Install [git](https://git-scm.com/downloads) client.
+* Create a GitLab/GitHub user and a private project
+* Install [git](https://git-scm.com/downloads) client.
 
 ```bash
 # Debian/Ubuntu Linux
@@ -259,7 +257,7 @@ mkdir -p ~/repo/gitlab
 mkdir -p ~/repo/github
 ```
 
-- Connect the `git` client with GitHub (I'm using it for the training)
+* Connect the `git` client with GitHub (I'm using it for the training)
 
 [Create an SSH key pair](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux) and add the public SSH key to GitHub
 
@@ -283,7 +281,7 @@ Clone the remote repository via SSH to the local machine
 git clone git@github.com:syselement/devops-training.git
 ```
 
-- The same can be done for GitLab too
+* The same can be done for GitLab too
 
 ### Branches
 
@@ -293,18 +291,18 @@ Other temporary branches can be created and worked on, e.g. for a feature or a b
 
 A branch is based on the `main` branch and can be merged back to the main branch.
 
-- Try to create a branch in the UI
+* Try to create a branch in the UI
 
 `main` - state ready and stable for production, tested code
 
 `develop` - for features and bugfixes during sprint - at the end of the sprint and testing `develop` is merged into `main`
 
-- The branches can be left or deleted (better to clean them)
-- Create a new branch when needed
+* The branches can be left or deleted (better to clean them)
+* Create a new branch when needed
 
-`HEAD` =  latest commit in the branch
+`HEAD` = latest commit in the branch
 
----
+***
 
 ## Git commands
 
@@ -316,22 +314,22 @@ cd ~/repo/github/devops-training
 git status
 ```
 
-- Move the changes of a file from "working directory" to the "**staging** area"
+* Move the changes of a file from "working directory" to the "**staging** area"
 
 ```bash
 # Stage all files
 git add .
 ```
 
-- Proceed with the **commit** by saving the changes in the local repository
+* Proceed with the **commit** by saving the changes in the local repository
 
 ```bash
 # Commit the staged files
 git commit -m "Edit readme file"
 ```
 
-- Show local **history**
-  - history of commits
+* Show local **history**
+  * history of commits
 
 ```bash
 git log
@@ -340,13 +338,13 @@ git log
 git checkout <commit-HASH>
 ```
 
-- Publish the local commits to the remote Git repo
+* Publish the local commits to the remote Git repo
 
 ```bash
 git push
 ```
 
-- Create an empty Git repository or reinitialize a local existing one (it creates a `.git` directory inside the project directory). Push it online, after creating a remote empty repository - e.g. `test-repo`
+* Create an empty Git repository or reinitialize a local existing one (it creates a `.git` directory inside the project directory). Push it online, after creating a remote empty repository - e.g. `test-repo`
 
 ```bash
 git init
@@ -356,7 +354,7 @@ git commit -m "Initial commit"
 git push --set-upstream origin master
 ```
 
-- Check branches
+* Check branches
 
 ```bash
 git branch
@@ -379,7 +377,7 @@ git push
 git push --set-upstream origin feat/test-branch
 ```
 
-- Create a **Pull request** (merge request) from the GUI - a request to merge one branch into another. A reviewer see the changes and approve or decline the PR (Github **Rulesets**, **Actions** (for CI) can be set).
+* Create a **Pull request** (merge request) from the GUI - a request to merge one branch into another. A reviewer see the changes and approve or decline the PR (Github **Rulesets**, **Actions** (for CI) can be set).
 
 ```bash
 # Delete a local branch
@@ -387,15 +385,15 @@ git pull
 git branch -d <branch-to-delete>
 ```
 
-- Avoid a merge of the local and modified remote branch, by first pulling the changes from remote branch and stack the local changes on top of them
+* Avoid a merge of the local and modified remote branch, by first pulling the changes from remote branch and stack the local changes on top of them
 
 ```bash
 git pull -r
 ```
 
-- When having conflict, resolve them using a UI editor, like VSCode.
-- `.gitignore` - exclude folders or files from git to be tracked by specifying them in the `.gitignore` file in the repo root directory.
-  - exclude build directories, only local necessary files/directories/dependencies
+* When having conflict, resolve them using a UI editor, like VSCode.
+* `.gitignore` - exclude folders or files from git to be tracked by specifying them in the `.gitignore` file in the repo root directory.
+  * exclude build directories, only local necessary files/directories/dependencies
 
 ```bash
 # Remove ignored files from remote repository
@@ -404,7 +402,7 @@ git rm -r --cached <directory>
 # The files will stay in the local repo
 ```
 
-- **Stash** - save work-in-progress or hide local changes. Happens when changing branches for example.
+* **Stash** - save work-in-progress or hide local changes. Happens when changing branches for example.
 
 ```bash
 git stash
@@ -414,7 +412,7 @@ git stash
 git stash pop
 ```
 
-- Undoing and changing commits
+* Undoing and changing commits
 
 ```bash
 # Remove the entire commit (when locally) and discard the changes
@@ -435,7 +433,7 @@ git reset <commit-HASH>
 git push --force # DO NOT DO THIS IN A TEAM WORKING BRANCH
 ```
 
-- Revert a commit in the `main` / `dev` team working branches
+* Revert a commit in the `main` / `dev` team working branches
 
 ```bash
 # Create a new commit to revert the old commit's changes 
@@ -443,7 +441,7 @@ git log
 git revert <commit-HASH>
 ```
 
-- **Merging** from other branches when the working local branch is diverting too much from the main/dev branch
+* **Merging** from other branches when the working local branch is diverting too much from the main/dev branch
 
 ```bash
 # Merge main branch into bugfix/md-typos
@@ -454,7 +452,7 @@ git merge main
 git push
 ```
 
----
+***
 
 ## GIT for DevOps
 
@@ -462,43 +460,36 @@ Configuration file should be tracked, versioned and securely stored.
 
 Use cases:
 
-- **Infrastructure as Code**
+* **Infrastructure as Code**
+  * Kubernetes, Terraform, Ansible configuration files
+* **Automation scripts**
+  * Bash/Python scripts files, written to create and provision infrastructure
+* **CI/CD pipelines**
+  * checkout code, test and build application
+  * setup integration with build automation tools and app git repository
+  * check git changes, commits hash, etc
 
-  - Kubernetes, Terraform, Ansible configuration files
-
-- **Automation scripts**
-
-  - Bash/Python scripts files, written to create and provision infrastructure
-
-- **CI/CD pipelines**
-
-  - checkout code, test and build application
-  - setup integration with build automation tools and app git repository
-  - check git changes, commits hash, etc
-
-
----
+***
 
 ## Best practices
 
-- Push and pull often from remote repo (**Continuous Integration**)
-- Don’t `git push` straight to master/main branch
-- Use `--force` push carefully
-- Create a separate branch for each feature or bugfix and name the branch with prefix “feature/xx” and “bugfix/xxx” respectively
-- Doing code reviews via Merge Requests
-- Use `.gitignore` file to ignore e.g. editor specific files, build folders
+* Push and pull often from remote repo (**Continuous Integration**)
+* Don’t `git push` straight to master/main branch
+* Use `--force` push carefully
+* Create a separate branch for each feature or bugfix and name the branch with prefix “feature/xx” and “bugfix/xxx” respectively
+* Doing code reviews via Merge Requests
+* Use `.gitignore` file to ignore e.g. editor specific files, build folders
 
 **Commits**
 
-- use descriptive and meaningful commit messages - check [Conventional Commits](https://www.conventionalcommits.org/)
-- commit in relatively small chunks and only related work
-- adequately configure the commit authorship (name and email address) with `git config`
+* use descriptive and meaningful commit messages - check [Conventional Commits](https://www.conventionalcommits.org/)
+* commit in relatively small chunks and only related work
+* adequately configure the commit authorship (name and email address) with `git config`
 
 **Avoiding very large deviations** between local and remote repository
 
-- keep your feature-bugfix branch up-to-date with remote `master`/`main` and/or `develop` branch
-- branches shouldn’t be open for too long
-- `master`/`main` branch should be merged into your feature/bugfix branch often
+* keep your feature-bugfix branch up-to-date with remote `master`/`main` and/or `develop` branch
+* branches shouldn’t be open for too long
+* `master`/`main` branch should be merged into your feature/bugfix branch often
 
----
-
+***
