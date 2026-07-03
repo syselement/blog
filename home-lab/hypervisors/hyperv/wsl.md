@@ -287,7 +287,7 @@ Patch `.bashrc` and `.bash_aliases` using the following Python script:
 * Enables:
   * `checkwinsize`
   * `globstar`
-  * `vi` shell editing mode
+* Removes `vi` shell editing mode.
 * Removes old managed `fastfetch` / `fzf` / `starship` blocks if they already exist, so reruns do not duplicate them.
 * Appends a clean managed `fzf` config block.
 * Appends a clean managed `fastfetch` config block.
