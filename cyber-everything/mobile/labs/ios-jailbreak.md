@@ -1,8 +1,8 @@
 # iOS Jailbreak Guide
 
-![apple.com - iOS](.gitbook/assets/iOS-Symbol.png)
+![apple.com - iOS](../../../.gitbook/assets/iOS-Symbol.png)
 
----
+***
 
 ## 🌐 Resources 🔗
 
@@ -11,7 +11,7 @@
 > * [Config Frida for rootless Jailbreak](https://www.linkedin.com/pulse/using-frida-server-rootless-jailbreak-ios-15-c%C3%A9sar-calder%C3%B3n/)
 > * [Sileo](https://ios.cfw.guide/using-sileo/)
 
----
+***
 
 ## [Checkra1n Jailbreak](https://checkra.in/)
 
@@ -61,7 +61,7 @@ sudo /bin/sh -c "$(curl -fsSL https://static.palera.in/scripts/install.sh)"
   * Run `Sileo` from home screen - packages `Upgrade all` - do NOT `Reboot the device`
 * To rejailbreak your device, simply rerun the command you just ran and then repeat the other applicable steps.
 
-![](.gitbook/assets/image-20230926170733222.png)
+![](../../../.gitbook/assets/image-20230926170733222.png)
 
 3. Restart the `usbmux` service
 
@@ -108,7 +108,7 @@ sshpass -p "alpine" ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/n
 >
 > Alternatively, if you are on 15.0 to 15.8, you can use [meowbrek2](https://ios.cfw.guide/installing-meowbrek2) to rejailbreak as well. (`objection` is not working with this jailbreak)
 
-> #### [meowbrek2](https://ios.cfw.guide/installing-meowbrek2/) - rejailbreak
+> [**meowbrek2**](https://ios.cfw.guide/installing-meowbrek2/) **- rejailbreak**
 >
 > 1. If it's not already added, you'll also need to add the `https://havoc.app` repository to Sileo
 > 2. in `Sileo`, search for **TrollStore Helper** and install it
@@ -120,7 +120,7 @@ sshpass -p "alpine" ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/n
 >
 > **Install `meowbrek2`**
 >
-> 1. Download [meowbrek2](https://kok3shidoll.github.io/download/secret/DCFB91F7-FFFD-4F2B-9931-DB6D0B365593/meowbrek2\_1.1.5\_TS.tipa) file onto the iOS device (search `meowbrek2 ios cfw` on Google and click the Downloads link in the article).
+> 1. Download [meowbrek2](https://kok3shidoll.github.io/download/secret/DCFB91F7-FFFD-4F2B-9931-DB6D0B365593/meowbrek2_1.1.5_TS.tipa) file onto the iOS device (search `meowbrek2 ios cfw` on Google and click the Downloads link in the article).
 > 2. Open `TrollStore`, press the `+` button and open the `.tipa` meowbrek2 file
 > 3. Reboot device
 > 4. Once rebooted, open the `meowbrek2` app from the home screen
@@ -178,11 +178,11 @@ When importing a Profile with a Certificate, the Certificate must be trusted for
 
 1. Import the certificate as Profile and configure it in **Settings - General - VPN & Device management**
 
-![](.gitbook/assets/image-20240124125956104.png)
+![](../../../.gitbook/assets/image-20240124125956104.png)
 
 2. In **General - About - Certificate Trust Settings**, proceed with **Enabling full trust for root certificates** to make it work
 
-![](.gitbook/assets/image-20240124125940236.png)
+![](../../../.gitbook/assets/image-20240124125940236.png)
 
 ***
 
@@ -282,4 +282,3 @@ objection --network --host <iDevice_ip> --gadget com.apple.calculator explore -s
 ```
 
 ***
-

@@ -1,14 +1,14 @@
 # Cyber Threat Intelligence
 
-![tryhackme.com - © TryHackMe](.gitbook/assets/tryhackme-logo-small.png)
+![tryhackme.com - © TryHackMe](<../../../../.gitbook/assets/tryhackme-logo-small (5).png>)
 
----
+***
 
 > **Name**
 >
 > 🌐 [Cyber Threat Intelligence](https://tryhackme.com/module/cyber-threat-intelligence) - Tryhackme Module
 >
-> <img src=".gitbook/assets/cyber-threat-intelligence.png" alt="" data-size="original">
+> <img src="../../../../.gitbook/assets/cyber-threat-intelligence.png" alt="" data-size="original">
 >
 > **Description**
 >
