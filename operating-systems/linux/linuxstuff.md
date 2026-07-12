@@ -168,6 +168,26 @@ df -hT
 inxi -F
 ```
 
+### Battery Check
+
+```bash
+upower -i "$(upower -e | grep '/battery_' | head -n1)"
+
+grep -H . /sys/class/power_supply/BAT*/charge_control_* 2>/dev/null
+
+BAT="$(upower -e | grep '/battery_' | head -n1)"
+for prop in \
+  ChargeThresholdSupported \
+  ChargeThresholdEnabled \
+  ChargeStartThreshold \
+  ChargeEndThreshold
+do
+  printf '%-32s ' "$prop:"
+  busctl --system get-property org.freedesktop.UPower "$BAT" \
+    org.freedesktop.UPower.Device "$prop"
+done
+```
+
 ### ACPI Powerstate
 
 ```bash
