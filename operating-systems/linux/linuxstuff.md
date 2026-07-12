@@ -172,6 +172,11 @@ inxi -F
 
 ```bash
 upower -i "$(upower -e | grep '/battery_' | head -n1)"
+for d in $(upower -e | grep '/battery_'); do echo "=== ${d##*/} ==="; upower -i "$d"; done
+for d in $(upower -e | grep '/battery_'); do echo "=== ${d##*/} ==="; upower -i "$d" | grep -E 'model:|power supply:|state:|battery-level:|percentage:|charge-(start|end)-threshold:|charge-threshold-(enabled|supported):'; done
+
+for d in $(upower -e); do echo "=== ${d##*/} ==="; upower -i "$d"; done
+for d in $(upower -e); do echo "=== ${d##*/} ==="; upower -i "$d" | grep -E 'model:|type:|state:|percentage:|battery-level:|power supply:'; done
 
 grep -H . /sys/class/power_supply/BAT*/charge_control_* 2>/dev/null
 
