@@ -383,7 +383,7 @@ ssh-keygen -t ed25519
 # Type a secure passphrase when asked
 
 chmod 700 $HOME/.ssh
-chmod 600 $HOME/.ssh/*
+chmod -R go= $HOME/.ssh
 
 # Add the SSH private key to the ssh-agent
 eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
