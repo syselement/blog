@@ -230,10 +230,14 @@ ssh-keygen -t ed25519
 # Type a secure passphrase when asked
 
 # or import with
-cat > $HOME/.ssh/id_ed25519   # paste private key, Ctrl-D
+# Public key
+# curl -s https://github.com/syselement.keys > $HOME/.ssh/id_ed25519.pub
+# Private key
+cat > $HOME/.ssh/id_ed25519
+# paste private key, Ctrl-D
 
 chmod 700 $HOME/.ssh
-chmod 600 $HOME/.ssh/*
+chmod -R go= $HOME/.ssh
 
 # Add the SSH private key to the ssh-agent
 eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_ed25519
