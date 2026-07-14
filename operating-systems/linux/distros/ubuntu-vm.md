@@ -440,7 +440,7 @@ sudo sh -c '
 
 ***
 
-## [Obsidian](https://obsidian.md/)
+### [Obsidian](https://obsidian.md/)
 
 ```bash
 snap install obsidian --classic
