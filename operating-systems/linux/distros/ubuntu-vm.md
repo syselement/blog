@@ -230,11 +230,11 @@ ssh-keygen -t ed25519
 # Type a secure passphrase when asked
 
 # or import with
-# Public key
-# curl -s https://github.com/syselement.keys > $HOME/.ssh/id_ed25519.pub
 # Private key
 cat > $HOME/.ssh/id_ed25519
 # paste private key, Ctrl-D
+# Public key - generate from private key
+ssh-keygen -y -f $HOME/.ssh/id_ed25519 > $HOME/.ssh/id_ed25519.pub
 
 chmod 700 $HOME/.ssh
 chmod -R go= $HOME/.ssh
