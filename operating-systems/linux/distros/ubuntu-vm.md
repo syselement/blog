@@ -470,10 +470,31 @@ rm -f typora-themeable.zip
 
 ***
 
-### [Emote](https://github.com/tom-james-watson/Emote?tab=readme-ov-file)
+### [Smile](https://github.com/mijorus/smile)
 
 ```bash
-sudo snap install emote
+# Ubuntu + GNOME + Wayland - Smile emoji picker
+
+# Install Flatpak and GNOME Extension Manager
+sudo apt update
+sudo apt install -y flatpak gnome-shell-extension-manager
+
+# Add Flathub and install Smile
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub it.mijorus.smile
+
+# Install the "Smile - complementary extension":
+# Extension Manager -> Browse -> Search "Smile" -> Install extension-manager
+
+# Log out and back in after installing the extension
+
+# Add keyboard shortcut:
+# Settings -> Keyboard -> View and Customize Shortcuts -> Custom Shortcuts
+# Name: Smile Emoji Picker
+# Command: flatpak run it.mijorus.smile
+# Shortcut: Super+.
+
+# Result: Super+. -> select emoji -> Enter -> emoji inserted automatically
 ```
 
 ***
