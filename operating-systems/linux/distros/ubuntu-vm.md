@@ -392,6 +392,7 @@ sudo apt install -y -o Debug::pkgProblemResolver=yes "${packages[@]}"
 
 mkdir -p $HOME/.local/bin
 ln -s /usr/bin/batcat $HOME/.local/bin/bat
+
 ```
 
 ***
