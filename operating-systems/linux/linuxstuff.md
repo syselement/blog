@@ -103,6 +103,8 @@ sudo swapon /swapfile
 ### Disk - Expand Partition
 
 ```bash
+# Works on Kali Linux
+
 # List all disks and partitions
 sudo fdisk -l
 lsblk
