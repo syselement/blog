@@ -65,6 +65,59 @@ kali-tweaks
 
 ## Configurations
 
+### Kali on KVM - Fix SPICE Mouse/Clipboard
+
+> This applies to Kali Linux running under:
+>
+> - KVM/QEMU
+> - libvirt
+> - virt-manager
+> - SPICE
+> - XFCE/X11
+>
+> A regression in newer `spice-vdagent` versions can cause:
+>
+> - mouse click coordinates to become offset after resizing
+> - left-click issues
+> - broken clipboard integration
+> - inconsistent dynamic resizing/resolution
+>
+> Downgrading `spice-vdagent` to `0.22.1-4.1` fixes the issue.
+
+**Downgrade**
+
+```bash
+cd /tmp
+
+wget https://deb.debian.org/debian/pool/main/s/spice-vdagent/spice-vdagent_0.22.1-4.1_amd64.deb
+sudo apt install --allow-downgrades ./spice-vdagent_0.22.1-4.1_amd64.deb
+sudo apt-mark hold spice-vdagent
+
+dpkg-query -W spice-vdagent
+apt-mark showhold
+
+sudo reboot
+```
+
+Expected version:
+
+```
+spice-vdagent    0.22.1-4.1
+```
+
+**Undo Later**
+
+```bash
+sudo apt-mark unhold spice-vdagent
+sudo apt update
+sudo apt install spice-vdagent
+
+dpkg-query -W spice-vdagent
+apt-mark showhold
+```
+
+---
+
 ### Basic config
 
 ```bash
@@ -200,6 +253,7 @@ sudo sed '/#greeter-hide-users=false/s/^#//g' -i /etc/lightdm/lightdm.conf
 
 ## Desktop Wallpaper
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual1/workspace0/last-image --create -t string -s /usr/share/backgrounds/kali/kali-neon-16x9.png
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual-1/workspace0/last-image --create -t string -s /usr/share/backgrounds/kali/kali-neon-16x9.png
 
 ## Show Panel on primary display
 xfconf-query -c xfce4-panel -p /panels/panel-1/output-name --create -t string -s "Primary" 
@@ -294,7 +348,7 @@ sudo sh -c 'gunzip -c /usr/share/wordlists/rockyou.txt.gz > /usr/share/wordlists
 * Install basic tools
 
 ```bash
-sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop ipcalc locate nano net-tools npm pipx software-properties-common speedtest-cli sshpass terminator tmux tor tree ugrep vlc wget xclip
+sudo apt install -y apt-transport-https btop curl duf eza fastfetch flameshot gdu git-all htop ipcalc locate nano net-tools npm pipx software-properties-common sshpass terminator tmux tor tree ugrep vlc wget xclip
 ```
 
 ### [Sublime](https://www.sublimetext.com/docs/linux_repositories.html)
@@ -365,42 +419,6 @@ sudo sh -c '
 ### [Docker](https://www.kali.org/docs/containers/installing-docker-on-kali/)
 
 ```bash
-# Install Docker Engine via APT repository
-
-sudo apt update && sudo apt install -y curl apt-transport-https software-properties-common ca-certificates gnupg
-
-packages=("docker.io" "docker-doc" "docker-compose" "podman-docker" "containerd" "runc")
-for pkg in "${packages[@]}"; do
-    sudo apt remove "$pkg" -y
-done &&
-
-sudo sh -c '
-    curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker.gpg &&
-    chmod a+r /usr/share/keyrings/docker.gpg &&
-    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/debian bullseye stable" |  tee /etc/apt/sources.list.d/docker.list &&
-    apt update && 
-    apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-'
-
-# Add the current user to the "docker" group to let it run Docker
-sudo groupadd docker
-sudo gpasswd -a "${USER}" docker
-
-# Enable the services at boot
-# sudo systemctl enable --now docker.service containerd.service
-
-# OR Disable the services at boot
-sudo systemctl disable docker.service containerd.service
-# still has docker.socket active to start the Docker service only when necessary
-
-# Reboot and Test
-reboot
-docker run hello-world
-```
-
-* New commands
-
-```bash
 sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-doc podman-docker containerd runc | cut -f1)
 
 # Add Docker's official GPG key:
@@ -414,13 +432,13 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
 URIs: https://download.docker.com/linux/debian
-Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Suites: trixie
 Components: stable
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Add the current user to the "docker" group to let it run Docker
 sudo groupadd docker
