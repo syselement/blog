@@ -994,6 +994,8 @@ sudo systemctl enable ssh --now
 ```bash
 git config --global user.email "YOUR_EMAIL@gmail.com"
 git config --global user.name"YOUR_USERNAME"
+git config --global core.autocrlf false
+git config --global core.eol lf
 
 ssh-keygen -t ed25519 -C "YOUR_EMAIL@gmail.com"
 eval "$(ssh-agent -s)"
