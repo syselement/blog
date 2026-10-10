@@ -311,6 +311,12 @@ sudo timedatectl status
 
 ```bash
 sudo dpkg-reconfigure keyboard-configuration
+
+# X11
+setxkbmap it
+loadkeys it
+
+localectl list-x11-keymap-layouts
 ```
 
 ### Disable Password prompt for sudo group
