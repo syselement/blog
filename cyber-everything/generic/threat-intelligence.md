@@ -69,7 +69,7 @@
 >   * [Forcepoint CSI](https://csi.forcepoint.com/)
 >   * [GeoIP HackerTarget](https://hackertarget.com/geoip-ip-location-lookup/)
 >   * [IPvoid](https://www.ipvoid.com/)
->   * [MailHeader Analyzer](https://mailheader.org/)
+>   * [Email Header Analyzer - MailBoxInsights](https://mailboxinsights.com/email-header-analyzer/)
 >   * [Palo Alto URL filtering](https://urlfiltering.paloaltonetworks.com/)
 >   * [PhishTool](https://www.phishtool.com/)
 >   * [Shodan](https://www.shodan.io/)
