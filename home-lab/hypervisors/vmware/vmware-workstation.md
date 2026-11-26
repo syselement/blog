@@ -116,10 +116,10 @@ choco upgrade vmwareworkstation -y
 
 ```powershell
 # Disables power throttling for the VMware virtual machine executable (64-bit version)
-powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe"
+powercfg /powerthrottling disable /path "C:\Program Files\VMware\VMware Workstation\vmware-vmx.exe"
 
 # Disables power throttling for the main VMware Workstation executable
-powercfg /powerthrottling disable /path "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe"
+powercfg /powerthrottling disable /path "C:\Program Files\VMware\VMware Workstation\vmware.exe"
 ```
 
 ***
